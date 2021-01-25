@@ -38,7 +38,22 @@
             <div class="card pregunta">
                 <div class="card-body">
                     <h5 class="card-title fredoka">¿Porque mi serpiente no me ama?</h5>
+                    <p class="card-text pompiere">Lorem ipsum dolor, sit amet consectetur adipisicing elit. A libero ducimus voluptatem atque laborum ad quibusdam veniam iste consectetur debitis, pariatur molestiae deserunt vel voluptatum voluptates at maxime nisi eveniet!</p>       
+                </div>             
+            </div>
+
+            <div class="card pregunta">
+                <div class="card-body">
+                    <h5 class="card-title fredoka">¿Porque mi serpiente no me ama?</h5>
                     <p class="card-text pompiere">Lorem ipsum dolor, sit amet consectetur adipisicing elit. A libero ducimus voluptatem atque laborum ad quibusdam veniam iste consectetur debitis, pariatur molestiae deserunt vel voluptatum voluptates at maxime nisi eveniet!</p>                    
+                </div>
+            </div>
+
+            <div class="card pregunta">
+                <div class="card-body">
+                    <h5 class="card-title fredoka">¿Porque mi serpiente no me ama?</h5>
+                    <p class="card-text pompiere">Lorem ipsum dolor, sit amet consectetur adipisicing elit. A libero ducimus voluptatem atque laborum ad quibusdam veniam iste consectetur debitis, pariatur molestiae deserunt vel voluptatum voluptates at maxime nisi eveniet!</p>       
+                </div>             
             </div>
         </div>
     </div>
