@@ -1,0 +1,42 @@
+:root{
+
+    --fuenteFredoka: 'Fredoka One';
+    --fuentePompiere: 'Pompiere';
+
+    /*paleta de colores*/
+    --colorFondo: #D1D8FB;
+
+    /*degradado botones*/
+    --colorBoton1: #8E2DE2;
+    --colorBoton2: #4A00E0;
+
+    /*degradado de barras*/
+    --colorBarra1: #fc00ff;
+    --colorBarra2: #00dbde;
+
+    /*degradado de los checkBox*/
+    --colorCheck1: #fc00ff;
+    --colorCheck2: #00dbde;
+
+    /*color textos*/
+    --colorTitulo: #0e0577;
+    --colorParrafo:  #050d1e;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: var(--colorFondo);
+}
+
+.pompiere{
+    font-family: var(--fuentePompiere);
+    font-size: 1.5rem;
+    color: #0c0733;
+}
+
+.fredoka{
+    font-family: var(--fuenteFredoka);
+    color: #0c0733;
+}
+
