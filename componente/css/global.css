@@ -39,4 +39,42 @@ body{
     font-family: var(--fuenteFredoka);
     color: #0c0733;
 }
+.barra{
+    background: linear-gradient(to right, var(--colorBarra1), var(--colorBarra2));
+}
+
+
+.degradadoRainbow{
+
+    background: linear-gradient(to right, var(--colorBarra1), var(--colorBarra2));
+    border-radius: 20px;
+
+}
+
+.boton{
+
+    border-radius: 15px;
+    border: none;
+    color: #fff;
+    padding: 12px 28px;
+    background: linear-gradient(to right, #8E2DE2, #4A00E0);
+}
+
+.cajaTexto{
+
+    width: 100%;
+    height: 35px;
+    border-radius: 8px;
+    border: 2px solid #00000096;
+    font-weight: bold;
+    padding-left: 12px;
+    outline: none;
+    background: rgba(255, 255, 255, 0.603);
+
+}
+
+.cajaTexto:focus{
+
+    border: 2px solid #8E2DE2;
+}
 
