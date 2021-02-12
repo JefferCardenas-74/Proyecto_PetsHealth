@@ -26,7 +26,7 @@
         <link rel="stylesheet" href="../../componente/css/menu.css">
     
         <!--js externo-->
-        <script src="../../js/actualizarDatos/menu.js"></script>
+        <script src="../../js/menu.js"></script>
     <title>Actualizar Datos</title>
 </head>
 <body>
