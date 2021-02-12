@@ -48,7 +48,7 @@
         </section>
 
         <!--pie de pagina-->
-            <?php include 'piePagina.php' ?>
+            <?php include '../piePagina.php' ?>
     </div>   
 </body>
 </html>
