@@ -1,3 +1,8 @@
+<?php
+
+    extract($_REQUEST);
+?>
+
 <nav class="menu">
 
     <div class="logo">
@@ -11,14 +16,14 @@
     <div class="menu-items uno">
         <ul>
             <li class="item">
-                <a href="#">Home</a>
+                <a href="">Home</a>
             </li>
             <li class="sub_menu item">
                 <a href="#">Menu Despleglable <i class="fa fa-caret-down"></i></a>
 
                 <ul>
-                    <li><a href="#">menu item 1</a></li>
-                    <li><a href="#">menu item 1</a></li>
+                    <li><a href="index.php?page=frm_citasAsignadas">Citas Asignadas</a></li>
+                    <li><a href="index.php?page=frm_citasNoProgramadas">Citas No Programadas</a></li>                    
                 </ul>
             </li>
             <li class="item">

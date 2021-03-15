@@ -12,7 +12,7 @@
     align-items: center;
     padding: 12px 14px;
     width: 100%;
-    height: 600px;
+    height: 500px;
 }
 
 .titulo{
@@ -30,7 +30,7 @@
     margin-left: auto;
     margin-right: auto;
     border-collapse: collapse;
-    min-width: 900px;
+    min-width: 1000px;
     text-align: center;
     margin-bottom: 40px;
 }
@@ -40,23 +40,123 @@ thead{
     color: #fff; 
     font-family: 'Fredoka One';
     letter-spacing: 2px;
-    
 }
 
 .tabla td, .tabla th{
 
     height: 60px;
     border-bottom: 1px solid #a200ff;
+    text-align: center;
 }
 
 .tabla tr:hover{
     background: #a200ff57;
+    font-weight: bold;
 }
 
-.boton{
+.btnMorado{
     padding: 8px 19px;
     height: 50px;
 }
+
+.btnNaranja{
+    padding: 8px 19px;
+    height: 50px;
+}
+
+#atenderCita{
+    z-index: 1111;
+}
+
+/*lista de datos*/
+
+#listaDatos{
+
+    background:#fff;
+    position: absolute;
+    width: 80%;
+    padding: 15px;
+    display: none;
+    font-family: 'Fredoka One';
+}
+
+#listaDatos div a{
+    color: #000;
+    text-decoration: none;
+}
+
+#listaDatos div:hover{  
+    background: rgb(175, 175, 175);
+}
+
+.contenedorUrgencias{
+
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    height: 300px;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    background: #fff;
+    border-radius: 20px;
+
+}
+
+.tituloUrgencia{
+    font-size: 50px;
+}
+
+.frm_atenderUrgencia{
+
+    display: flex;
+    align-content: center;
+}
+
+.botonCitaNoPro{
+    display: flex;
+    justify-content: center;
+}
+
+#btn_atenderCitaNoPro{
+
+    margin-bottom: 30px;
+}
+
+/*dinamismo de los campos domicilio y nombre de encargado*/
+
+.encargado{
+    display: none;
+}
+
+.domicilio{
+    display: none;
+}
+
+/*estilos para formlario del modal atender cita*/
+
+@media screen and (max-width: 576px){
+
+    
+    .titulo{
+        font-size: 50px;
+    }
+
+    .frm_atenderCita{
+        display: block;   
+    }
+
+    .frm_atenderUrgencia{
+        display: block;
+    }
+
+
+
+}
+
 
 
 

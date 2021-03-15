@@ -23,12 +23,15 @@
 
     <!--hoja de estilos global-->
     <link rel="stylesheet" href="../../componente/css/global.css">
+    <link rel="stylesheet" href="../../componente/css/menu.css">
 
     <!--hoja de estilos personalizada-->
     <link rel="stylesheet" href="../../componente/css/preguntasFrecuentes/preguntasFrecuentes.css">
 
     <!--js externo-->
     <script src="../../js/preguntasFrecuentes/animacion.js"></script>
+    <script src="../../js/menu.js"></script>
+    
 
     <title>Preguntas Frecuentes</title>
 </head>

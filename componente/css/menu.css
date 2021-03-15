@@ -14,7 +14,7 @@
     align-items: center;
     padding: 12px 14px;
     transition: all .6s;
-    z-index: 111;
+    z-index: 1111;
 }
 
 .logo{
@@ -87,7 +87,7 @@
     .menu .menu-items ul{
         display: block;
         padding-top: 50px;
-        height: 100vh;
+        height: 100vh;   
         flex-direction: column;  
         align-items: center;   
         background: #8E2DE2;  /* fallback for old browsers */

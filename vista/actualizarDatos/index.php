@@ -34,7 +34,7 @@
     <div class="container-fluid">
 
         <!--menu-->
-        <?php include "menu2.php"?>
+        <?php include "menu.php"?>
         
         <!--cabecara-->
         <header>
@@ -43,7 +43,7 @@
 
         <!--Seccion principal-->
         <section>
-            <?php include "actualizarDatos.php"?>
+            <?php include "frm_actualizarDatos.php"?>
         </section>
 
         <!--pie de pagina-->
