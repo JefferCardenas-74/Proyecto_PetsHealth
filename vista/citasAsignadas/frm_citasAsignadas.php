@@ -126,7 +126,8 @@
 
                                         <div id="listaDatos">
                                             <div id="primerCampo" class="primerCampo">
-                                                <a id="dato1" href="#"></a>
+                                                <input type="hidden" value="" id="idProducto">
+                                                <a id="dato1" href="#" class="dato1"></a>
                                             </div>                                            
                                         </div>
                                     </div>
@@ -136,7 +137,7 @@
 
                                     <!--tabla de productos y servicios -->
                                     <div>
-                                        <table class="tabla">
+                                        <table class="tabla" id="tbl_productos">
                                             <thead>
                                                 <tr>
                                                     <th scope="col">Productos</th>
