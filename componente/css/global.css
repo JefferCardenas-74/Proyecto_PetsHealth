@@ -51,13 +51,28 @@ body{
 
 }
 
-.boton{
+.btnMorado{
 
     border-radius: 15px;
     border: none;
     color: #fff;
     padding: 12px 28px;
     background: linear-gradient(to right, #8E2DE2, #4A00E0);
+}
+
+.btnNaranja{
+
+    border-radius: 15px;
+    border: none;
+    color: #fff;
+    padding: 12px 28px;
+    background: linear-gradient(to right, #f12711, #f5af19);
+}
+
+
+.boton:hover{
+
+    background: linear-gradient(to right, #6d23ad, #4201c2);
 }
 
 .cajaTexto{

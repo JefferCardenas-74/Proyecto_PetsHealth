@@ -1,29 +1,29 @@
-<!-- <div class="container-fluid"> -->
+<nav class="menu">
 
-<nav class="navbar navbar-expand-lg navbar-light">
+    <div class="logo">
+        <img src="../../componente/img/logo.jpg" alt="Logo de la empresa" width="30px" height="30px">
+        <label>Pets Healt</label>
+    </div>
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu" aria-controls="menu">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="menu">
+        <input type="checkbox" id="btn_menu">
+        <label for="btn_menu" id="icono_menu"><i class="fas fa-bars"></i></label>
 
-        <a class="navbar-brand" href="#">
-            <img src="../../componente/img/logo.jpg" alt="importante" width="30" height="30">
-            <label class="fredoka">Pets Health</label>
-        </a>
-
-        <ul class="navbar-nav ml-lg-auto">
-            <li class="navbar-item active">
-                <a class="nav-link fredoka" href="#">Home</a>
+    <div class="menu-items uno">
+        <ul>
+            <li class="item">
+                <a href="#">Home</a>
             </li>
-            <li class="navbar-item dropdown active">
-                <a class="nav-link dropdown-toggle active fredoka" href="#" data-target="desplegable" data-toggle="dropdown">Menu Desplegable</a>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item fredoka">item de menu</a>
-                </div>
+            <li class="sub_menu item">
+                <a href="#">Menu Despleglable <i class="fa fa-caret-down"></i></a>
+
+                <ul>
+                    <li><a href="#">menu item 1</a></li>
+                    <li><a href="#">menu item 1</a></li>
+                </ul>
+            </li>
+            <li class="item">
+                <a href="#">About</a>
             </li>
         </ul>
-    </div>
+    </div> 
 </nav>
-
-<!-- </div> -->

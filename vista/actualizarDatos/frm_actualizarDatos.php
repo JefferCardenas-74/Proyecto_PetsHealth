@@ -24,7 +24,7 @@
                 </div>
 
                 <div id="boton">
-                    <button type="button" class="boton fredoka">Actualizar</button> 
+                    <button type="button" class="btnMorado fredoka">Actualizar</button> 
                 </div>  
             </div>       
             

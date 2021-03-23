@@ -26,7 +26,7 @@
         <link rel="stylesheet" href="../../componente/css/menu.css">
     
         <!--js externo-->
-        <script src="../../js/actualizarDatos/menu.js"></script>
+        <script src="../../js/menu.js"></script>
     <title>Actualizar Datos</title>
 </head>
 <body>
@@ -34,7 +34,7 @@
     <div class="container-fluid">
 
         <!--menu-->
-        <?php include "menu2.php"?>
+        <?php include "menu.php"?>
         
         <!--cabecara-->
         <header>
@@ -43,7 +43,7 @@
 
         <!--Seccion principal-->
         <section>
-            <?php include "actualizarDatos.php"?>
+            <?php include "frm_actualizarDatos.php"?>
         </section>
 
         <!--pie de pagina-->

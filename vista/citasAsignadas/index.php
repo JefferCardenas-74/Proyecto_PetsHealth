@@ -1,3 +1,14 @@
+<?php
+
+    extract($_REQUEST);
+
+    if(!isset($page)){
+        $page = 'frm_citasAsignadas';
+    }
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,6 +41,7 @@
     
         <!--hoja de estilos personalizada-->
         <link rel="stylesheet" href="../../componente/css/citasAsignadas/citasAsignadas.css">
+        <link rel="stylesheet" href="../../componente/css/citasAsignadas/cabecera.css">
         <link rel="stylesheet" href="../../componente/css/menu.css">
     
         <!--js externo-->
@@ -45,7 +57,7 @@
 
         <header><?php include 'cabecera.php' ?></header>
 
-        <section><?php include 'citasAsignadas.php' ?></section>
+        <section><?php include $page.'.php' ?></section>
 
         <footer><?php include '../piePagina.php' ?></footer>
     </div>
