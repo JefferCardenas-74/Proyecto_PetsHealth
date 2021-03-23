@@ -20,6 +20,13 @@ switch($accion){
         echo json_encode($resultado);      
 
         break;
+    
+    case 'traerProducto':
+        
+        $resultado = $dProducto->traerProducto($dato);
+        echo json_encode($resultado);
+        break;
+
 }
 
 ?>

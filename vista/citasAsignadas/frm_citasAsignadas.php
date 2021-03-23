@@ -13,31 +13,10 @@
                 </thead>        
                 <tbody class="pompiere">
                     <tr>
-                        <td>1</td>
-                        <td>Belleza</td>
-                        <td>Bruce Banner</td>
-                        <td>10/05/2021 -- 8:00 am</td>
-                        <td><button class="btnMorado btn_atender" >Atender</button></td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Consulta General</td>
-                        <td>Tony Start</td>
-                        <td>10/05/2021 -- 10:00 am</td>                        
-                        <td><button class="btnMorado btn_atender" >Atender</button></td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Salud Dental</td>
-                        <td>Doctor Strange</td>
-                        <td>10/05/2021 -- 10:00 am</td>
-                        <td><button class="btnMorado btn_atender" >Atender</button></td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>Pediatria</td>
-                        <td>Natasha Romanoff</td>
-                        <td>10/05/2021 -- 10:00 am</td>
+                        <td id="idCita">1</td>
+                        <td id="tipoCita">Belleza</td>
+                        <td id="solicitante">Bruce Banner</td>
+                        <td id="fechaHora">10/05/2021 -- 8:00 am</td>
                         <td><button class="btnMorado btn_atender" >Atender</button></td>
                     </tr>
                 </tbody>
@@ -94,10 +73,6 @@
                                             <input class="form-check-input" type="radio" id="chk_si" name="chk_radios" checked>
                                             <label class="form-check-label fredoka" for="chk_si">si</label>
                                         </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" id="chk_no" name="chk_radios">
-                                            <label class="form-check-label fredoka" for="chk_no">No</label>
-                                        </div>
                                     </div>
                                 </div>
 
@@ -134,46 +109,47 @@
 
                                     <br>
                                     <br>
+                                    <!--contenedor de factura-->
 
-                                    <!--tabla de productos y servicios -->
-                                    <div>
-                                        <table class="tabla" id="tbl_productos">
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col">Productos</th>
-                                                    <th scope="col">Precio</th>
-                                                    <th scope="col">Cantidad</th>
-                                                    <th scope="col">Unida de Medida</th>
-                                                    <th scope="col">Accion</th>
-                                                </tr>
-                                            </thead>
+                                    <section class="contenedorFactura">
+                                        <div class="container">
+                                            <div class="row fredoka">
+                                                <div class="col-4">
+                                                    <div class="factura-header">
+                                                        <h6>producto</h6>
+                                                    </div>
+                                                </div>
+                                                <div class="col-2">
+                                                    <div class="factura-header">
+                                                        <h6>precio</h6>
+                                                    </div>
+                                                </div>
+                                                <div class="col-2">
+                                                    <div class="factura-header">
+                                                        <h6>cantidad</h6>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4">
+                                                    <div class="factura-header">
+                                                        <h6>Unidad</h6>
+                                                    </div>
+                                                </div>
+                                            </div>
 
-                                            <tbody class="pompiere">
-                                                <tr class="primeraFila" id="fila">
-                                                    <td id="proNombre"></td>
-                                                    <td id="proPrecio"></td>
-                                                    <td id="cantidad">
-                                                        <input type="number" id="txt_cantidad" name="txt_cantidad">
-                                                    </td>
-                                                    <td id="proUnidad"></td>
-                                                    <td id="btn_eliminar">
-                                                        <button class="btnNaranja">Eliminar</button>
-                                                    </td>
-                                                </tr>                                    
-                                            </tbody>
+                                            <div class="factura-items-container">
+                                            </div>
 
-                                            <tfoot class="pompiere">
-                                                <tr class="text-align-center">
-                                                    <td colspan="4" style="text-align: center;">
-                                                        <label id="total"></label>    
-                                                    </td>
-                                                    <td class="bg-dark text-white">
-                                                        <label>Total</label>
-                                                    </td>
-                                                </tr>
-                                            </tfoot>
-                                        </table>
-                                    </div>
+                                            <div class="row fredoka">
+                                                <div class="col-4">
+                                                    <div class="item precioTotal">
+                                                        <h6>Total</h6>
+                                                        <p class="txt_total">$</p>
+                                                    </div>
+                                                </div>                                                
+                                            </div>
+                                        </div>
+                                    </section>
+                                    <!----------------------------------------------------------->
                                 </div>            
                             </div>
                         </div>

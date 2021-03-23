@@ -41,6 +41,31 @@ class datosProducto{
         return $this->retorno;
     }
 
+    function traerProducto($dato){
+
+        try{
+
+            $consulta = "select * from producto where proNombre = ?";
+            $resultado = $this->conexion->prepare($consulta);
+            $resultado->bindParam(1, $dato);
+            $resultado->execute();
+
+            $this->retorno->mensaje = 'producto solicitado';
+            $this->retorno->estado = true;
+            $this->retorno->datos = $resultado->fetchAll();
+        
+            
+        }catch(PDOException $e){
+
+            $this->retorno->mensaje = $e->getMessage();
+            $this->retorno->estado = false;
+            $this->retorno->datos = null;
+        }
+
+        return $this->retorno;
+        
+    }
+
 }
 
 ?>

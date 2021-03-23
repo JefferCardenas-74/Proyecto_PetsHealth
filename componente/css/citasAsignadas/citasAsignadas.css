@@ -53,7 +53,7 @@ thead{
     background: #a200ff57;
     font-weight: bold;
 }
-
+/*---------------------------------------*/
 .btnMorado{
     padding: 8px 19px;
     height: 50px;
@@ -78,6 +78,7 @@ thead{
     padding: 15px;
     display: none;
     font-family: 'Fredoka One';
+    z-index: 111;
 }
 
 #listaDatos div a{
@@ -134,6 +135,46 @@ thead{
 
 .domicilio{
     display: none;
+}
+
+/*---------------------------------------*/
+.contenedorFactura{
+
+    width: 700px;
+
+}
+
+.factura-header{
+     display: flex;
+    justify-content: flex-start;
+    border-bottom: 1px solid #000;
+}
+
+.item{
+    padding: 15px;
+}
+
+#txt_cantidad{
+    width: 60px;
+    text-align: center;
+}
+
+.unidadMedida{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+}
+
+.precioTotal{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/*---------------------------------------*/
+
+.factura-item.pompiere{
+
+    font-weight: bold;
 }
 
 /*estilos para formlario del modal atender cita*/
