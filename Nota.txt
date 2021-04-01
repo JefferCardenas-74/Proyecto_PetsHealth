@@ -1,1 +1,12 @@
 Para: Vista, modelo, controllador, js, doc, css e img, se deben crear subcarpetas de acuerdo al diagrama de paquetes.
+
+Para que les funcione el redireccionamiento las paginas 
+se recomienda usar apache 
+ejm URL con APACHE 
+http://localhost/repositorio_desarrollo/vista/cliente/citasAsignadas/
+
+ejm URL con plugin de vscode
+http://localhost:3000/vista/cliente/citasAsignadas/
+con el pligin no sirvira por que es  ruta absoluta  
+
+Asi que le recomiendo probar el proyecto con apache

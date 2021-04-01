@@ -15,12 +15,14 @@
     padding: 12px 14px;
     transition: all .6s;
     z-index: 1111;
+    background-color: transparent ;     
 }
 
-.logo{
-    font-family: 'Fredoka One';
-    color: #0e0577;
+.menu .logo img{
+    width: 7em;
 }
+
+
 
 #btn_menu{
     display: none;
@@ -52,36 +54,59 @@
     text-decoration: none;
     color: #0e0577;
     padding: 1rem;
-    font-family: 'Fredoka One';
+    font-family: var(--fuenteTitulos);
 }
 
+
+.menu .active {
+    background: -webkit-linear-gradient(#fc00ff, #00dbde) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+.menu a:hover {
+    background: -webkit-linear-gradient(#fc00ff, #00dbde) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+}
 .menu .menu-items .sub_menu > ul{
     display: none;
 }
-
+/* border a los menus */
 .menu-items ul li ul{
     display: block;
     position: absolute;
     background: #fff;
     padding: 10px 14px;
+    border: 0.0625rem solid rgba(8, 9, 12, 0.125);
+    box-shadow: 0 2px 5px rgb(140 152 164 / 20%) ;
+    
+}
+/* posicion del ultimo menu*/
+.posRight  {
+    position: absolute;
+    right: 10px;
 }
 
 /*efecto sticky*/
 
 .menu.sticky{
-    background: #fff;
-    padding: 10px 12px;
+background-color: #d1d8fb !important;
+box-shadow: 0 4.4px 10px rgba(0, 0, 0, 0.21), 0 27px 80px rgba(0, 0, 0, 0.086);
+transition: all 0.5s ease-in-out;
+padding: 10px 12px;
 }
 
 /*responsive*/
 
 @media screen and (max-width: 596px){
 
+
     .menu .menu-items{
         position: fixed;
         top: 0;
         right: 0;
-        width: 100%;
+        width: 100%;   
     }
 
     .menu .menu-items ul{
@@ -117,7 +142,6 @@
     #icono_menu{
         position: absolute;
         display: flex;
-        top: 10px;
         right: 20px;
         z-index: 2222;
     }
