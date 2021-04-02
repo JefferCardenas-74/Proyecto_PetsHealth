@@ -16,10 +16,10 @@
     <div class="menu-items uno">
         <ul>
             <li class="item">
-                <a href="">Home</a>
+                <a>Home</a>
             </li>
             <li class="sub_menu item">
-                <a href="#">Menu Despleglable <i class="fa fa-caret-down"></i></a>
+                <a>Menu Despleglable <i class="fa fa-caret-down"></i></a>
 
                 <ul>
                     <li><a href="index.php?page=frm_citasAsignadas">Citas Asignadas</a></li>
@@ -27,7 +27,7 @@
                 </ul>
             </li>
             <li class="item">
-                <a href="#">About</a>
+                <a>About</a>
             </li>
         </ul>
     </div> 

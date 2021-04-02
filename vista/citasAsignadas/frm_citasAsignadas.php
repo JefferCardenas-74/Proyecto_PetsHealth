@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col">
         <div class="contenedorTabla">
-            <table class="tabla">
+            <table class="tabla" id="tbl_citas">
                 <thead>
                     <tr>
                         <th>N°</th>
@@ -9,15 +9,15 @@
                         <th>Solicitante</th>
                         <th>Fecha</th>
                         <th>Accion</th>
-                    </tr>                    
-                </thead>        
+                    </tr>
+                </thead>
                 <tbody class="pompiere">
-                    <tr>
+                    <tr class="fila" id="primeraFila">
                         <td id="idCita">1</td>
                         <td id="tipoCita">Belleza</td>
                         <td id="solicitante">Bruce Banner</td>
                         <td id="fechaHora">10/05/2021 -- 8:00 am</td>
-                        <td><button class="btnMorado btn_atender" >Atender</button></td>
+                        <td><button class="btnMorado" id="btn_atender">Atender</button></td>
                     </tr>
                 </tbody>
             </table>
@@ -25,7 +25,7 @@
 
         <!--Modal para atender las citas asignadas-->
 
-        <div class="modal fade" id="atenderCita" tabindex="-1" aria-hidden="true">
+        <div class="modal fade" id="atenderCita" tabindex="-1" aria-hidden="true" data-backdrop="static">
             <div class="modal-dialog modal-xl modal-dialog-scrollable">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -33,7 +33,7 @@
                         <button type="button" class="close" data-dismiss="modal">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                    </div> 
+                    </div>
                     <!--formulario de atender cita-->
                     <div class="modal-body">
                         <div class="container-fluid">
@@ -41,9 +41,9 @@
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="txt_nombre" class="col-form-label fredoka">Mascota</label>
-                                        <input type="text" class="cajaTexto" id="txt_Mascota" readonly="readonly" value="La iguana Feliz">
+                                        <input type="text" class="cajaTexto pompiere" id="txt_Mascota" readonly="readonly" value="La iguana Feliz">
                                     </div>
-                                    
+                                    <!--tipo de encargado-->
                                     <label for="chk_tipoEncargado" class="col-form-label fredoka">Tipo de Encargado</label>
 
                                     <div class="form-check">
@@ -61,9 +61,20 @@
                                         <label for="chk_otro" class="form-check-label fredoka">Otro</label>
                                     </div>
 
+                                    <div class="form-group dueño">
+                                        <label for="txt_dueño" class="col-form-label fredoka">Nombre del dueño</label>
+                                        <input type="text" class="cajaTexto pompiere" id="txt_dueño" readonly>
+                                    </div>
+
+                                    <div class="form-group empleado">
+                                        <label for="cb_empleado" class="col-form-label fredoka">Nombre del empleado</label>
+                                        <select name="cb_empleado" id="cb_empleado" class="cajaTexto">
+                                        </select>
+                                    </div>
+
                                     <div class="form-group encargado">
-                                        <label for="txt_encargado" class="col-form-label fredoka">Nombre del encargado</label>
-                                        <input type="text" class="cajaTexto" id="txt_encargado" value="">
+                                        <label for="txt_encargado" class="col-form-labe fredoka">Nombre del encargado</label>
+                                        <input type="text" id="txt_empleado" class="cajaTexto pompiere">
                                     </div>
 
                                     <div class="domicilio">
@@ -76,6 +87,8 @@
                                     </div>
                                 </div>
 
+                                <!----------------------------------------------------->
+
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="txt_tipoCita" class="col-form-label fredoka">Tipo de Cita</label>
@@ -84,7 +97,7 @@
 
                                     <div class="form-group">
                                         <label for="txt_observacion" class="col-form-label fredoka">Observacion</label>
-                                        <textarea id="txt_observacion" class="cajaTexto" style="height: 200px;"></textarea>
+                                        <textarea id="txt_observacion" class="cajaTexto pompiere" style="height: 200px;"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -103,7 +116,7 @@
                                             <div id="primerCampo" class="primerCampo">
                                                 <input type="hidden" value="" id="idProducto">
                                                 <a id="dato1" href="#" class="dato1"></a>
-                                            </div>                                            
+                                            </div>
                                         </div>
                                     </div>
 
@@ -145,12 +158,12 @@
                                                         <h6>Total</h6>
                                                         <p class="txt_total">$</p>
                                                     </div>
-                                                </div>                                                
+                                                </div>
                                             </div>
                                         </div>
                                     </section>
                                     <!----------------------------------------------------------->
-                                </div>            
+                                </div>
                             </div>
                         </div>
                     </div>

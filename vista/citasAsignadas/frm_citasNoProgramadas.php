@@ -2,10 +2,24 @@
     <div class="row frm_atenderUrgencia">
         <div class="col">
 
+            <label for="txt_cedula" class="col-form-label fredoka">Ingrese una cedula para buscar</label>
+            <div class="form-group buscar_cedula">
+                <input type="number" class="cajaTexto pompiere" id="txt_cedula" placeholder="Ingrese una cedula">
+                <div id="btn_buscar">
+                    <i class="fas fa-search" id="icono-buscar"></i>
+                </div>
+            </div>
+
             <div class="form-group">
-                <label for="txt_nombre" class="col-form-label fredoka">Mascota</label>
-                <input type="text" class="cajaTexto" id="txt_Mascota"
-                    value="">
+                <label for="txt_encargado" class="col-form-label fredoka">Nombre del encargado</label>
+                <input type="text" class="cajaTexto pompiere" id="txt_encargado" readonly>
+            </div>
+
+            <div class="form-group">
+                <label for="cb_mascota" class="col-form-label fredoka">Mascota</label>
+                <select id="cb_mascota" class="form-control fredoka">
+
+                </select>
             </div>
 
             <!--radio button tipo de encargado-->
@@ -21,10 +35,6 @@
             </div>
 
             <!------------------------------->
-            <div class="form-group">
-                <label for="txt_encargado" class="col-form-label fredoka">Nombre del encargado</label>
-                <input type="text" class="cajaTexto" id="txt_encargado" value="Toretto">
-            </div>
 
             <label for="check_domicilio" class="col-form-label fredoka">Domicilio</label>
 
@@ -51,11 +61,32 @@
 
             <div class="form-group">
                 <label for="txt_observacion" class="col-form-label fredoka">Observacion</label>
-                <textarea id="txt_observacion" class="cajaTexto" style="height: 200px;"></textarea>
+                <textarea id="txt_observacion" class="cajaTexto pompiere" style="height: 200px;"></textarea>
             </div>
         </div>
     </div>
 
+    <!--modal para registrar cliente-->
+
+    <div class="modal fade" id="registrarCliente" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Opps!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Parece que este cliente no esta registrado :(</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Registrar Cliente</button>
+                </div>
+            </div>
+        </div>
+    </div>
+      <!------------------------------------------------------------------------------>
     <br>
     <br>
 
@@ -64,79 +95,66 @@
         <div class="col">
             <div class="from-group">
                 <label for="txt_buscadorProductos" class="col-from-label fredoka">Buscador de Productos</label>
-                <input type="text" class="cajaTexto" id="txt_buscadorProductos" placeholder="Buscar">
+                <input type="text" class="form-control cajaTexto" id="txt_buscadorProductos" name="txt_buscadorProductos" placeholder="Buscar">
 
                 <div id="listaDatos">
                     <div id="primerCampo" class="primerCampo">
-                        <a id="dato1" href="#"></a>
-                    </div>                                            
+                        <input type="hidden" value="" id="idProducto">
+                        <a id="dato1" class="dato1"></a>
+                    </div>
                 </div>
             </div>
 
             <br>
             <br>
+            <!--contenedor de factura-->
 
-            <!--tabla de productos y servicios -->
-            <div class="contenedorTabla">
-                <table class="tabla">
-                    <thead>
-                        <tr>
-                            <th scope="col">Productos</th>
-                            <th scope="col">Precio</th>
-                            <th scope="col">Cantidad</th>
-                            <th scope="col">Unida de Medida</th>
-                            <th scope="col">Accion</th>
-                        </tr>
-                    </thead>
+            <section class="contenedorFactura">
+                <div class="container factura">
+                    <div class="row fredoka">
+                        <div class="col-4">
+                            <div class="factura-header">
+                                <h6>producto</h6>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="factura-header">
+                                <h6>precio</h6>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="factura-header">
+                                <h6>cantidad</h6>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="factura-header">
+                                <h6>Unidad</h6>
+                            </div>
+                        </div>
+                    </div>
 
-                    <tbody class="pompiere">
-                        <tr>
-                            <th scope="row">Nutran</th>
-                            <td>10000</td>
-                            <td>2</td>
-                            <td>Und</td>
-                            <td><button class="btnNaranja pompiere">Eliminar</button></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Pericon</th>
-                            <td>10000</td>
-                            <td>4</td>
-                            <td>Und</td>
-                            <td><button class="btnNaranja pompiere">Eliminar</button></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Domicilio</th>
-                            <td>10000</td>
-                            <td>1</td>
-                            <td>Und</td>
-                            <td><button class="btnNaranja pompiere">Eliminar</button></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Consulta General</th>
-                            <td>10000</td>
-                            <td>1</td>
-                            <td>Und</td>
-                            <td><button class="btnNaranja pompiere">Eliminar</button></td>
-                        </tr>
-                    </tbody>
+                    <div class="factura-items-container">
+                    </div>
 
-                    <tfoot class="pompiere">
-                        <tr class="text-align-center">
-                            <td colspan="4" style="text-align: center;">
-                                <label>40000</label>
-                            </td>
-                            <td class="bg-dark text-white">
-                                <label>Total</label>
-                            </td>
-                        </tr>
-                    </tfoot>
-                </table>
-            </div>
-
-            <div class="botonCitaNoPro">
-                <button class="btnMorado" id="btn_atenderCitaNoPro">Atender Cita</button>
-            </div>
-
+                    <div class="row fredoka">
+                        <div class="col-4">
+                            <div class="item precioTotal">
+                                <h6>Total</h6>
+                                <p class="txt_total">$</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!----------------------------------------------------------->
         </div>
     </div>
+
+    <div class="botonCitaNoPro">
+        <button class="btnMorado" id="btn_atenderCitaNoPro">Atender Cita</button>
+    </div>
+
+</div>
+</div>
 </div>
