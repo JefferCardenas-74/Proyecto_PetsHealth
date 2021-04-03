@@ -1,33 +1,40 @@
 var primerCampo;
 var productoAgregado;
+var primeraFila;
+var idCita;
 
 $(function () {
   primerCampo = $("#primerCampo");
   productoAgregado  = document.querySelector('.factura-items-container');
+  primeraFila = $('#primeraFila');
 
-  /*evento escucha para activarl el modal */
-  $(".btn_atender").click(function () {
-    $("#atenderCita").modal();
-  });
+  listarCitas();
+
 
   /** dinamismo del formulario atender citas*/
-  $("#chk_dueño").click(function () {
+  $("#chk_dueño").focus(function () {
+    $(".empleado").css("display", "none");
     $(".encargado").css("display", "none");
     $(".domicilio").css("display", "none");
+    $('.dueño').css('display', 'block');
   });
 
   $("#chk_empleado").focus(function () {
+    $('.dueño').css('display', 'none');
+    $(".encargado").css("display", "none");
     $(".domicilio").css("display", "block");
-    $(".encargado").css("display", "block");
+    $(".empleado").css("display", "block");
   });
 
   $("#chk_otro").focus(function () {
-    $(".encargado").css("display", "block");
+    $('.dueño').css('display', 'none');
+    $(".empleado").css("display", "none");
     $(".domicilio").css("display", "none");
+    $(".encargado").css("display", "block");
   });
 
   /**------------------------------------------ */
-
+  /**cada vez que se digita una letra se hace una consulta a la base de datos */
     $("#txt_buscadorProductos").keyup(function () {
       let x = $("#txt_buscadorProductos").val();
       buscarProducto();
@@ -35,12 +42,217 @@ $(function () {
 
   /**------------------------------------------- */
 
+  /**se valida un click en cualquier parte de cuerpo para esconder la lista de datos */
   $('#atenderCita').click(function(){
     $('#listaDatos').css('display', 'none');
   });
-    
+
+  $('body').click(function(){
+    $('#listaDatos').css('display', 'none');
+  });
+
+  /**al click se ejecuta una funcion que busca si existe un cliente*/
+    $('#btn_buscar').click(function(){
+
+      const cedula = $('#txt_cedula').val();
+      buscarCliente(cedula);
+      
+    });
+
 
 }); 
+
+function listarCitas(){
+
+  $('.otraFila').remove();
+  $('#tbl_citas').append(primeraFila);
+
+  var parametros = {
+    accion:'listarCitas'
+  };
+
+  $.ajax({
+    url:'../../../controlador/citaControl.php',
+    data: parametros,
+    dataType: 'json',
+    type: 'get',
+    cache: false,
+
+    success: function(resultado){
+
+      console.log(resultado.datos);
+
+      $.each(resultado.datos, function(j, dato){
+        $('#idCita').html(dato.idCita);
+        $('#tipoCita').html(dato.serTipo);
+        $('#solicitante').html(dato.perNombre);
+        $('#fechaHora').html(dato.ciFecha);
+        $('#btn_atender').attr('onclick', 'abrirModal('+dato.idCita+')');
+
+        $('#tbl_citas tbody').append(primeraFila.clone(true).attr('class', 'otraFila'));
+
+      });
+
+      $('#tbl_citas tbody tr').first().remove();
+    },
+    error: function(e){
+
+      console.log(e);
+    }
+  });
+}
+
+function abrirModal(id){
+
+  idCita = id;
+  console.log(idCita);
+  mostrarDatosCita();
+  listarEmpleados();
+  $('#atenderCita').modal();
+}
+
+function mostrarDatosCita(){
+
+  var parametros = {
+    accion: 'datosCita',
+    dato: idCita
+  };
+
+  $.ajax({
+    url:'../../../controlador/citaControl.php',
+    data: parametros,
+    dataType: 'json',
+    type: 'post',
+    cache: false,
+
+    success: function(resultado){
+
+      console.log(resultado.datos);
+
+      $.each(resultado.datos, function(j, dato){
+
+        $('#txt_Mascota').val(dato.masNombre);
+        $('#txt_dueño').val(dato.perNombre);
+        $('#txt_tipoCita').val(dato.serTipo);
+      });
+
+
+
+    },
+    error: function(e){
+
+      console.log(resultado.mensaje);
+
+    }
+
+  });
+
+
+}
+function buscarCliente(cedula){
+
+  let parametros = {
+    accion:'buscarCliente',
+    cedula: cedula
+  };
+
+  $.ajax({
+    url:'../../../controlador/citaControl.php',
+    data: parametros,
+    type: 'post',
+    dataType:'json',
+    cache: false,
+
+    success:function(resultado){
+
+      if(resultado.datos.length > 0){
+
+        $.each(resultado.datos, function(j, dato){
+
+            var idPersona = dato.idPersona;
+            $('#txt_encargado').val(dato.perNombre +' '+ dato.perApellido);
+            buscarMascotasPersona(idPersona);
+
+        }); 
+      }else{
+        
+        $('#registrarCliente').modal();
+      }
+
+
+    },
+    error:function(e){
+
+    }
+  });
+
+}
+
+function buscarMascotasPersona(idPersona){
+
+  var parametros = {
+    accion:'buscarMascotas',
+    idPersona: idPersona
+  };
+
+  $.ajax({
+    url: '../../../controlador/citaControl.php',
+    data: parametros,
+    dataType: 'json',
+    type: 'post',
+    cache: false,
+
+    success: function(resultado){
+
+      console.log(resultado);
+
+      $.each(resultado.datos, function(j, dato){
+        var option = document.createElement('option');
+        option.setAttribute('class', 'opcion');
+        option.value = dato.idMascota;
+        option.text = dato.masNombre;
+        $('#cb_mascota').append(option);
+      });
+    },
+    error: function(e){
+
+    }
+  });
+
+}
+
+function listarEmpleados(){
+
+  $('.opcion').remove();
+
+  var parametros = {
+    accion: 'listarEmpleados'
+  }
+
+  $.ajax({
+    url:'../../../controlador/citaControl.php',
+    data: parametros,
+    type:'post',
+    dataType: 'json',
+    cache: false,
+
+    success: function(resultado){
+
+      console.log(resultado.datos);
+
+      $.each(resultado.datos, function(j, dato){
+        const option = document.createElement('option');
+        option.setAttribute('class', 'opcion');
+        option.value = dato.idEmpleado;
+        option.text = dato.perNombre +' '+ dato.perApellido;
+        $('#cb_empleado').append(option);
+      });
+    },
+    error:function(e){
+
+    }
+  });
+}
 
 function buscarProducto() {
   $(".otroCampo").remove();
@@ -53,7 +265,7 @@ function buscarProducto() {
   };
 
   $.ajax({
-    url: "../../controlador/productoControl.php",
+    url: "../../../controlador/productoControl.php",
     data: parametros,
     dataType: "json",
     type: "post",

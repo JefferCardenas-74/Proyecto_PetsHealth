@@ -37,6 +37,7 @@
 .menu-items{
     height: 100%;
     transition: all 1s ease;
+    color: #0e0577;
 }
 
 .menu-items ul{
@@ -49,19 +50,12 @@
     list-style: none;
 }
 
-.menu-items li a{
+.item a{
     display: block;
     text-decoration: none;
-    color: #0e0577;
     padding: 1rem;
-    font-family: var(--fuenteTitulos);
-}
-
-
-.menu .active {
-    background: -webkit-linear-gradient(#fc00ff, #00dbde) !important;
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
+    font-family: 'Fredoka One';
+    cursor: pointer;
 }
 
 .menu a:hover {
@@ -86,6 +80,10 @@
 .posRight  {
     position: absolute;
     right: 10px;
+}
+
+.menu-items .sub_menu ul li a{
+    color: #0e0577;
 }
 
 /*efecto sticky*/
@@ -121,7 +119,7 @@ padding: 10px 12px;
 
     }
 
-    .menu-items ul li a{
+    .menu-items ul li {
         color: #fff;
         text-align: center;
     }
