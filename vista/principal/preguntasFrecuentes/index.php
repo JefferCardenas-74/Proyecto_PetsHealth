@@ -22,15 +22,15 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <!--hoja de estilos global-->
-    <link rel="stylesheet" href="../../componente/css/global.css">
-    <link rel="stylesheet" href="../../componente/css/menu.css">
+    <link rel="stylesheet" href="../../../componente/css/global.css">
+    <link rel="stylesheet" href="../../../componente/css/menu.css">
 
     <!--hoja de estilos personalizada-->
-    <link rel="stylesheet" href="../../componente/css/preguntasFrecuentes/preguntasFrecuentes.css">
+    <link rel="stylesheet" href="../../../componente/css/preguntasFrecuentes/preguntasFrecuentes.css">
 
     <!--js externo-->
-    <script src="../../js/preguntasFrecuentes/animacion.js"></script>
-    <script src="../../js/menu.js"></script>
+    <script src="../../../js/preguntasFrecuentes/animacion.js"></script>
+    <script src="../../../js/menu.js"></script>
     
 
     <title>Preguntas Frecuentes</title>
@@ -51,7 +51,7 @@
         </section>
 
         <!--pie de pagina-->
-            <?php include '../piePagina.php' ?>
+            <?php include '../../piePagina.php' ?>
     </div>   
 </body>
 </html>

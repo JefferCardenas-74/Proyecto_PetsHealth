@@ -37,29 +37,29 @@
         <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.js"></script>
   
         <!--hoja de estilos global-->
-        <link rel="stylesheet" href="../../componente/css/global.css">
+        <link rel="stylesheet" href="../../../componente/css/global.css">
     
         <!--hoja de estilos personalizada-->
-        <link rel="stylesheet" href="../../componente/css/citasAsignadas/citasAsignadas.css">
-        <link rel="stylesheet" href="../../componente/css/citasAsignadas/cabecera.css">
-        <link rel="stylesheet" href="../../componente/css/menu.css">
+        <link rel="stylesheet" href="../../../componente/css/citasAsignadas/citasAsignadas.css">
+        <link rel="stylesheet" href="../../../componente/css/citasAsignadas/cabecera.css">
+        <link rel="stylesheet" href="../../../componente/css/menu.css">
     
         <!--js externo-->
-        <script src="../../js/citasAsignadas/citasAsignadas.js"></script>
-        <script src="../../js/menu.js"></script>
+        <script src="../../../js/citasAsignadas/citasAsignadas.js"></script>
+        <script src="../../../js/menu.js"></script>
 
     <title>Citas Asignadas</title>
 </head>
 <body>
 
     <div class="container-fluid">
-        <nav><?php include 'menu.php' ?></nav>
+        <?php include 'menu.php' ?>
 
         <header><?php include 'cabecera.php' ?></header>
 
         <section><?php include $page.'.php' ?></section>
 
-        <footer><?php include '../piePagina.php' ?></footer>
+        <footer><?php include '../../piePagina.php' ?></footer>
     </div>
 
 </body>

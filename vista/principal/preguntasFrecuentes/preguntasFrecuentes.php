@@ -29,7 +29,7 @@
             </div>
 
             <div class="ilustracion aparece">
-                <img src="../../componente/img/pug.png" alt="">                
+                <img src="../../../componente/img/pug.png" alt="">                
             </div>
 
             <div class="card pregunta aparece">
@@ -47,7 +47,7 @@
             </div>
 
             <div class="ilustracion aparece">
-                <img src="../../componente/img/shepherd.png" alt="">
+                <img src="../../../componente/img/shepherd.png" alt="">
             </div>
 
 

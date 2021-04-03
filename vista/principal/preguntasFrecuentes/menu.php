@@ -1,13 +1,7 @@
-<?php
-
-    extract($_REQUEST);
-?>
-
 <nav class="menu">
 
     <div class="logo">
-        <img src="../../componente/img/logo.jpg" alt="Logo de la empresa" width="30px" height="30px">
-        <label>Pets Healt</label>
+        <img src="https://i.imgur.com/yzjVfUS.png" alt="Logo de la empresa" width="100px" height="60px">
     </div>
 
         <input type="checkbox" id="btn_menu">
@@ -22,8 +16,8 @@
                 <a>Menu Despleglable <i class="fa fa-caret-down"></i></a>
 
                 <ul>
-                    <li><a href="index.php?page=frm_citasAsignadas">Citas Asignadas</a></li>
-                    <li><a href="index.php?page=frm_citasNoProgramadas">Citas No Programadas</a></li>                    
+                    <li><a>menu item 1</a></li>
+                    <li><a>menu item 1</a></li>
                 </ul>
             </li>
             <li class="item">

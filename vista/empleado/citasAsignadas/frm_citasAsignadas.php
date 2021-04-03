@@ -28,8 +28,8 @@
         <div class="modal fade" id="atenderCita" tabindex="-1" aria-hidden="true" data-backdrop="static">
             <div class="modal-dialog modal-xl modal-dialog-scrollable">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title fredoka">Atender Cita</h5>
+                    <div class="modal-header barra">
+                        <h5 class="modal-title fredoka" style="color:#fff;">Atender Cita</h5>
                         <button type="button" class="close" data-dismiss="modal">
                             <span aria-hidden="true">&times;</span>
                         </button>

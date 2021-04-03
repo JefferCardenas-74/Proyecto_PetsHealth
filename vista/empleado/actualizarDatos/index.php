@@ -18,15 +18,15 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     
         <!--hoja de estilos global-->
-        <link rel="stylesheet" href="../../componente/css/global.css">
+        <link rel="stylesheet" href="../../../componente/css/global.css">
     
         <!--hoja de estilos personalizada-->
-        <link rel="stylesheet" href="../../componente/css/actualizarDatos/actualizarDatos.css">
+        <link rel="stylesheet" href="../../../componente/css/actualizarDatos/actualizarDatos.css">
 
-        <link rel="stylesheet" href="../../componente/css/menu.css">
+        <link rel="stylesheet" href="../../../componente/css/menu.css">
     
         <!--js externo-->
-        <script src="../../js/menu.js"></script>
+        <script src="../../../js/menu.js"></script>
     <title>Actualizar Datos</title>
 </head>
 <body>
@@ -48,7 +48,7 @@
 
         <!--pie de pagina-->
         <footer>
-            <?php include "../piePagina.php" ?>
+            <?php include "../../piePagina.php" ?>
         </footer>
     </div>
     

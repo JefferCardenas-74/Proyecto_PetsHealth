@@ -67,7 +67,7 @@
     padding: 10px 14px;
 }
 
-.menu-items ul li ul a{
+.menu-items .sub_menu ul li a{
     color: #0e0577;
 }
 
@@ -101,7 +101,7 @@
 
     }
 
-    .menu-items ul li a{
+    .menu-items ul li {
         color: #fff;
         text-align: center;
     }

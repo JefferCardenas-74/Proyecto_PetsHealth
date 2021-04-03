@@ -72,7 +72,7 @@ function listarCitas(){
   };
 
   $.ajax({
-    url:'../../controlador/citaControl.php',
+    url:'../../../controlador/citaControl.php',
     data: parametros,
     dataType: 'json',
     type: 'get',
@@ -119,7 +119,7 @@ function mostrarDatosCita(){
   };
 
   $.ajax({
-    url:'../../controlador/citaControl.php',
+    url:'../../../controlador/citaControl.php',
     data: parametros,
     dataType: 'json',
     type: 'post',
@@ -157,7 +157,7 @@ function buscarCliente(cedula){
   };
 
   $.ajax({
-    url:'../../controlador/citaControl.php',
+    url:'../../../controlador/citaControl.php',
     data: parametros,
     type: 'post',
     dataType:'json',
@@ -196,7 +196,7 @@ function buscarMascotasPersona(idPersona){
   };
 
   $.ajax({
-    url: '../../controlador/citaControl.php',
+    url: '../../../controlador/citaControl.php',
     data: parametros,
     dataType: 'json',
     type: 'post',
@@ -230,7 +230,7 @@ function listarEmpleados(){
   }
 
   $.ajax({
-    url:'../../controlador/citaControl.php',
+    url:'../../../controlador/citaControl.php',
     data: parametros,
     type:'post',
     dataType: 'json',
@@ -265,7 +265,7 @@ function buscarProducto() {
   };
 
   $.ajax({
-    url: "../../controlador/productoControl.php",
+    url: "../../../controlador/productoControl.php",
     data: parametros,
     dataType: "json",
     type: "post",

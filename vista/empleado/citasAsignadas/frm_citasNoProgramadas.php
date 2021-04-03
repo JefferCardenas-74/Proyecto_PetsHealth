@@ -71,17 +71,17 @@
     <div class="modal fade" id="registrarCliente" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Opps!</h5>
+                <div class="modal-header barra">
+                    <h5 class="modal-title" style="color:#fff;"">Opps!</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body pompiere">
                     <p>Parece que este cliente no esta registrado :(</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Registrar Cliente</button>
+                    <button type="button" class="btnMorado">Registrar Cliente</button>
                 </div>
             </div>
         </div>
