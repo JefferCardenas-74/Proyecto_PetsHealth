@@ -2,18 +2,27 @@
 
 ?>
 
+<div class="contenedorTitulo">
+    <h1 class="titulo fredoka">Agenda tu cita <i class="fas fa-calendar-week"></i></h1>
+</div>
+
 <section class="lading_page-agendar_Cita">
+
+
+
     <div class="container">
+
+
         <div class="row">
             <div class="col-lg-12">
-                <h2>Cita</h2>
+                <!-- <h2>Cita</h2> -->
 
                 <div class="card">
-                    <div class="card-header text-center">
+                    <!-- <div class="card-header text-center">
                         <h4 class="lead">
                             Agenda tu cita <i class="fas fa-calendar-week"></i>
                         </h4>
-                    </div>
+                    </div> -->
                     <div class="card-body">
                         <form action="">
                             <div class="col">
@@ -73,7 +82,7 @@
                                         <div class="form-group">
                                             <div class="input-group " id="hora" data-target-input="nearest">
                                                 <input type="button" value="Ver horas disponibles"
-                                                    class="form-control  btn  btn-verHoras" require />
+                                                    class="btnNaranja pompiere" require />
                                             </div>
                                         </div>
 
@@ -82,7 +91,7 @@
                                     <div class="mb-3 col-md-3">
                                         <div class="input-group">
                                             <input type="button" value="Escoger" id="btnVerMas"
-                                                class="form-control btn btn-escoger" require />
+                                                class="btn btnMorado pompiere" require />
 
 
                                         </div>
@@ -95,8 +104,8 @@
 
                             <!-- modal para ver los tipos de serivicios -->
 
-                            <div class="modal fade" tabindex="-1" id="modalVerMas">
-                                <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal fade" tabindex="-1" id="modalVerMas" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered ">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h2 class="modal-title"> Seleccione Nuestros servicios</h2>
@@ -160,10 +169,11 @@
 
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-tipoCita success">
+                                            <button type="button" class="btn btnMorado pompiere">
                                                 Aceptar
                                             </button>
-                                            <button type="button" class="btn btn-tipoCita  closed text-gray ms-auto"
+                                            <button type="button"
+                                                class="btn btnNaranja pompiere closed text-gray ms-auto"
                                                 data-bs-dismiss="modal">
                                                 Cerrar
                                             </button>
@@ -178,8 +188,8 @@
                     <!-- modal ver datos -->
 
                     <div class="modal fade" tabindex="-1" id="modalverDatos">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
+                        <div class="modal-dialog modal-dialog-centered ">
+                            <div class="modal-content ">
 
                                 <div class="col-md-12 m-auto col-12 ">
 
@@ -247,7 +257,7 @@
                                         </div>
 
                                         <div class="text-center">
-                                            <button type="button" class="btn btn-closed col-md-4"
+                                            <button type="button" class="btnNaranja pompiere col-md-4"
                                                 data-bs-dismiss="modal">Cerrar</button>
                                         </div>
 
@@ -261,10 +271,10 @@
 
 
                     <div class="card-footer text-center">
-                        <button type="button" class="btn btn-enviaCita btn-lg" type="button">
+                        <button type="button" class="btn btnMorado fredoka btn-lg" type="button">
                             Enviar cita
                         </button>
-                        <button type="button" id="btnVerDatos" class="btn btn-datos btn-lg" type="button">
+                        <button type="button" id="btnVerDatos" class="btn btnNaranja fredoka btn-lg" type="button">
                             ver datos
                         </button>
                     </div>

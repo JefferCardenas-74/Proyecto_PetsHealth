@@ -36,7 +36,7 @@ extract($_REQUEST);
 
     <link rel="stylesheet" href="../../../componente/css/global.css">
     <!-- js del proyecto -->
-    <script src="../../js/global.js"></script>
+    <script src="../../../js/global.js"></script>
     <!-- icono del proyecto -->
     <link rel="icon" href="https://i.imgur.com/ILKE0xE.png">
     <!-- cdn de iconos -->

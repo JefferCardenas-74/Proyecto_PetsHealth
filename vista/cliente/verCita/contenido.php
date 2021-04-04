@@ -3,24 +3,21 @@
 <?php
 
 ?>
+<div class="contenedorTitulo">
+    <h1 class="titulo fredoka">Citas agendadas <i class="fas fa-calendar-check"></i> </h1>
+</div>
 
 <section class="lading_page-agendar_Cita">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <h2>Cita</h2>
-
                 <div class="card">
-                    <div class="card-header text-center">
-                        <h4 class="lead">
-                            Citas agendadas <i class="fas fa-calendar-check"></i>
-                        </h4>
-                    </div>
                     <div class="card-body table-responsive">
-                        <table class="table table-striped ">
+                        <table class="table  ">
                             <thead>
                                 <tr>
-                                    <th scope="col">#</th>
+                                    <th scope="col">
+                                        N°</th>
                                     <th scope="col">Cliente</th>
                                     <th scope="col">Tipo cita</th>
                                     <th scope="col">Fecha</th>
@@ -29,7 +26,7 @@
                                     <th scope="col">Accion</th>
                                 </tr>
                             </thead>
-                            <tbody class="datos">
+                            <tbody class="datos pompiere">
                                 <tr>
                                     <th scope="row">1</th>
                                     <td>Mark</td>
@@ -38,20 +35,22 @@
                                     <td>8:45 :am </td>
                                     <td>No agendada</td>
                                     <td>
-                                        <button type="button" id="btnCancelar" class="btn btn-cancelar" type="button">
+                                        <button type="button" id="btnCancelar" class="
+                                        btnMorado " type="button">
                                             Cancelar
                                         </button>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">1</th>
+                                    <th scope="row">2</th>
                                     <td>Mark</td>
                                     <td>Consulta medica</td>
                                     <td>22/01/2021</td>
                                     <td>8:45 :am </td>
                                     <td>Confirmada</td>
                                     <td>
-                                        <button type="button" id="btnCancelar" class="btn btn-cancelar" type="button">
+                                        <button type="button" id="btnCancelar" class="
+                                        btnMorado " type="button">
                                             Cancelar
                                         </button>
                                     </td>
@@ -63,7 +62,7 @@
                     <!-- modal motivo para cancelar -->
 
                     <div class="modal fade" tabindex="-1" id="modalMotivo">
-                        <div class="modal-dialog">
+                        <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
 
                                 <div class="col-md-12 m-auto col-12 ">
@@ -126,10 +125,10 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn 
-                                            btn-success_modalMotivo">
+                                            btnMorado pompiere">
                                                 Aceptar
                                             </button>
-                                            <button type="button" class="btn btn-closed_modalMotivo
+                                            <button type="button" class="btn btnNaranja pompiere
                                              closed text-gray ms-auto" data-bs-dismiss="modal">
                                                 Cerrar
                                             </button>

@@ -37,7 +37,6 @@
 .menu-items{
     height: 100%;
     transition: all 1s ease;
-    color: #0e0577;
 }
 
 .menu-items ul{
@@ -50,19 +49,22 @@
     list-style: none;
 }
 
-.item a{
+.menu-items li a{
     display: block;
     text-decoration: none;
+    color:var(--colorTitulo) ;
     padding: 1rem;
-    font-family: 'Fredoka One';
-    cursor: pointer;
+    font-family: var(--fuenteTitulos);
 }
 
-.menu a:hover {
+
+.menu .active {
     background: -webkit-linear-gradient(#fc00ff, #00dbde) !important;
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
 }
+
+
 .menu .menu-items .sub_menu > ul{
     display: none;
 }
@@ -76,24 +78,30 @@
     box-shadow: 0 2px 5px rgb(140 152 164 / 20%) ;
     
 }
+
+a:not([href]):not([class]) {
+     color: var(--colorTitulo); 
+     text-decoration: none; 
+}
+
+
+
+
 /* posicion del ultimo menu*/
 .posRight  {
     position: absolute;
     right: 10px;
 }
 
-.menu-items .sub_menu ul li a{
-    color: #0e0577;
-}
-
 /*efecto sticky*/
 
 .menu.sticky{
-background-color: #d1d8fb !important;
-box-shadow: 0 4.4px 10px rgba(0, 0, 0, 0.21), 0 27px 80px rgba(0, 0, 0, 0.086);
+background-color: #FFF;
+
 transition: all 0.5s ease-in-out;
 padding: 10px 12px;
 }
+
 
 /*responsive*/
 
@@ -119,8 +127,8 @@ padding: 10px 12px;
 
     }
 
-    .menu-items ul li {
-        color: #fff;
+    .menu-items ul li a{
+        color: #fff  !important;
         text-align: center;
     }
 
@@ -129,12 +137,12 @@ padding: 10px 12px;
         height: auto;
         padding-top: 10px;
         position: static;
-        background: #fff;
+        background: #fff  !important;
     }
 
 
     .sub_menu ul li a{
-        color: #0e0577;
+        color: #0e0577 !important;
     }
 
     #icono_menu{
