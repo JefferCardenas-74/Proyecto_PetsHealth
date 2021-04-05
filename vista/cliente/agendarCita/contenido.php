@@ -91,7 +91,7 @@
                                     <div class="mb-3 col-md-3">
                                         <div class="input-group">
                                             <input type="button" value="Escoger" id="btnVerMas"
-                                                class="btn btnMorado pompiere" require />
+                                                class="boton btnMorado pompiere" require />
 
 
                                         </div>
@@ -169,11 +169,11 @@
 
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btnMorado pompiere">
+                                            <button type="button" class="boton  btnMorado pompiere">
                                                 Aceptar
                                             </button>
                                             <button type="button"
-                                                class="btn btnNaranja pompiere closed text-gray ms-auto"
+                                                class="btnNaranja pompiere closed text-gray ms-auto"
                                                 data-bs-dismiss="modal">
                                                 Cerrar
                                             </button>
@@ -271,10 +271,10 @@
 
 
                     <div class="card-footer text-center">
-                        <button type="button" class="btn btnMorado fredoka btn-lg" type="button">
+                        <button type="button" class="boton btnMorado fredoka btn-lg" type="button">
                             Enviar cita
                         </button>
-                        <button type="button" id="btnVerDatos" class="btn btnNaranja fredoka btn-lg" type="button">
+                        <button type="button" id="btnVerDatos" class="btnNaranja fredoka btn-lg" type="button">
                             ver datos
                         </button>
                     </div>

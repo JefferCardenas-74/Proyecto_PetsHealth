@@ -42,6 +42,18 @@
   font-size: 70px;
 }
 
+
+
+/* botones */
+.btnNaranja:hover{
+  background: linear-gradient(to right,  #f5af19,#f12711);
+  color: #fff;
+}
+.btnMorado:hover{
+  background: linear-gradient(to right, #6d23ad, #4201c2);
+  color: #fff;
+}
+/* fin botones */
 /* personalizacion de la tabla  ver citas*/
 
 

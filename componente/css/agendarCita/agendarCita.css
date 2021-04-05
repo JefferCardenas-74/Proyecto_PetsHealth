@@ -48,6 +48,12 @@
   font-size: 70px;
 }
 
+
+/* botones */
+.btnNaranja:hover{
+  background: linear-gradient(to right,  #f5af19,#f12711);
+}
+
 /* fin formulario */
 
 /* inputs */

@@ -15,7 +15,7 @@
                 <ul>
                         <li><a class="dropdown-item " href="../agendarCita/">agendar</a></li>
                         <li><a class="dropdown-item active" href="../verCita/">ver</a></li>
-                        <li><a class="dropdown-item" href="../citasAsignadas/">Opciones</a></li>
+                        <li><a class="dropdown-item" href="#">Opciones</a></li>
                 </ul>
             </li>
 
