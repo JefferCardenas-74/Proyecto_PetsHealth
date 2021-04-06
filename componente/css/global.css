@@ -173,12 +173,8 @@ hr {
     padding-top: 400px;
     text-align: center;
   }
-  /* añade borde al navbar */
-  .navbar {
-    background-color: #d1d8fb !important;
-    box-shadow: 0 4.4px 10px rgba(0, 0, 0, 0.21),
-      0 27px 80px rgba(0, 0, 0, 0.086);
-  }
+ 
+  
   /* escondder las imagenes del la seccion about */
   #about::before {
     visibility: hidden;
@@ -196,7 +192,6 @@ hr {
     background-size: cover;
     height: 500px;
     background-position: center center;
-    margin-top: 50px;
   }
 
 }
