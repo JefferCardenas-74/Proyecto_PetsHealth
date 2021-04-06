@@ -139,7 +139,9 @@
 /* fin botones */
 
 /* modal  tipos citas*/
-
+.modal{
+ z-index: 1111;
+}
 .form-check-label {
   font-weight: bold;
   font-size: 1.4em !important;
@@ -155,6 +157,7 @@
   border-image-slice: 1;
 }
 .modal-content {
+  z-index: 1111;
   background-color: #fff;
   background-clip: padding-box;
   border: 0.0625rem solid rgba(46, 54, 80, 0.2);

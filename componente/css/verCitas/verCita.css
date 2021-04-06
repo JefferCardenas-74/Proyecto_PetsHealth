@@ -85,7 +85,10 @@
 
 
 /* modal cancelar cita */
-
+.modal{
+  z-index: 1111;
+ }
+ 
 .form-check-label {
   font-weight: bold;
   font-size: 1.4em !important;
