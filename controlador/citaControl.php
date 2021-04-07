@@ -35,5 +35,10 @@
             $resultado = $dCita->buscarMascota($idPersona);
             echo json_encode($resultado);
             break;
+        
+        case 'listarTipoCita':
+            $resultado = $dCita->listarTipoCita();
+            echo json_encode($resultado);
+            break;
     }
 ?>

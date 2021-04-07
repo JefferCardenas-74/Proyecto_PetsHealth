@@ -23,7 +23,7 @@
             </div>
 
             <!--radio button tipo de encargado-->
-            <label for="chk_tipoEncargado" class="col-form-label fredoka">Tipo de Encargado</label>
+            <!-- <label for="chk_tipoEncargado" class="col-form-label fredoka">Tipo de Encargado</label>
             <div class="form-check">
                 <input type="radio" class="form-check-input" id="chk_dueño" name="chk_tipoEncargado" checked>
                 <label for="chk_dueño" class="form-check-label fredoka">Dueño</label>
@@ -32,11 +32,11 @@
             <div class="form-check">
                 <input type="radio" class="form-check-input" id="chk_otro" name="chk_tipoEncargado">
                 <label for="chk_otro" class="form-check-label fredoka">Otro</label>
-            </div>
+            </div> -->
 
             <!------------------------------->
 
-            <label for="check_domicilio" class="col-form-label fredoka">Domicilio</label>
+            <!-- <label for="check_domicilio" class="col-form-label fredoka">Domicilio</label>
 
             <div class="form-check">
                 <input class="form-check-input" type="radio" id="chk_si" name="chk_radios">
@@ -45,17 +45,13 @@
             <div class="form-check">
                 <input class="form-check-input" type="radio" id="chk_no" name="chk_radios" checked>
                 <label class="form-check-label fredoka" for="chk_no">No</label>
-            </div>
+            </div> -->
         </div>
 
         <div class="col">
             <div class="form-group">
                 <label for="cb_tipoCita" class="col-form-label fredoka">Tipo de Cita</label>
                 <select id="cb_tipoCita" class="form-control fredoka">
-                    <option value="1">Belleza</option>
-                    <option value="2">consulta General</option>
-                    <option value="3">Salud Dental</option>
-                    <option value="4">Pediatria</option>
                 </select>
             </div>
 

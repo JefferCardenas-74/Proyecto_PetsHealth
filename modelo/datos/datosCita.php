@@ -40,7 +40,7 @@
             try{    
 
                 $consulta = 'select cita.idCita, perNombre, serTipo, masNombre from cita inner join citaservicio 
-                on Cita.idCita = citaservicio.idCita inner join servicio
+                on cita.idCita = citaservicio.idCita inner join servicio
                 on servicio.idServicio = citaservicio.idServicio inner join mascota
                 on mascota.idMascota = cita.idMascota inner join persona 
                 on persona.idPersona = mascota.idPersona
@@ -119,6 +119,25 @@
                 $this->retorno->estado = true;
                 $this->retorno->datos = $resultado->fetchAll();
 
+
+            }catch(PDOException $e){
+
+                $this->retorno->mensaje = $e->getMessage();
+                $this->retorno->estado = false;
+                $this->retorno->datos = null;
+            }
+
+            return $this->retorno;
+        }
+
+        function listarTipoCita(){
+            try{
+                $consulta = 'select * from servicio';
+                $resultado = $this->conexion->query($consulta);
+
+                $this->retorno->mensaje = 'tipo de citas';
+                $this->retorno->estado = true;
+                $this->retorno->datos = $resultado->fetchAll();
 
             }catch(PDOException $e){
 

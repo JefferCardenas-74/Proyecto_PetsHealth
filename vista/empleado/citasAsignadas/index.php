@@ -10,7 +10,7 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 <title> PetsHealth |Citas Asignadas</title>
     <meta charset="UTF-8">
@@ -44,7 +44,7 @@
         <!--hoja de estilos personalizada-->
         <link rel="stylesheet" href="../../../componente/css/citasAsignadas/citasAsignadas.css">
         <link rel="stylesheet" href="../../../componente/css/citasAsignadas/cabecera.css">
-        <link rel="stylesheet" href="../../../componente/css/menu.css">
+        <link rel="stylesheet" href="../../../componente/css/menu1.css">
     
         <!--js externo-->
         <script src="../../../js/citasAsignadas/citasAsignadas.js"></script>

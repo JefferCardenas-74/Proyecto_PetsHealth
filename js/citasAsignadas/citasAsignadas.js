@@ -10,8 +10,13 @@ $(function () {
 
   listarCitas();
 
+  /**funcion para listar los tipos de citas */
+  listarTipoCita();
+
 
   /** dinamismo del formulario atender citas*/
+
+  
   $("#chk_dueño").focus(function () {
     $(".empleado").css("display", "none");
     $(".encargado").css("display", "none");
@@ -249,6 +254,38 @@ function listarEmpleados(){
       });
     },
     error:function(e){
+
+    }
+  });
+}
+
+function listarTipoCita(){
+
+  var parametros = {
+    accion: 'listarTipoCita'
+  };
+
+  $.ajax({
+    url: '../../../controlador/citaControl.php',
+    data: parametros,
+    dataType: 'json',
+    type: 'post',
+    cache: false,
+
+    success: function(resultado){
+
+      console.log(resultado);
+
+      $.each(resultado.datos, function(j, dato){
+        const opcion = document.createElement('option');
+        opcion.value = dato.idServicio;
+        opcion.text = dato.serTipo;
+        opcion.setAttribute('class', 'opcion');
+        $('#cb_tipoCita').append(opcion);
+      });
+
+    },
+    error: function(e){
 
     }
   });
