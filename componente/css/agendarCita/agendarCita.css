@@ -234,5 +234,8 @@
   color: #fff;
 }
 
+.form-width .text-modal_datos{
+  font-family: var(--fuenteTitulos);
+}
 
 /* fin estrilos de agendar cita */

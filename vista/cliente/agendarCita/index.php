@@ -65,7 +65,7 @@ extract($_REQUEST);
 
 
     <header><?php include "menu.php" ?></header>
-    <section><?php include "contenido.php" ?> </section>
+    <section><?php include "frmAgendarCita.php" ?> </section>
     <footer><?php include "../../../piePagina.php" ?></footer>
 
 </body>
