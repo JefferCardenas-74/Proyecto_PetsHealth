@@ -35,7 +35,7 @@
 .menu-items{
     height: 100%;
     transition: all 1s ease;
-    color: #0e0577;
+    color:var(--colorTitulo);
 }
 
 .menu-items ul{
@@ -54,6 +54,7 @@
     padding: 1rem;
     font-family: 'Fredoka One';
     cursor: pointer;
+    color:unset;
 }
 
 .menu .menu-items .sub_menu > ul{
@@ -69,6 +70,10 @@
 
 .menu-items .sub_menu ul li a{
     color: #0e0577;
+}
+
+.menu .logo img{
+    width: 7em;
 }
 
 .posRight  {
