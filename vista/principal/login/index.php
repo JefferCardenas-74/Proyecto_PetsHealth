@@ -18,18 +18,18 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     
         <!--hoja de estilos global-->
-        <link rel="stylesheet" href="../../componente/css/global.css">
+        <link rel="stylesheet" href="../../../componente/css/global.css">
     
         <!--hoja de estilos personalizada-->
-        <link rel="stylesheet" href="../../componente/css/login/login.css">
+        <link rel="stylesheet" href="../../../componente/css/login/login.css">
 
-        <link rel="stylesheet" href="../../componente/css/menu.css">
+        <link rel="stylesheet" href="../../../componente/css/menu.css">
 
-        <link rel="stylesheet" href="../../componente/iconos/style.css">
+        <link rel="stylesheet" href="../../../componente/iconos/style.css">
     
         <!--js externo-->
-        <script src="../../js/login/login.js"></script>
-        <script src="../../js/menu.js"></script>
+        <script src="../../../js/login/login.js"></script>
+        <script src="../../../js/menu.js"></script>
 
     <title>login</title>
 </head>
@@ -38,7 +38,7 @@
     <div class="container-fluid">
 
         <!--menu-->
-        <?php include "menu.php"?>
+            <?php include "menu.php"?>
 
         <!--Seccion principal-->
         <section>

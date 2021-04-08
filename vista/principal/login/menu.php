@@ -1,7 +1,7 @@
 <nav class="menu">
 
     <div class="logo">
-        <img src="../../componente/img/logo.jpg" alt="Logo de la empresa" width="30px" height="30px">
+        <img src="../../../componente/img/logo.jpg" alt="Logo de la empresa" width="30px" height="30px">
         <label>Pets Healt</label>
     </div>
 
@@ -11,21 +11,21 @@
     <div class="menu-items uno">
         <ul>
             <li class="item">
-                <a href="#">Home</a>
+                <a>Home</a>
             </li>
             <li class="sub_menu item">
-                <a href="#">Menu Despleglable <i class="fa fa-caret-down"></i></a>
+                <a>Menu Despleglable <i class="fa fa-caret-down"></i></a>
 
                 <ul>
-                    <li><a href="#">menu item 1</a></li>
-                    <li><a href="#">menu item 1</a></li>
+                    <li><a>menu item 1</a></li>
+                    <li><a>menu item 1</a></li>
                 </ul>
             </li>
             <li class="item">
-                <a href="#">About</a>
+                <a>About</a>
             </li>
             <li class="iconoLogin">
-                <a href="#"><i class="icon-enter"></i></a>
+                <a><i class="icon-enter"></i></a>
             </li>
         </ul>
     </div> 
