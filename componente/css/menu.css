@@ -15,14 +15,12 @@
     padding: 12px 14px;
     transition: all .6s;
     z-index: 1111;
-    background-color: transparent ;     
 }
 
-.menu .logo img{
-    width: 7em;
+.logo{
+    font-family: 'Fredoka One';
+    color: #0e0577;
 }
-
-
 
 #btn_menu{
     display: none;
@@ -37,6 +35,7 @@
 .menu-items{
     height: 100%;
     transition: all 1s ease;
+    color: #0e0577;
 }
 
 .menu-items ul{
@@ -49,45 +48,29 @@
     list-style: none;
 }
 
-.menu-items li a{
+.item a{
     display: block;
     text-decoration: none;
-    color:var(--colorTitulo) ;
     padding: 1rem;
-    font-family: var(--fuenteTitulos);
+    font-family: 'Fredoka One';
+    cursor: pointer;
 }
-
-
-.menu .active {
-    background: -webkit-linear-gradient(#fc00ff, #00dbde) !important;
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
-}
-
 
 .menu .menu-items .sub_menu > ul{
     display: none;
 }
-/* border a los menus */
+
 .menu-items ul li ul{
     display: block;
     position: absolute;
     background: #fff;
     padding: 10px 14px;
-    border: 0.0625rem solid rgba(8, 9, 12, 0.125);
-    box-shadow: 0 2px 5px rgb(140 152 164 / 20%) ;
-    
 }
 
-a:not([href]):not([class]) {
-     color: var(--colorTitulo); 
-     text-decoration: none; 
+.menu-items .sub_menu ul li a{
+    color: #0e0577;
 }
 
-
-
-
-/* posicion del ultimo menu*/
 .posRight  {
     position: absolute;
     right: 10px;
@@ -96,23 +79,19 @@ a:not([href]):not([class]) {
 /*efecto sticky*/
 
 .menu.sticky{
-background-color: #FFF;
-
-transition: all 0.5s ease-in-out;
-padding: 10px 12px;
+    background: #fff;
+    padding: 10px 12px;
 }
-
 
 /*responsive*/
 
 @media screen and (max-width: 596px){
 
-
     .menu .menu-items{
         position: fixed;
         top: 0;
         right: 0;
-        width: 100%;   
+        width: 100%;
     }
 
     .menu .menu-items ul{
@@ -127,8 +106,8 @@ padding: 10px 12px;
 
     }
 
-    .menu-items ul li a{
-        color: #fff  !important;
+    .menu-items ul li {
+        color: #fff;
         text-align: center;
     }
 
@@ -137,17 +116,18 @@ padding: 10px 12px;
         height: auto;
         padding-top: 10px;
         position: static;
-        background: #fff  !important;
+        background: #fff;
     }
 
 
     .sub_menu ul li a{
-        color: #0e0577 !important;
+        color: #0e0577;
     }
 
     #icono_menu{
         position: absolute;
         display: flex;
+        top: 10px;
         right: 20px;
         z-index: 2222;
     }
