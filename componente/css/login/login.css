@@ -3,6 +3,13 @@
     padding: 0;
 }
 
+.iconoLogin{
+    display: flex;
+    flex-flow: column;
+    align-content: center;
+    justify-content: center;
+}
+
 .contenedorFormularioLogin{
 
     width: 60%;
