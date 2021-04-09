@@ -1,8 +1,7 @@
 <nav class="menu">
 
     <div class="logo">
-        <img src="../../../componente/img/logo.jpg" alt="Logo de la empresa" width="30px" height="30px">
-        <label>Pets Healt</label>
+        <img src="https://i.imgur.com/yzjVfUS.png" alt="Logo de la empresa" width="100px" height="60px">
     </div>
 
         <input type="checkbox" id="btn_menu">
