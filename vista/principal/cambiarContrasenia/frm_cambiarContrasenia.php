@@ -29,7 +29,7 @@ $parametro=$desencriptar($md5Array[1]);
                     <div class="card-body">
                         <form action="">
                             <!-- campo oculto para obtner el id del usuario de la url-->
-                            <input type="text" name="id_usuarioPassword" id="id_usuarioPassword"
+                            <input type="hidden" name="id_usuarioPassword" id="id_usuarioPassword"
                                 value="<?php echo $parametro?>" />
                             <div class="col">
                                 <div class="row">
