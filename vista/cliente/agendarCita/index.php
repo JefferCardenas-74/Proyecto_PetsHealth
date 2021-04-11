@@ -1,6 +1,14 @@
 <?php
-error_reporting(0);
-extract($_REQUEST);
+session_start();
+if (!isset($_SESSION['idEmpleado'])) {
+    header("location:../../principal/login/?x=3");
+}
+else if ($_SESSION["rol"] !== "Cliente"||$_SESSION["estado"] !== 1) {
+    // si no corresponde se redrije al login con la variable x=4
+    header("location:../../principal/login/?x=4");
+}
+require_once("../../../configuracion/validaciones.php");
+
 ?>
 
 <!DOCTYPE html>
@@ -60,12 +68,16 @@ extract($_REQUEST);
     <!-- script del menu -->
     <script src="../../../js/menu.js"></script>
 
+    <!-- libreria de alerta personalizada -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.4/dist/sweetalert2.all.min.js"></script>
+
+
 
 <body>
 
 
     <header><?php include "menu.php" ?></header>
-    <section><?php include "frmAgendarCita.php" ?> </section>
+    <section><?php include "frm_agendarCita.php" ?> </section>
     <footer><?php include "../../../piePagina.php" ?></footer>
 
 </body>

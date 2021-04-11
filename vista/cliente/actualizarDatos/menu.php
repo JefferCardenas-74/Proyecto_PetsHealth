@@ -38,7 +38,7 @@
                         </li>
                         <li><a class="dropdown-item active " href="../actualizarDatos/">actualizar datos</a></li>
                         <li><a class="dropdown-item" href="#">actualizar mascotas</a></li>
-                        <li><a class="dropdown-item" href="#">cerrar sesion</a></li>
+                        <li><a class="dropdown-item"  id="cerrarSesion"  href="#">cerrar sesion</a></li>
                 </ul>
             </li>
 

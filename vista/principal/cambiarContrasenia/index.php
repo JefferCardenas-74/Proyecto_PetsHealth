@@ -1,20 +1,16 @@
 <?php
-session_start();
-if (!isset($_SESSION['idEmpleado'])) {
-    header("location:../../principal/login/?x=3");
-}
-else if ($_SESSION["rol"] !== "Empleado"||$_SESSION["estado"] !== 1) {
-    // si no corresponde se redrije al login con la variable x=4
-    header("location:../../principal/login/?x=4");
-}
 require_once("../../../configuracion/validaciones.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>PetsHealth | Actualizar Datos</title>
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pets Health | Cambio contraseña</title>
+    <!-- icono del proyecto traida de imgur -->
+    <link rel="icon" href="https://i.imgur.com/ILKE0xE.png">
         <!--cdn de bootstrap-->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 
@@ -31,38 +27,42 @@ require_once("../../../configuracion/validaciones.php");
     
         <!--hoja de estilos global-->
         <link rel="stylesheet" href="../../../componente/css/global.css">
-    <!-- icono del proyecto -->
-    <link rel="icon" href="../../../componente/img/petshealth/logoMini.png">
+    
         <!--hoja de estilos personalizada-->
-        <link rel="stylesheet" href="../../../componente/css/actualizarDatos/actualizarDatos.css">
+        <link rel="stylesheet" href="../../../componente/css/actualizarContraseña/actualizarContraseña.css">
 
         <link rel="stylesheet" href="../../../componente/css/menu.css">
+
+        <link rel="stylesheet" href="../../../componente/iconos/style.css">
     
         <!--js externo-->
+        <script src="../../../js/global.js"></script>
         <script src="../../../js/menu.js"></script>
-    <title>Actualizar Datos</title>
+
+        <!-- script de alerta personalizada -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.4/dist/sweetalert2.all.min.js"></script>
+
+
+
+    <title>login</title>
 </head>
 <body>
 
     <div class="container-fluid">
 
         <!--menu-->
-        <?php include "menu.php"?>
-        
-        <!--cabecara-->
-        <header>
-            <?php include "cabecera.php" ?>
-        </header>
+            <?php include "menu.php"?>
 
         <!--Seccion principal-->
         <section>
-            <?php include "frm_actualizarDatos.php"?>
+            <?php include "frm_cambiarContrasenia.php"?>
         </section>
+        <!-- Pie pagina -->
 
-        <!--pie de pagina-->
         <footer>
-            <?php include "../../../piePagina.php" ?>
+            <?php include "../../../piePagina.php"?>
         </footer>
+
     </div>
     
 </body>

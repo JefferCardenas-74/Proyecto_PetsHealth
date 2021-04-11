@@ -36,6 +36,9 @@ if (!isset($page)) {
     <!-- cdn de iconos -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css">
 
+      <!-- libreria de alerta personalizada -->
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.4/dist/sweetalert2.all.min.js"></script>
+
 </head>
 
 <body>
