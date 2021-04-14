@@ -15,9 +15,11 @@
                 <a class="active" href="#">Inicio</a>
             </li>
             <li class="item">
-                <a href="vista/principal/preguntasFrecuentes/index.php">Preguntas frecuentes</a>
-                <li><a id="login" href="#">Iniciar sesion</a></li>
+                <a href="vista/principal/preguntasFrecuentes/">Preguntas frecuentes</a>
             </li>
+			<li class="item" >
+			<a id="login" href="vista/principal/login/">Iniciar sesion</a>
+			</li>
             <li class="sub_menu item">
                 <a href="#">Acerca de nosotros<i class="fa fa-caret-down"></i></a>
 
@@ -30,4 +32,5 @@
     </div>
 </nav>
 <script src="js/menu.js"></script>
+
 

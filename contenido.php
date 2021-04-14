@@ -1,4 +1,5 @@
 <?php
+require_once("configuracion/validaciones.php");
 ?>
 <section id="about">
     <div class="container">

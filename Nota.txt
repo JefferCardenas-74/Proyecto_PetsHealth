@@ -10,3 +10,25 @@ http://localhost:3000/vista/cliente/citasAsignadas/
 con el pligin no sirvira por que es  ruta absoluta  
 
 Asi que le recomiendo probar el proyecto con apache
+
+
+
+USUARIOS ACTIVOS EN EL SISTEMA: 
+Admin:prueba1
+empleado:prueba2
+cliente:prueba3
+empleado:pueba4
+CONTRASEÑA DE TODOS ES : 1
+
+CUENTA GOOGLE :
+
+CORREO PROYECTO : soporte.petsHealth@gmail.com
+CONTRASEÑA: pets123456789
+
+
+
+Cuando crean un nuevo formulario
+y quieran llamar el script de cerrar sesion
+solo  deben agregar la ruta en el archivo global.js 
+el metodo se llama "cerrarSessionDinamico()"
+

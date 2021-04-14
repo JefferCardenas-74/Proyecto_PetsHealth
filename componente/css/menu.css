@@ -81,6 +81,13 @@
     right: 10px;
 }
 
+.menu .active {
+    background: -webkit-linear-gradient(#fc00ff, #00dbde) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+
 /*efecto sticky*/
 
 .menu.sticky{
@@ -132,7 +139,7 @@
     #icono_menu{
         position: absolute;
         display: flex;
-        top: 10px;
+        /* top: 10px; */
         right: 20px;
         z-index: 2222;
     }

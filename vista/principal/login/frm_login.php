@@ -1,29 +1,34 @@
+<?php
+require_once("../../../configuracion/validaciones.php");
+?>
 <div class="row">
     <div class="col">
         <div class="contenedorFormularioLogin">
 
-            <form action="#">
+            <form id="frm_login" name="frm_login">
 
+                <input type="hidden" name="accion" id="accion" value="iniciarSesion" />
                 <span class="contenedorTituloLogin">
                     <label class="fredoka">Iniciar Sesion</label>
                 </span>
 
                 <div class="contenedorLogin">
-                    <input class="login" type="text" name="email" id="email" placeholder="Usuario">
+                    <input class="login" type="text" id="txt_user" name="txt_user" placeholder="Usuario">
                     <span class="simbolo">
                         <i class="fa fa-envelope" aria-hidden="true"></i>
                     </span>
                 </div>
 
-                <div class="contenedorLogin">                    
-                    <input class="login" type="password" name="password" placeholder="Contraseña" pattern=".{6,}" required>         
-                        <span class="simbolo">
-                            <i class="fa fa-lock" aria-hidden="true"></i>
-                        </span>
+                <div class="contenedorLogin">
+                    <input class="login" type="password" id="txt_password" name="txt_password" placeholder="Contraseña"
+                        pattern=".{6,}" required>
+                    <span class="simbolo">
+                        <i class="fa fa-lock" aria-hidden="true"></i>
+                    </span>
                 </div>
-                
+
                 <div class="ContenedorBtnLogin">
-                    <button type="button" class="btnLogin fredoka">
+                    <button type="button" id="btn_iniciarSesion" class="btnLogin fredoka">
                         Ingresar
                     </button>
                 </div>
@@ -46,14 +51,13 @@
                 </div>
 
             </form>
-                
-        </div>       
-           
-        
 
-    </div>    
+        </div>
+
+
+
+    </div>
 </div>
-
 
 <!--Modal para la interfaz de olvido contraseña-->
 
@@ -61,38 +65,44 @@
     <div class="modal-dialog modal-xl modal-dialog-scrollable">
         <div class="modal-content modal-content-olvidoContraseña">
 
-            <div class="salirModal">
+            <!-- <div class="salirModal">
                 <button type="button" class="close" data-dismiss="modal">
                     <span aria-hidden="true">&times;</span>
                 </button>
-            </div>
+            </div> -->
 
             <div class="modal-header modal-header-olvidoContraseña">
                 <label class="fredoka">Olvido Contraseña</label>
-            </div> 
+            </div>
 
 
             <!--formulario de olvido contraseña-->
             <div class="modal-body modal-body-olvidoContraseña">
                 <div class="container-fluid">
+                    <label class="texto fredoka">Ingresa correo registrado en el sistema
+                    </label>
                     <div class="row">
                         <div class="col">
                             <div class="frm_olvidoPassword">
                                 <form action="#" method="POST">
-                                    <input class="login" type="text" name="emailOlvidoPassword" id="emailOlvidoPassword" placeholder="Correo">
+                                    <input class="login" type="text" name="txt_olvidoPassword" id="txt_olvidoPassword"
+                                        placeholder="Correo">
                                     <span class="simbolo">
                                         <i class="fa fa-envelope" aria-hidden="true"></i>
-                                    </span>                                 
+                                    </span>
                                 </form>
                             </div>
                         </div>
+
                     </div>
+                    <!-- mensaje que aparece cuando el usuario ingrese mal el correo -->
+                    <small id="msgUser" class='text-muted pompiere'></small>
                 </div>
-                <label class="texto fredoka">Digite su correo para enviar nueva contraseña</label>
+
             </div>
             <div class="modal-footer">
-                <button type="button" class="btnNaranja pompiere" id="btn_cerrar" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btnMorado pompiere" id="btn_enviar" data-dismiss="modal">Enviar</button>
+                <button type="button" class="btnNaranja pompiere" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btnMorado pompiere" id="btn_olvidoContrasenia" l>Enviar</button>
             </div>
         </div>
     </div>
@@ -103,7 +113,7 @@
 
 
 <!--Modal para crear cuenta-->
-        
+
 <div class="modal fade" id="crearCuentaModal" aria-hidden="true">
     <div class="modal-dialog modal-xl modal-dialog-scrollable">
         <div class="modal-content modal-content-crearCuenta">
@@ -116,9 +126,9 @@
 
             <div class="modal-header modal-header-crearCuenta">
                 <label class="fredoka">Crear Cuenta</label>
-            </div> 
-        
-        <!--formulario de crear cuenta-->
+            </div>
+
+            <!--formulario de crear cuenta-->
             <div class="modal-body modal-body-crearCuenta">
                 <div class="container-fluid">
                     <div class="row frm_crearCuenta">
@@ -131,7 +141,8 @@
 
                             <div class="form-group">
                                 <label for="txt_apellidos" class="col-form-label fredoka">Apellidos</label>
-                                <input class="cajaTexto" type="text" name="apellidos" id="apellidos" placeholder="Apellidos">
+                                <input class="cajaTexto" type="text" name="apellidos" id="apellidos"
+                                    placeholder="Apellidos">
                             </div>
 
                             <div class="form-group">
@@ -149,16 +160,19 @@
 
                             <div class="form-group">
                                 <label for="txt_contraseña" class="col-form-label fredoka">Contraseña</label>
-                                <input class="cajaTexto" type="password" name="password" placeholder="Contraseña" pattern=".{6,}" required>
+                                <input class="cajaTexto" type="password" name="password" placeholder="Contraseña"
+                                    pattern=".{6,}" required>
                             </div>
 
                             <br>
 
                             <div class="botones">
-                                <button type="button" class="btnNaranja pompiere" id="btn_cerrarCuenta" data-dismiss="modal">Cerrar</button>
-                                <button type="button" class="btnMorado pompiere" id="btn_registrar" data-dismiss="modal">Registrarse</button>
+                                <button type="button" class="btnNaranja pompiere" id="btn_cerrarCuenta"
+                                    data-dismiss="modal">Cerrar</button>
+                                <button type="button" class="btnMorado pompiere" id="btn_registrar"
+                                    data-dismiss="modal">Registrarse</button>
                             </div>
-                            
+
 
                         </div>
 
@@ -170,5 +184,3 @@
         </div>
     </div>
 </div>
-
-

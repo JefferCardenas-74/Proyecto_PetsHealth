@@ -1,13 +1,13 @@
 <?php
 session_start();
 if (!isset($_SESSION['idEmpleado'])) {
-    header("location:../../principal/login/?x=3");
+    header("location:../principal/login/?x=3");
 }
-else if ($_SESSION["rol"] !== "Cliente"||$_SESSION["estado"] !== 1) {
+else if ($_SESSION["rol"] !== "Empleado"||$_SESSION["estado"] !== 1) {
     // si no corresponde se redrije al login con la variable x=4
-    header("location:../../principal/login/?x=4");
+    header("location:../principal/login/?x=4");
 }
-require_once("../../../configuracion/validaciones.php");
+require_once("../../configuracion/validaciones.php");
 ?>
 
 <!DOCTYPE html>
@@ -17,19 +17,19 @@ require_once("../../../configuracion/validaciones.php");
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PetsHealth | Cita</title>
+    <title>PetsHealth | Empleado</title>
 
     <!-- trayendome los stilos del index -->
 
     <!-- archivo normalize -->
-    <link rel="stylesheet" href="../../../componente/css/normalize.css">
+    <link rel="stylesheet" href="../../componente/css/normalize.css">
     <!-- importar librerias  Boostrap-->
     <!-- Uso de boostrap -->
-    <link rel="stylesheet" href="../../../componente/librerias/boostrap5.0beta/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../componente/librerias/boostrap5.0beta/css/bootstrap.min.css" />
     <!-- uso de jquery -->
-    <script src="../../../componente/librerias/jquery-3.5.1/jquery-3.5.1.min.js"></script>
+    <script src="../../componente/librerias/jquery-3.5.1/jquery-3.5.1.min.js"></script>
     <!-- boostrap js -->
-    <script src="../../../componente/librerias/boostrap5.0beta/js/bootstrap.min.js"></script>
+    <script src="../../componente/librerias/boostrap5.0beta/js/bootstrap.min.js"></script>
     <!-- popper b -->
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <!-- fuente de texto -->
@@ -39,15 +39,15 @@ require_once("../../../configuracion/validaciones.php");
 
 
 
-    <link rel="stylesheet" href="../../../componente/css/global.css">
+    <link rel="stylesheet" href="../../componente/css/global.css">
     <!-- js del proyecto -->
-    <script src="../../../js/global.js"></script>
+    <script src="../../js/global.js"></script>
     <!-- icono del proyecto -->
-    <link rel="icon" href="https://i.imgur.com/ILKE0xE.png">
+    <link rel="icon" href="../../componente/img/petshealth/logoMini.png">
     <!-- cdn de iconos -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css">
-    <!-- css de agendarCita -->
-    <link rel="stylesheet" href="../../../componente/css/verCitas/verCita.css">
+    <!-- css del administrador -->
+    <!-- <link rel="stylesheet" href="../../componente/css/agendarCita/agendarCita.css"> -->
 
 
     <!-- librerias para datePicker -->
@@ -62,22 +62,19 @@ require_once("../../../configuracion/validaciones.php");
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
-    <!-- libreria de alerta personalizada -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.4/dist/sweetalert2.all.min.js"></script>
-
-
     <!-- estilos del menu -->
-    <link rel="stylesheet" href="../../../componente/css/menu.css">
+    <link rel="stylesheet" href="../../componente/css/menu.css">
     <!-- script del menu -->
-    <script src="../../../js/menu.js"></script>
-
+    <script src="../../js/menu.js"></script>
+  <!-- libreria de alerta personalizada -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.4/dist/sweetalert2.all.min.js"></script>
 
 <body>
 
 
     <header><?php include "menu.php" ?></header>
     <section><?php include "contenido.php" ?> </section>
-    <footer><?php include "../../../piePagina.php" ?></footer>
+    <footer><?php include "../../piePagina.php" ?></footer>
 
 </body>
 </html>
