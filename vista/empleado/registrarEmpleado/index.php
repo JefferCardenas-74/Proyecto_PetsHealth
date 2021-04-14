@@ -44,7 +44,7 @@
     <!--hoja de estilos personalizada-->
     <link rel="stylesheet" href="../../../componente/css/registrarEmpleado/registrarEmpleado.css">
     <link rel="stylesheet" href="../../../componente/css/citasAsignadas/cabecera.css">
-    <link rel="stylesheet" href="../../../componente/css/menu1.css">
+    <link rel="stylesheet" href="../../../componente/css/menu.css">
 
     <!--js externo-->
     <script src="../../../js/registrarEmpleado/registrarEmpleado.js"></script>

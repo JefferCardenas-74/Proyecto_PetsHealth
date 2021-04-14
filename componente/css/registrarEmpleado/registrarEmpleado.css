@@ -14,3 +14,34 @@
 .titulo{
     font-size: 70px;
 }
+
+#frmEmpleado{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-content: center;
+    margin-bottom: 30px;
+}
+
+.contenedorFormulario{
+    width: 70%;
+    background: #fff;
+    border-radius: 20px;
+    padding: 25px;
+}
+
+#contenedorBotonRegistrar{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+@media screen and (max-width: 556px){
+
+    #frmEmpleado{
+        
+        display: flex;
+        justify-content: center;
+    }
+
+}

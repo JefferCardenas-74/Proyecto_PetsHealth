@@ -3,16 +3,16 @@
 class Empleado extends Persona{
 
     private $idEmpleado;
-    private $idCargo;
+    private $cargo;
     private $fechaIngreso;
 
     function __construct($idEmpleado = null,
-    Cargo $idCargo = null, $fechaIngreso = null, $idPersona = null, TipoDocumento $idTipoDocumento = null, $identificacion = null, $nombre = null, $apellido = null, $telefono = null, $correo = null){
+    Cargo $cargo = null, $fechaIngreso = null, $idPersona = null, $identificacion = null, $nombre = null, $apellido = null, $telefono = null, $correo = null){
 
-        parent::__construct($idPersona, $idTipoDocumento, $identificacion, $nombre, $apellido, $telefono, $correo);
+        parent::__construct($idPersona, $identificacion, $nombre, $apellido, $telefono, $correo);
 
         $this->idEmpleado = $idEmpleado;
-        $this->idCargo = $idCargo;
+        $this->cargo = $cargo;
         $this->fechaIngreso = $fechaIngreso;
     
     }
@@ -25,12 +25,12 @@ class Empleado extends Persona{
         $this->idEmpleado = $idEmpleado;
     }
 
-    function getIdCargo(){
-        return $this->idCargo;
+    function getCargo(){
+        return $this->cargo;
     }
 
-    function setIdCargo($idCargo){
-        $this->idCargo = $idCargo;
+    function setCargo($cargo){
+        $this->cargo = $cargo;
     }
 
     function getFechaIngreso(){
