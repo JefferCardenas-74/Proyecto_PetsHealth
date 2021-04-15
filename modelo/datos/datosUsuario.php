@@ -28,7 +28,7 @@ class datosUsuario
             $resultado = $this->conexion->prepare($sql);
             $resultado->bindParam(1, $user->getLogin());
             $resultado->bindParam(2, $user->getPassword());
-            $resultado->econexionecute();
+            $resultado->execute();
             if ($resultado->rowCount() > 0) {
                 $this->retorno->mensaje = "Datos del Empleado";
                 $this->retorno->estado = true;
@@ -38,7 +38,7 @@ class datosUsuario
                 $this->retorno->estado = false;
                 $this->retorno->datos = null;
             }
-        } catch (PDOEconexionception $econexion) {
+        } catch (PDOException $econexion) {
             $this->retorno->estado = false;
             $this->retorno->mensaje = $econexion->getMessage();
             $this->retorno->datos = null;
@@ -68,7 +68,7 @@ class datosUsuario
                 $this->retorno->mensaje = "No econexioniste usuario con ese correo en nuestro sistema ";
             }
             $this->retorno->datos = $resultado->fetchObject();
-        } catch (PDOEconexionception $econexion) {
+        } catch (PDOException $econexion) {
             $this->retorno->estado = false;
             $this->retorno->mensaje = $econexion->getMessage();
             $this->retorno->datos = null;
@@ -94,7 +94,7 @@ class datosUsuario
                 $this->retorno->mensaje = "Error al cambiar la Contraseña del usuario";
             }
             $this->retorno->datos = $resultado->fetchObject();
-        } catch (PDOEconexionception $econexion) {
+        } catch (PDOException $econexion) {
             $this->retorno->estado = false;
             $this->retorno->mensaje = $econexion->getMessage();
             $this->retorno->datos = null;
@@ -140,7 +140,7 @@ class datosUsuario
             $this->retorno->estado = true;
             $this->retorno->datos = null;
 
-        }catch(PDOEconexionception $e){
+        }catch(PDOException $e){
 
             $this->conexion->rollBack();
 
