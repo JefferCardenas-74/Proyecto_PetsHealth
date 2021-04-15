@@ -31,10 +31,7 @@
 
             //se registra el empleado a la base de datos y se obtiene el id de la persona para relacionarlo con el usuario
             $idPersona = $dEmpleado->registrarEmpleado($empleado);
-
-            print_r($idPersona);
             
-
             /**administrador - empleado 
              * empleado
              * cliente
@@ -54,15 +51,13 @@
                 $listaRol[0] = $rolM;
 
             }
-            
+            /**se obtiene el idPersona del atributo datos del objeto retorno */
             $id = $idPersona->datos;
-
-            print_r($id);
-
+            /**se encripta la contrasenia con md5 */
             $contra = md5($identificacion);
 
             $usuario = new Usuario(null, $id, $email, $contra, $listaRol);
-            
+                
             $resultado = $dUsuario->registrarUsuario($usuario);
 
             echo json_encode($resultado);

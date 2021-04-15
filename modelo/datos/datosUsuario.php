@@ -38,9 +38,9 @@ class datosUsuario
                 $this->retorno->estado = false;
                 $this->retorno->datos = null;
             }
-        } catch (PDOException $econexion) {
+        } catch (PDOException $ex) {
             $this->retorno->estado = false;
-            $this->retorno->mensaje = $econexion->getMessage();
+            $this->retorno->mensaje = $ex->getMessage();
             $this->retorno->datos = null;
         }
         return $this->retorno;
@@ -50,7 +50,7 @@ class datosUsuario
      * Obtengo el usuario  mediante el correo
      * para recuperar contraseña
      */
-    public function obtenerUsuario($tconexiontUser)
+    public function obtenerUsuario($txtUser)
     {
         try {
             $sql = "SELECT  p.perIdentificacion ,p.perCorreo ,
@@ -58,19 +58,19 @@ class datosUsuario
             INNER JOIN usuario as u on u.idPersona=p.idPersona
             WHERE p.perCorreo=?";
             $resultado = $this->conexion->prepare($sql);
-            $resultado->bindParam(1, $tconexiontUser);
-            $resultado->econexionecute();
+            $resultado->bindParam(1, $txtUser);
+            $resultado->execute();
             if ($resultado->rowCount() > 0) {
                 $this->retorno->estado = true;
                 $this->retorno->mensaje = "datos del usuario";
             } else {
                 $this->retorno->estado = false;
-                $this->retorno->mensaje = "No econexioniste usuario con ese correo en nuestro sistema ";
+                $this->retorno->mensaje = "No existe usuario con ese correo en nuestro sistema ";
             }
             $this->retorno->datos = $resultado->fetchObject();
-        } catch (PDOException $econexion) {
+        } catch (PDOException $ex) {
             $this->retorno->estado = false;
-            $this->retorno->mensaje = $econexion->getMessage();
+            $this->retorno->mensaje = $ex->getMessage();
             $this->retorno->datos = null;
         }
         return $this->retorno;
@@ -84,19 +84,19 @@ class datosUsuario
             $resultado = $this->conexion->prepare($sql);
             $resultado->bindParam(1, $password);
             $resultado->bindParam(2, $idUsuario);
-            $resultado->econexionecute();
+            $resultado->execute();
             // validar si hubo cambios en las filas   
             if ($resultado->rowCount() > 0) {
                 $this->retorno->estado = true;
-                $this->retorno->mensaje = "Contraseña del usuario actualizado con econexionito";
+                $this->retorno->mensaje = "Contraseña del usuario actualizado con exito";
             } else {
                 $this->retorno->estado = false;
                 $this->retorno->mensaje = "Error al cambiar la Contraseña del usuario";
             }
             $this->retorno->datos = $resultado->fetchObject();
-        } catch (PDOException $econexion) {
+        } catch (PDOException $ex) {
             $this->retorno->estado = false;
-            $this->retorno->mensaje = $econexion->getMessage();
+            $this->retorno->mensaje = $ex->getMessage();
             $this->retorno->datos = null;
         }
         return $this->retorno;
@@ -116,7 +116,7 @@ class datosUsuario
             $resultado->bindParam(2, $usuario->getLogin());
             $resultado->bindParam(3, $usuario->getPassword());
 
-            $resultado->econexionecute();
+            $resultado->execute();
 
             /**se obtiene le id del usuario para hacer la relacion con la tabla rol */
             $idUsuario = $this->conexion->lastInsertId();
@@ -131,12 +131,12 @@ class datosUsuario
                 $resultado = $this->conexion->prepare($consulta);
                 $resultado->bindParam(1, $usuario->getIdUsuario());
                 $resultado->bindParam(2, $usuario->getListaRol()[$j]->getIdRol());
-                $resultado->econexionecute();
+                $resultado->execute();
             }
 
             $this->conexion->commit();
 
-            $this->retorno->mensaje = 'Usuario agregado con econexionito';
+            $this->retorno->mensaje = 'Usuario agregado con exito';
             $this->retorno->estado = true;
             $this->retorno->datos = null;
 
