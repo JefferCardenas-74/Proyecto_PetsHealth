@@ -88,7 +88,7 @@
         function buscarCliente($cedula){
             try{    
 
-                $consulta = 'select persona.idPersona, perNombre, perApellido, masNombre from persona inner join mascota
+                $consulta = 'select persona.idPersona, perIdentificacion, perNombre, perApellido, masNombre from persona inner join mascota
                 on persona.idPersona = mascota.idPersona
                 where perIdentificacion = ?';
                 $resultado = $this->conexion->prepare($consulta);
@@ -107,13 +107,12 @@
             return $this->retorno;
         }
 
-        function buscarMascota($idPersona){
+        function buscarMascota($cedula){
             try{
 
-                $consulta = 'select idMascota, masNombre from mascota inner join persona
-                on persona.idPersona = ?';
+                $consulta = 'select idMascota, masNombre from mascota inner join persona on persona.idPersona = mascota.idPersona where persona.perIdentificacion = ?';
                 $resultado = $this->conexion->prepare($consulta);
-                $resultado->execute(array($idPersona));
+                $resultado->execute(array($cedula));
 
                 $this->retorno->mensaje = 'mascotas del cliente solicitado';
                 $this->retorno->estado = true;

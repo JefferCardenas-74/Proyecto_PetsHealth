@@ -1,12 +1,12 @@
 <?php
 class datosUsuario
 {
-    private $miConexion;
+    private $conexion;
     private $retorno;
 
     public function __construct()
     {
-        $this->miConexion = Conexion::singleton();
+        $this->conexion = conexion::singleton();
         $this->retorno = new stdClass();
     }
 
@@ -25,10 +25,10 @@ class datosUsuario
               ur.idUsuario=u.idUsuario inner join rol  as r on r.idRol=ur.idRol
               where usuLogin=? and usuPassword=?";
 
-            $resultado = $this->miConexion->prepare($sql);
+            $resultado = $this->conexion->prepare($sql);
             $resultado->bindParam(1, $user->getLogin());
             $resultado->bindParam(2, $user->getPassword());
-            $resultado->execute();
+            $resultado->econexionecute();
             if ($resultado->rowCount() > 0) {
                 $this->retorno->mensaje = "Datos del Empleado";
                 $this->retorno->estado = true;
@@ -38,9 +38,9 @@ class datosUsuario
                 $this->retorno->estado = false;
                 $this->retorno->datos = null;
             }
-        } catch (PDOException $ex) {
+        } catch (PDOEconexionception $econexion) {
             $this->retorno->estado = false;
-            $this->retorno->mensaje = $ex->getMessage();
+            $this->retorno->mensaje = $econexion->getMessage();
             $this->retorno->datos = null;
         }
         return $this->retorno;
@@ -50,27 +50,27 @@ class datosUsuario
      * Obtengo el usuario  mediante el correo
      * para recuperar contraseña
      */
-    public function obtenerUsuario($txtUser)
+    public function obtenerUsuario($tconexiontUser)
     {
         try {
             $sql = "SELECT  p.perIdentificacion ,p.perCorreo ,
              p.perNombre ,p.perApellido ,u.idUsuario  FROM persona as p
             INNER JOIN usuario as u on u.idPersona=p.idPersona
             WHERE p.perCorreo=?";
-            $resultado = $this->miConexion->prepare($sql);
-            $resultado->bindParam(1, $txtUser);
-            $resultado->execute();
+            $resultado = $this->conexion->prepare($sql);
+            $resultado->bindParam(1, $tconexiontUser);
+            $resultado->econexionecute();
             if ($resultado->rowCount() > 0) {
                 $this->retorno->estado = true;
                 $this->retorno->mensaje = "datos del usuario";
             } else {
                 $this->retorno->estado = false;
-                $this->retorno->mensaje = "No existe usuario con ese correo en nuestro sistema ";
+                $this->retorno->mensaje = "No econexioniste usuario con ese correo en nuestro sistema ";
             }
             $this->retorno->datos = $resultado->fetchObject();
-        } catch (PDOException $ex) {
+        } catch (PDOEconexionception $econexion) {
             $this->retorno->estado = false;
-            $this->retorno->mensaje = $ex->getMessage();
+            $this->retorno->mensaje = $econexion->getMessage();
             $this->retorno->datos = null;
         }
         return $this->retorno;
@@ -81,22 +81,22 @@ class datosUsuario
     {
         try {
             $sql = "UPDATE usuario SET usuPassword=? WHERE idUsuario=?";
-            $resultado = $this->miConexion->prepare($sql);
+            $resultado = $this->conexion->prepare($sql);
             $resultado->bindParam(1, $password);
             $resultado->bindParam(2, $idUsuario);
-            $resultado->execute();
+            $resultado->econexionecute();
             // validar si hubo cambios en las filas   
             if ($resultado->rowCount() > 0) {
                 $this->retorno->estado = true;
-                $this->retorno->mensaje = "Contraseña del usuario actualizado con exito";
+                $this->retorno->mensaje = "Contraseña del usuario actualizado con econexionito";
             } else {
                 $this->retorno->estado = false;
                 $this->retorno->mensaje = "Error al cambiar la Contraseña del usuario";
             }
             $this->retorno->datos = $resultado->fetchObject();
-        } catch (PDOException $ex) {
+        } catch (PDOEconexionception $econexion) {
             $this->retorno->estado = false;
-            $this->retorno->mensaje = $ex->getMessage();
+            $this->retorno->mensaje = $econexion->getMessage();
             $this->retorno->datos = null;
         }
         return $this->retorno;
@@ -116,7 +116,7 @@ class datosUsuario
             $resultado->bindParam(2, $usuario->getLogin());
             $resultado->bindParam(3, $usuario->getPassword());
 
-            $resultado->execute();
+            $resultado->econexionecute();
 
             /**se obtiene le id del usuario para hacer la relacion con la tabla rol */
             $idUsuario = $this->conexion->lastInsertId();
@@ -124,23 +124,23 @@ class datosUsuario
 
             /**se obtiene el tamaño del arreglo de roles para saber cuantos insert se van a hacer a la tabla pivote usuarioroles*/
             $tamaño = count($usuario->getListaRol());
-            $consulta = 'insert into usuarioroles values (?,?)';
+            $consulta = 'insert into usuariorol values (null,?,?, 1)';
 
             for($j = 0; $j < $tamaño; $j++){
 
                 $resultado = $this->conexion->prepare($consulta);
                 $resultado->bindParam(1, $usuario->getIdUsuario());
                 $resultado->bindParam(2, $usuario->getListaRol()[$j]->getIdRol());
-                $resultado->execute();
+                $resultado->econexionecute();
             }
 
             $this->conexion->commit();
 
-            $this->retorno->mensaje = 'Usuario agregado con exito';
+            $this->retorno->mensaje = 'Usuario agregado con econexionito';
             $this->retorno->estado = true;
             $this->retorno->datos = null;
 
-        }catch(PDOException $e){
+        }catch(PDOEconexionception $e){
 
             $this->conexion->rollBack();
 

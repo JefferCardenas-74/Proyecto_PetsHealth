@@ -1,17 +1,17 @@
 <?php
 
-    class Usuario extends Persona{
+    class Usuario{
 
         private $idUsuario;
+        private $idPersona;
         private $login;
         private $password;
         private $listaRol;
 
-        public function __construct($idUsuario=null, $login = null, $password=null, $listaRol=null, $idPersona = null, $nombre = null, $apellido = null, $telefono = null, $correo = null) {
-
-            parent::__construct($idPersona, $nombre, $apellido, $telefono, $correo);
+        public function __construct($idUsuario = null, $idPersona=null, $login = null, $password=null, $listaRol=null) {
 
             $this->idUsuario = $idUsuario;
+            $this->idPersona = $idPersona;
             $this->login = $login;
             $this->password = $password;
             $this->listaRol = $listaRol;               
@@ -25,6 +25,16 @@
         function setIdUsuario($idUsuario){
 
             $this->idUsuario = $idUsuario;
+        }
+
+        function getIdPersona(){
+        
+            return $this->idPersona;
+        }
+
+        function setIdPersona($idPersona){
+
+            $this->idPersona = $idPersona;
         }
 
         function getLogin(){

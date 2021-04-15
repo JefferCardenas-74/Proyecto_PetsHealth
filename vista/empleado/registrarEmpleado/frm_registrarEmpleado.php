@@ -41,13 +41,6 @@
                         </div>
 
                         <div>
-                            <label for="cb_cargo" class="fredoka">Cargo</label>
-                            <select name="cb_cargo" id="cb_cargo" class="cajaTexto">
-                                <option value="0">Seleccione</option>
-                            </select>
-                        </div>
-
-                        <div>
                             <label for="cb_rol" class="fredoka">Rol</label>
                             <select name="cb_rol" id="cb_rol" class="cajaTexto">
                                 <option value="0">Seleccione</option>

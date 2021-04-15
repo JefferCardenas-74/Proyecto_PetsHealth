@@ -27,11 +27,7 @@
 
             $email = $correo;
 
-            $cargoM = new Cargo($cargo, null);
-
-            $empleado = new Empleado(null, $cargoM, $fechaIngreso, null, $identificacion, $nombre, $apellido, $telefono, $email);
-
-            
+            $empleado = new Empleado(null, $fechaIngreso, null, $identificacion, $nombre, $apellido, $telefono, $email);
 
             //se registra el empleado a la base de datos y se obtiene el id de la persona para relacionarlo con el usuario
             $idPersona = $dEmpleado->registrarEmpleado($empleado);
@@ -63,7 +59,9 @@
 
             print_r($id);
 
-            $usuario = new Usuario(null, $id, $email, $password, $listaRol);
+            $contra = md5($identificacion);
+
+            $usuario = new Usuario(null, $id, $email, $contra, $listaRol);
             
             $resultado = $dUsuario->registrarUsuario($usuario);
 

@@ -35,12 +35,11 @@
                 print_r($empleado);
 
                 //se agrega a la tabla empleado
-                $consulta = 'insert into empleado values (null,?,?,?)';
+                $consulta = 'insert into empleado values (null,?,?)';
                 $resultado = $this->conexion->prepare($consulta);
 
                 $resultado->bindParam(1, $empleado->getIdPersona());
-                $resultado->bindParam(2, $empleado->getCargo()->getIdCargo());
-                $resultado->bindParam(3, $empleado->getFechaIngreso());
+                $resultado->bindParam(2, $empleado->getFechaIngreso());
 
                 $resultado->execute();
 
