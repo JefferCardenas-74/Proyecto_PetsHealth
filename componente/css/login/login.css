@@ -45,6 +45,7 @@ form{
 }
 
 .contenedorLogin {
+    display: flex;
     position: relative;
     width: 100%;
     z-index: 1;
