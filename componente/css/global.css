@@ -50,7 +50,7 @@ hr {
 
 .fredoka{
   font-family: var(--fuenteTitulos);
-  color: #0c0733;
+  color: var(--colorTitulo);
 }
 .barra{
   background: linear-gradient(to right, var(--colorBarra1), var(--colorBarra2));

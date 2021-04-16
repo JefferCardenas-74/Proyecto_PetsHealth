@@ -11,20 +11,20 @@
     <div class="menu-items uno">
         <ul>
         <li class="sub_menu item">
-                <a href="#">Cita<i class="fa fa-caret-down"></i></a>
+                <a href="#">Empleados<i class="fa fa-caret-down"></i></a>
                 <ul>
-                        <li><a class="dropdown-item active" href="#">agendar</a></li>
-                        <li><a class="dropdown-item" href="../verCita/">ver</a></li>
+                        <li><a class="dropdown-item " href="#">Ver Empleados</a></li>
+                        <li><a class="dropdown-item" href="../administrador/registrarEmpleado/">Registrar empleado</a></li>
                         <li><a class="dropdown-item" href="#">Opciones</a></li>
                 </ul>
             </li>
 
             <li class="sub_menu item">
-                <a href="#">Mascota<i class="fa fa-caret-down"></i></a>
+                <a href="#">Estadisticas<i class="fa fa-caret-down"></i></a>
                 <ul>
-                        <li><a class="dropdown-item" href="#">agregar</a></li>
-                        <li><a class="dropdown-item" href="../verCita/">ver</a></li>
-                        <li><a class="dropdown-item" href="#">opciones</a></li>
+                        <li><a class="dropdown-item" href="#">Reporte grafico</a></li>
+                        <li><a class="dropdown-item" href="../verCita/">Reporte pdf citas</a></li>
+                        <li><a class="dropdown-item" href="#">Mas</a></li>
                 </ul>
             </li>
 

@@ -153,6 +153,7 @@ function listarCliente() {
         success: function (resultado) {
             if (resultado.estado) {
                 let clientes = resultado.datos;
+                console.log(clientes);
                 $.each(clientes, function (i, cliente) {
                     $("#cb_cliente").append(
                         "<option value=" + cliente.idMascota + ">" +

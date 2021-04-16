@@ -156,6 +156,8 @@ function mostrarDatosCita(){
 }
 function buscarCliente(cedula){
 
+  var cedulaNueva;
+
   let parametros = {
     accion:'buscarCliente',
     cedula: cedula
@@ -170,19 +172,22 @@ function buscarCliente(cedula){
 
     success:function(resultado){
 
+      console.log(resultado.datos);
       if(resultado.datos.length > 0){
 
         $.each(resultado.datos, function(j, dato){
 
-            var idPersona = dato.idPersona;
-            $('#txt_encargado').val(dato.perNombre +' '+ dato.perApellido);
-            buscarMascotasPersona(idPersona);
+          cedulaNueva = dato.perIdentificacion;
+          $('#txt_encargado').val(dato.perNombre +' '+ dato.perApellido);
 
         }); 
+
+        buscarMascotasPersona(cedulaNueva);
+
       }else{
-        
-        $('#registrarCliente').modal();
+          $('#registrarCliente').modal();
       }
+
 
 
     },
@@ -193,11 +198,12 @@ function buscarCliente(cedula){
 
 }
 
-function buscarMascotasPersona(idPersona){
+function buscarMascotasPersona(cedula){
 
+  $('.opcion').remove();
   var parametros = {
     accion:'buscarMascotas',
-    idPersona: idPersona
+    cedula: cedula
   };
 
   $.ajax({
@@ -211,12 +217,16 @@ function buscarMascotasPersona(idPersona){
 
       console.log(resultado);
 
-      $.each(resultado.datos, function(j, dato){
-        var option = document.createElement('option');
+      var mascotas = resultado.datos;
+
+      $.each(mascotas, function(j, dato){
+
+        const option = document.createElement('option');
         option.setAttribute('class', 'opcion');
         option.value = dato.idMascota;
         option.text = dato.masNombre;
         $('#cb_mascota').append(option);
+
       });
     },
     error: function(e){
@@ -280,7 +290,7 @@ function listarTipoCita(){
         const opcion = document.createElement('option');
         opcion.value = dato.idServicio;
         opcion.text = dato.serTipo;
-        opcion.setAttribute('class', 'opcion');
+        opcion.setAttribute('class', 'opcionCita');
         $('#cb_tipoCita').append(opcion);
       });
 

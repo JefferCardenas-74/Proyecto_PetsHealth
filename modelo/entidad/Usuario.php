@@ -1,53 +1,69 @@
 <?php
 
-class Usuario {
+    class Usuario{
 
-    private $idUsuario;
-    private $empleado;
-    private $login;
-    private $password;
-    
-    public function __construct($idUsuario=null, Empleado $empleado=null, 
-            $login=null, $password=null) {
-        $this->idUsuario = $idUsuario;
-        $this->empleado = $empleado;
-        $this->login = $login;
-        $this->password = $password;
+        private $idUsuario;
+        private $idPersona;
+        private $login;
+        private $password;
+        private $listaRol;
+
+        public function __construct($idUsuario = null, $idPersona=null, $login = null, $password=null, $listaRol=null) {
+
+            $this->idUsuario = $idUsuario;
+            $this->idPersona = $idPersona;
+            $this->login = $login;
+            $this->password = $password;
+            $this->listaRol = $listaRol;               
+        }
+
+        function getIdUsuario(){
+        
+            return $this->idUsuario;
+        }
+
+        function setIdUsuario($idUsuario){
+
+            $this->idUsuario = $idUsuario;
+        }
+
+        function getIdPersona(){
+        
+            return $this->idPersona;
+        }
+
+        function setIdPersona($idPersona){
+
+            $this->idPersona = $idPersona;
+        }
+
+        function getLogin(){
+        
+            return $this->login;
+        }
+
+        function setLogin($login){
+
+            $this->login = $login;
+        }
+
+        function getPassword(){
+        
+            return $this->password;
+        }
+
+        function setPassword($password){
+            
+            $this->password = $password;
+        }
+
+        function getListaRol(){
+            return $this->listaRol;
+        }
+
+        function setListaRol($listaRol){
+            $this->listaRol = $listaRol;
+        }
     }
 
-    public function getIdUsuario() {
-        return $this->idUsuario;
-    }
-
-    public function getEmpleado() {
-        return $this->empleado;
-    }
-
-    public function getLogin() {
-        return $this->login;
-    }
-
-    public function getPassword() {
-        return $this->password;
-    }
-
-
-    public function setIdUsuario($idUsuario) {
-        $this->idUsuario = $idUsuario;
-    }
-
-    public function setEmpleado($empleado) {
-        $this->empleado = $empleado;
-    }
-
-    public function setLogin($login) {
-        $this->login = $login;
-    }
-
-    public function setPassword($password) {
-        $this->password = $password;
-    }
-
-
-
-}
+?>

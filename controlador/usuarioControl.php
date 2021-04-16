@@ -6,8 +6,10 @@ include "../modelo/entidad/Usuario.php";
 include "../modelo/datos/datosUsuario.php";
 require_once("../modelo/datos/enviarCorreo.php");
 require_once("../configuracion/encriptar.php");
+require_once("../configuracion/fechaHora.php");
 
-date_default_timezone_set('America/Bogota');
+
+
 error_reporting(0);
 $dUsuario = new DatosUsuario();
 
@@ -22,7 +24,7 @@ switch ($accion) {
         $resultado = $dUsuario->iniciarSesion($user);
         // se crea las varibales de session donde se guardaran los datos
         $_SESSION["idEmpleado"] = $resultado->datos->idEmpleado;
-        $_SESSION["nombreEmpleado"] = $resultado->datos->perNombre . "" .
+        $_SESSION["nombreEmpleado"] = $resultado->datos->perNombre . " " .
         $resultado->datos->perApellido;
         $_SESSION["correo"] = $resultado->datos->perCorreo;
         $_SESSION["rol"] = $resultado->datos->rolNombre;
@@ -30,25 +32,26 @@ switch ($accion) {
         $_SESSION["cantidadRol"] = $resultado->datos->cantidadRoles;
         //obtiene el estado del usuario true o false (0 , 1)
         $_SESSION["estado"] = $resultado->datos->usuEstado;
+        $_SESSION["identificacion"] = $resultado->datos->perIdentificacion;
 
 
 
 
         //Enviar correo cuando se inicia sesion
-        // $correo = new enviarCorreoPrueba();
-        //     $objCorreo = new stdClass();
-        //     $objCorreo->correoRemitente = "soporte.petsHealth@gmail.com"; //aqui pueden colocar el correo del administrador
-        //     $objCorreo->nombreRemitente = "Administración Pets Health"; //igual el nombre del administrador
-        //     $objCorreo->correoDestinatario =$_SESSION["correo"];
-        //     $objCorreo->nombreDestinatario =$_SESSION["nombreEmpleado"];
-        //     $objCorreo->asunto = "Inicio de sesion en Pets Health";
-        //     $objCorreo->mensaje = "Cordial saludo , <br> Usuario " .$_SESSION["nombreEmpleado"]. "
-        // " . " se informa  usted ha iniciado sesion hoy <b>".date('Y-m-d H:i:s')." </b>
-        // <br>
-        // ¿fuiste tu ?
-        // <br>  <br>
-        // Atentamente Administración Pets Health 	";
-        //     $resultadoCorreo = $correo->enviarCorreo($objCorreo);
+        $correo = new enviarCorreoPrueba();
+            $objCorreo = new stdClass();
+            $objCorreo->correoRemitente = "soporte.petsHealth@gmail.com"; //aqui pueden colocar el correo del administrador
+            $objCorreo->nombreRemitente = "Administración Pets Health"; //igual el nombre del administrador
+            $objCorreo->correoDestinatario =$_SESSION["correo"];
+            $objCorreo->nombreDestinatario =$_SESSION["nombreEmpleado"];
+            $objCorreo->asunto = "Inicio de sesion en Pets Health";
+            $objCorreo->mensaje = "Cordial saludo , <br> Usuario " .$_SESSION["nombreEmpleado"]. "
+        " . " se informa  usted ha iniciado sesion hoy <b>".$fechaHora." </b>
+        <br>
+        ¿fuiste tu ?
+        <br>  <br>
+        Atentamente Administración Pets Health 	";
+        $resultadoCorreo = $correo->enviarCorreo($objCorreo);
         echo json_encode($resultado);
         break;
 

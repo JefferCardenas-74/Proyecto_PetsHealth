@@ -1,17 +1,15 @@
 <?php 
     class Persona{
         private $idPersona;
-        private $idTipoDocumento;
         private $identificacion;
         private $nombre;
         private $apellido;
         private $telefono;
         private $correo;
 
-        function __construct($idPersona = null, TipoDocumento $idTipoDocumento = null, $identificacion = null, $nombre = null, $apellido = null, $telefono = null, $correo = null){
+        function __construct($idPersona = null, $identificacion = null, $nombre = null, $apellido = null, $telefono = null, $correo = null){
 
             $this->idPersona = $idPersona;
-            $this->idTipoDocumento = $idTipoDocumento;
             $this->identificacion = $identificacion;
             $this->nombre = $nombre;
             $this->apellido = $apellido;
@@ -25,14 +23,6 @@
         
         function setIdPersona($idPersona){
             $this->idPersona = $idPersona;
-        }
-
-        function getIdTipoDocumento(){
-            return $this->idTipoDocumento;
-        }
-
-        function setIdTipoDocumento($idTipoDocumento){
-            $this->idTipoDocumento = $idTipoDocumento;
         }
 
         function getIdentificacion(){
