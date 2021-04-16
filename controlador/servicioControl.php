@@ -10,7 +10,7 @@ error_reporting(0);
 $dServicio = new datosServicio();
 
 switch ($accion) {
-    case 'listarCitas':
+    case 'listarServicios':
         $resultado = $dServicio->listarServicios();
         echo json_encode($resultado);
         break;

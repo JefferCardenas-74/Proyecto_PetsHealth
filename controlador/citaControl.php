@@ -32,7 +32,7 @@
             break;
 
         case 'buscarMascotas':
-            $resultado = $dCita->buscarMascota($idPersona);
+            $resultado = $dCita->buscarMascota(1);
             echo json_encode($resultado);
             break;
         

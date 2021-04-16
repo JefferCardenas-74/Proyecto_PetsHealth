@@ -111,7 +111,9 @@
             try{
 
                 $consulta = 'select idMascota, masNombre from mascota inner join persona
-                on persona.idPersona = ?';
+                on persona.idPersona =mascota.idPersona
+                INNER JOIN empleado on empleado.idPersona=persona.idPersona
+                WHERE idEmpleado=?';
                 $resultado = $this->conexion->prepare($consulta);
                 $resultado->execute(array($idPersona));
 

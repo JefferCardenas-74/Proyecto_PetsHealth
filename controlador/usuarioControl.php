@@ -22,7 +22,7 @@ switch ($accion) {
         $resultado = $dUsuario->iniciarSesion($user);
         // se crea las varibales de session donde se guardaran los datos
         $_SESSION["idEmpleado"] = $resultado->datos->idEmpleado;
-        $_SESSION["nombreEmpleado"] = $resultado->datos->perNombre . " " .
+        $_SESSION["nombreEmpleado"] = $resultado->datos->perNombre . "" .
         $resultado->datos->perApellido;
         $_SESSION["correo"] = $resultado->datos->perCorreo;
         $_SESSION["rol"] = $resultado->datos->rolNombre;

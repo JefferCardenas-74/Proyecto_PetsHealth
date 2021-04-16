@@ -142,10 +142,17 @@
 .modal{
  z-index: 1111;
 }
+.form-check {
+  
+  display: inline-block !important;
+  margin-bottom: 2em !important;
+}
 .form-check-label {
+  
   font-weight: bold;
   font-size: 1.4em !important;
   margin-bottom: 0.9rem;
+  margin-top: -30px;
   font-family: var(--fuenteParrafos);
   color: var(--colorTitulo);
   border-bottom: 1px solid;
@@ -192,6 +199,17 @@
   font-family: var(--fuenteParrafos);
   /* font-size: 1.3em !important; */
   color: var(--colorParrafo) !important;
+}
+.form-check #tipoServicio{
+  position: relative;
+  top: -5px;
+  font-size: 1.2em;
+  padding-left: 10px;
+  font-family: var(--fuenteTitulos);
+  color: var(--colorParrafo) !important;
+}
+.modal-body .form-check{
+  border-radius: .25em !important;
 }
 .modal-footer .btn-tipoCita {
   /* width: 100%; */
