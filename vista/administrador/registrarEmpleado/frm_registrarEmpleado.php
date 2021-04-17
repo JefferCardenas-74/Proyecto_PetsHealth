@@ -28,6 +28,11 @@
                         </div>
 
                         <div>
+                            <label for="txt_correo" class="fredoka">Correo</label>
+                            <input class="cajaTexto" type="text" id="txt_correo" name="txt_correo">
+                        </div>
+
+                        <div>
                             <label for="cb_rol" class="fredoka">Rol</label>
                             <select name="cb_rol" id="cb_rol" class="cajaTexto">
                                 <option value="0">Seleccione</option>
