@@ -15,8 +15,8 @@ class datosServicio
     {
         try {
 
-            $consulta = "SELECT *  FROM servicio ";
-            $resultado = $this->conexion->prepare($consulta);
+            $consulta = "SELECT *  FROM servicio";
+            $resultado = $this->conexion->query($consulta);   
             $this->retorno->mensaje = 'lista de servicios veterinaria';
             $this->retorno->estado = true;
             $this->retorno->datos = $resultado->fetchAll();

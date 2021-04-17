@@ -2,6 +2,7 @@ $(function () {
 
     cargarControles();
     listarCliente();
+    listarServicios();
 
     // eventos secundarios
     let escojerServicios = new bootstrap.Modal(document.getElementById("modalSelServicios"), {
@@ -53,6 +54,7 @@ function cargarControles() {
         // select2container :'miClaseX'
     });
 
+
     var datepickers = [].slice.call(
         document.querySelectorAll("[data-datepicker]")
     );
@@ -71,6 +73,7 @@ function cargarControles() {
         });
     });
 
+    
 }
 
 /**
@@ -139,8 +142,7 @@ function mostrarDatosCita() {
  */
 function listarCliente() {
     let parametros = {
-        accion: "buscarMascotas",
-        idPersona: 1
+        accion: "buscarMascotas"
     };
     $.ajax({
         url: '../../../controlador/citaControl.php',
@@ -151,6 +153,7 @@ function listarCliente() {
         success: function (resultado) {
             if (resultado.estado) {
                 let clientes = resultado.datos;
+                console.log(clientes);
                 $.each(clientes, function (i, cliente) {
                     $("#cb_cliente").append(
                         "<option value=" + cliente.idMascota + ">" +
@@ -166,4 +169,44 @@ function listarCliente() {
             console.log(ex.responseText);
         },
     });
+}
+
+
+function listarServicios() {
+    let parametros = {
+        accion: "listarServicios"
+    };
+    $.ajax({
+        url: '../../../controlador/servicioControl.php',
+        data: parametros,
+        type: "post",
+        dataType: "json",
+        cache: false,
+        success: function (resultado) {
+            if (resultado.estado) {
+                console.log(resultado);
+                let servicios =resultado.datos;
+                
+                // let clientes = resultado.datos;
+                $.each(servicios, function (i, servicio) {
+                    $(".form-check").append(
+                    "<input type=checkbox class='form-check chkTipoServicio'"+
+                     "value="+servicio.serTipo+">" +
+                     "<span id='tipoServicio'>"+servicio.serTipo+"</span>"+
+                     "<label class='form-check-label'>"+
+                     "<small class='text-muted'><p>"+servicio.serDescripcion+"</p></small>"+
+                     "</label>"
+                     );
+        
+                    
+                });
+            } else {
+                alert("No hay servicios disponibles :c");
+            }
+        },
+        error: function (ex) {
+            console.log(ex.responseText);
+        },
+    });
+    
 }

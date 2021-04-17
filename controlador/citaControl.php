@@ -1,4 +1,5 @@
 <?php
+    session_start();
     include '../modelo/datos/datosCita.php';
     include '../modelo/datos/conexion.php';
     include '../modelo/entidad/Cita.php';
@@ -32,7 +33,7 @@
             break;
 
         case 'buscarMascotas':
-            $resultado = $dCita->buscarMascota($cedula);
+            $resultado = $dCita->buscarMascota($_SESSION['identificacion']);
             echo json_encode($resultado);
             break;
         

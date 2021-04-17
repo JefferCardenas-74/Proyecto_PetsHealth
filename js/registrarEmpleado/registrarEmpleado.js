@@ -1,3 +1,5 @@
+var nombreRol="";
+
 $(function(){
 
     /**funciones para llenar los select dinamicamente*/
@@ -13,7 +15,7 @@ $(function(){
 function listarRol(){
 
     var parametros = {
-        accion: 'listarRol'
+        accion: 'listarRol',
     };
 
     $.ajax({
@@ -24,7 +26,7 @@ function listarRol(){
         cache: false,
 
         success: function(resultado){
-            console.log(resultado);
+            // console.log(resultado);
 
             $.each(resultado.datos, function(j, dato){
                 const opcion = document.createElement('option');
@@ -33,6 +35,11 @@ function listarRol(){
 
                 $('#cb_rol').append(opcion);
             });
+            // obtengo el texto de la opcion escogida
+        $("#cb_rol").change(function(){
+            nombreRol=$("#cb_rol option:selected").text();
+          });
+            
         },
         error:function(e){
 
@@ -41,6 +48,7 @@ function listarRol(){
 }
 
 function agregarEmpleado(){
+    
 
 
     var parametros = {
@@ -51,9 +59,8 @@ function agregarEmpleado(){
         correo: $('#txt_correo').val(),
         password: $('#txt_password').val(),
         telefono: $('#txt_telefono').val(),
-        fechaIngreso: $('#txt_fechaIngreso').val(),
-        cargo: $('#cb_cargo').val(),
         rol: $('#cb_rol').val(),
+        nombreRol:nombreRol, //se manda el nombre del rol
         accion: 'registrarEmpleado'
     };
 
@@ -65,9 +72,7 @@ function agregarEmpleado(){
         cache: false,
 
         success: function(resultado){
-
-            if(resultado.estado == true){
-                
+            if(resultado.estado){
                 Swal.fire({
                     title: 'Registrado',
                     text: 'Empleado Registrado con exito..!',

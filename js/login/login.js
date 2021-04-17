@@ -6,7 +6,6 @@ var restantes = 3;
 $(function () {
 
 
-
   //EVENTOS DE INCIO DE SESION
   $(".crearCuenta").click(function () {
     $("#crearCuentaModal").modal();
@@ -65,6 +64,10 @@ function iniciarSesion() {
     //ANTES de enviar se poone el boton el siguinete texto
     beforeSend: function () {
       $("#btn_iniciarSesion").text("Validando datos....");
+      $("#btn_iniciarSesion").prop('disabled',true);
+      $("#btn_iniciarSesion").css({
+        background: '#3000ff8f'
+      });
     },
     success: function (resultado) {
       console.groupCollapsed("%cResultados del la peticion", "color:#16C7E1"); // creacion de un grupo en console
@@ -156,6 +159,7 @@ function iniciarSesion() {
             });
             // cambia el texto asu estado inicial
             $("#btn_iniciarSesion").text("Ingresar");
+            $("#btn_iniciarSesion").prop("disabled",false);
           }
         } else {
           //    en caso de que no sea asi botara el mensaje del controlador
@@ -182,7 +186,11 @@ function iniciarSesion() {
               "</span>",
           });
           // cambia el texto asu estado inicial
-          $("#btn_iniciarSesion").text("Ingresar");
+          $("#btn_iniciarSesion").text("INGRESAR");
+          $("#btn_iniciarSesion").prop("disabled",false);
+          $("#btn_iniciarSesion").css({
+            background: 'linear-gradient(to right, #8E2DE2, #4A00E0)'
+          });
           // alert(resultado.mensaje);
         }
       } else {
@@ -226,7 +234,11 @@ function mostrarRecaptcha() {
       restantes = 3;
       count = 0;
       console.log("%cReinicio del contador a =", "color:blue", count);
-      $("#btnIniciarSesion1").text("INGRESAR");
+      $("#btn_iniciarSesion").text("INGRESAR");
+      $("#btn_iniciarSesion").prop("disabled",false);
+      $("#btn_iniciarSesion").css({
+        background: 'linear-gradient(to right, #8E2DE2, #4A00E0)'
+      });
     },
   });
 }

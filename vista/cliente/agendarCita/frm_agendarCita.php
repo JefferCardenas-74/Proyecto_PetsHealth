@@ -39,7 +39,7 @@
                                                         class="img-circle elevation-2" alt="User Image" />
                                                 </span></span>
                                             <input type="text" class="form-control" id="txt_nombreUsuario"
-                                                aria-describedby="emailHelp" disabled value="Oscar astudillo" />
+                                                aria-describedby="emailHelp" disabled value= "<?php echo $_SESSION["nombreEmpleado"] ?>" />
                                         </div>
 
 
@@ -69,7 +69,7 @@
                                     <div class="mb-3 col-md-3">
                                         <div class="form-group">
                                             <div class="input-group date"  data-target-input="nearest">
-                                                <input type="time"  id="txt_hora" class="form-control datetimepicker-input" require />
+                                                <input type="time"  id="txt_hora" class="form-control " require />
                                             </div>
                                         </div>
 
@@ -112,63 +112,14 @@
                                         <div class="modal-body">
                                         <form action="" id="modalTipoServicios">
                                         
-                                            <!-- <hr> -->
+                                            <!-- div donde se mostrar los checks 
+                                            dinamicos -->
                                             <div class="form-check">
-                                                <input class="form-check-input chkTipoServicio" type="checkbox"
-                                                 value="Medicina preventina"
-                                                    id="defaultCheck1">
-                                                <label class="form-check-label" for="defaultCheck1">
-                                                    <span id="tipoServicio"> Medicina preventina</span> 
-                                                    <small class="text-muted"> Lorem ipsum dolor sit amet consectetur
-                                                        adipisicing elit. Maiores laboriosam consequatur suscipit dicta
-                                                        consectetur libero quas </small>
-                                                </label>
-                                                <!-- <hr class="modal-body_hr"> -->
+
                                             </div>
 
 
-                                            <div class="form-check">
-                                                <input class="form-check-input chkTipoServicio " type="checkbox" 
-                                                value="Hospitalización ">
-                                                <label class="form-check-label">
-                                                    <span id="tipoServicio"> Hospitalización </span>
-                                                    <small class="text-muted"> Lorem ipsum dolor sit amet consectetur
-                                                        adipisicing elit. Maiores laboriosam consequatur suscipit dicta
-                                                        consectetur libero quas a</small>
-                                                </label>
-                                                <!-- <hr class="modal-body_hr"> -->
-                                            </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input chkTipoServicio" type="checkbox"
-                                                 value="Cirugía">
-                                                <label class="form-check-label">
-                                                    <span id="tipoServicio"> Cirugía </span>
-                                                    <small class="text-muted"> Lorem ipsum dolor sit amet consectetur
-                                                        adipisicing elit. Maiores laboriosam consequatur suscipit dicta
-                                                        consectetur libero quas a</small>
-                                                </label>
-                                                <!-- <hr class="modal-body_hr"> -->
-                                            </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input chkTipoServicio "
-                                                 type="checkbox" value="Consulta">
-                                                <label class="form-check-label">
-                                                    <span id="tipoServicio"> Consulta </span>
-                                                    <small class="text-muted"> Lorem ipsum dolor sit amet consectetur
-                                                        adipisicing elit. Maiores laboriosam consequatur suscipit dicta
-                                                        consectetur libero quas a</small>
-                                                </label>
-                                                <!-- <hr class="modal-body_hr"> -->
-                                            </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input chkTipoServicio" type="checkbox" value="Estetica">
-                                                <label class="form-check-label">
-                                                    <span id="tipoServicio"> Estetica </span>
-                                                    <small class="text-muted"> Lorem ipsum dolor sit amet consectetur
-                                                        adipisicing elit. Maiores laboriosam consequatur suscipit dicta
-                                                        consectetur libero quas a nobis sint nulla optio,</small>
-                                                </label>
-                                            </div>
+                                        
                                             </form>
                                         </div>
                                         <div class="modal-footer">

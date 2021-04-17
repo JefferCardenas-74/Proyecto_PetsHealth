@@ -19,10 +19,6 @@
                             <input class="cajaTexto" type="text" id="txt_apellido" name="txt_apellido">
                         </div>
 
-                        <div>
-                            <label for="txt_correo" class="fredoka">Correo</label>
-                            <input class="cajaTexto" type="text" id="txt_correo" name="txt_correo">
-                        </div>
 
                     </div>
                     <div class="col">
