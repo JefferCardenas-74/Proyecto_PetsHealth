@@ -24,20 +24,11 @@
                             <input class="cajaTexto" type="text" id="txt_correo" name="txt_correo">
                         </div>
 
-                        <div>
-                            <label for="txt_password" class="fredoka">Constraseña</label>
-                            <input class="cajaTexto" type="password" id="txt_password" name="txt_password">
-                        </div>
                     </div>
                     <div class="col">
                         <div>
                             <label for="txt_telefono" class="fredoka">Telefono</label>
                             <input class="cajaTexto" type="number" id="txt_telefono" name="txt_telefono">
-                        </div>
-
-                        <div>
-                            <label for="txt_fechaIngreso" class="fredoka">Fecha de Ingreso</label>
-                            <input class="cajaTexto" type="date" id="txt_fechaIngreso" name="txt_fechaIngreso">
                         </div>
 
                         <div>

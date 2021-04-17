@@ -124,7 +124,7 @@ class datosUsuario
 
             /**se obtiene el tamaño del arreglo de roles para saber cuantos insert se van a hacer a la tabla pivote usuarioroles*/
             $tamaño = count($usuario->getListaRol());
-            $consulta = 'insert into usuariorol values (null,?,?, 1)';
+            $consulta = 'insert into usuariorol values (null,?,?,1)';
 
             for($j = 0; $j < $tamaño; $j++){
 

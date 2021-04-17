@@ -4,7 +4,6 @@
     include '../modelo/entidad/Persona.php';
     include '../modelo/entidad/Empleado.php';
     include '../modelo/entidad/Rol.php';
-    include '../modelo/entidad/Cargo.php';
     include '../modelo/entidad/Usuario.php';
 
     /**modelo datos */
@@ -57,6 +56,7 @@
             $contra = md5($identificacion);
 
             $usuario = new Usuario(null, $id, $email, $contra, $listaRol);
+
                 
             $resultado = $dUsuario->registrarUsuario($usuario);
 
