@@ -45,7 +45,7 @@ require_once("../../../configuracion/validaciones.php");
                 </div>
 
                 <div class="text-center pompiere">
-                    <a class="crearCuenta" href="#">
+                    <a class="txtCrearCuenta" href="#">
                         Crear Cuenta
                     </a>
                 </div>
@@ -56,9 +56,7 @@ require_once("../../../configuracion/validaciones.php");
 
 
 
-    </div>
-</div>
-
+        
 <!--Modal para la interfaz de olvido contraseña-->
 
 <div class="modal fade" id="olvidoPasswordModal" tabindex="-1" aria-hidden="true">
@@ -109,31 +107,34 @@ require_once("../../../configuracion/validaciones.php");
 </div>
 
 
-
-
-
 <!--Modal para crear cuenta-->
 
-<div class="modal fade" id="crearCuentaModal" aria-hidden="true">
+<div class="modal fade" id="crearCuenta" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-xl modal-dialog-scrollable">
-        <div class="modal-content modal-content-crearCuenta">
+        <div class="modal-content">
 
-            <div class="salirModal">
+            <div class="modal-header">
+                <h5 class="modal-title fredoka">Crear Cuenta</h5>
                 <button type="button" class="close" data-dismiss="modal">
                     <span aria-hidden="true">&times;</span>
                 </button>
-            </div>
-
-            <div class="modal-header modal-header-crearCuenta">
-                <label class="fredoka">Crear Cuenta</label>
-            </div>
+            </div> 
 
             <!--formulario de crear cuenta-->
-            <div class="modal-body modal-body-crearCuenta">
+            <div class="modal-body">
                 <div class="container-fluid">
-                    <div class="row frm_crearCuenta">
+                    <div class="row frm_crearCuenta">                     
                         <div class="col">
+                            <!--Titulo-->
+                            <div class="row">
+                                <div class="col">
+                                    <div class="from-group">
+                                        <label class="fredoka">CLIENTE</label>
+                                    </div>
+                                </div>
+                            </div> 
 
+                            <!--formulario de crear cuenta cliente-->
                             <div class="form-group">
                                 <label for="txt_nombre" class="col-form-label fredoka">Nombre</label>
                                 <input class="cajaTexto" type="text" name="nombre" id="nombre" placeholder="Nombre">
@@ -149,10 +150,10 @@ require_once("../../../configuracion/validaciones.php");
                                 <label for="txt_cedula" class="col-form-label fredoka">Cedula</label>
                                 <input class="cajaTexto" type="number" name="cedula" id="cedula" placeholder="Cedula">
                             </div>
-
                         </div>
 
                         <div class="col">
+                            <br>
                             <div class="form-group">
                                 <label for="txt_correo" class="col-form-label fredoka">Correo</label>
                                 <input class="cajaTexto" type="text" name="email" id="email" placeholder="Email">
@@ -163,24 +164,70 @@ require_once("../../../configuracion/validaciones.php");
                                 <input class="cajaTexto" type="password" name="password" placeholder="Contraseña"
                                     pattern=".{6,}" required>
                             </div>
+                        </div>
+                    </div>
 
-                            <br>
+                    <br>
+                    <br>
 
-                            <div class="botones">
-                                <button type="button" class="btnNaranja pompiere" id="btn_cerrarCuenta"
-                                    data-dismiss="modal">Cerrar</button>
-                                <button type="button" class="btnMorado pompiere" id="btn_registrar"
-                                    data-dismiss="modal">Registrarse</button>
+                    
+                    <div class="row">
+                        <div class="col">
+                            <!--Titulo-->
+                            <div class="row">
+                                <div class="col">
+                                    <div class="from-group">
+                                        <label class="fredoka">MASCOTA</label>
+                                    </div>
+                                </div>
+                            </div> 
+                            <!--formulario de crear cuenta mascota-->
+                            <div class="form-group">
+                                <label for="txt_nombreMascota" class="col-form-label fredoka">Nombre de la mascota</label>
+                                <input class="cajaTexto" type="text" name="nombreMascota" id="nombreMascota" placeholder="Nombre de la mascota">
                             </div>
 
+                            <div class="form-group">
+                                <label for="txt_edadMascota" class="col-form-label fredoka">Edad de la mascota</label>
+                                <input class="cajaTexto" type="number" name="edadMascota" id="edadMascota" placeholder="Edad de la mascota">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="txt_fechaNacimientoMascota" class="col-form-label fredoka">Fecha de Nacimiento de la mascota</label>
+                                <br>
+                                <input class="cajaTexto" type="date" name="fechaNacimientoMascota" id="fechaNacimientoMascota">
+                            </div>
+
+                        </div>   
+                        
+                        <div class="col">
+                            <br>
+                            <div class="form-group">
+                                <p><label name="txt_tipoMascota" id="txt_tipoMascota" class="col-form-label fredoka">Tipo de la mascota</label></p>
+                                <select style="width:70%" size="5" class="cb_tipoMascota" name="cb_tipoMascota" id="cb_tipoMascota">
+                                    <option value="0"  class="limpiar">Seleccione</option>
+                                </select>
+                            </div>
 
                         </div>
+
 
                     </div>
                 </div>
             </div>
-
-
+            <div class="modal-footer">
+                    <button type="button" class="btnNaranja pompiere" id="btn_cerrarCuenta" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btnMorado pompiere" id="btn_registrar" data-dismiss="modal">Registrarse</button>
+            </div>
         </div>
+    </div>
+</div>
+
+
+
+
+
+
+
     </div>
 </div>

@@ -3,12 +3,13 @@ var numeroIntentos = 3;
 var count = 0;
 var restantes = 3;
 
+
 $(function () {
 
 
-  //EVENTOS DE INCIO DE SESION
-  $(".crearCuenta").click(function () {
-    $("#crearCuentaModal").modal();
+  /*EVENTOS DE INCIO DE SESION */
+  $(".txtCrearCuenta").click(function () {
+    $("#crearCuenta").modal();
   });
 
   $(".btnLogin").click(function () {

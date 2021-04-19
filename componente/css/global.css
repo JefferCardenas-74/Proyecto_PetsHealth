@@ -202,6 +202,10 @@ hr {
 #cardx-Hideen {
   display: none;
 }
+.barra{
+    background: linear-gradient(to right, var(--colorBarra1), var(--colorBarra2));
+}
+
 
 /*Regla  ajustar los contenidos resonpisves */
 @media only screen and (max-width: 986px) and (min-width: 531px) {
