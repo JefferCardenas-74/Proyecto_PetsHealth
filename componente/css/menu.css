@@ -14,11 +14,7 @@
     align-items: center;
     padding: 12px 14px;
     transition: all .6s;
-<<<<<<< HEAD
-    z-index: 111;
-=======
     z-index: 1111;
->>>>>>> master
 }
 
 .logo{
@@ -39,10 +35,7 @@
 .menu-items{
     height: 100%;
     transition: all 1s ease;
-<<<<<<< HEAD
-=======
     color:var(--colorTitulo);
->>>>>>> master
 }
 
 .menu-items ul{
@@ -55,14 +48,6 @@
     list-style: none;
 }
 
-<<<<<<< HEAD
-.menu-items li a{
-    display: block;
-    text-decoration: none;
-    color: #0e0577;
-    padding: 1rem;
-    font-family: 'Fredoka One';
-=======
 .item a{
     display: block;
     text-decoration: none;
@@ -70,7 +55,6 @@
     font-family: 'Fredoka One';
     cursor: pointer;
     color:unset;
->>>>>>> master
 }
 
 .menu .menu-items .sub_menu > ul{
@@ -84,8 +68,6 @@
     padding: 10px 14px;
 }
 
-<<<<<<< HEAD
-=======
 .menu-items .sub_menu ul li a{
     color: #0e0577;
 }
@@ -106,7 +88,6 @@
 }
 
 
->>>>>>> master
 /*efecto sticky*/
 
 .menu.sticky{
@@ -128,11 +109,7 @@
     .menu .menu-items ul{
         display: block;
         padding-top: 50px;
-<<<<<<< HEAD
-        height: 100vh;
-=======
         height: 100vh;   
->>>>>>> master
         flex-direction: column;  
         align-items: center;   
         background: #8E2DE2;  /* fallback for old browsers */
@@ -141,11 +118,7 @@
 
     }
 
-<<<<<<< HEAD
-    .menu-items ul li a{
-=======
     .menu-items ul li {
->>>>>>> master
         color: #fff;
         text-align: center;
     }
@@ -166,11 +139,7 @@
     #icono_menu{
         position: absolute;
         display: flex;
-<<<<<<< HEAD
-        top: 10px;
-=======
         /* top: 10px; */
->>>>>>> master
         right: 20px;
         z-index: 2222;
     }

@@ -1,8 +1,5 @@
 $(function(){
-<<<<<<< HEAD
-=======
 
->>>>>>> master
     //se asigna un evento de scroll a todo el documento para ativar la clase sticky cuando el scroll sea mayor que 0
     $(window).on('scroll', function(){
         var menu = document.querySelector('.menu');
@@ -12,11 +9,6 @@ $(function(){
     //se asigna un evento click a las etiquetas li que contengan un ul dentro, para activar la animacion
     $('.sub_menu').click(function(e){
 
-<<<<<<< HEAD
-        e.preventDefault();
-
-=======
->>>>>>> master
         if($(this).hasClass('activado')){
 
             $(this).removeClass('activado');
