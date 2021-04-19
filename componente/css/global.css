@@ -39,4 +39,13 @@ body{
     font-family: var(--fuenteFredoka);
     color: #0c0733;
 }
+.barra{
+    background: linear-gradient(to right, var(--colorBarra1), var(--colorBarra2));
+}
 
+.degradadoRainbow{
+
+    background: linear-gradient(to right, var(--colorBarra1), var(--colorBarra2));
+    border-radius: 20px;
+
+}

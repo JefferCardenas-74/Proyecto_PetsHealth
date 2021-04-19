@@ -1,0 +1,133 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.menu{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 14px;
+    transition: all .6s;
+    z-index: 111;
+}
+
+.logo{
+    font-family: 'Fredoka One';
+    color: #0e0577;
+}
+
+#btn_menu{
+    display: none;
+}
+
+#icono_menu{
+    font-size: 30px;
+    cursor: pointer;
+    display: none;
+}
+
+.menu-items{
+    height: 100%;
+    transition: all 1s ease;
+}
+
+.menu-items ul{
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-items li{
+    list-style: none;
+}
+
+.menu-items li a{
+    display: block;
+    text-decoration: none;
+    color: #0e0577;
+    padding: 1rem;
+    font-family: 'Fredoka One';
+}
+
+.menu .menu-items .sub_menu > ul{
+    display: none;
+}
+
+.menu-items ul li ul{
+    display: block;
+    position: absolute;
+    background: #fff;
+    padding: 10px 14px;
+}
+
+/*efecto sticky*/
+
+.menu.sticky{
+    background: #fff;
+    padding: 10px 12px;
+}
+
+/*responsive*/
+
+@media screen and (max-width: 596px){
+
+    .menu .menu-items{
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+    }
+
+    .menu .menu-items ul{
+        display: block;
+        padding-top: 50px;
+        height: 100vh;
+        flex-direction: column;  
+        align-items: center;   
+        background: #8E2DE2;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #4A00E0, #8E2DE2);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #4A00E0, #8E2DE2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    }
+
+    .menu-items ul li a{
+        color: #fff;
+        text-align: center;
+    }
+
+
+    .menu .menu-items .sub_menu ul {
+        height: auto;
+        padding-top: 10px;
+        position: static;
+        background: #fff;
+    }
+
+
+    .sub_menu ul li a{
+        color: #0e0577;
+    }
+
+    #icono_menu{
+        position: absolute;
+        display: flex;
+        top: 10px;
+        right: 20px;
+        z-index: 2222;
+    }
+
+    /*clases para logras la animacion del menu*/
+    .uno{
+        clip-path: circle(0% at 100% 0);
+    }
+
+    .dos{
+        clip-path: circle(150% at 100% 0);
+    }
+}
