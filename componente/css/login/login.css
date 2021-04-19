@@ -179,43 +179,17 @@ form{
     justify-content: center;
 }
 
-
-.modal-header-crearCuenta{
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 50px;
+#crearCuenta{
+    z-index: 1111;
 }
-
-.modal-content-crearCuenta{
-    height: 80%;
-    background: #fff;
-    border-radius: 20px;
-    overflow: hidden;
-    display: flex;
-    flex-flow: column wrap;   
-    justify-content: space-evenly;
-    margin: 0 auto;
-    margin-bottom: 20px;
-    padding: 25px;
-    margin-top: 100px;
-}
-
-.btn_cerrarCuenta{
-    width: 50%;
-    height: auto;
-    display: flex;
-    flex-flow: column wrap;
-    align-content: center;
-    align-items: center;
-    justify-content: center;
-}
-
-.botones{
-
-    display: flex;
-    display: inline-block;
+.cb_tipoMascota{
+    width: 100%;
+    border-radius: 8px;
+    border: 2px solid #00000096;
+    font-weight: bold;
+    padding-left: 12px;
+    outline: none;
+    background: rgba(255, 255, 255, 0.603);
 }
 
 
