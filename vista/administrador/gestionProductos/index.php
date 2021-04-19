@@ -54,15 +54,14 @@
     <link rel="stylesheet" href="../../../componente/css/global.css">
 
     <!--hoja de estilos personalizada-->
-    <link rel="stylesheet" href="../../../componente/css/registrarEmpleado/registrarEmpleado.css">
-    <link rel="stylesheet" href="../../../componente/css/citasAsignadas/cabecera.css">
+    <link rel="stylesheet" href="../../../componente/css/gestionProductos/gestionProductos.css">
     <link rel="stylesheet" href="../../../componente/css/menu.css">
     
     <!--libreria sweetalert para alertas personalizadas-->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.4/dist/sweetalert2.all.min.js"></script>
 
     <!--js externo-->
-    <script src="../../../js/registrarEmpleado/registrarEmpleado.js"></script>
+    <script src="../../../js/gestionProductos/gestionProductos.js"></script>
     <script src="../../../js/menu.js"></script>
 </head>
 

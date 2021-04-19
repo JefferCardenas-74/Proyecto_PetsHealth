@@ -66,6 +66,80 @@ class datosProducto{
         
     }
 
+    function listarProductos(){
+
+        try{
+            $consulta = 'select * from producto';
+            $resultado = $this->conexion->query($consulta);
+
+            $this->retorno->mensaje = 'lista de productos';
+            $this->retorno->estado = true;
+            $this->retorno->datos = $resultado->fetchAll();
+
+        }catch(PDOException $e){
+            
+            $this->retorno->mensaje = $e->getMessage();
+            $this->retorno->estado = false;
+            $this->retorno->datos = null;
+        }
+
+        return $this->retorno;
+    }
+
+    function agregarProducto(producto $producto){
+        try{
+
+            $consulta = 'insert into producto values (null, ?,?,?)';
+
+            $resultado = $this->conexion->prepare($consulta);
+            $resultado->bindParam(1, $producto->getProNombre());
+            $resultado->bindParam(2, $producto->getProPrecio());
+            $resultado->bindParam(3, $producto->getProUnidadMedida());
+
+            $resultado->execute();
+
+            $this->retorno->mensaje = 'producto argregado con exito';
+            $this->retorno->estado = true;
+            $this->retorno->datos = null;
+
+        }catch(PDOException $e){
+
+            $this->retorno->mensaje = $e->getMessage();
+            $this->retorno->estado = false;
+            $this->retorno->datos = null;
+
+        }
+
+        return $this->retorno;
+    }
+
+    function listarDatosProducto($id){
+
+        print_r($id);
+
+        try{
+            $consulta = 'select * from producto where idProducto = ?';
+
+            $resultado = $this->conexion->prepare($consulta);
+            $resultado->bindParam(1, $id);
+
+            $resultado->execute();
+
+            $this->retorno->mensaje = 'datos del producto';
+            $this->retorno->estado = true;
+            $this->retorno->datos = $resultado->fetchAll();
+
+        }catch(PDOException $e){
+
+            
+            $this->retorno->mensaje = $e->getMessage();
+            $this->retorno->estado = false;
+            $this->retorno->datos = null;
+        }
+
+        return $this->retorno;
+    }
+
 }
 
 ?>
