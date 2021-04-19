@@ -1,5 +1,5 @@
 
  #RewriteEngine On 
- #RewriteBase /AppMascotas 
+ #RewriteBase /AppMascotas
 
  #RewriteRule ^(.*)/(.*)/ plantilla.php?folder=$1&page=$2 [L]

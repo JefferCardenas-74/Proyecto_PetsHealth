@@ -1,0 +1,127 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.menu{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all .6s;
+    padding: 20px 50px;
+    z-index: 1111;
+    font-family: 'Fredoka One';
+    color: #0e0577;
+}
+
+#btn_menu{
+    display: none;
+}
+
+#icono_menu{
+    font-size: 30px;
+    cursor: pointer;
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
+}
+
+.menu.sticky{
+    padding: 15px 25px;
+    background-color: #fff;
+}
+
+.menu-item ul{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu ul li{
+
+    list-style: none;
+}
+
+.menu ul li a{
+
+    margin: 0 12px;
+    text-decoration: none;
+    transition: all .6s;
+    color: #0e0577;
+}
+
+.menu ul ul{
+    display: none;
+
+}
+
+.menu.activado > a{
+    background-color: rgba(0, 0, 0, 0.212);
+    color: #fff;
+}
+
+.menu ul li:hover ul{
+    display: block;
+    position: absolute;
+    background: #fff;
+    padding: 10px 14px;
+
+}
+
+/*responsive*/
+
+@media screen and (max-width:596px){
+
+    #icono_menu{
+        position: absolute;
+        display: flex;
+        top: 20px;
+        right: 20px;
+    }
+
+    
+    .menu.menu-items{
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        background: rgba(0, 0, 0, .9);
+        top: 50px;
+        right: 0;
+        color: #fff;
+        transform: translateY(-400%);
+        transition: all .6s;
+    }
+    
+    .menu.menu-item ul{
+        flex-direction: column;
+        align-content: center;
+        padding: 20px 40px;
+    }
+    
+    .menu.menu-item ul li a{
+        color: #fff;
+    }
+
+    .menu.menu-item ul li:hover ul{
+        display: none;
+        position: static;
+        background: rgba(0, 0, 0, .5);;
+    }
+
+    .menu.menu-item.sub_menu ul li a{
+        color: #fff; 
+    }
+
+    #btn_menu:checked ~ .menu-item{
+        transform: translateY(0%);
+    }
+    
+}

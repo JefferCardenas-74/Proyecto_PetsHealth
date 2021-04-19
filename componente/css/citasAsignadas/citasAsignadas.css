@@ -1,0 +1,221 @@
+/*resetear la pagina*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.contenedorTitulo{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 14px;
+    width: 100%;
+    height: 500px;
+}
+
+.titulo{
+
+    font-size: 70px;
+}
+
+.contenedorTabla{
+    
+    overflow-x: auto;
+}
+
+.tabla{
+
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+    min-width: 1000px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+thead{
+    background: #a200ff;
+    color: #fff; 
+    font-family: 'Fredoka One';
+    letter-spacing: 2px;
+}
+
+.tabla td, .tabla th{
+
+    height: 60px;
+    border-bottom: 1px solid #a200ff;
+    text-align: center;
+}
+
+.tabla tr:hover{
+    background: #a200ff57;
+    font-weight: bold;
+}
+/*---------------------------------------*/
+.btnMorado{
+    padding: 8px 19px;
+    height: 50px;
+}
+
+.btnNaranja{
+    padding: 8px 19px;
+    height: 50px;
+}
+
+#atenderCita{
+    z-index: 1111;
+}
+
+/*lista de datos*/
+
+#listaDatos{
+
+    background:#fff;
+    position: absolute;
+    width: 80%;
+    padding: 15px;
+    display: none;
+    font-family: 'Fredoka One';
+    z-index: 111;
+}
+
+#listaDatos div a{
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#listaDatos div:hover{  
+    background: rgb(175, 175, 175);
+}
+
+
+.tituloUrgencia{
+    font-size: 50px;
+}
+
+.frm_atenderUrgencia{
+
+    display: flex;
+    align-content: center;
+}
+
+.buscar_cedula{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+#txt_cedula{
+    width: 90%;
+}
+
+#btn_buscar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+#icono-buscar{
+    font-size: 20px;
+}
+
+.botonCitaNoPro{
+    display: flex;
+    justify-content: center;
+}
+
+#btn_atenderCitaNoPro{
+
+    margin-bottom: 30px;
+}
+
+/*dinamismo de los campos domicilio y nombre de encargado*/
+
+.encargado{
+    display: none;
+}
+
+.domicilio{
+    display: none;
+}
+
+/*---------------------------------------*/
+.contenedorFactura{
+
+    overflow-x: auto;
+}
+
+.factura{
+    min-width: 1000px;
+}
+
+.factura-header{
+     display: flex;
+    justify-content: flex-start;
+    border-bottom: 1px solid #000;
+}
+
+.item{
+    padding: 15px;
+}
+
+#txt_cantidad{
+    width: 60px;
+    text-align: center;
+}
+
+.unidadMedida{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+}
+
+.precioTotal{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/*---------------------------------------*/
+
+.factura-item.pompiere{
+
+    font-weight: bold;
+}
+
+/*estilos para formlario del modal atender cita*/
+
+@media screen and (max-width: 576px){
+
+    
+    .titulo{
+        font-size: 50px;
+    }
+
+    .frm_atenderCita{
+        display: block;   
+    }
+
+    .frm_atenderUrgencia{
+        display: block;
+    }
+
+    .factura{
+        min-width: 600px;
+    }
+
+
+
+}
+
+
+
+
+
+
+
+

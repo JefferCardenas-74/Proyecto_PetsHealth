@@ -1,51 +1,427 @@
+/* cracion de variables  */
 :root{
 
-    --fuenteFredoka: 'Fredoka One';
-    --fuentePompiere: 'Pompiere';
+  --fuenteTitulos: 'Fredoka One';
+  --fuenteParrafos: 'Pompiere';
 
-    /*paleta de colores*/
-    --colorFondo: #D1D8FB;
+  /*paleta de colores*/
+  --colorFondo: #D1D8FB;
 
-    /*degradado botones*/
-    --colorBoton1: #8E2DE2;
-    --colorBoton2: #4A00E0;
+  /*degradado botones*/
+  --colorBoton1: #8E2DE2;
+  --colorBoton2: #4A00E0;
 
-    /*degradado de barras*/
-    --colorBarra1: #fc00ff;
-    --colorBarra2: #00dbde;
+  /*degradado de barras*/
+  --colorBarra1: #fc00ff;
+  --colorBarra2: #00dbde;
 
-    /*degradado de los checkBox*/
-    --colorCheck1: #fc00ff;
-    --colorCheck2: #00dbde;
+  /*degradado de los checkBox*/
+  --colorCheck1: #fc00ff;
+  --colorCheck2: #00dbde;
 
-    /*color textos*/
-    --colorTitulo: #0e0577;
-    --colorParrafo:  #050d1e;
+  /*color textos*/
+  --colorTitulo: #0e0577;
+  --colorParrafo:  #050d1e;
+  
+  /* colores*/
+  --colorFondoBotones: linear-gradient(to right, #fc00ff, #00dbde);
 }
 
-body{
-    margin: 0;
-    padding: 0;
-    background-color: var(--colorFondo);
+
+
+body {
+  background-color: var(--colorFondo);
 }
 
+
+/* todos los hr del proyecto */
+hr {
+  height: 5px !important;
+  opacity: 10 !important;
+  background: linear-gradient(97deg, rgb(252, 0, 255), rgb(0, 219, 222));
+}
+
+/* propiedades antiguas */
 .pompiere{
-    font-family: var(--fuentePompiere);
-    font-size: 1.5rem;
-    color: #0c0733;
+  font-family: var(--fuenteParrafos);
+  font-size: 1.4em;
+  color: #0c0733;
 }
 
 .fredoka{
-    font-family: var(--fuenteFredoka);
-    color: #0c0733;
+  font-family: var(--fuenteTitulos);
+  color: var(--colorTitulo);
+}
+.barra{
+  background: linear-gradient(to right, var(--colorBarra1), var(--colorBarra2));
+}
+
+.btnMorado{
+
+  border-radius: 15px;
+  border: none;
+  color: #fff;
+  padding: 12px 28px;
+  background: linear-gradient(to right, #8E2DE2, #4A00E0);
+}
+
+.btnNaranja{
+
+  border-radius: 15px;
+  border: none;
+  color: #fff;
+  padding: 12px 28px;
+  background: linear-gradient(to right, #f12711, #f5af19);
+}
+
+
+.boton:hover{
+
+  background: linear-gradient(to right, #6d23ad, #4201c2);
+}
+
+.cajaTexto{
+
+  width: 100%;
+  height: 35px;
+  border-radius: 8px;
+  border: 2px solid #00000096;
+  font-weight: bold;
+  padding-left: 12px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.603);
+
+}
+
+.cajaTexto:focus{
+
+  border: 2px solid #8E2DE2;
+}
+
+/*fin propiedades antiguas */
+
+
+/* header con border */
+.contentHeader {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  /* img  traida de internet */
+  background-image: url("https://i.imgur.com/qVi6dEc.jpg");
+  background-size: cover;
+  background-position: center center;
+}
+
+.contentHeader::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 100vh;
+  height: 100vh;
+  background: rgba(209, 216, 251, 0.7);
+  border-radius: 50%;
+  transform-origin: bottom;
+  transform: translateX(-50%) scale(4);
+}
+
+.contentHeader .bg-img-principal {
+  position: relative;
+  z-index: 1;
+  max-width: 1000px;
+  text-align: right;
+}
+
+.bg-img-principal h3 {
+  font-family: var(--fuenteTitulos);
+  color: var(--colorTitulo);
+  font-size: 2.5em !important;
+}
+.bg-img-principal p {
+  font-family: var(--fuenteParrafos);
+  color: var(--colorParrafo);
+  font-size: 1.8em !important;
+  font-weight: bold !important;
+  padding-top: 90px;
+}
+
+.bg-img-principal-h3_span {
+  background: -webkit-linear-gradient(#fc00ff, #00dbde);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+/* estilos específicos para pantallas menores a 992px (menor que lg de bootstrap) */
+@media only screen and (max-width: 992px) {
+  /* se acomoda los hr */
+  .hrFooter {
+    width: 150px !important;
+  }
+  .hrFooter1 {
+    width: 270px !important;
+  }
+  .bg-img-principal-p {
+    visibility: hidden;
+  }
+  .bg-img-principal-h3 {
+    padding-top: 400px;
+    text-align: center;
+  }
+ 
+  
+  /* escondder las imagenes del la seccion about */
+  #about::before {
+    visibility: hidden;
+  }
+  #about::after {
+    visibility: hidden;
+  }
+}
+
+@media only screen and (max-width: 799px) {
+  /* tenemos 1 imagen específica para móvil */
+  .contentHeader {
+    /* imagen traida de imgur */
+    background-image: url("https://i.imgur.com/WBF8jpb.png");
+    background-size: cover;
+    height: 500px;
+    background-position: center center;
+  }
+
+}
+
+/* fin header */
+
+/* ocultar los div escondidos  */
+#cardx-Hideen {
+  display: none;
 }
 .barra{
     background: linear-gradient(to right, var(--colorBarra1), var(--colorBarra2));
 }
 
-.degradadoRainbow{
 
-    background: linear-gradient(to right, var(--colorBarra1), var(--colorBarra2));
-    border-radius: 20px;
-
+/*Regla  ajustar los contenidos resonpisves */
+@media only screen and (max-width: 986px) and (min-width: 531px) {
+  /* Esconder los divs cuando llegue a esa resolucion la pantalla*/
+  .unoS,
+  .dosS,
+  .tresS {
+    display: none;
+  }
+  /* y aparecen los divs escodidos  */
+  #cardx-Hideen {
+    display: block;
+  }
+  /* propiedades de las cards escondidas */
+  #cardx-Hideen .font-tipo-services {
+    font-family: var(--fuenteTitulos);
+    color: var(--colorTitulo);
+  }
+  #cardx-Hideen .font-p {
+    font-family: var(--fuenteParrafos);
+    color: var(--colorParrafo);
+    font-size: 1.6em !important;
+  }
 }
+
+/*INICIO DE  LOS CONTENIDO  */
+#about {
+  padding: 50px 0;
+  background: #ffff;
+  position: relative;
+}
+#about p {
+  margin-top: 30px;
+}
+
+
+#about:before {
+  content: url("../img/servicios/icons/bano.png");
+  position: absolute;
+  top: 0;
+  color: rgba(0, 0, 0, 0.2);
+  font-size: 100px;
+  line-height: 900px;
+  text-align: center;
+  border-radius: 50%;
+  top: 0px;
+  left: 15px;
+  transform: rotate(30deg);
+}
+#about::after {
+  content: url("../img/servicios/icons/veterinario.png");
+  position: absolute;
+  top: -100px;
+  color: rgba(0, 0, 0, 0.2);
+  font-size: 100px;
+  line-height: 300px;
+  text-align: center;
+  border-radius: 50%;
+  right: 100px;
+  transform: rotate(357deg);
+}
+
+#about h2 {
+  font-family: var(--fuenteTitulos);
+  color: var(--colorTitulo);
+}
+#about p {
+  font-family: var(--fuenteParrafos);
+  font-size: 2.2em !important;
+  color: var(--colorParrafo);
+  /* font-weight: 300; */
+}
+#about ul {
+  font-family: var(--fuenteParrafos);
+  font-size: 1.6em !important;
+}
+
+
+/* agregar icono con font awsome */
+#services::before {
+  content: url("../img/servicios/vacuna.png"); /* Este valor es el que muestra un icono de estrella*/
+  position: absolute;
+  font-size: 70px;
+  height: 100px;
+  width: 100px;
+  line-height: 95px;
+  text-align: center;
+  background: var(--colorFondoBotones);
+  border-radius: 50%;
+  top: -50px;
+  left: 50%;
+  margin-left: -50px;
+  border: 5px solid #fff;
+}
+
+
+
+#services {
+  background-color: var(--colorFondo) !important;
+  padding: 50px 35px;
+  margin-bottom: 60px;
+  position: relative;
+}
+
+#services h2 {
+  font-family: var(--fuenteTitulos);
+  color: var(--colorTitulo);
+}
+#services p {
+  font-family: var(--fuenteParrafos);
+  font-size: 1.6em !important;
+  margin-top: 30px;
+  margin-bottom: -50px;
+}
+
+/* SECCION DE SERVICIOS */
+
+.font-general-services {
+  font-family: var(--fuenteTitulos);
+  color: var(--colorTitulo);
+  font-size: 2.1em !important;
+}
+.font-tipo-services {
+  font-family: var(--fuenteTitulos);
+  color: var(--colorTitulo);
+  padding-top: 14px;
+}
+
+.font-p {
+  font-family: var(--fuenteParrafos);
+  color: var(--colorParrafo);
+  font-size: 1.3em !important;
+}
+/* linea separdora */
+
+.hrCardServices {
+  background: var(--colorFondoBotones);
+  height: 4px !important;
+}
+.cardx {
+  position: relative !important;
+  margin: 30px 10px !important;
+  padding: 20px 15px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  box-shadow: 0 5px 20px rgb(0, 0, 0, 0.5) !important ;
+  transition: 0.3s ease-in-out !important;
+}
+
+/* propidades a los iconos */
+.cardx-h6 {
+  font-family: var(--fuenteTitulos);
+  position: relative;
+  background: var(--colorFondoBotones);
+  display: inline-block;
+  padding: 25px 20px 25px 45px;
+  margin-top: -50px;
+  border-radius: 5px;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 4pt;
+}
+.cardx-h6 i {
+  background: #3fffd7;
+  color: #1f7f6b;
+  font-size: 30px;
+  padding: 5px;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  line-height: 45px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  -webkit-box-shadow: inset 0 0 15px 0 rgba(0, 0, 0, 0.4);
+  box-shadow: inset 0 0 15px 0 rgba(0, 0, 0, 0.4);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+  position: absolute;
+  left: -30px;
+  top: 5px;
+  transform: rotate(-45deg);
+}
+
+.cardx:hover {
+  height: 510px;
+}
+.cardx .imgBx img {
+  max-width: 100%;
+  border-radius: 4px;
+}
+.cardx .contenidoServices {
+  position: relative;
+  margin-top: -140px;
+  /* padding: 190px 15px!important; */
+  text-align: center;
+  color: #111;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s ease-in-out;
+}
+
+.cardx:hover .contenidoServices {
+  visibility: visible;
+  opacity: 1;
+  margin-top: -10px;
+  transition-delay: 0.3s;
+}
+/* ocultar el mensjae de "ver mas" */
+.cardx:hover .cardx-h6 {
+  visibility: hidden;
+}
+
+
+
+/* footer */
+.degradadoRainbow{
+  background: var(--colorFondoBotones) ;
+  border-radius: 20px !important;
+}
+/* fin footer */

@@ -1,0 +1,103 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.contenedorTitulo{
+    width: 100%;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 70px;
+}
+
+.contenedorTitulo label:nth-child(2){
+    margin-left: 15px;
+    animation: jump 1.5s infinite ease-out;
+}
+
+/*animacion de salto*/
+@keyframes jump{
+
+    /*scale(x,y)*/
+    10%, 35%{
+        transform: scale(2, .9) translate(0,0);
+    }
+
+    /*scale(n): el mismo valor tanto para x como para y*/
+    45%, 50%{
+        transform: scale(1) translate(0, -100px);
+    }
+
+    80% {
+        transform: scale(1) translate(0, 0);
+    }
+
+}
+
+
+
+.contenedorFormulario{
+
+    width: 60%;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-evenly;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    padding: 25px;
+    background: #ffffff79;
+    border-radius: 20px;
+
+
+}
+
+.grupos{
+
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+#boton{
+    align-self: center;
+}
+
+/*responsive*/
+
+@media screen and (max-width: 567px){
+
+    .contenedorTitulo{        
+        font-size: 50px;
+    }
+
+    .contenedorTitulo label:nth-child(2){
+        position: absolute;
+        top: 200px;
+        margin-left: 1px;
+        animation: none;
+    }
+
+    .contenedorFormulario{
+        width: 100%;
+    }
+}
+
+@media screen and ( max-width:567px) and (orientation: landscape){
+    
+    .contenedorTitulo{        
+        font-size: 70px;
+    }
+
+    .contenedorTitulo label:nth-child(2){
+        position: absolute;
+        top: 200px;
+        margin-left: -100px;
+        animation: none;
+    }
+
+    .contenedorFormulario{
+        width: 100%;
+    }
+}
+
