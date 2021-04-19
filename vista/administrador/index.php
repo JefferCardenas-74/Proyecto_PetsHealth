@@ -70,9 +70,9 @@ require_once("../../configuracion/validaciones.php");// llamo archivo que retorn
     <!-- script del menu -->
     <script src="../../js/menu.js"></script>
 
-       <!-- script de alerta personalizada -->
-       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.4/dist/sweetalert2.all.min.js"></script>
-
+    <!-- script de alerta personalizada -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.4/dist/sweetalert2.all.min.js"></script>
+</head>
 
 <body>
 

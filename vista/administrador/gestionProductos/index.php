@@ -1,20 +1,22 @@
-<?php
-/*
-session_start();
-if (!isset($_SESSION['idEmpleado'])) {
-    header("location:../../principal/login/?x=3");
-}
-else if ($_SESSION["rol"] !== "Empleado"||$_SESSION["estado"] !== 1) {
-    // si no corresponde se redrije al login con la variable x=4
-    header("location:../../principal/login/?x=4");
-}
-*/
-require_once("../../../configuracion/validaciones.php");
+<?php 
+    // session_start();
+
+    // if(!isset($_SESSION['idEmpleado'])){
+
+    //     header('location:../../principal/login/?x=3');
+
+    // }else if($_SESSION['rol'] !== 'Empleado' || $_SESSION['estado'] !== 1){
+
+    //     header('location:../../principal/login/?x=4');
+    // }
+
+    require_once('../../../configuracion/validaciones.php');
 
     extract($_REQUEST);
 
     if(!isset($page)){
-        $page = 'frm_registrarEmpleado';
+
+        $page = 'frm_gestionProductos';
     }
 ?>
 
@@ -22,7 +24,7 @@ require_once("../../../configuracion/validaciones.php");
 <html lang="en">
 
 <head>
-    <title>Pets Health | Registrar Empleado</title>
+<title>Pets Health | Gestion de Productos</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- icono del proyecto -->
@@ -65,14 +67,18 @@ require_once("../../../configuracion/validaciones.php");
 </head>
 
 <body>
-    <div class="container-fluid">
+    <div class="contaiener-fluid">
+        
+        <?php include 'menu.php'?>
 
-        <?php include 'menu.php' ?>
         <header><?php include 'cabecera.php' ?></header>
-        <section><?php include $page.'.php' ?></section>
-        <footer><?php include '../../../piePagina.php' ?></footer>
 
+        <section><?php include $page.'.php' ?></section>
+
+        <footer><?php include '../../../piePagina.php'?></footer>
     </div>
+
+
 </body>
 
 </html>
