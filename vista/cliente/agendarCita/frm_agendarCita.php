@@ -24,7 +24,9 @@
                         </h4>
                     </div> -->
                     <div class="card-body">
-                        <form action="">
+                        <form action="" id="frm_agendarCitas" name="frm_agendarCitas">
+                        <!-- campo oculto -->
+
                             <div class="col">
                                 <div class="row">
 
@@ -62,14 +64,16 @@
                                             <span class="input-group-text"><span
                                                     class="far fa-calendar-alt"></span></span>
                                             <input data-datepicker="" class="form-control" id="txt_fecha" type="text"
-                                                value="data-date" placeholder="dd/mm/yyyy" required />
+                                                placeholder="dia de cita" required />
                                         </div>
 
                                     </div>
                                     <div class="mb-3 col-md-3">
                                         <div class="form-group">
-                                            <div class="input-group date"  data-target-input="nearest">
-                                                <input type="time"  id="txt_hora" class="form-control " require />
+                                            <div class="input-group date"  data-target-input="nearest">                                                <!-- <input type="time" id="txt_hora" class="form-control " require /> -->
+                                                <select name="cb_hora" id="cb_hora" class="form-control" style="width:100%">
+                                        <option value="0">Selecciona Hora</option>
+                                        </select>
                                             </div>
                                         </div>
 
@@ -220,7 +224,7 @@
 
 
                     <div class="card-footer text-center">
-                        <button type="button" class="boton btnMorado fredoka btn-lg" type="button">
+                        <button type="button" id="btnEnviarCita" class="boton btnMorado fredoka btn-lg" type="button">
                             Enviar cita
                         </button>
                         <button type="button" id="btnVerDatos" class="btnNaranja fredoka btn-lg" type="button">

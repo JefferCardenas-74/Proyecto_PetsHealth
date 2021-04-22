@@ -3,16 +3,30 @@
 class Cita{
 
     private $idCita;
-    private $idMascota;
+    private $mascota;
     private $idEmpleado;
     private $fecha;
+    private $estado;
+    private $idHora;
+    private $servicio;
 
-    function __construct($idCita = null,Mascota $idMascota = null, Empleado $idEmpleado = null, $fecha = null){
+    function __construct($idCita = null,
+        Mascota $mascota = null, 
+        $idEmpleado = null,
+        $fecha = null
+        ,$estado =null,
+        $idHora=null,
+        Servicio $servicio=null
+        ){
 
         $this->idCita = $idCita;
-        $this->idMascota = $idMascota;
+        $this->mascota = $mascota;
         $this->idEmpleado = $idEmpleado;
         $this->fecha = $fecha;
+        $this->estado = $estado;
+        $this->idHora= $idHora;
+        $this->servicio=$servicio;
+
         
     }
 
@@ -21,7 +35,7 @@ class Cita{
     }
 
     public function getIdMascota() {
-        return $this->idMascota;
+        return $this->mascota;
     }
 
     public function getIdEmpleado() {
@@ -36,8 +50,8 @@ class Cita{
         $this->idCita = $idCita;
     }
 
-    public function setIdMascota($idMascota) {
-        $this->idMascota = $idMascota;
+    public function setIdMascota($mascota) {
+        $this->mascota = $mascota;
     }
 
     public function setIdEmpleado($idEmpleado) {
@@ -46,6 +60,79 @@ class Cita{
 
     public function setFecha($fecha) {
         $this->fecha = $fecha;
+    }
+
+    /**
+     * Get the value of estado
+     */
+    public function getEstado()
+    {
+        return $this->estado;
+    }
+
+    /**
+     * Set the value of estado
+     */
+    public function setEstado($estado) : self
+    {
+        $this->estado = $estado;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of idHora
+     */
+    public function getIdHora()
+    {
+        return $this->idHora;
+    }
+
+    /**
+     * Set the value of idHora
+     */
+    public function setIdHora($idHora) : self
+    {
+        $this->idHora = $idHora;
+
+        return $this;
+    }
+
+
+    /**
+     * Get the value of servicio
+     */
+    public function getServicio()
+    {
+        return $this->servicio;
+    }
+
+    /**
+     * Set the value of servicio
+     */
+    public function setServicio($servicio) : self
+    {
+        $this->servicio = $servicio;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of mascota
+     */
+    public function getMascota()
+    {
+        return $this->mascota;
+    }
+
+    /**
+     * Set the value of mascota
+     */
+    public function setMascota($mascota) : self
+    {
+        $this->mascota = $mascota;
+
+        return $this;
     }
 }
 

@@ -79,8 +79,21 @@
                         sus datos son :<br> 
                         Rol  : <b>  " . $nombreRol . " </b> <br>
                         Usuario inicio sesion  : <b>  " . $email . " </b> <br>
-                        contraseña : <b>  " . $identificacion . " </b> <br><br><br><br>
-                        Atentamente Administración Pets Health ";
+                        contraseña : <b>  " . $identificacion . " </b>
+                        <table  width='50%' border='0' >
+                        <tr>
+                        <td width ='50%' align='center'>
+                        <img src='https://i.imgur.com/yzjVfUS.png' alt='logoLargoEmpresa' width='250' >
+                        </td>
+                        <td width='50%'>
+                        <br>
+                        <b> Atentamente Administración Pets Health 	</b>
+                        <br>
+                        Gracias por confiar en nosotros
+                        </td>
+                        </tr>
+                        </table>
+                         ";
 
             $resultadoCorreo = $correo->enviarCorreo($objCorreo);
             }

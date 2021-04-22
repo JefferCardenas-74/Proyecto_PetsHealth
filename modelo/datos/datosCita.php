@@ -147,5 +147,63 @@
 
             return $this->retorno;
         }
+
+        function listarHorasDisponibles($fecha){
+            try{
+                $consulta = 'SELECT DISTINCT(horasdisponible.hoHora) ,horasdisponible.hoTipo 
+                ,horasdisponible.idHora
+                FROM horasdisponible
+                LEFT JOIN cita on horasdisponible.idHora = cita.idHora
+                WHERE  cita.idCita is null OR cita.ciFecha  NOT IN (?)';
+                $resultado = $this->conexion->prepare($consulta);
+                $resultado->bindParam(1, $fecha);
+                $resultado->execute();
+                $this->retorno->mensaje = 'lista de horas disponibles ';
+                $this->retorno->estado = true;
+                $this->retorno->datos = $resultado->fetchAll();
+
+            }catch(PDOException $e){
+
+                $this->retorno->mensaje = $e->getMessage();
+                $this->retorno->estado = false;
+                $this->retorno->datos = null;
+            }
+
+            return $this->retorno;
+        }
+
+
+        function agendarCita(Cita $cita){
+            try{
+                $this->conexion->beginTransaction(); 
+                $consulta="INSERT into cita values(null,?,?,?,?,?)";
+                $resultado=$this->conexion->prepare($consulta);
+                $resultado->bindParam(1,$cita->getMascota()->getIdMascota());
+                $resultado->bindParam(2,$cita->getIdEmpleado());
+                $resultado->bindParam(3,$cita->getFecha());
+                $resultado->bindParam(4,$cita->getEstado());
+                $resultado->bindParam(5,$cita->getIdHora());
+                $resultado->execute();   
+                $idCita= $this->conexion->lastInsertId();
+                // var_dump($idCita); exit();
+                $cita->setIdCita($idCita);   
+                $consulta="INSERT into citaservicio values(null, ?,?,?)";
+                $resultado=$this->conexion->prepare($consulta);
+                $resultado->bindParam(1,$idCita);
+                $resultado->bindParam(2,$cita->getServicio()->getIdServicio());
+                $resultado->bindParam(3,$cita->getServicio()->getPrecio());
+                $resultado->execute();    
+                $this->conexion->commit();
+                $this->retorno->estado=true;
+                $this->retorno->mensaje="cita agendada  correctamente";
+                $this->retorno->datos=null;  
+            } catch (PDOException $ex) {
+                 $this->conexion->rollBack();
+                $this->retorno->estado=false;
+                $this->retorno->mensaje=$ex->getMessage();
+                $this->retorno->datos=null; 
+            }
+           return $this->retorno;
+        }
     }
 ?>
