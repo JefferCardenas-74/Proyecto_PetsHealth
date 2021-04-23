@@ -23,8 +23,8 @@ switch ($accion) {
         $user->setPassword($passwordMd5);
         $resultado = $dUsuario->iniciarSesion($user);
         // se crea las varibales de session donde se guardaran los datos
-        $_SESSION["idEmpleado"] = $resultado->datos->idEmpleado;
-        $_SESSION["nombreEmpleado"] = $resultado->datos->perNombre . " " .
+        $_SESSION["idPersona"] = $resultado->datos->idPersona;
+        $_SESSION["nombreUsuario"] = $resultado->datos->perNombre . " " .
         $resultado->datos->perApellido;
         $_SESSION["correo"] = $resultado->datos->perCorreo;
         $_SESSION["rol"] = $resultado->datos->rolNombre;
@@ -43,7 +43,7 @@ switch ($accion) {
             $objCorreo->correoRemitente = "soporte.petsHealth@gmail.com"; //aqui pueden colocar el correo del administrador
             $objCorreo->nombreRemitente = "Administración Pets Health"; //igual el nombre del administrador
             $objCorreo->correoDestinatario =$_SESSION["correo"];
-            $objCorreo->nombreDestinatario =$_SESSION["nombreEmpleado"];
+            $objCorreo->nombreDestinatario =$_SESSION["nombreUsuario"];
             $objCorreo->asunto = "Inicio de sesion en Pets Health";
             $objCorreo->mensaje = "Cordial saludo , <br> Usuario " .$_SESSION["nombreEmpleado"]. "
         " . " se informa  usted ha iniciado sesion hoy <b>".$fechaHora." </b>

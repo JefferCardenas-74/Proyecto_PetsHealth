@@ -73,12 +73,12 @@
                 $objCorreo->correoRemitente = "soporte.petsHealth@gmail.com"; //aqui pueden colocar el correo del administrador
                 $objCorreo->nombreRemitente = "Administración Pets Health"; //igual el nombre del administrador
                 $objCorreo->correoDestinatario =$_SESSION["correo"];
-                $objCorreo->nombreDestinatario =$_SESSION["nombreEmpleado"];
+                $objCorreo->nombreDestinatario =$_SESSION["nombreUsuario"];
                 $objCorreo->asunto = "Solicitud de cita en Pets Health";
                 $objCorreo->mensaje = "Cordial saludo , <br> "
-                ." nos permitimos informar que usted  <b>".$_SESSION["nombreEmpleado"]
+                ." nos permitimos informar que usted  <b>".$_SESSION["nombreUsuario"]
                 ." </b> solicito una cita en Pets Health lo cual fue  exitosa por lo tanto sus datos fueron
-                <br><b>Dueño mascota </b>". $_SESSION["nombreEmpleado"]."
+                <br><b>Dueño mascota </b>". $_SESSION["nombreUsuario"]."
                 <br><b>Fecha </b>".$fecha."
                 <br><b>Hora </b> ".$horaFormateada."
                 <br><b>Cliente </b> ".$nombreCliente."

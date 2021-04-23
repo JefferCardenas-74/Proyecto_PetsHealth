@@ -1,14 +1,13 @@
 <?php
-/*
 session_start();
-if (!isset($_SESSION['idEmpleado'])) {
+if (!isset($_SESSION["idPersona"])) {
     header("location:../../principal/login/?x=3");
 }
-else if ($_SESSION["rol"] !== "Empleado"||$_SESSION["estado"] !== 1) {
+else if ($_SESSION["rol"] !== "Administrador"||$_SESSION["estado"] !== 1) {
     // si no corresponde se redrije al login con la variable x=4
     header("location:../../principal/login/?x=4");
 }
-*/
+
 require_once("../../../configuracion/validaciones.php");
 
     extract($_REQUEST);

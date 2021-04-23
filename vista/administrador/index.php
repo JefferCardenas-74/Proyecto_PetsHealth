@@ -1,7 +1,7 @@
 <?php
 session_start();
 // valido si la session esta disponible
-if (!isset($_SESSION['idEmpleado'])) {
+if (!isset($_SESSION["idPersona"])) {
     // lo redirije a login con la varible x=3
     header("location:../principal/login/?x=3");
 }

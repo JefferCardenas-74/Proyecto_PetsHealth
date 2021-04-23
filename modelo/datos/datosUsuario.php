@@ -20,7 +20,7 @@ class datosUsuario
         try {
             $sql = "SELECT * ,COUNT(ur.idUsuario) as cantidadRoles 
             FROM usuario  as u INNER JOIN persona as p
-            inner join usuariorol as ur on
+            on u.idPersona=p.idPersona inner join usuariorol as ur on
               ur.idUsuario=u.idUsuario inner join rol  as r on r.idRol=ur.idRol
               where usuLogin=? and usuPassword=?";
 
@@ -29,7 +29,7 @@ class datosUsuario
             $resultado->bindParam(2, $user->getPassword());
             $resultado->execute();
             if ($resultado->rowCount() > 0) {
-                $this->retorno->mensaje = "Datos del Empleado";
+                $this->retorno->mensaje = "Datos del Usuario";
                 $this->retorno->estado = true;
                 $this->retorno->datos = $resultado->fetchObject();
             } else {

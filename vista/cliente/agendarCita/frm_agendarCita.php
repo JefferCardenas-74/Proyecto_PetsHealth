@@ -41,7 +41,7 @@
                                                         class="img-circle elevation-2" alt="User Image" />
                                                 </span></span>
                                             <input type="text" class="form-control" id="txt_nombreUsuario"
-                                                aria-describedby="emailHelp" disabled value= "<?php echo $_SESSION["nombreEmpleado"] ?>" />
+                                                aria-describedby="emailHelp" disabled value= "<?php echo $_SESSION["nombreUsuario"] ?>" />
                                         </div>
 
 

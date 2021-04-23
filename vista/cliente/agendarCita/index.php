@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['idEmpleado'])) {
+if (!isset($_SESSION['idPersona'])) {
     header("location:../../principal/login/?x=3");
 }
 else if ($_SESSION["rol"] !== "Cliente"||$_SESSION["estado"] !== 1) {
