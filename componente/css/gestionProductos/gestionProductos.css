@@ -1,0 +1,75 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+#contenedorTitulo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+}
+
+.titulo{
+    font-size: 70px;
+}
+
+.contenedorAgregar{
+    display:flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+
+#botones{
+    display: flex;
+    justify-content: space-around;
+}
+
+#btn_actualizar, #btn_eliminar{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+/* estilos de la tabla*/
+/* .tabla{
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+    min-width: 800px;
+    text-align: center;
+    margin-bottom: 40px;
+} */
+
+thead{
+    background: #a200ff;
+    color: #fff;
+    font-family: 'Fredoka One';
+    letter-spacing: 2px;
+}
+
+.tabla td, .tabla th{
+
+    height: 60px;
+    border-bottom: 1px solid #a200ff;
+    text-align: center;
+}
+
+.tabla tr:hover{
+
+    background: #a200ff57;
+    font-weight: bold;
+}
+
+.botonModal{
+    
+    display: flex;
+    justify-content: center;
+}
+
+
