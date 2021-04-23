@@ -3,16 +3,16 @@
 
         private $idMascota;
         private $idPersona;
-        private $idRaza;
+        private $tipoMascota;
         private $nombre;
         private $fechaNacimiento;
         private $edad;
 
-        function __construct($idMascota = null, Persona $idPersona = null, Raza $idRaza = null, $nombre = null, $fechaNacimiento = null, $edad = null){
+        function __construct($idMascota = null, $idPersona = null, $tipoMascota = null, $nombre = null, $fechaNacimiento = null, $edad = null){
             
             $this->idMascota = $idMascota;
             $this->idPersona = $idPersona;
-            $this->idRaza = $idRaza;
+            $this->tipoMascota = $tipoMascota;
             $this->nombre = $nombre;
             $this->fechaNacimiento = $fechaNacimiento;
             $this->edad = $edad;
@@ -26,8 +26,8 @@
             return $this->idPersona;
         }
 
-        public function getIdRaza() {
-            return $this->idRaza;
+        public function gettipoMascota() {
+            return $this->tipoMascota;
         }
 
         public function getNombre() {
@@ -50,8 +50,8 @@
             $this->idPersona = $idPersona;
         }
 
-        public function setIdRaza($idRaza) {
-            $this->idRaza = $idRaza;
+        public function settipoMascota($tipoMascota) {
+            $this->tipoMascota = $tipoMascota;
         }
 
         public function setNombre($nombre) {
