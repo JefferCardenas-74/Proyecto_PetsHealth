@@ -6,7 +6,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 
 
 require '../componente/librerias/phpMailer/Exception.php';
-require '../componente/librerias/phpMailer/PHPMailer.php';
+require '../componente/librerias/phpMailer/PHPmailer.php';
 require '../componente/librerias/phpMailer/SMTP.php';
 
 class enviarCorreoPrueba
