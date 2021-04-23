@@ -20,8 +20,7 @@ class datosUsuario
         try {
             $sql = "SELECT * ,COUNT(ur.idUsuario) as cantidadRoles 
             FROM usuario  as u INNER JOIN persona as p
-            on u.idPersona=p.idPersona inner join empleado as e on
-              e.idPersona=p.idPersona inner join usuariorol as ur on
+            inner join usuariorol as ur on
               ur.idUsuario=u.idUsuario inner join rol  as r on r.idRol=ur.idRol
               where usuLogin=? and usuPassword=?";
 

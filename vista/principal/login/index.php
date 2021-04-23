@@ -1,3 +1,7 @@
+<?php
+extract($_REQUEST);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
