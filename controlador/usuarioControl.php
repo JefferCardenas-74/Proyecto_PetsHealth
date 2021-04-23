@@ -99,5 +99,6 @@ switch ($accion) {
             $resultado = $dUsuario->actualizarPaswordUsuario($passwordMd5, $idUsuario);
             echo json_encode($resultado);
             break;
+
             
 }   

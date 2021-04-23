@@ -1,5 +1,6 @@
 <?php
 require_once("../../../configuracion/validaciones.php");
+extract($_REQUEST);
 ?>
 <div class="row">
     <div class="col">
@@ -135,35 +136,45 @@ require_once("../../../configuracion/validaciones.php");
                             </div> 
 
                             <!--formulario de crear cuenta cliente-->
+
+                            <div class="form-group">
+                                <label for="txt_cedula" class="col-form-label fredoka">Cedula</label>
+                                <input class="cajaTexto" type="number" name="txt_cedula" id="txt_cedula" placeholder="Cedula">
+                            </div>
+
                             <div class="form-group">
                                 <label for="txt_nombre" class="col-form-label fredoka">Nombre</label>
-                                <input class="cajaTexto" type="text" name="nombre" id="nombre" placeholder="Nombre">
+                                <input class="cajaTexto" type="text" name="txt_nombre" id="txt_nombre" placeholder="Nombre">
                             </div>
 
                             <div class="form-group">
                                 <label for="txt_apellidos" class="col-form-label fredoka">Apellidos</label>
-                                <input class="cajaTexto" type="text" name="apellidos" id="apellidos"
+                                <input class="cajaTexto" type="text" name="txt_apellidos" id="txt_apellidos"
                                     placeholder="Apellidos">
                             </div>
-
-                            <div class="form-group">
-                                <label for="txt_cedula" class="col-form-label fredoka">Cedula</label>
-                                <input class="cajaTexto" type="number" name="cedula" id="cedula" placeholder="Cedula">
-                            </div>
+                            
                         </div>
 
                         <div class="col">
                             <br>
+
                             <div class="form-group">
-                                <label for="txt_correo" class="col-form-label fredoka">Correo</label>
-                                <input class="cajaTexto" type="text" name="email" id="email" placeholder="Email">
+                                <label for="txt_telefono" class="col-form-label fredoka">Telefono</label>
+                                <input class="cajaTexto" type="number" name="txt_telefono" id="txt_telefono" placeholder="Telefono">
                             </div>
 
+                            <div class="form-group">
+                                <label for="txt_correo" class="col-form-label fredoka">Correo</label>
+                                <input class="cajaTexto" type="text" name="txt_correo" id="txt_correo" placeholder="Email">
+                            </div>
+
+                            <!--
                             <div class="form-group">
                                 <label for="txt_contraseña" class="col-form-label fredoka">Contraseña</label>
                                 <input class="cajaTexto" type="password" name="password" placeholder="Contraseña"
                                     pattern=".{6,}" required>
-                            </div>
+                            </div>-->
+
                         </div>
                     </div>
 
@@ -184,18 +195,18 @@ require_once("../../../configuracion/validaciones.php");
                             <!--formulario de crear cuenta mascota-->
                             <div class="form-group">
                                 <label for="txt_nombreMascota" class="col-form-label fredoka">Nombre de la mascota</label>
-                                <input class="cajaTexto" type="text" name="nombreMascota" id="nombreMascota" placeholder="Nombre de la mascota">
+                                <input class="cajaTexto" type="text" name="txt_nombreMascota" id="txt_nombreMascota" placeholder="Nombre de la mascota">
                             </div>
 
                             <div class="form-group">
                                 <label for="txt_edadMascota" class="col-form-label fredoka">Edad de la mascota</label>
-                                <input class="cajaTexto" type="number" name="edadMascota" id="edadMascota" placeholder="Edad de la mascota">
+                                <input class="cajaTexto" type="number" name="txt_edadMascota" id="txt_edadMascota" placeholder="Edad de la mascota">
                             </div>
 
                             <div class="form-group">
-                                <label for="txt_fechaNacimientoMascota" class="col-form-label fredoka">Fecha de Nacimiento de la mascota</label>
+                                <label for="dt_fechaNacimientoMascota" class="col-form-label fredoka">Fecha de Nacimiento de la mascota</label>
                                 <br>
-                                <input class="cajaTexto" type="date" name="fechaNacimientoMascota" id="fechaNacimientoMascota">
+                                <input class="cajaTexto" type="date" name="dt_fechaNacimientoMascota" id="dt_fechaNacimientoMascota">
                             </div>
 
                         </div>   
@@ -203,8 +214,8 @@ require_once("../../../configuracion/validaciones.php");
                         <div class="col">
                             <br>
                             <div class="form-group">
-                                <p><label name="txt_tipoMascota" id="txt_tipoMascota" class="col-form-label fredoka">Tipo de la mascota</label></p>
-                                <select style="width:70%" size="5" class="cb_tipoMascota" name="cb_tipoMascota" id="cb_tipoMascota">
+                                <p><label class="col-form-label fredoka">Tipo de la mascota</label></p>
+                                <select style="width:70%" class="cb_tipoMascota" name="cb_tipoMascota" id="cb_tipoMascota">
                                     <option value="0"  class="limpiar">Seleccione</option>
                                 </select>
                             </div>
@@ -217,13 +228,13 @@ require_once("../../../configuracion/validaciones.php");
             </div>
             <div class="modal-footer">
                     <button type="button" class="btnNaranja pompiere" id="btn_cerrarCuenta" data-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btnMorado pompiere" id="btn_registrar" data-dismiss="modal">Registrarse</button>
+                    <button type="button" class="btnMorado pompiere" id="btn_registrar" value="AgregarCliente" data-dismiss="modal">Registrarse</button>
             </div>
         </div>
     </div>
 </div>
 
-
+<input type="hidden" id="accion" name="accion" value="" >
 
 
 

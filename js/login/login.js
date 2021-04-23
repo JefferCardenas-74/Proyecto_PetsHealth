@@ -2,15 +2,19 @@
 var numeroIntentos = 3;
 var count = 0;
 var restantes = 3;
+var idPersona;
 
 
 $(function () {
 
+  
 
   /*EVENTOS DE INCIO DE SESION */
   $(".txtCrearCuenta").click(function () {
     $("#crearCuenta").modal();
+    listarTipoMascota();
   });
+
 
   $(".btnLogin").click(function () {
     if ($("#txt_user").val() != "" && $("#txt_password").val() != "") {
@@ -50,6 +54,16 @@ $(function () {
     }
   });
 
+  $("#btn_registrar").click(function () {
+    registrarPersona();
+  });
+
+
+
+  // $("btn_registrar").click(function(){
+  //   $("#accion").val("AgregarCliente");
+  //   registrarCliente();
+  // });
 });
 
 
@@ -384,3 +398,161 @@ function enviarCorreoRecuperacionContrasenia() {
 
 }
 
+function registrarPersona(){
+
+  var parametros = { 
+    
+    accion : "AgregarCliente",
+
+    cedula: $('#txt_cedula').val(),
+    nombre : $('#txt_nombre').val(),
+    apellidos: $('#txt_apellidos').val(),
+    telefono : $('#txt_telefono').val(),
+    correo : $('#txt_correo').val(),
+
+  };
+
+  $.ajax({
+    url: "../../../controlador/clienteControl.php",
+    data: parametros,
+    dataType: "json",
+    type: "post",
+    cache: "false",
+
+    success: function (resultado) {
+
+    console.log(resultado.datos);
+
+    idPersona = resultado.datos;
+    agregarMascota(idPersona);
+
+    },
+    error:function(e){
+      console.log(e);
+    }
+  });
+}
+
+function agregarMascota(id){
+  let parametros = { 
+    idPersona: id,
+    nombreMascota: $('#txt_nombreMascota').val(),
+    edadMascota : $('#txt_edadMascota').val(),
+    fechaNacimientoMascota: $('#dt_fechaNacimientoMascota').val(),
+    tipoMascota : $('#cb_tipoMascota').val(),
+
+    accion : "AgregarMascota"
+
+  }
+
+  $.ajax({
+    url:"../../../controlador/clienteControl.php",
+    data: parametros,
+    dataType: "json",
+    type: "post",
+    cache: "false",
+
+    success: function(resultado){
+
+      console.log(resultado.mensaje);
+
+      registrarUsuario();
+
+    },
+    error:function(e){
+      console.log(e);
+    }
+  })
+}
+
+function registrarUsuario(){
+  
+  var parametros = { 
+    idPersona : idPersona,
+    cedula: $('#txt_cedula').val(),
+    correo : $('#txt_correo').val(),
+
+    accion : "AgregarUsuario"
+
+  }
+
+  $.ajax({
+    url:"../../../controlador/clienteControl.php",
+    data: parametros,
+    dataType: "json",
+    type: "post",
+    cache: "false",
+
+    success: function(resultado){
+      
+      console.log(resultado.mensaje);
+      if(resultado.estado==true){
+
+        Swal.fire({
+          icon:'success',
+          title:'Success',
+          text:'se agrego correctamente',
+          confirmButtonText: 'ok'
+        });
+
+      }else{
+        Swal.fire({
+          icon:'error',
+          title:'Oops...',
+          text:'hubo un error al registrar cliente',
+          confirmButtonText: 'ok'
+        });
+      }
+
+    },
+    error:function(e){
+      console.log(e);
+    }
+  })
+}
+
+
+function listarTipoMascota(){
+  $(".opcion").remove();
+  let parametros = {
+    accion:"ListarTM"
+};
+$.ajax({
+   url: "../../../controlador/tipoMascotaControl.php",
+   data: parametros,
+   type: "post",
+   dataType: "json",
+   cache: false,
+
+    success:function(resultado){
+     console.log(resultado);
+    
+        if(resultado.estado){
+
+            var tipoMascotas= resultado.datos;
+
+            console.log(tipoMascotas);
+
+              $.each(tipoMascotas, function(i, tipomascota){
+
+                
+                var opcion = document.createElement('option');    
+
+                opcion.value = tipomascota.idTipoMascota;
+                opcion.text = tipomascota.tipoCategoria;
+                opcion.setAttribute("class", "opcion");
+                $("#cb_tipoMascota").append(opcion);
+
+                // $("#cb_tipoMascota").append("<option class='opcion' value="+ tipomascota.idTipoMascota +">" 
+                //   + tipomascota.tipoCategoria + "</option>");
+                  
+
+              });
+        }
+       
+    },
+   error: function(ex){
+       console.log(ex.responseText);
+   } 
+});
+}
