@@ -94,7 +94,7 @@
                 </button>
             </div>
             <div class='modal-body'>
-                <div class="contenedorFormularioProducto">
+                <div class="contenedorFormularioProductoA">
                     <form id='frm_productoA'>
 
                         <div>
@@ -123,7 +123,7 @@
             <div class="modal-footer botonModal">
 
                 <div>
-                    <button class="btnMorado" id='btn_agregar' name='btn_actualizar'>Actualizar</button>
+                    <button class="btnMorado fredoka" id='btn_actualizarM' name='btn_actualizarM'>Actualizar</button>
                 </div>
 
             </div>

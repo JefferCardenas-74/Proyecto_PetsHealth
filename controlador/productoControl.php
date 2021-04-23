@@ -1,12 +1,12 @@
 <?php 
 
-include '../modelo/datos/datosProducto.php';
 include '../modelo/datos/conexion.php';
+include '../modelo/datos/datosProducto.php';
 include '../modelo/entidad/producto.php';
 
 extract($_REQUEST);
 
-error_reporting(1);
+error_reporting(0);
 
 $dProducto = new datosProducto();
 
@@ -40,9 +40,18 @@ switch($accion){
     
     case 'listarDatosProducto': 
 
-        $resultado = $dProducto->listarDatosProducto($id);
-        echo json_encode($resultado);
+        $datos = $dProducto->listarDatosProducto($idProducto);
+        echo json_encode($datos);
         break;
+
+    case 'actualizarDatosProducto':
+
+         $producto = new producto(null, $nombre, $precio, $unidad);
+
+         $resultado = $dProducto->actualizarDatosProducto($producto, $idProducto);
+
+         echo json_encode($resultado);
+         break;
 }
 
 ?>

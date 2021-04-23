@@ -1,4 +1,5 @@
 var primeraFila;
+var idProducto;
 
 $(function(){
     /**se obtiene toda la etiqueta del primer tr de la tabla */
@@ -10,6 +11,7 @@ $(function(){
     $('#btn_modalAgregar').click(function(){
 
         abrirModalAgregar();
+
     });
 
 });
@@ -136,6 +138,7 @@ function agregarProducto(){
                 });
 
                 limpiar();
+                
             },
             error: function(e){
 
@@ -154,40 +157,89 @@ function limpiar(){
 
 function modalActualizar(id){
 
-    listarDatosProducto(id);
-
+    idProducto = id;  
+    listarDatosProducto();
     $('#mdl_actualizar').modal();
 }
 
-function listarDatosProducto(id){
+function listarDatosProducto(){
 
     var parametros = {
         accion: 'listarDatosProducto',
-        id: id
+        idProducto: idProducto
     };
 
     $.ajax({
         url:'../../../controlador/productoControl.php',
-        data: parametros,
-        dataType: 'json',
+        data:parametros,
+        dataType:'json',
+        type:'post',
+        cache:'false',
+
+        success:function(resultado){
+            console.log(resultado);
+
+            $.each(resultado.datos, function(j, dato){
+                
+                $('#txt_nombreA').val(dato.proNombre);
+                $('#txt_precioA').val(dato.proPrecio);
+                $('#cb_unidadA').val(dato.proUnidadMedida);
+            });
+
+            $('#btn_actualizarM').click(function(){
+            
+                actualizarDatosProducto(idProducto);
+
+            });
+        },
+        error:function(e){
+            console.log('ERROR');
+        }
+    });
+}
+
+function actualizarDatosProducto(id){
+
+    var parametros = {
+
+        nombre: $('#txt_nombreA').val(),
+        precio: $('#txt_precioA').val(),
+        unidad: $('#cb_unidadA').val(),
+        accion: 'actualizarDatosProducto',
+        idProducto: id
+    };
+
+    $.ajax({
+
+        url: '../../../controlador/productoControl.php',
+        data:parametros,
+        dataType:'json',
         type: 'post',
         cache: false,
 
         success: function(resultado){
 
-            console.log(resultado.datos.proNombre);
+            console.log(resultado);
 
-            $.each(resultado.datos, function(j, dato){
-
-                $('#txt_nombreA').html(dato.proNombre);
-                $('#txt_precioA').html(dato.proPrecio);
-                $('#cb_unidadA').html(dato.proUnidadMedida);
-
-            })
+            Swal.fire({
+                icon: 'success',
+                title: 'Success',
+                text: 'Se actualizaron los datos correctamente',
+                confirmButtonText: 'ok' 
+            });
 
         },
-        error: function(e){
+        error:function(e){
 
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops..',
+                text: 'No se pudo actualizar los datos.',
+                confirmButtonText: 'ok' 
+            });
+            console.log(e.responseText);
+            
         }
-    })
+    });
 }
+
