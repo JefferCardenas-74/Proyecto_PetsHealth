@@ -16,7 +16,15 @@ $(function () {
 
   /** dinamismo del formulario atender citas*/
 
-  
+  /**al ejecutarse todos los campos de tipo encargado
+   * estaran deshablilitados
+   */
+  $('.dueño').css('display', 'block');
+  $('.empleado').css('display', 'none');
+  $('.otro').css('display', 'none');
+
+  /**se valida que opcion se selecciono para mostrar su respectivo campo */
+
   $("#chk_dueño").focus(function () {
     $(".empleado").css("display", "none");
     $(".encargado").css("display", "none");
