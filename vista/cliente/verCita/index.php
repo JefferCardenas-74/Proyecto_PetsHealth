@@ -70,13 +70,15 @@ require_once("../../../configuracion/validaciones.php");
     <link rel="stylesheet" href="../../../componente/css/menu.css">
     <!-- script del menu -->
     <script src="../../../js/menu.js"></script>
+    <!-- script de la vista -->
+    <script src="../../../js/verCitas/verCita.js" ></script>
 
 
 <body>
 
 
     <header><?php include "menu.php" ?></header>
-    <section><?php include "contenido.php" ?> </section>
+    <section><?php include "frm_verCita.php" ?> </section>
     <footer><?php include "../../../piePagina.php" ?></footer>
 
 </body>

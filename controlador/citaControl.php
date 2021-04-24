@@ -17,6 +17,7 @@
 
     $dCita = new datosCita();
      
+ 
 
     switch($accion){
 
@@ -103,6 +104,19 @@
 
             echo json_encode($resultado);
             break;
+
+            case 'listarCitaAgendadasPorMi':
+                
+                $resultado = $dCita->verCitasAgendadas($_SESSION['idPersona']);
+                echo json_encode($resultado);
+                break;
+
+
+            case 'cancelarCitas':
+                $resultado = $dCita->cancelarCita($idCita,$idMascota);
+                echo json_encode($resultado);
+                break;
+
     }
 
 ?>
