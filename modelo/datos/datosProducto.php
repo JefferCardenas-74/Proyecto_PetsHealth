@@ -66,6 +66,131 @@ class datosProducto{
         
     }
 
+    function listarProductos(){
+
+        try{
+            $consulta = 'select * from producto';
+            $resultado = $this->conexion->query($consulta);
+
+            $this->retorno->mensaje = 'lista de productos';
+            $this->retorno->estado = true;
+            $this->retorno->datos = $resultado->fetchAll();
+
+        }catch(PDOException $e){
+            
+            $this->retorno->mensaje = $e->getMessage();
+            $this->retorno->estado = false;
+            $this->retorno->datos = null;
+        }
+
+        return $this->retorno;
+    }
+
+    function agregarProducto(producto $producto){
+        try{
+
+            $consulta = 'insert into producto values (null, ?,?,?)';
+
+            $resultado = $this->conexion->prepare($consulta);
+            $resultado->bindParam(1, $producto->getProNombre());
+            $resultado->bindParam(2, $producto->getProPrecio());
+            $resultado->bindParam(3, $producto->getProUnidadMedida());
+
+            $resultado->execute();
+
+            $this->retorno->mensaje = 'producto argregado con exito';
+            $this->retorno->estado = true;
+            $this->retorno->datos = null;
+
+        }catch(PDOException $e){
+
+            $this->retorno->mensaje = $e->getMessage();
+            $this->retorno->estado = false;
+            $this->retorno->datos = null;
+
+        }
+
+        return $this->retorno;
+    }
+
+    function listarDatosProducto($id){
+
+        try{
+            $consulta = 'select * from producto where idProducto = ?';
+
+            $resultado = $this->conexion->prepare($consulta);
+            $resultado->bindParam(1, $id);
+
+            $resultado->execute();
+
+            $this->retorno->mensaje = 'datos del producto';
+            $this->retorno->estado = true;
+            $this->retorno->datos = $resultado->fetchAll();
+
+        }catch(PDOException $e){
+
+            
+            $this->retorno->mensaje = $e->getMessage();
+            $this->retorno->estado = false;
+            $this->retorno->datos = null;
+        }
+
+        return $this->retorno;
+    }
+
+    function actualizarDatosProducto(producto $producto, $idProducto){
+
+         try{
+
+            $consulta = 'update producto set proNombre=?, proPrecio=?, proUnidadMedida=? where idProducto=?';
+
+            $resultado = $this->conexion->prepare($consulta);
+            $resultado->bindParam(1, $producto->getProNombre());
+            $resultado->bindParam(2, $producto->getProPrecio());
+            $resultado->bindParam(3, $producto->getProUnidadMedida());
+            $resultado->bindParam(4, $idProducto);
+
+            $resultado->execute();
+
+            $this->retorno->mensaje = 'datos Actualizados correctamente';
+            $this->retorno->estado = true;
+            $this->retorno->datos = $resultado->fetchAll();
+
+         }catch(PDOException $e){
+
+            $this->retorno->mensaje = $e->getMessage();
+            $this->retorno->estado = false;
+            $this->retorno->datos = null;
+         }
+
+         return $this->retorno;
+    }
+
+    function eliminarProducto($idProducto){
+
+        try{
+
+            $consulta = 'delete from producto where idProducto = ?';
+
+            $resultado = $this->conexion->prepare($consulta);
+            $resultado->bindParam(1, $idProducto);
+
+            $resultado->execute();
+
+            $this->retorno->mensaje = 'se elimino correctamente';
+            $this->retorno->estado = true;
+            $this->retorno->datos = null;
+
+        }catch(PDOException $e){
+
+            $this->retorno->mensaje = $e->getMessage();
+            $this->retorno->estado = false;
+            $this->retorno->datos = null;
+        }
+
+        return $this->retorno;
+    }
+
 }
 
 ?>

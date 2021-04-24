@@ -6,7 +6,6 @@
     include '../modelo/entidad/Persona.php';
     include '../modelo/entidad/Empleado.php';
     include '../modelo/entidad/Rol.php';
-    include '../modelo/entidad/Cargo.php';
     include '../modelo/entidad/Usuario.php';
     include '../modelo/entidad/Mascota.php';
     

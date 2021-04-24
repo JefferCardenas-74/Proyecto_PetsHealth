@@ -30,9 +30,7 @@
                 //se obtiene el id de la persona que se acaba de agreagar
                 $idPersona = $this->conexion->lastInsertId();
 
-                print_r($idPersona);
                 $empleado->setIdPersona($idPersona);
-                print_r($empleado);
 
                 //se agrega a la tabla empleado
                 $consulta = 'insert into empleado values (null,?,?)';
@@ -49,8 +47,6 @@
                 $this->retorno->mensaje = 'empleado agregado con exito';
                 $this->retorno->estado = true;
                 $this->retorno->datos = $idPersona;
-                
-
 
             }catch(PDOException $e){
 

@@ -1,19 +1,22 @@
-<?php
-session_start();
-if (!isset($_SESSION["idPersona"])) {
-    header("location:../../principal/login/?x=3");
-}
-else if ($_SESSION["rol"] !== "Administrador"||$_SESSION["estado"] !== 1) {
-    // si no corresponde se redrije al login con la variable x=4
-    header("location:../../principal/login/?x=4");
-}
+<?php 
+    // session_start();
 
-require_once("../../../configuracion/validaciones.php");
+    // if(!isset($_SESSION['idEmpleado'])){
+
+    //     header('location:../../principal/login/?x=3');
+
+    // }else if($_SESSION['rol'] !== 'Empleado' || $_SESSION['estado'] !== 1){
+
+    //     header('location:../../principal/login/?x=4');
+    // }
+
+    require_once('../../../configuracion/validaciones.php');
 
     extract($_REQUEST);
 
     if(!isset($page)){
-        $page = 'frm_registrarEmpleado';
+
+        $page = 'frm_gestionProductos';
     }
 ?>
 
@@ -21,7 +24,7 @@ require_once("../../../configuracion/validaciones.php");
 <html lang="en">
 
 <head>
-    <title>Pets Health | Registrar Empleado</title>
+<title>Pets Health | Gestion de Productos</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- icono del proyecto -->
@@ -38,6 +41,9 @@ require_once("../../../configuracion/validaciones.php");
 
     <!--cdn de jquery-->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+    <!-- <script src='../../../componente/librerias/jquery-3.5.1/jquery-3.5.1.min.js'></script> -->
+
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <!--cdn de dataTables-->
@@ -51,27 +57,30 @@ require_once("../../../configuracion/validaciones.php");
     <link rel="stylesheet" href="../../../componente/css/global.css">
 
     <!--hoja de estilos personalizada-->
-    <link rel="stylesheet" href="../../../componente/css/registrarEmpleado/registrarEmpleado.css">
-    <link rel="stylesheet" href="../../../componente/css/citasAsignadas/cabecera.css">
+    <link rel="stylesheet" href="../../../componente/css/gestionProductos/gestionProductos.css">
     <link rel="stylesheet" href="../../../componente/css/menu.css">
     
     <!--libreria sweetalert para alertas personalizadas-->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.4/dist/sweetalert2.all.min.js"></script>
 
     <!--js externo-->
-    <script src="../../../js/registrarEmpleado/registrarEmpleado.js"></script>
+    <script src="../../../js/gestionProductos/gestionProductos.js"></script>
     <script src="../../../js/menu.js"></script>
 </head>
 
 <body>
-    <div class="container-fluid">
+    <div class="contaiener-fluid">
+        
+        <?php include 'menu.php'?>
 
-        <?php include 'menu.php' ?>
         <header><?php include 'cabecera.php' ?></header>
-        <section><?php include $page.'.php' ?></section>
-        <footer><?php include '../../../piePagina.php' ?></footer>
 
+        <section><?php include $page.'.php' ?></section>
+
+        <footer><?php include '../../../piePagina.php'?></footer>
     </div>
+
+
 </body>
 
 </html>
