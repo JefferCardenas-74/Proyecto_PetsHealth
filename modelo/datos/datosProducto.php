@@ -166,6 +166,31 @@ class datosProducto{
          return $this->retorno;
     }
 
+    function eliminarProducto($idProducto){
+
+        try{
+
+            $consulta = 'delete from producto where idProducto = ?';
+
+            $resultado = $this->conexion->prepare($consulta);
+            $resultado->bindParam(1, $idProducto);
+
+            $resultado->execute();
+
+            $this->retorno->mensaje = 'se elimino correctamente';
+            $this->retorno->estado = true;
+            $this->retorno->datos = null;
+
+        }catch(PDOException $e){
+
+            $this->retorno->mensaje = $e->getMessage();
+            $this->retorno->estado = false;
+            $this->retorno->datos = null;
+        }
+
+        return $this->retorno;
+    }
+
 }
 
 ?>

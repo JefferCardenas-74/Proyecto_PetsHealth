@@ -52,6 +52,14 @@ switch($accion){
 
          echo json_encode($resultado);
          break;
+
+    case 'eliminarProducto':
+
+        $resultado = $dProducto->eliminarProducto($idProducto);
+
+        echo json_encode($resultado);
+        
+        break;
 }
 
 ?>
