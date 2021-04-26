@@ -6,7 +6,6 @@ var idCita=null;
 $(function() {
     primeraFilaCitas= $("#fila");
      listarCitasAgendadasPorMi();
-    
      modalMotivo = new bootstrap.Modal(document.getElementById("modalMotivo"), {
         keyboard: false,
         backdrop: "static",
@@ -66,6 +65,7 @@ function listarCitasAgendadasPorMi(){
         cache: false,
         success:function(resultado){
             let citasAgendadas=resultado.datos;
+            console.log(citasAgendadas);
             $.each(citasAgendadas, function (i, cita) { 
                 $("#ciContador").html(i+1) ;
                 $("#ciCliente").html(cita.masNombre);

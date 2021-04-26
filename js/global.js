@@ -179,13 +179,22 @@ function cerrarSesionDinamico() {
     $(location).attr("href", "../../configuracion/cerrarSesion.php");
   }
 // VISTA CLIENTE ,ADMINISTRACION, Y EMPLEADOS
-  else if(window.location=="http://localhost/repositorio_desarrollo/vista/cliente/agendarCita/#"
+  else if(
+  //Cliente
+  window.location=="http://localhost/repositorio_desarrollo/vista/cliente/agendarCita/#"
   ||window.location =="http://localhost/repositorio_desarrollo/vista/cliente/verCita/#"
+  ||window.location=="http://localhost/repositorio_desarrollo/vista/cliente/Historial_Mascota/#"
   ||window.location=="http://localhost/repositorio_desarrollo/vista/cliente/actualizarDatos/#"
-  // empleado
+  // Empleado
   ||window.location=="http://localhost/repositorio_desarrollo/vista/empleado/actualizarDatos/#"
   ||window.location=="http://localhost/repositorio_desarrollo/vista/empleado/citasAsignadas/#"
-  ||window.location=="http://localhost/repositorio_desarrollo/vista/empleado/registrarEmpleado/#"){
+  ||window.location=="http://localhost/repositorio_desarrollo/vista/empleado/citasAsignadas/index.php?page=frm_citasAsignadas#"
+  ||window.location=="http://localhost/repositorio_desarrollo/vista/empleado/citasAsignadas/index.php?page=frm_citasNoProgramadas#"
+  //Admin
+  ||window.location=="http://localhost/repositorio_desarrollo/vista/administrador/registrarEmpleado/#"
+  ||window.location=="http://localhost/repositorio_desarrollo/vista/administrador/actualizarDatos/#"
+  ||window.location=="http://localhost/repositorio_desarrollo/vista/administrador/registrarEmpleado/#"
+  ||window.location=="http://localhost/repositorio_desarrollo/vista/administrador/gestionProductos/#"){
   // lo reirije al script php que  cierrar la sesion 
    $(location).attr("href", "../../../configuracion/cerrarSesion.php");
   }

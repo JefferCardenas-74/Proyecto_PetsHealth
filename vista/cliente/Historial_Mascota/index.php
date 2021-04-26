@@ -27,6 +27,11 @@ extract($_REQUEST);
             <script src="../../../js/menu.js"></script>
             <!--javascript historialMascota -->
             <script src="../../../js/historialMascota/historialMascota.js"></script>
+            <!-- js global -->
+            <script src="../../../js/global.js"></script>
+              <!-- libreria de alerta personalizada -->
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.4/dist/sweetalert2.all.min.js"></script>
+
         </head>
 
         <body>
@@ -34,7 +39,7 @@ extract($_REQUEST);
                 <nav><?php include "menu.php" ?></nav>
                 <header ><?php include "encabezado.php"?> </header>
                 <section ><?php include "frm_historialMascota.php"?></section>
-                <footer > <?php include "piePagina.php"?></footer>
+                <footer > <?php include "../../../piePagina.php"?></footer>
             </div>
         </body>
     </html>

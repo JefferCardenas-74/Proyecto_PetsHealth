@@ -66,6 +66,8 @@
     <!--js externo-->
     <script src="../../../js/gestionProductos/gestionProductos.js"></script>
     <script src="../../../js/menu.js"></script>
+    <!-- js global -->
+    <script src="../../../js/global.js"></script>
 </head>
 
 <body>

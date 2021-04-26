@@ -177,22 +177,20 @@
         function agendarCita(Cita $cita){
             try{
                 $this->conexion->beginTransaction(); 
-                $consulta="INSERT into cita values(null,?,?,?,?,?)";
+                $consulta="INSERT into cita values(null,?,?,?,?)";
                 $resultado=$this->conexion->prepare($consulta);
                 $resultado->bindParam(1,$cita->getMascota()->getIdMascota());
-                $resultado->bindParam(2,$cita->getIdEmpleado());
-                $resultado->bindParam(3,$cita->getFecha());
-                $resultado->bindParam(4,$cita->getEstado());
-                $resultado->bindParam(5,$cita->getIdHora());
+                $resultado->bindParam(2,$cita->getFecha());
+                $resultado->bindParam(3,$cita->getEstado());
+                $resultado->bindParam(4,$cita->getIdHora());
                 $resultado->execute();   
                 $idCita= $this->conexion->lastInsertId();
                 //AGREGA EN CITA SERVICIO
                 $cita->setIdCita($idCita);   
-                $consulta="INSERT into citaservicio values(null, ?,?,?)";
+                $consulta="INSERT into citaservicio values(null, ?,?)";
                 $resultado=$this->conexion->prepare($consulta);
                 $resultado->bindParam(1,$idCita);
                 $resultado->bindParam(2,$cita->getServicio()->getIdServicio());
-                $resultado->bindParam(3,$cita->getServicio()->getPrecio());
                 $resultado->execute();
                 // ACTUALIZA EL ESTADO A LA MASCOTA
                 $consulta ="UPDATE mascota SET masEstado=0 WHERE idMascota=?"; 

@@ -3,6 +3,7 @@ var datepicker = null;
 var servicio = null;
 var nombreCliente = "";
 var horaFormateada = "";
+var cliente=null;
 
 $(function () {
     cargarControles();
@@ -24,7 +25,8 @@ $(function () {
     let verDatos = new bootstrap.Modal(document.getElementById("modalverDatos"));
     //evento para validar si esa mascota tiene una cita
     $("#cb_cliente").on("change", function () {
-      validarMascotaCita($(this).val());
+        cliente=$(this).val();
+      validarMascotaCita(cliente);
     });
 
     // eventos principales
@@ -139,9 +141,12 @@ function limpiarCampos() {
     $("#cb_cliente option").remove();
     $("#cb_hora option").remove();
     $(".chkTipoServicio").prop("checked", false);
-    listarHorasDisponibles(fechaEscogida);
+    validarMascotaCita(cliente);
     listarCliente();
     servicio = null;
+    listarHorasDisponibles(fechaEscogida);
+    
+  
 }
 /**
  * Obtien el check del servicio de la cita

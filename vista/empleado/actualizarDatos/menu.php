@@ -1,7 +1,8 @@
 <nav class="menu">
 
     <div class="logo">
-        <img src="https://i.imgur.com/yzjVfUS.png" alt="Logo de la empresa" width="100px" height="60px">
+        <img src="https://i.imgur.com/yzjVfUS.png" alt="Logo de la empresa"
+       >
     </div>
 
         <input type="checkbox" id="btn_menu">
@@ -9,20 +10,38 @@
 
     <div class="menu-items uno">
         <ul>
-            <li class="item">
-                <a>Home</a>
-            </li>
-            <li class="sub_menu item">
-                <a >Menu Despleglable <i class="fa fa-caret-down"></i></a>
-
+        <li class="sub_menu item">
+                <a href="#">Cita<i class="fa fa-caret-down"></i></a>
                 <ul>
-                    <li><a>menu item 1</a></li>
-                    <li><a>menu item 1</a></li>
+                        <li><a class="dropdown-item " href="../citasAsignadas/">Ver Asignadas</a></li>
+                        <li><a href="../citasAsignadas/?page=frm_citasNoProgramadas">Citas No Programadas</a></li>                    
+                        <li><a class="dropdown-item" href="#">Opciones</a></li>
                 </ul>
             </li>
-            <li class="item">
-                <a>About</a>
+
+            <li class="sub_menu item">
+                <a href="#">Estadisticas<i class="fa fa-caret-down"></i></a>
+                <ul>
+                        <li><a class="dropdown-item" href="#">Ver reporte Citas por mes</a></li>
+                        <li><a class="dropdown-item" href="#">ver  reporte Citas por año</a></li>
+                        <li><a class="dropdown-item" href="#">Otros</a></li>
+                </ul>
             </li>
+
+            <li class="sub_menu item " >
+                <a href="#">Configuraciones<i class="fa fa-caret-down"></i></a>
+                <ul class="posRight">
+                <li>
+                        <a class="dropdown-item " href="#">
+                        <!-- <img src="../../../componente/img/user/avatar.svg" width="32px" class="img-circle elevation-2" alt="User Image"> -->
+                         nombre usuario</a>
+                        </li>
+                        <li><a class="dropdown-item " href="#">actualizar datos</a></li>
+                        <li><a class="dropdown-item" href="#">actualizar mascotas</a></li>
+                        <li><a class="dropdown-item" id="cerrarSesion" href="#">cerrar sesion</a></li>
+                </ul>
+            </li>
+
         </ul>
     </div> 
 </nav>

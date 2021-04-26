@@ -13,7 +13,7 @@ class datosMascota{
 
     function agregarMascota(Mascota $mascota){
         try{
-            $consulta = "INSERT INTO mascota VALUES(null, ?,?,?,?,?)";
+            $consulta = "INSERT INTO mascota VALUES(null, ?,?,?,?,?,1)";
             $resultado = $this->conexion->prepare($consulta);
 
             $resultado->bindParam(1, $mascota->getIdPersona());
