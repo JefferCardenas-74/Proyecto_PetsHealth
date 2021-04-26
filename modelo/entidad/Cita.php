@@ -4,7 +4,6 @@ class Cita{
 
     private $idCita;
     private $mascota;
-    private $idEmpleado;
     private $fecha;
     private $estado;
     private $idHora;
@@ -12,7 +11,6 @@ class Cita{
 
     function __construct($idCita = null,
         Mascota $mascota = null, 
-        $idEmpleado = null,
         $fecha = null
         ,$estado =null,
         $idHora=null,
@@ -21,7 +19,6 @@ class Cita{
 
         $this->idCita = $idCita;
         $this->mascota = $mascota;
-        $this->idEmpleado = $idEmpleado;
         $this->fecha = $fecha;
         $this->estado = $estado;
         $this->idHora= $idHora;

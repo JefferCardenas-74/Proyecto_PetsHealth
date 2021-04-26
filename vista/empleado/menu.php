@@ -13,18 +13,18 @@
         <li class="sub_menu item">
                 <a href="#">Cita<i class="fa fa-caret-down"></i></a>
                 <ul>
-                        <li><a class="dropdown-item active" href="#">agendar</a></li>
-                        <li><a class="dropdown-item" href="">ver</a></li>
+                        <li><a class="dropdown-item " href="citasAsignadas/">Ver Asignadas</a></li>
+                        <li><a href="citasAsignadas/?page=frm_citasNoProgramadas">Citas No Programadas</a></li>                    
                         <li><a class="dropdown-item" href="#">Opciones</a></li>
                 </ul>
             </li>
 
             <li class="sub_menu item">
-                <a href="#">Mascota<i class="fa fa-caret-down"></i></a>
+                <a href="#">Estadisticas<i class="fa fa-caret-down"></i></a>
                 <ul>
-                        <li><a class="dropdown-item" href="#">agregar</a></li>
-                        <li><a class="dropdown-item" href="verCita/">ver</a></li>
-                        <li><a class="dropdown-item" href="#">opciones</a></li>
+                        <li><a class="dropdown-item" href="#">Ver reporte Citas por mes</a></li>
+                        <li><a class="dropdown-item" href="#">ver  reporte Citas por año</a></li>
+                        <li><a class="dropdown-item" href="#">Otros</a></li>
                 </ul>
             </li>
 

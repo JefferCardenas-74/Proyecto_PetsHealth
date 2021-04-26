@@ -52,6 +52,7 @@
                                         <select name="cb_cliente" id="cb_cliente" class="form-control" style="width:100%">
                                         <option value="0">Selecciona tu mascota</option>
                                         </select>
+                                        <span id="txtMensajeMascota" class="text-muted pompiere" ></span>
                                         <!-- <input type="text" class="form-control" placeholder="Last Name"> -->
                                     </div>
 
@@ -159,7 +160,7 @@
 
 
                                         <div class="mb-3 text-left">
-                                            <h5 class="text-modal_datos">Informacion cita</h5>
+                                            <h5 class="text-modal_datos">Nombre dueño y Cliente</h5>
                                         </div>
 
                                         <div class="row">
@@ -174,22 +175,11 @@
                                         </div>
 
 
-                                        <div class="mb-3 text-left">
-                                            <h5 class="text-modal_datos">Servicio</h5>
-
-                                        </div>
-
-                                        <div class="row">
-
-                                            <div class="mb-3 col-md-6">
-                                                <input type="text" id="txt_tipoServicio" class="form-control" value="">
-                                            </div>
-                                        </div>
-
-
+                                
+<!-- 
                                         <div class="row ml-0 mb-3">
 
-                                        </div>
+                                        </div> -->
 
 
                                         <div class="mb-3 text-left">
@@ -206,6 +196,17 @@
                                             <div class="mb-3 col-md-6">
                                                 <input type="text" id="hora" class="form-control" value="">
 
+                                            </div>
+                                        </div>
+                                        <div class="mb-3 text-left">
+                                            <h5 class="text-modal_datos">Servicio</h5>
+
+                                        </div>
+
+                                        <div class="row">
+
+                                            <div class="mb-3 col-md-14">
+                                                <input type="text" id="txt_tipoServicio" class="form-control" value="">
                                             </div>
                                         </div>
 

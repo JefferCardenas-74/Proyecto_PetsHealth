@@ -61,6 +61,8 @@ require_once("../../../configuracion/validaciones.php");
     <!--js externo-->
     <script src="../../../js/registrarEmpleado/registrarEmpleado.js"></script>
     <script src="../../../js/menu.js"></script>
+    <!-- js global -->
+    <script src="../../../js/global.js"></script>
 </head>
 
 <body>

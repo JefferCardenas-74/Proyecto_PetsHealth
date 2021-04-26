@@ -17,6 +17,7 @@
 
     $dCita = new datosCita();
      
+ 
 
     switch($accion){
 
@@ -41,7 +42,6 @@
             break;
 
         case 'buscarMascotas':
-
             $resultado = $dCita->buscarMascota($cedula);
             echo json_encode($resultado);
             break;
@@ -59,11 +59,11 @@
         case 'agendarCita':
           
 
-            $servicio=new Servicio($servicio,null,10000);
+            $servicio=new Servicio($servicio,null);
            
             $mascota= new Mascota($cliente,null,null,null,null);
             
-            $cita =new Cita(null,$mascota,null,$fecha,"Solicitada",$hora,$servicio);
+            $cita =new Cita(null,$mascota,$fecha,"Solicitada",$hora,$servicio);
             
             $resultado=$dCita->agendarCita($cita);
 
@@ -104,6 +104,19 @@
 
             echo json_encode($resultado);
             break;
+
+            case 'listarCitaAgendadasPorMi':
+                
+                $resultado = $dCita->verCitasAgendadas($_SESSION['idPersona']);
+                echo json_encode($resultado);
+                break;
+
+
+            case 'cancelarCitas':
+                $resultado = $dCita->cancelarCita($idCita,$idMascota);
+                echo json_encode($resultado);
+                break;
+
     }
 
 ?>

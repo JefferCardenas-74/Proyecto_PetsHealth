@@ -3,11 +3,14 @@ var datepicker = null;
 var servicio = null;
 var nombreCliente = "";
 var horaFormateada = "";
+var cliente=null;
 
 $(function () {
     cargarControles();
     listarCliente();
     listarServicios();
+
+
 
 
 
@@ -20,6 +23,11 @@ $(function () {
         }
     );
     let verDatos = new bootstrap.Modal(document.getElementById("modalverDatos"));
+    //evento para validar si esa mascota tiene una cita
+    $("#cb_cliente").on("change", function () {
+        cliente=$(this).val();
+      validarMascotaCita(cliente);
+    });
 
     // eventos principales
     $("#btnEscojerServicio").click(function () {
@@ -133,9 +141,12 @@ function limpiarCampos() {
     $("#cb_cliente option").remove();
     $("#cb_hora option").remove();
     $(".chkTipoServicio").prop("checked", false);
-    listarHorasDisponibles(fechaEscogida);
+    validarMascotaCita(cliente);
     listarCliente();
     servicio = null;
+    listarHorasDisponibles(fechaEscogida);
+    
+  
 }
 /**
  * Obtien el check del servicio de la cita
@@ -181,8 +192,16 @@ function mostrarDatosCita() {
         $("#txt_cliente").val(cliente);
     });
 
+    if(fecha==""){
+        $("#fecha").val("No ha Seleccionado");
+    }else{
+        $("#fecha").val(fecha);
+    }
+
     $("#txt_usuario").val(usuario);
-    $("#fecha").val(fecha);
+    
+
+   
 }
 
 /**
@@ -214,7 +233,6 @@ function listarCliente() {
                 });
                 $("#cb_cliente").change(function () {
                     nombreCliente = $("#cb_cliente option:selected").text();
-                    console.log(nombreCliente);
                 });
             } else {
                 alert("No tienes mascotas registradas :c");
@@ -358,4 +376,40 @@ function agendarCita() {
             console.log(ex.responseText);
         },
     });
+}
+
+function validarMascotaCita(cliente) {
+    let parametros = {
+        accion: "listarMascotas",
+        idMascota:cliente
+    };
+    $.ajax({
+        url: "../../../controlador/mascotaControl.php",
+        data: parametros,
+        type: "post",
+        dataType: "json",
+        cache: false,
+        success: function (resultado) {
+            let datos= Object.keys(resultado.datos).length === 0;
+            console.log(datos);
+            if(datos===true){
+                $("#txtMensajeMascota").html("");
+                $("#btnEnviarCita").prop("disabled", false);
+                $("#btnEnviarCita").css({
+                background: 'linear-gradient(to right, #8E2DE2, #4A00E0)'
+                });
+            }else{
+                $("#txtMensajeMascota").text("Esta mascota ya tiene cita  por favor seleciona una que no tenga");
+                $("#btnEnviarCita").prop("disabled", true);
+                $("#btnEnviarCita").css({
+                background: '#3000ff8f'
+                });
+            }
+        },
+        error: function (ex) {
+            console.log(ex.responseText);
+        },
+    });
+
+    
 }

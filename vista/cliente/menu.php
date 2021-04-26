@@ -23,7 +23,7 @@
                 <a href="#">Mascota<i class="fa fa-caret-down"></i></a>
                 <ul>
                         <li><a class="dropdown-item" href="#">agregar</a></li>
-                        <li><a class="dropdown-item" href="#">ver</a></li>
+                        <li><a class="dropdown-item" href="Historial_Mascota/">ver historial</a></li>
                         <li><a class="dropdown-item" href="#">opciones</a></li>
                 </ul>
             </li>

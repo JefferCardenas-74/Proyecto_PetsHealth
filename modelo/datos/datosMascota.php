@@ -13,7 +13,7 @@ class datosMascota{
 
     function agregarMascota(Mascota $mascota){
         try{
-            $consulta = "INSERT INTO mascota VALUES(null, ?,?,?,?,?)";
+            $consulta = "INSERT INTO mascota VALUES(null, ?,?,?,?,?,1)";
             $resultado = $this->conexion->prepare($consulta);
 
             $resultado->bindParam(1, $mascota->getIdPersona());
@@ -39,6 +39,27 @@ class datosMascota{
 
     }
 
+    /**
+     * Obtiene las mascotas de X cliente
+     * sin que tenga una cita agendada anteriormente
+     */
+    function listarMascotasSinCita($idMascota){
+        try{
+            $consulta = "SELECT  * from mascota as m
+              WHERE m.idMascota='$idMascota' and m.masEstado =0";
+            $resultado = $this->conexion->prepare($consulta);
+            $resultado->bindParam(1, $idMascota);
+            $resultado->execute();
+            $this->retorno->mensaje = 'mascotas sin citas agendadas';
+            $this->retorno->estado = true;
+            $this->retorno->datos = $resultado->fetchAll();
+        }catch(PDOException $e){
+            $this->retorno->mensaje = $e->getMessage();
+            $this->retorno->estado = false;
+            $this->retorno->datos = null;
+        }
+        return $this->retorno;
+    }
 }
 
 ?>
