@@ -41,7 +41,8 @@
             break;
 
         case 'buscarMascotas':
-            $resultado = $dCita->buscarMascota($_SESSION['identificacion']);
+
+            $resultado = $dCita->buscarMascota($cedula);
             echo json_encode($resultado);
             break;
         
