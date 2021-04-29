@@ -40,9 +40,8 @@
                 <a href="#">Configuraciones<i class="fa fa-caret-down"></i></a>
                 <ul class="posRight">
                 <li>
-                        <a class="dropdown-item " href="#">
-                        <img src="../../componente/img/user/avatar.svg" width="32px" class="img-circle elevation-2" alt="User Image"> 
-                         nombre usuario</a>
+                <a class="dropdown-item " href="#">
+                        Admin <span class="active"><?php echo $_SESSION["nombreUsuario"]; ?> </span> </a>
                         </li>
                         <li><a class="dropdown-item " href="actualizarDatos/">actualizar datos</a></li>
                         <li><a class="dropdown-item" href="#">actualizar mascotas</a></li>

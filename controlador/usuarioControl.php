@@ -34,37 +34,6 @@ switch ($accion) {
         $_SESSION["estado"] = $resultado->datos->usuEstado;
         $_SESSION["identificacion"] = $resultado->datos->perIdentificacion;
 
-
-
-
-        //Enviar correo cuando se inicia sesion
-        $correo = new enviarCorreoPrueba();
-            $objCorreo = new stdClass();
-            $objCorreo->correoRemitente = "soporte.petsHealth@gmail.com"; //aqui pueden colocar el correo del administrador
-            $objCorreo->nombreRemitente = "Administración Pets Health"; //igual el nombre del administrador
-            $objCorreo->correoDestinatario =$_SESSION["correo"];
-            $objCorreo->nombreDestinatario =$_SESSION["nombreUsuario"];
-            $objCorreo->asunto = "Inicio de sesion en Pets Health";
-            $objCorreo->mensaje = "Cordial saludo , <br> Usuario " .$_SESSION["nombreEmpleado"]. "
-        " . " se informa  usted ha iniciado sesion hoy <b>".$fechaHora." </b>
-        <br>
-        ¿fuiste tu ?
-        <table  width='50%' border='0' >
-        <tr>
-        <td width ='50%' align='center'>
-        <img src='https://i.imgur.com/yzjVfUS.png' alt='logoLargoEmpresa' width='250' >
-        </td>
-        <td width='50%'>
-        <br>
-        <b> Atentamente Administración Pets Health 	</b>
-        <br>
-        Gracias por confiar en nosotros
-        </td>
-        </tr>
-        </table>";
-
-	
-        $resultadoCorreo = $correo->enviarCorreo($objCorreo);
         echo json_encode($resultado);
         break;
 
