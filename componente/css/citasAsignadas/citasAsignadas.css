@@ -31,7 +31,7 @@
     margin-left: auto;
     margin-right: auto;
     border-collapse: collapse;
-    min-width: 1000px;
+    min-width: 900px;
     text-align: center;
     margin-bottom: 40px;
 }
@@ -67,6 +67,11 @@ thead{
 
 #atenderCita{
     z-index: 1111;
+}
+ /* profundiad del modal del alerta  */
+ .swal2-container.swal2-center{ 
+     
+    z-index: 9999999; 
 }
 
 /*lista de datos*/
@@ -150,12 +155,9 @@ thead{
     overflow-x: auto;
 }
 
-.factura{
-    min-width: 1000px;
-}
 
 .factura-header{
-     display: flex;
+    display: flex;
     justify-content: flex-start;
     border-bottom: 1px solid #000;
 }
@@ -186,7 +188,6 @@ thead{
 
     font-weight: bold;
 }
-
 /*estilos para formlario del modal atender cita*/
 
 @media screen and (max-width: 576px){
@@ -204,8 +205,9 @@ thead{
         display: block;
     }
 
-    .factura{
-        min-width: 600px;
+    .contenedorFactura{
+        min-width: 450px;
+        overflow-x: auto;
     }
 
 

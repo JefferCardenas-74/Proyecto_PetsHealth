@@ -2,12 +2,12 @@
     class Detalle{
         private $idDetalle;
         private $descripcion;
-        private $valor;
+        private $idCita;
 
-        function __construct($idDetalle = null, $descripcion = null, $valor = null){
+        function __construct($idDetalle = null, $descripcion = null, $idCita = null){
             $this->idDetalle= $idDetalle;
             $this->descripcion= $descripcion;
-            $this->valor= $valor;
+            $this->idCita = $idCita;
         }
 
         function getIdDetalle(){
@@ -26,12 +26,12 @@
             $this->descripcion = $descripcion;
         }
 
-        function getValor(){
-            return $this->valor;
+        function getIdCita(){
+            return $this->idCita;
         }
 
-        function setNombre($valor){
-            $this->valor = $valor;
+        function setIdCita($idCita){
+            $this->idCita = $idCita;
         }
 
     }
