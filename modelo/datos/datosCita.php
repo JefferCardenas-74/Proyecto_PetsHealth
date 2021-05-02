@@ -154,7 +154,7 @@
                 ,horasdisponible.idHora
                 FROM horasdisponible
                 LEFT JOIN cita on horasdisponible.idHora = cita.idHora
-                WHERE  cita.idCita is null OR cita.ciFecha  NOT IN (?)
+                WHERE  cita.idCita is null OR cita.ciFecha  NOT IN (?) 
                 ORDER by horasdisponible.idHora';
                 $resultado = $this->conexion->prepare($consulta);
                 $resultado->bindParam(1, $fecha);
@@ -189,7 +189,7 @@
                 $cita->setIdCita($idCita);   
                 $consulta="INSERT into citaservicio values(null, ?,?)";
                 $resultado=$this->conexion->prepare($consulta);
-                $resultado->bindParam(1,$idCita);
+                $resultado->bindParam(1,$cita->getIdCita());
                 $resultado->bindParam(2,$cita->getServicio()->getIdServicio());
                 $resultado->execute();
                 // ACTUALIZA EL ESTADO A LA MASCOTA
@@ -219,7 +219,7 @@
                 INNER JOIN citaservicio  as cs on cs.idCita
                 =c.idCita INNER JOIN servicio
                  as s on s.idServicio=cs.idServicio
-  					WHERE m.idPersona='$idPersona'";
+  					WHERE m.idPersona='$idPersona' ORDER BY c.ciFecha DESC";
                 $resultado = $this->conexion->query($consulta);
                 $this->retorno->mensaje = 'citas agendadas por mi';
                 $this->retorno->estado = true;

@@ -37,8 +37,7 @@
                                         <div class="input-group">
 
                                             <span class="input-group-text"><span class="">
-                                                    <img src="../../../componente/img/user/avatar.svg" width="32px"
-                                                        class="img-circle elevation-2" alt="User Image" />
+                                            <i class="fas fa-user"></i> 
                                                 </span></span>
                                             <input type="text" class="form-control" id="txt_nombreUsuario"
                                                 aria-describedby="emailHelp" disabled value= "<?php echo $_SESSION["nombreUsuario"] ?>" />
@@ -92,8 +91,8 @@
                                     </div>
                                     <div class="mb-3 col-md-3">
                                         <div class="form-group">
-                                            <div class="input-group " id="" data-target-input="nearest">
-                                                <input type="button" value="Limpiar"
+                                            <div class="input-group " id="btnLimpiar" data-target-input="nearest">
+                                                <input type="button" value="Limpiar campos "
                                                     class="btnNaranja pompiere" require />
                                             </div>
                                         </div>
@@ -165,12 +164,12 @@
 
                                         <div class="row">
                                             <div class="mb-3 col-md-6">
-                                                <input type="text" id="txt_usuario" class="form-control" value="">
+                                                <input type="text" id="txt_usuario"  readonly class="form-control" value="">
                                             </div>
 
                                             <div class="mb-3 col-md-6">
 
-                                                <input type="text" id="txt_cliente" class="form-control" value="">
+                                                <input type="text" id="txt_cliente"  readonly class="form-control" value="">
                                             </div>
                                         </div>
 
@@ -190,11 +189,11 @@
                                         <div class="row">
 
                                             <div class="mb-3 col-md-6">
-                                                <input type="text"  id="fecha" class="form-control" value="">
+                                                <input type="text"  id="fecha" readonly  class="form-control" value="">
                                             </div>
 
                                             <div class="mb-3 col-md-6">
-                                                <input type="text" id="hora" class="form-control" value="">
+                                                <input type="text" id="hora" readonly  class="form-control" value="">
 
                                             </div>
                                         </div>
@@ -206,7 +205,7 @@
                                         <div class="row">
 
                                             <div class="mb-3 col-md-14">
-                                                <input type="text" id="txt_tipoServicio" class="form-control" value="">
+                                                <input type="text"  readonly id="txt_tipoServicio" class="form-control" value="">
                                             </div>
                                         </div>
 

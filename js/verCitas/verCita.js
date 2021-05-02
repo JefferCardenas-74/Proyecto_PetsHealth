@@ -76,13 +76,21 @@ function listarCitasAgendadasPorMi(){
                 $("#btnCancelar").attr("onclick", "abrirModalCancelarCita(" +cita.idCita +","+cita.idMascota+ ")"); 
                 $("#tblCitasAgendadasXmi tbody").append(primeraFilaCitas.clone(true).attr("class","otraFila"));
             });
-            $("#tblCitasAgendadasXmi tbody tr").first().remove();        
+            $("#tblCitasAgendadasXmi tbody tr").first().remove();  
+
+            $("#tblCitasAgendadasXmi").DataTable({
+                language: {
+                  url: "//cdn.datatables.net/plug-ins/1.10.22/i18n/Spanish.json",
+                  responsive: true
+                }
+            });    
        },
        error: function(ex){
            console.log(ex.responseText);
        } 
     });
 }
+
 
 
 function abrirModalCancelarCita(cita,mascota) {

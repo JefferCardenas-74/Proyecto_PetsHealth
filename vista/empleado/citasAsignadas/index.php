@@ -1,6 +1,7 @@
 <?php
-/*
 session_start();
+/*
+
 if (!isset($_SESSION['idPersona'])) {
     header("location:../../principal/login/?x=3");
 }

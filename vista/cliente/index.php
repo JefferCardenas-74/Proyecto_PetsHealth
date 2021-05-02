@@ -64,6 +64,8 @@ require_once("../../configuracion/validaciones.php");
 
     <!-- estilos del menu -->
     <link rel="stylesheet" href="../../componente/css/menu.css">
+    <!-- estilos de la vista principal del cliente -->
+    <link rel="stylesheet" href="../../componente/css/vistasGeneral/vistaGeneral.css">
     <!-- script del menu -->
     <script src="../../js/menu.js"></script>
     <!-- libreria de alerta personalizada -->

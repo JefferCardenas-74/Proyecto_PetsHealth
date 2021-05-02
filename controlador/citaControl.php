@@ -57,14 +57,10 @@
             break;
 
         case 'agendarCita':
-          
-
-            $servicio=new Servicio($servicio,null);
-           
+            $servicio=new Servicio($servicio,null,null);
             $mascota= new Mascota($cliente,null,null,null,null);
-            
+
             $cita =new Cita(null,$mascota,$fecha,"Solicitada",$hora,$servicio);
-            
             $resultado=$dCita->agendarCita($cita);
 
             if($resultado->estado){

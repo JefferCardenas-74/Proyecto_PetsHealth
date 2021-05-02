@@ -67,6 +67,8 @@
     <link rel="stylesheet" href="../../componente/css/menu.css">
     <!-- script del menu -->
     <script src="../../js/menu.js"></script>
+     <!-- estilso de la vista general  -->
+    <link rel="stylesheet" href="../../componente/css/vistasGeneral/vistaGeneral.css">
   <!-- libreria de alerta personalizada -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.4/dist/sweetalert2.all.min.js"></script>
 
