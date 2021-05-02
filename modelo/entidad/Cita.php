@@ -7,14 +7,13 @@ class Cita{
     private $fecha;
     private $estado;
     private $idHora;
-    private $servicio;
+ 
 
     function __construct($idCita = null,
-        Mascota $mascota = null, 
-        $fecha = null
-        ,$estado =null,
-        $idHora=null,
-        Servicio $servicio=null
+        $mascota = null, 
+        $fecha = null,
+        $estado =null,
+        $idHora=null
         ){
 
         $this->idCita = $idCita;
@@ -22,8 +21,6 @@ class Cita{
         $this->fecha = $fecha;
         $this->estado = $estado;
         $this->idHora= $idHora;
-        $this->servicio=$servicio;
-
         
     }
 
@@ -130,6 +127,39 @@ class Cita{
         $this->mascota = $mascota;
 
         return $this;
+    }
+
+    public function getTipoCita() {
+        return $this->tipoCita;
+    }
+
+    public function setTipoCita($tipoCita) {
+        $this->tipoCita = $tipoCita;
+    }
+
+    public function getObservacion() {
+        return $this->observacion;
+    }
+
+    public function setObservacion($observacion) {
+        $this->observacion = $observacion;
+    }
+
+    public function getProductos(){
+        return $this->productos;
+    }
+
+    public function setProductos($productos){
+        $this->productos = $productos;
+    }
+
+    
+    public function getTotal(){
+        return $this->total;
+    }
+
+    public function setTotal($total){
+        $this->total = $total;
     }
 }
 

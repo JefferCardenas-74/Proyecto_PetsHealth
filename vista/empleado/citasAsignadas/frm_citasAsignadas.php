@@ -41,7 +41,7 @@
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="txt_nombre" class="col-form-label fredoka">Mascota</label>
-                                        <input type="text" class="cajaTexto pompiere" id="txt_Mascota" readonly="readonly" value="La iguana Feliz">
+                                        <input type="text" class="cajaTexto pompiere" id="txt_mascota" readonly="readonly" value="La iguana Feliz">
                                     </div>
                                     <!--tipo de encargado-->
                                     <label for="chk_tipoEncargado" class="col-form-label fredoka">Tipo de Encargado</label>
@@ -51,10 +51,10 @@
                                         <label for="chk_dueño" class="form-check-label fredoka">Dueño</label>
                                     </div>
 
-                                    <div class="form-check">
+                                    <!-- <div class="form-check">
                                         <input type="radio" class="form-check-input" id="chk_empleado" name="chk_tipoEncargado">
                                         <label for="chk_empleado" class="form-check-label fredoka">Empleado</label>
-                                    </div>
+                                    </div> -->
 
                                     <div class="form-check">
                                         <input type="radio" class="form-check-input" id="chk_otro" name="chk_tipoEncargado">
@@ -66,25 +66,25 @@
                                         <input type="text" class="cajaTexto pompiere" id="txt_dueño" readonly>
                                     </div>
 
-                                    <div class="form-group empleado">
+                                    <!-- <div class="form-group empleado">
                                         <label for="cb_empleado" class="col-form-label fredoka">Nombre del empleado</label>
                                         <select name="cb_empleado" id="cb_empleado" class="cajaTexto">
                                         </select>
-                                    </div>
+                                    </div> -->
 
                                     <div class="form-group encargado">
                                         <label for="txt_encargado" class="col-form-labe fredoka">Nombre del encargado</label>
-                                        <input type="text" id="txt_empleado" class="cajaTexto pompiere">
+                                        <input type="text" id="txt_encargado" class="cajaTexto pompiere" required>
                                     </div>
 
-                                    <div class="domicilio">
+                                    <!-- <div class="domicilio">
                                         <label for="check_domicilio" class="col-form-label fredoka">Domicilio</label>
 
                                         <div class="form-check">
                                             <input class="form-check-input" type="radio" id="chk_si" name="chk_radios" checked>
                                             <label class="form-check-label fredoka" for="chk_si">si</label>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
 
                                 <!----------------------------------------------------->
@@ -97,7 +97,7 @@
 
                                     <div class="form-group">
                                         <label for="txt_observacion" class="col-form-label fredoka">Observacion</label>
-                                        <textarea id="txt_observacion" class="cajaTexto pompiere" style="height: 200px;"></textarea>
+                                        <textarea id="txt_observacion" class="cajaTexto pompiere" style="height: 200px;" required></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -169,7 +169,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btnNaranja pompiere" id="btn_cerrar" data-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btnMorado pompiere" id="btn_registrar" data-dismiss="modal">Registrar</button>
+                        <button type="button" class="btnMorado pompiere" id="btn_registrar">Registrar</button>
                     </div>
                 </div>
             </div>
