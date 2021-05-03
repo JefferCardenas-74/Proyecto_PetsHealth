@@ -4,7 +4,10 @@
 
 <div class="container vista-principal">
 
-    <h2 class="titulo fredoka text-center">Bienvenido a Pets health</h2>
+    <div class="contenedorTitulo">
+        <h2 class="titulo fredoka text-center">Bienvenido Veterinario</h2>
+    </div>
+
     <h4 class="texto-bienvenida text-center ">Hola <span class="user"> <?php echo $_SESSION["nombreUsuario"]; ?> </span>
         te presentamos
         algunos modulos que puedes realizar como cliente</h4>

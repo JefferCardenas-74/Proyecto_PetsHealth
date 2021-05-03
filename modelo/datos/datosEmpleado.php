@@ -106,5 +106,133 @@
             return $this->retorno;
         }
 
+
+        public function listarEmpleados($idPersona)
+        {
+            try{
+                $consulta = "SELECT * , if(ce.idCitaEmpleado>1, 'si tiene cita' , 'no tiene cita') as resultado
+                from empleado as em
+                LEFT JOIN citaempleado as ce  on ce.idEmpleado=em.idEmpleado
+                INNER JOIN persona as p on p.idPersona=em.idPersona
+                INNER JOIN usuario as u on u.idPersona=p.idPersona
+                INNER JOIN usuariorol as ur on ur.idUsuario=u.idUsuario
+                INNER JOIN rol as r on r.idRol = ur.idRol
+                WHERE p.idPersona != '$idPersona'
+                ORDER BY em.empFechaIngreso DESC
+                "
+                ;
+                $resultado = $this->conexion->query($consulta);
+                $this->retorno->mensaje = 'lista de empleados registrados en el sistema';
+                $this->retorno->estado = true;
+                $this->retorno->datos = $resultado->fetchAll();
+            }catch(PDOException $e){
+                
+                $this->retorno->mensaje = $e->getMessage();
+                $this->retorno->estado = false;
+                $this->retorno->datos = null;
+            }
+            return $this->retorno;
+        }
+
+        function inactivarEmpleado($estado,$idEmpleado){
+            try{
+                $consulta="UPDATE usuariorol as u SET u.usuEstado=? 
+                WHERE u.idUsuarioRol=?";
+                $resultado=$this->conexion->prepare($consulta);
+                $resultado->bindParam(1,$estado);
+                $resultado->bindParam(2,$idEmpleado);
+                $resultado->execute();
+                $this->retorno->estado = true;
+                $this->retorno->datos = null;
+                $this->retorno->mensaje="empleado inactivado correctamente"; 
+            }catch(PDOException $e){
+                $this->retorno->mensaje = $e->getMessage();
+                $this->retorno->estado = false;
+                $this->retorno->datos = null;
+            }
+
+            return $this->retorno;
+        }
+
+        public function listarEmpleadosParaActualizar($idPersona)
+        {
+            try{
+                $consulta = "SELECT *,  DATEDIFF(CURDATE() ,em.empFechaIngreso) as dias_en_empresa 
+                FROM persona as p 
+                INNER JOIN empleado as em on p.idPersona=em.idPersona
+                INNER JOIN usuario as u on u.idPersona=p.idPersona
+                INNER JOIN usuariorol as ur on ur.idUsuario = u.idUsuario
+                INNER JOIN rol as r on r.idRol=ur.idRol
+                WHERE em.idPersona='$idPersona'"
+                ;
+                $resultado = $this->conexion->query($consulta);
+                $this->retorno->mensaje = 'datos del empleado';
+                $this->retorno->estado = true;
+                $this->retorno->datos = $resultado->fetchObject();
+            }catch(PDOException $e){
+                
+                $this->retorno->mensaje = $e->getMessage();
+                $this->retorno->estado = false;
+                $this->retorno->datos = null;
+            }
+            return $this->retorno;
+        }
+        public function actualizarEmpleado(Usuario $usuario)
+        {
+            try{
+                $this->conexion->beginTransaction(); 
+                $consulta = "UPDATE persona SET perIdentificacion=?,
+                perNombre=?, perApellido=?,perTelefono=?,perCorreo=?
+                WHERE idPersona=?";
+                $resultado=$this->conexion->prepare($consulta);
+                
+                $resultado->bindParam(1, $usuario->getEmpleado()->getIdentificacion());
+                $resultado->bindParam(2, $usuario->getEmpleado()->getNombre());
+                $resultado->bindParam(3, $usuario->getEmpleado()->getApellido());
+                $resultado->bindParam(4, $usuario->getEmpleado()->getTelefono());
+                $resultado->bindParam(5, $usuario->getEmpleado()->getCorreo());
+                $resultado->bindParam(6, $usuario->getEmpleado()->getIdPersona());
+                $resultado->execute();
+                $consulta="UPDATE usuariorol SET idRol=?
+                WHERE idUsuario=?";
+                $resultado=$this->conexion->prepare($consulta);
+                $resultado->bindParam(1, $usuario->getListaRol());
+                $resultado->bindParam(2, $usuario->getIdUsuario());
+                $resultado->execute();
+                $this->conexion->commit();
+                $this->retorno->mensaje = 'empleado actualizado con exito';
+                $this->retorno->estado = true;
+                $this->retorno->datos = null;
+            }catch(PDOException $e){
+                $this->conexion->rollBack();
+                $this->retorno->mensaje = $e->getMessage();
+                $this->retorno->estado = false;
+                $this->retorno->datos = null;
+            }
+            return $this->retorno;
+        }
+
+
+        function reporteEmpleadosConCitas()
+        {
+            try{
+                $consulta="SELECT COUNT(em.idEmpleado) as cantidad ,  if(ce.idCitaEmpleado>1, 'si tiene cita' , 'no tiene cita')as resultado   
+                from empleado as em
+                LEFT JOIN citaempleado as ce  on ce.idEmpleado=em.idEmpleado
+                GROUP BY ce.idCitaEmpleado ";
+                $resultado=$this->conexion->prepare($consulta);          
+                $resultado->execute();  
+                $this->retorno->estado=true;
+                $this->retorno->mensaje="Cantidad de empleados que tienen citas asignadaas";
+                $this->retorno->datos=$resultado;
+            }catch(PDOException $ex){
+                $this->retorno->estado=false;
+                $this->retorno->mensaje=$ex->getMessage();
+                $this->retorno->datos=null;
+            }
+            return $this->retorno;
+        }
+
+
     }
 ?>

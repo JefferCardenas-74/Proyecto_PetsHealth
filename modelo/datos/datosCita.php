@@ -151,7 +151,7 @@
         function listarHorasDisponibles($fecha){
             try{
                 $consulta = 'SELECT DISTINCT(horasdisponible.hoHora) ,horasdisponible.hoTipo 
-                ,horasdisponible.idHora
+                ,horasdisponible.idHora ,cita.ciFecha
                 FROM horasdisponible
                 LEFT JOIN cita on horasdisponible.idHora = cita.idHora
                 WHERE  cita.idCita is null OR cita.ciFecha  NOT IN (?) 
@@ -259,6 +259,29 @@
                 $this->retorno->datos = null;
             }
 
+            return $this->retorno;
+        }
+
+
+        /**
+         * se hace una consulta para concer la cantidad de citas
+         * por el mes que se hizo
+         */
+        function reporteCitaPorMes()
+        {
+            try{
+                $consulta="SELECT count(idCita) as cantidad, month(ciFecha) as mes
+                FROM cita  group by month(ciFecha) ";
+                $resultado=$this->conexion->prepare($consulta);          
+                $resultado->execute();  
+                $this->retorno->estado=true;
+                $this->retorno->mensaje="Cantidad de citas por mes ";
+                $this->retorno->datos=$resultado;
+            }catch(PDOException $ex){
+                $this->retorno->estado=false;
+                $this->retorno->mensaje=$ex->getMessage();
+                $this->retorno->datos=null;
+            }
             return $this->retorno;
         }
 

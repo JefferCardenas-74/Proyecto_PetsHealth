@@ -1,6 +1,4 @@
 <?php
-?>
-<?php
 
 ?>
 <div class="contenedorTitulo">
@@ -8,11 +6,11 @@
 </div>
 
 <section class="lading_page-agendar_Cita">
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
-                    <div class="card-body table-responsive">
+                    <div class="card-body table-responsive fredoka">
                         <table class="table" id="tblCitasAgendadasXmi">
                             <thead>
                                 <tr>

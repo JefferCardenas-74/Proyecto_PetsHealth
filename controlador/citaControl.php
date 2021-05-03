@@ -117,7 +117,6 @@
                 $resultado = $dCita->cancelarCita($idCita,$idMascota);
                 echo json_encode($resultado);
                 break;
-
     }
 
 ?>

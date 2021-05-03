@@ -324,7 +324,7 @@ function listarHorasDisponibles(fechaEscogida) {
 
                 let horas = resultado.datos;
                 // console.log(xd[0]);
-                $.each(horas, function (i, hora) {
+                $.each(horas, function (i, hora) {       
                     $("#cb_hora").append(
                         "<option value=" +
                         hora.idHora +
