@@ -72,10 +72,12 @@ require_once("../../../configuracion/validaciones.php");
     <script src="../../../js/menu.js"></script>
     <!-- script de la vista -->
     <script src="../../../js/verCitas/verCita.js" ></script>
-    <!-- libreria datables  para boostrap 4.5-->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
+       <!-- libreria datables  para boostrap 5-->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.0/css/buttons.bootstrap5.min.css">
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
-    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap5.min.js"></script>
+
 <body>
 
 

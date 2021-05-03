@@ -67,7 +67,7 @@ function listarCitasAgendadasPorMi(){
             console.log(citasAgendadas);
 
             $.each(citasAgendadas, function (i, cita) { 
-                // cambiarColorCita(cita.ciEstado);
+                cambiarColorCita(cita.ciEstado);
                 $("#ciContador").html(i+1) ;
                 $("#ciCliente").html(cita.masNombre);
                 $("#ciServicio").html(cita.serTipo);            
@@ -153,12 +153,13 @@ const cambiarColorCita = (estado)=>{
             background :'linear-gradient(to right, #8E2DE2, #4A00E0)'
         })
     }else if(estado=="Atendida"){
-        $("#btnCancelar").prop("disabled", false);
+        $("#btnCancelar").prop("disabled", true);
         $("#ciEstado").css({
-        background: '#16c8e1'
+        background: 'rgb(244 7 254)',
+        color:"#ffff"
         });
         $("#btnCancelar").css({
-            background :'linear-gradient(to right, #8E2DE2, #4A00E0)'
+            background :'#3000ff8f'
         })
     }
 }
