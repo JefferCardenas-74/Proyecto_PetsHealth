@@ -36,12 +36,12 @@
                                     <td>
                                         <button type="button" id="btnActualizar" class="
                                         btnMorado " type="button">
-                                        <i class="fas fa-user-edit"></i>
+                                            <i class="fas fa-user-edit"></i>
                                         </button>
                                         <button type="button" id="btnInactivar" class="
                                         btnNaranja" type="button">
-                                        <i  id="icon_inactivar" class="fas fa-user-slash"></i>
-                                        <i id="icon_activar" class="fas fa-user-check"></i>
+                                            <i id="icon_inactivar" class="fas fa-user-slash"></i>
+                                            <i id="icon_activar" class="fas fa-user-check"></i>
                                         </button>
                                     </td>
                                 </tr>
@@ -72,13 +72,12 @@
 
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button"  title="actualiza datos del empleado"
-                                            id="btn_inactivarEmpleado" class="btn 
+                                            <button type="button" title="actualiza datos del empleado"
+                                                id="btn_inactivarEmpleado" class="btn
                                             btnMorado pompiere">
                                                 Aceptar
                                             </button>
-                                            <button type="button"  title="inactiva al empleado "
-                                             class="btn btnNaranja pompiere
+                                            <button type="button" title="inactiva al empleado " class="btn btnNaranja pompiere
                                              closed text-gray ms-auto" data-bs-dismiss="modal">
                                                 Cerrar
                                             </button>
@@ -101,15 +100,15 @@
                                         <h4 class="form-header text-left ">Actualizar empleado</h4>
                                         <!-- <h5 class="text">Datos personales</h5> -->
                                         <div class="row">
-                                       
+
                                             <div class="mb-3 col-md-6 ">
-                                            <h5 class="text-modal">identificacion</h5>
+                                                <h5 class="text-modal">identificacion</h5>
                                                 <input type="text" id="txt_nroEmpleado"
                                                     placeholder="N° de Identificacion " class="form-control" value="">
                                             </div>
-                                            
+
                                             <div class="mb-3 col-md-6">
-                                            <h5 class="text-modal">Nombre</h5>
+                                                <h5 class="text-modal">Nombre</h5>
                                                 <input type="text" id="txt_nombreEmpleado" class="form-control"
                                                     placeholder="Nombre empleado" value="">
                                             </div>
@@ -120,18 +119,18 @@
                                                     placeholder="Apellidos empleado" class="form-control" value="">
                                             </div>
                                             <div class="mb-3 col-md-6">
-                                                    <h5 class="text-modal">Telefono</h5>
+                                                <h5 class="text-modal">Telefono</h5>
                                                 <input type="text" id="txt_telefonoEmpleado"
                                                     placeholder="Telefono empleado" class="form-control" value="">
                                             </div>
 
                                             <div class="mb-3 col-md-6 ">
-                                            <h5 class="text-modal">Correo</h5>
+                                                <h5 class="text-modal">Correo</h5>
                                                 <input type="text" id="txt_correoEmpleado" placeholder="Correo empleado"
                                                     class="form-control" value="">
                                             </div>
                                             <div class="mb-3 col-md-6 ">
-                                            <h5  class="text-modal">Rol</h5>
+                                                <h5 class="text-modal">Rol</h5>
                                                 <select class="form-control" name="cb_rolEmpleado" id="cb_rolEmpleado">
                                                     <option value="0">Selecciona </option>
                                                     <option value="1">Administrador</option>
@@ -141,7 +140,7 @@
 
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" id="btn_ActualizarEmpleado" class="btn 
+                                            <button type="button" id="btn_ActualizarEmpleado" class="btn
                                             btnMorado pompiere">
                                                 Actualizar
                                             </button>

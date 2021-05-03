@@ -30,7 +30,7 @@
                 <a href="#">Estadisticas<i class="fa fa-caret-down"></i></a>
                 <ul>
                         <li><a class="dropdown-item" href="verReporteGraficoEmpleados/">Reporte grafico empleados</a></li>
-                        <li><a class="dropdown-item" href="verReporteGraficoCitas/">Reporte grafico citas</a></li>
+                        <li><a class="dropdown-item" href="../verCita/">Reporte grafico citas</a></li>
                 </ul>
             </li>
 

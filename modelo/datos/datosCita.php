@@ -9,19 +9,24 @@
             $this->retorno = new stdClass();
         }
 
-        function listarCitas(){
+        function listarCitasAsignadas($idEmpleado){
             try{
 
-                $consulta = "select cita.idCita, serTipo, perNombre, masNombre, ciFecha from cita inner JOIN citaservicio
-                on cita.idCita = citaservicio.idCita inner join servicio
-                on servicio.idServicio = citaservicio.idServicio inner join mascota
+                $consulta = "select empleado.idEmpleado, cita.idCita, perNombre, masNombre, serTipo, ciFecha from cita inner join citaempleado
+                on cita.idCita = citaempleado.idCita inner join empleado 
+                on empleado.idEmpleado = citaempleado.idEmpleado inner join mascota
                 on mascota.idMascota = cita.idMascota inner join persona
-                on persona.idPersona = mascota.idPersona";
+                on persona.idPersona = mascota.idPersona inner join citaservicio
+                on citaservicio.idCita = cita.idCita inner join servicio
+                on servicio.idServicio = citaservicio.idServicio
+                where empleado.idEmpleado = ? and cita.ciEstado = 'Solicitada'";
 
-                $resultado = $this->conexion->query($consulta);
+                $resultado = $this->conexion->prepare($consulta);
+                $resultado->bindParam(1, $idEmpleado);
+                $resultado->execute();
 
                 $this->retorno->estado = true;
-                $this->retorno->mensaje = 'citas Asignadas';
+                $this->retorno->mensaje = 'citas Asignadas a empleado';
                 $this->retorno->datos = $resultado->fetchAll();
 
 
@@ -39,7 +44,7 @@
         function mostrarDatosCita($idCita){
             try{    
 
-                $consulta = 'select cita.idCita, perNombre, serTipo, masNombre from cita inner join citaservicio 
+                $consulta = 'select cita.idCita, perNombre, servicio.idServicio ,serTipo, serPrecio, mascota.idMascota, masNombre from cita inner join citaservicio 
                 on cita.idCita = citaservicio.idCita inner join servicio
                 on servicio.idServicio = citaservicio.idServicio inner join mascota
                 on mascota.idMascota = cita.idMascota inner join persona 
@@ -262,8 +267,58 @@
             return $this->retorno;
         }
 
+        function obtenerEmpleado($idPersona){
+            
+            try{
+                $consulta = 'select idEmpleado from empleado inner join persona
+                on persona.idPersona = empleado.idPersona
+                where persona.idPersona = ?';
 
-        /**
+                $resultado = $this->conexion->prepare($consulta);
+                $resultado->bindParam(1, $idPersona);
+                $resultado->execute();
+
+                $this->retorno->mensaje = 'empleado solicitado';
+                $this->retorno->estado = true;
+                $this->retorno->datos = $resultado->fetchAll();
+
+            }catch(PDOException $e){
+
+                
+                $this->retorno->mensaje = $e->getMessage();
+                $this->retorno->estado = false;
+                $this->retorno->datos = null;
+            }
+
+            return $this->retorno;
+        }
+
+        function actualizarEstado($idCita){
+
+            try{    
+
+                $consulta = 'update cita set ciEstado ="Atendida" where idCita = ?';
+                $resultado = $this->conexion->prepare($consulta);
+
+                $resultado->bindParam(1, $idCita);
+
+                $resultado->execute();
+
+                $this->retorno->mensaje = 'se actualizo correctamente';
+                $this->retorno->estado = true;
+                $this->retorno->datos = null;
+
+            }catch(PDOException $e){
+
+                $this->retorno->mensaje = $e->getMessage();
+                $this->retorno->estado = false;
+                $this->retorno->datos = null;
+            }
+
+            return $this->retorno;
+        }
+
+          /**
          * se hace una consulta para concer la cantidad de citas
          * por el mes que se hizo
          */
@@ -284,7 +339,6 @@
             }
             return $this->retorno;
         }
-
         
     }
 ?>

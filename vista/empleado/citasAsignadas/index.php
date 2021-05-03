@@ -1,6 +1,6 @@
 <?php
 session_start();
-/*
+
 
 if (!isset($_SESSION['idPersona'])) {
     header("location:../../principal/login/?x=3");
@@ -8,7 +8,10 @@ if (!isset($_SESSION['idPersona'])) {
 else if ($_SESSION["rol"] !== "Empleado"||$_SESSION["estado"] !== 1) {
     // si no corresponde se redrije al login con la variable x=4
     header("location:../../principal/login/?x=4");
-}*/
+}
+
+$idPersona = $_SESSION['idPersona'];
+
 require_once("../../../configuracion/validaciones.php");
 
     extract($_REQUEST);
@@ -71,6 +74,9 @@ require_once("../../../configuracion/validaciones.php");
 <body>
 
     <div class="container-fluid">
+
+        <input type="hidden" id='idPersona' name='idPersona' value="<?php echo $idPersona ?>">
+
         <?php include 'menu.php' ?>
 
         <header><?php include 'cabecera.php' ?></header>

@@ -7,7 +7,7 @@ $(function(){
     });
 
     //se asigna un evento click a las etiquetas li que contengan un ul dentro, para activar la animacion
-    $('.sub_menu').click(function(e){
+    $('.menu-items li:has(ul)').click(function(e){
 
         if($(this).hasClass('activado')){
 
@@ -16,6 +16,9 @@ $(function(){
 
         }else{
 
+            $('.menu-items li ul').slideUp();
+            $('.menu-items li').removeClass('activado');
+            
             $(this).addClass('activado');
             $(this).children('ul').slideDown();
 

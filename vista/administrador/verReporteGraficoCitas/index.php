@@ -17,7 +17,7 @@ require_once("../../../configuracion/validaciones.php");
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PetsHealth | Empleado</title>
+    <title>PetsHealth | Reporte cita</title>
 
     <!-- trayendome los stilos del index -->
 
@@ -53,30 +53,18 @@ require_once("../../../configuracion/validaciones.php");
     <link rel="stylesheet" href="../../../componente/css/menu.css">
     <!-- script del menu -->
     <script src="../../../js/menu.js"></script>
-    <!-- estilos del css -->
-    <link rel="stylesheet" href="../../../componente/css/verEmpleados/verEmpleados.css">
-    <!-- script de ver empleados -->
-    <script src="../../../js/verEmpleados/verEmpleados.js"></script>
-    <!-- libreria datables  para boostrap 5-->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap5.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.0/css/buttons.bootstrap5.min.css">
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
-    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap5.min.js"></script>
-
-    <!-- botones datatables -->
-    <script src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.flash.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.html5.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.print.min.js"></script>
+    <!-- estilos del  reporte -->
+   <link rel="stylesheet" href="../../../componente/css/reporteGraficoCitas/reporteGraficoCitas.css">
+    <!--api de google para graficas  -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <!-- script de la vista -->
+    <script src="../../../js/reporteGraficoCitas/reporteGraficoCita.js" ></script>
 
 <body>
 
 
     <header><?php include "menu.php" ?></header>
-    <section><?php include "frm_verEmpleados.php" ?> </section>
+    <section><?php include "frm_reporteGraficoCitas.php" ?> </section>
     <footer><?php include "../../../piePagina.php" ?></footer>
 
 </body>

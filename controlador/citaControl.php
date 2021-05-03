@@ -1,10 +1,16 @@
 <?php
     session_start();
-    include '../modelo/datos/datosCita.php';
-    include '../modelo/datos/conexion.php';
+
     include '../modelo/entidad/Cita.php';
     include '../modelo/entidad/Servicio.php';
     include '../modelo/entidad/Mascota.php';
+    include '../modelo/entidad/Detalle.php';
+    include '../modelo/entidad/Factura.php';
+
+    include '../modelo/datos/conexion.php';
+    include '../modelo/datos/datosCita.php';
+    include '../modelo/datos/datosDetalle.php';
+    include '../modelo/datos/datosFactura.php';
 
     // archivos especiales
     require_once("../configuracion/fechaHora.php");
@@ -16,13 +22,15 @@
     error_reporting(0);
 
     $dCita = new datosCita();
-     
+    $dDetalle = new datosDetalle();
+    $dFactura = new datosFactura();
  
 
     switch($accion){
 
         case 'listarCitas':
-            $resultado = $dCita->listarCitas();
+
+            $resultado = $dCita->listarCitasAsignadas($idEmpleado);
             echo json_encode($resultado);
             break;
         
@@ -43,11 +51,6 @@
 
         case 'buscarMascotas':
             $resultado = $dCita->buscarMascota($cedula);
-            echo json_encode($resultado);
-            break;
-
-        case 'listarMascotaCliente':
-            $resultado = $dCita->buscarMascota($_SESSION['identificacion']);
             echo json_encode($resultado);
             break;
         
@@ -106,17 +109,44 @@
             echo json_encode($resultado);
             break;
 
-            case 'listarCitaAgendadasPorMi':
-                
-                $resultado = $dCita->verCitasAgendadas($_SESSION['idPersona']);
-                echo json_encode($resultado);
-                break;
+        case 'listarCitaAgendadasPorMi':
+            
+            $resultado = $dCita->verCitasAgendadas($_SESSION['idPersona']);
+            echo json_encode($resultado);
+            break;
 
 
-            case 'cancelarCitas':
-                $resultado = $dCita->cancelarCita($idCita,$idMascota);
+        case 'cancelarCitas':
+            $resultado = $dCita->cancelarCita($idCita,$idMascota);
+            echo json_encode($resultado);
+            break;
+
+        case 'obtenerEmpleado':
+
+                $resultado = $dCita->obtenerEmpleado($idPersona);
                 echo json_encode($resultado);
                 break;
+        
+        case 'atenderCita':
+
+            $detalle = new Detalle(null, $observacion, $idCita);
+
+            /**agregamos el detalle y obtenemos el id de ese detalle */
+            $resultadoDetalle = $dDetalle->agregarDetalle($detalle);
+
+            /**se suma el valor de los productos + el valor del servicio */
+            $totalFinal = $total + $precioServicio;
+
+            /**se procede a agregar la factura */
+            $factura = new Factura(null, $idEmpleado, $fechaHoraMysql, $totalFinal, $productos);
+
+            $resultadoFactura = $dFactura->agregarFactura($factura);
+
+            /**se actualiza el estado de la cita */
+            $resultado = $dCita->actualizarEstado($idCita);
+
+            echo json_encode($resultado);
+            
     }
 
 ?>
