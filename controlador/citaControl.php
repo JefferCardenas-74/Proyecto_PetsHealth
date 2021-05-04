@@ -53,6 +53,11 @@
             $resultado = $dCita->buscarMascota($cedula);
             echo json_encode($resultado);
             break;
+
+        case 'listarMascotaCliente':
+            $resultado = $dCita->buscarMascota($_SESSION['identificacion']);
+            echo json_encode($resultado);
+            break;
         
         case 'listarTipoCita':
             $resultado = $dCita->listarTipoCita();
@@ -72,7 +77,7 @@
             $resultado=$dCita->agendarCita($cita);
 
             if($resultado->estado){
-                //Enviar correo cuando se inicia sesion
+                //Enviar correo cuando se agenda cita
                 $correo = new enviarCorreoPrueba();
                 $objCorreo = new stdClass();
                 $objCorreo->correoRemitente = "soporte.petsHealth@gmail.com"; //aqui pueden colocar el correo del administrador

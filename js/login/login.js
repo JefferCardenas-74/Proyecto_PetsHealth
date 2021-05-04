@@ -471,7 +471,8 @@ function registrarUsuario(){
     idPersona : idPersona,
     cedula: $('#txt_cedula').val(),
     correo : $('#txt_correo').val(),
-
+    nombre:$('#txt_nombre').val(),
+    apellido:$('#txt_apellidos').val(),
     accion : "AgregarUsuario"
 
   }

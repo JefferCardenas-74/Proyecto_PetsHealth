@@ -314,24 +314,28 @@ function listarHorasDisponibles(fechaEscogida) {
         dataType: "json",
         cache: false,
         success: function (resultado) {
-            // arregloFechas.push(resultado.datos);
-            // xd =arregloFechas.slice(-1,arregloFechas.lenght);
-            // console.log(xd[0]);
-            // var nuevoArr = arregloFechas.slice(-1,arregloFechas.lenght);
-            // console.log(nuevoArr);
-            // // console.log(x);
-            if (resultado.estado) {
 
-                let horas = resultado.datos;
-                // console.log(xd[0]);
-                $.each(horas, function (i, hora) {       
+            if (resultado.estado) {
+                /**
+                 * Se recorre el json 
+                 * y se elimina los datos duplicados
+                 */
+                let horas = Array.from(new Set(resultado.datos.map(s => s.idHora)))
+                .map(idHora => {
+                    return {
+                        id: idHora,
+                        hora: resultado.datos.find(s => s.idHora === idHora).hoHora,
+                        tipo:resultado.datos.find(s => s.idHora === idHora).hoTipo
+                    };
+                });
+                $.each(horas, function (i, hora) { 
                     $("#cb_hora").append(
                         "<option value=" +
-                        hora.idHora +
+                        hora.id +
                         ">" +
-                        hora.hoHora +
+                        hora.hora +
                         " " +
-                        hora.hoTipo +
+                        hora.tipo +
                         "</option>"
                     );
                 });
