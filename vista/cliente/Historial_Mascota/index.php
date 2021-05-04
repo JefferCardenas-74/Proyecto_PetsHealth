@@ -2,10 +2,10 @@
 session_start();
  $rol=$_SESSION["rol"];
  $persona=$_SESSION["idPersona"];
-if (!isset($_SESSION['idEmpleado']) || !isset($_SESSION['idPersona'])) {
-    header("location:../../principal/login/?x=3");
+if (!isset($_SESSION['idPersona'])) {
+   header("location:../../principal/login/?x=3");
 }
-else if ($_SESSION["rol"] !== "Cliente" || $_SESSION["rol"] !== "Administrador" and $_SESSION["estado"] !== 1){
+else if ($_SESSION["rol"] !== "Cliente"  and $_SESSION["estado"] !== 1){
     // si no corresponde se redrije al login con la variable x=4
   header("location:../../principal/login/?x=4");
 }
@@ -14,7 +14,7 @@ else if ($_SESSION["rol"] !== "Cliente" || $_SESSION["rol"] !== "Administrador" 
   //header("location:../../principal/login/?x=4");
 //}
 
-require_once("../../../configuracion/validaciones.php");
+//require_once("../../../configuracion/validaciones.php");
 ?> 
     <html lang="es"><!--Indica el idioma del contenido de la pagina -->
         <head>

@@ -1,5 +1,5 @@
 <?php
-//session_start();
+session_start();
 // valido si la session esta disponible
 //if (!isset($_SESSION["idPersona"])) {
     // lo redirije a login con la varible x=3
