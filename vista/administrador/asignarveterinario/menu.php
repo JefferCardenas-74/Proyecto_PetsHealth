@@ -13,8 +13,8 @@
         <li class="sub_menu item">
                 <a href="#">Cita<i class="fa fa-caret-down"></i></a>
                 <ul>
-                        <li><a class="dropdown-item " href="agendarCita/">agendar</a></li>
-                        <li><a class="dropdown-item" href="verCita/">ver</a></li>
+                        <li><a class="dropdown-item active" href="#">agendar</a></li>
+                        <li><a class="dropdown-item" href="../verCita/">ver</a></li>
                         <li><a class="dropdown-item" href="#">Opciones</a></li>
                 </ul>
             </li>
@@ -23,9 +23,8 @@
                 <a href="#">Mascota<i class="fa fa-caret-down"></i></a>
                 <ul>
                         <li><a class="dropdown-item" href="#">agregar</a></li>
-                        <li><a class="dropdown-item" href="#">ver</a></li>
+                        <li><a class="dropdown-item" href="../verCita/">ver</a></li>
                         <li><a class="dropdown-item" href="#">opciones</a></li>
-                        <li><a class="dropdown-item" href="Historial_Mascota/">Historial Mascota</a></li>
                 </ul>
             </li>
 
@@ -34,12 +33,12 @@
                 <ul class="posRight">
                 <li>
                         <a class="dropdown-item " href="#">
-                        <!-- <img src="../../../componente/img/user/avatar.svg" width="32px" class="img-circle elevation-2" alt="User Image"> -->
+                        <img src="../../../componente/img/user/avatar.svg" width="32px" class="img-circle elevation-2" alt="User Image">
                          nombre usuario</a>
                         </li>
-                        <li><a class="dropdown-item " href="actualizarDatos/">actualizar datos</a></li>
+                        <li><a class="dropdown-item " href="../actualizarDatos/">actualizar datos</a></li>
                         <li><a class="dropdown-item" href="#">actualizar mascotas</a></li>
-                        <li><a class="dropdown-item" id="cerrarSesion" href="#">cerrar sesion</a></li>
+                        <li><a class="dropdown-item"   id="cerrarSesion" href="#">cerrar sesion</a></li>
                 </ul>
             </li>
 

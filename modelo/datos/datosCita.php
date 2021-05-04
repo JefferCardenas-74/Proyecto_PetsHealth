@@ -147,5 +147,26 @@
 
             return $this->retorno;
         }
+
+        function listarCitasAsignar(){
+            try{
+                $consulta=" select cita.idCita,ciFecha,servicio.serTipo,persona.perNombre from cita" 
+                . " inner join citaservicio on citaservicio.idCita=cita.idCita "
+                . " inner join servicio on servicio.idServicio = citaservicio.idServicio "
+                . " inner join empleado on empleado.idEmpleado=cita.idEmpleado "
+                . " inner join persona on persona.idPersona=empleado.idPersona";
+
+                $resultado=$this->conexion->query($consulta);
+                $this->retorno->estado=true;
+                $this->retorno->mensaje="Listado de Citas Por Asignar Veterinario";
+                $this->retorno->datos = $resultado->fetchAll();
+
+            }catch(PDOException $ex){
+                $this->retorno->estado=false;
+                $this->retorno->mensaje=$ex->getMessage();
+                $this->retorno->datos = null;
+            }
+            return $this->retorno;
+        }
     }
 ?>

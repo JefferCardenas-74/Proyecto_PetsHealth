@@ -110,5 +110,9 @@
             return $this->retorno;
         }
 
+        function listarVeterinarios(){
+            
+        }
+
     }
 ?>

@@ -23,7 +23,7 @@
                 <a href="#">Estadisticas<i class="fa fa-caret-down"></i></a>
                 <ul>
                         <li><a class="dropdown-item" href="#">Reporte grafico</a></li>
-                        <li><a class="dropdown-item" href="../verCita/">Reporte pdf citas</a></li>
+                        <li><a class="dropdown-item" href="../cliente/verCita/">Reporte pdf citas</a></li>
                         <li><a class="dropdown-item" href="#">Mas</a></li>
                 </ul>
             </li>
@@ -36,8 +36,9 @@
                         <!-- <img src="../../../componente/img/user/avatar.svg" width="32px" class="img-circle elevation-2" alt="User Image"> -->
                          nombre usuario</a>
                         </li>
-                        <li><a class="dropdown-item " href="../actualizarDatos/">actualizar datos</a></li>
+                        <li><a class="dropdown-item " href="../cliente/actualizarDatos/">actualizar datos</a></li>
                         <li><a class="dropdown-item" href="#">actualizar mascotas</a></li>
+                        <li><a class="dropdown-item" href="../cliente/Historial_Mascota/">Historial Mascota</a></li>
                         <li><a class="dropdown-item" id="cerrarSesion" href="#">cerrar sesion</a></li>
                 </ul>
             </li>

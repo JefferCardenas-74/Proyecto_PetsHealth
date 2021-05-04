@@ -8,7 +8,8 @@ class datos_HistorialM{
         $this->retorno = new stdClass();
     }
     /**
-     * se consulta con $identificacion de la persona y se lista todas las mascotas de dicha persona"encargado"
+     * se consulta con $identificacion de la persona y se 
+     * lista todas las mascotas de dicha persona"encargado"
      */
 
     public function listarMascotas($identificacion){
@@ -111,6 +112,33 @@ class datos_HistorialM{
             $this->retorno->estado=true;
             $this->retorno->mensaje="se actualizo la descripcion del historial ";
             $this->retorno->datos=null;
+        }catch(PDOException $ex){
+            $this->retorno->estado=false;
+            $this->retorno->mensaje=$ex->getMessage();
+            $this->retorno->datos=null;
+        }
+        return $this->retorno;
+    }
+
+
+    public function listarMascotasCli($idPersona){
+        try{
+            $consulta="select idMascota, masNombre from mascota "
+            . " inner join persona on persona.idPersona=mascota.idPersona"
+            . " inner join usuario on usuario.idPersona=persona.idPersona"
+            . " inner join usuariorol on usuariorol.idUsuario=usuario.idUsuario"
+            . " inner join rol on rol.idRol=usuariorol.idRol"
+            . " where usuariorol.idRol='3' and persona.idPersona = ?";
+
+            $resultado=$this->miConexion->prepare($consulta);
+            $resultado->bindParam(1,$idPersona);
+
+            $resultado->execute();
+
+            $this->retorno->estado=true;
+            $this->retorno->datos=$resultado->fetchAll();
+            $this->retorno->mensaje="Listado de Mascotas del encargado";
+
         }catch(PDOException $ex){
             $this->retorno->estado=false;
             $this->retorno->mensaje=$ex->getMessage();

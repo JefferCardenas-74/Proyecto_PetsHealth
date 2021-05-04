@@ -33,7 +33,7 @@ switch ($accion) {
         //obtiene el estado del usuario true o false (0 , 1)
         $_SESSION["estado"] = $resultado->datos->usuEstado;
         $_SESSION["identificacion"] = $resultado->datos->perIdentificacion;
-
+        $_SESSION["idPersona"]=$resultado->datos->idPersona;
 
 
 

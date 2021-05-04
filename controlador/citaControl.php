@@ -9,7 +9,7 @@
     error_reporting(0);
 
     $dCita = new datosCita();
-
+   
     switch($accion){
 
         case 'listarCitas':
@@ -41,5 +41,14 @@
             $resultado = $dCita->listarTipoCita();
             echo json_encode($resultado);
             break;
+
+        case "listarCitasAsignar":
+            $resultado = $dCita->listarCitasAsignar();
+            //print_r($resultado);
+            echo json_encode($resultado);
+            break;
+
+
+
     }
 ?>

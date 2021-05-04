@@ -25,6 +25,7 @@
                         <li><a class="dropdown-item" href="#">agregar</a></li>
                         <li><a class="dropdown-item" href="#">ver</a></li>
                         <li><a class="dropdown-item" href="#">opciones</a></li>
+                        <li><a class="dropdown-item" href="../Historial_Mascota/">Historial Mascota</a></li>
                 </ul>
             </li>
 

@@ -10,6 +10,16 @@ $(function(){
     $('#btn_registrar').click(function(){
         agregarEmpleado();
     });
+
+    $('#btn_consultar').click(function(){
+        ConsultarEmpleado();
+    });
+
+    $('#btn_Actualizar').click(function(){
+        ActualizarEmpleado();
+    });
+
+
 });
 
 function listarRol(){
@@ -95,4 +105,38 @@ function agregarEmpleado(){
 
         }
     })
+}
+
+function ConsultarEmpleado(){
+    var parametros={
+        identificacion: $("#txt_identificacion").val(),
+        accion:"ConsultarEmpleado"
+    }
+
+    $.ajax({
+        url: "../../../controlador/empleadoControl.php",
+        data: parametros,
+        dataType: "json",
+        type: "post",
+        cache: false,
+
+        success: function(resultado){
+            //console.log(resultado.datos);
+            
+            $.each(resultado.datos , function(i,persona){
+                $("#idPersona").val(persona.idPersona);
+                $("#txt_nombre").val(persona.perNombre);
+                $("#txt_apellido").val(persona.perApellido);
+                $("#txt_telefono").val(persona.perTelefono);
+                $("#txt_correo").val(persona.perCorreo);
+                $("#cb_rol").val(persona.idRol);
+                console.log(persona.rolNombre);
+            });   
+        
+        },
+        error: function(ex){
+            console.log(ex.responseText , "no llego nada");
+            }
+    });
+
 }

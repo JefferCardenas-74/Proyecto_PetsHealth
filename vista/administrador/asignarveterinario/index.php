@@ -1,24 +1,21 @@
 <?php
-session_start();
- $rol=$_SESSION["rol"];
- $persona=$_SESSION["idPersona"];
-if (!isset($_SESSION['idEmpleado']) || !isset($_SESSION['idPersona'])) {
-    header("location:../../principal/login/?x=3");
-}
-else if ($_SESSION["rol"] !== "Cliente" || $_SESSION["rol"] !== "Administrador" and $_SESSION["estado"] !== 1){
-    // si no corresponde se redrije al login con la variable x=4
-  header("location:../../principal/login/?x=4");
-}
-//else if ($_SESSION["rol"] !== "Administrador" and $_SESSION["estado"] !== 1){
-    // si no corresponde se redrije al login con la variable x=4
-  //header("location:../../principal/login/?x=4");
+//session_start();
+// valido si la session esta disponible
+//if (!isset($_SESSION['idEmpleado'])) {
+    // lo redirije a login con la varible x=3
+  //  header("location:../principal/login/?x=3");
+//}
+//else if ($_SESSION["rol"] !== "Administrador"||$_SESSION["estado"] !== 1) {
+
+    // si no corresponde se redrije al login con la variable x=5
+  //  header("location:../principal/login/?x=4");
 //}
 
-require_once("../../../configuracion/validaciones.php");
-?> 
-    <html lang="es"><!--Indica el idioma del contenido de la pagina -->
+//require_once("../../../configuracion/validaciones.php");// llamo archivo que retorna mensajes que validan la URL
+?>
+  <html lang="es"><!--Indica el idioma del contenido de la pagina -->
         <head>
-            <title>Historial Mascota</title>
+            <title>Asignar Veterinario</title>
             <meta charset="UTF-8"> <!-- Caracteres especiales-->
             <meta name="viewport" content="width=device-width, initial-scale=1.0"><!--Responsive, identifica el tamaño del navegador donde ha sido abierto -->
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"> <!-- cargar Bootstrap a las hojas de estilo -->
@@ -37,18 +34,16 @@ require_once("../../../configuracion/validaciones.php");
             <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
             <!--javascript global del menu -->
             <script src="../../../js/menu.js"></script>
-            <!--javascript historialMascota -->
-            <script src="../../../js/historialMascota/historialMascota.js"></script>
-        </head>
+            <!--javascript asignarveterinario -->
+            <script src="../../../js/asignarvete/asignarvete.js"></script>
+      </head>
 
         <body>
             <div class="container-fluid">
-                <input type="hidden" value="<?php echo $rol?>" id="rol">
-                <input type="hidden" value="<?php echo $persona?>" id="persona">
                 <nav><?php include "menu.php" ?></nav>
                 <header ><?php include "encabezado.php"?> </header>
-                <section ><?php include "frm_historialMascota.php"?></section>
+                <section ><?php include "frm_asignarvete.php"?></section>
                 <footer > <?php include "piePagina.php"?></footer>
             </div>
         </body>
-    </html>
+  </html>

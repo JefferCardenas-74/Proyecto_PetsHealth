@@ -22,6 +22,7 @@
 
     $dEmpleado = new datosEmpleado();
     $dUsuario = new datosUsuario();
+
     $listaRol = [];
 
     switch($accion){
@@ -98,5 +99,12 @@
             $resultado = $dEmpleado->listarRol();
             echo json_encode($resultado);
             break;
+
+        case "listarVeterinarios":
+            $resultado=$dEmpleado->listarVeterinarios();
+
+            echo json_encode($resultado);
+            break;
+
     }
 ?>
