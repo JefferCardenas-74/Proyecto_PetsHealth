@@ -43,6 +43,7 @@
                         </li>
                         <li><a class="dropdown-item " href="actualizarDatos/">actualizar datos</a></li>
                         <li><a class="dropdown-item" href="#">actualizar mascotas</a></li>
+                        <li><a class="dropdown-item" href="../cliente/Historial_Mascota/">Historial Mascota</a></li>
                         <li><a class="dropdown-item" id="cerrarSesion" href="#">cerrar sesion</a></li>
                 </ul>
             </li>

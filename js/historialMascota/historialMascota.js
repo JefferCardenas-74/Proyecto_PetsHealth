@@ -1,10 +1,33 @@
 var primeraFila;
 var primeraFilaHistorial;
 var HistorialMascota=[];
+var validacion;
+var rol;
+var persona;
+
+//var dato = <?php echo json_encode($validacion); ?>;
 
 $(function(){
     primeraFila=$("#fila");
     primeraFilaHistorial=$("#filaHistorialM");
+    rol =$("#rol").val();
+    persona=$("#persona").val();
+
+
+    
+    if(rol == "Cliente"){
+        $(".buscador").css({
+            display: 'none'
+        });
+        $("#btn_mostrarModal").css({
+            display: 'none'
+        });
+        ListarMascotasClienteH();
+    }else{
+        $(".buscador").css({
+            display: 'block'
+        });
+    }
 
     $("#btn_buscar").click(function(){
         $("accion").val("Buscar");
@@ -164,10 +187,20 @@ function ActualizarDescripcion(){
 
         success: function(resultado){
             if(resultado.estado){
-                alert("Se actualizo correctamente la descripcion");
+                Swal.fire({
+                    title: 'Registrado',
+                    text: 'Descripcion Actualizado con Exito..!',
+                    icon: 'success',
+                    ConfirmButtonText: 'Ok'
+                });
                 ListarConsultaHistorialM();
             }else{
-                alert("Hay problemas al Alctualizar");
+                Swal.fire({
+                    title: 'Oops',
+                    text: 'Ha ocurrido un error a la hora de Actualizar la Descripción. Revise',
+                    icon: 'Error',
+                    ConfirmButtonText: 'Ok'
+                });
             }
         },
         error: function(ex){
@@ -176,3 +209,32 @@ function ActualizarDescripcion(){
     });
 }
 
+function ListarMascotasClienteH(){
+    var parametros={
+        accion:"ListarMascotasCli",
+        idPersona:persona
+    }
+    console.log(parametros);
+    $.ajax({
+        url:"../../../controlador/controlHistorialM.php",
+        data:parametros,
+        type:"post",
+        dataType:"json",
+        cache:false,
+
+        success: function(resultado){
+            console.log(resultado);
+            if(resultado.estado){
+                var mascotas= resultado.datos;
+                console.log(mascotas);
+                $.each(mascotas, function(i, mascota){
+                    $("#cb_mascota").append("<option value="+ mascota.idMascota +">" 
+                    + mascota.masNombre + "</option>");
+                });
+            }
+      },
+      error: function(ex){
+        console.log(ex.responseText , "no llego nada");
+        }
+    });
+}

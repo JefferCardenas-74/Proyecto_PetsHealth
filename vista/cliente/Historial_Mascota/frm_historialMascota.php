@@ -17,10 +17,12 @@
     </div>
 
     <div class="col">
-        <div>
+        <div>   
+            <div class="buscador">
                 <p>Digite Cedula Dueño:  <input type="text"  name="busquedaEncargado" id="busquedaEncargado" >
                     <input type="button" class="btn_morado" value="Buscar" name="btn_buscar" id="btn_buscar">
                 </p>
+            </div>
         
                 <br>
                 <br>

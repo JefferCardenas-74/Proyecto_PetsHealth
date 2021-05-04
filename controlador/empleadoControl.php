@@ -21,6 +21,7 @@
 
     $dEmpleado = new datosEmpleado();
     $dUsuario = new datosUsuario();
+
     $listaRol = [];
 
     switch($accion){
