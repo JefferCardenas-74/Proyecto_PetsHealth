@@ -85,7 +85,7 @@ $(function () {
 
       /**se valida el formulario */
       if($('#txt_mascota').val() == '' || $('#txt_dueño').val() == '' || 
-          $('#txt_tipoCita').val() == '' || $('#txt_observacion').val() == '' || $('#txt_encargado').val() == ''){
+          $('#txt_tipoCita').val() == '' || $('#txt_observacion').val() == ''){
 
             Swal.fire({
               icon:'error',
@@ -97,7 +97,7 @@ $(function () {
         }else{
 
           alert(' se atiende');
-          // atenderCita();
+          atenderCita();
         }
       
     });
