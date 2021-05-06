@@ -68,7 +68,7 @@ require_once("../../../configuracion/validaciones.php");
 <body>
     <div class="container-fluid">
 
-        <?php include 'menu.php' ?>
+        <?php include '../menu.php' ?>
         <header><?php include 'cabecera.php' ?></header>
         <section><?php include $page.'.php' ?></section>
         <footer><?php include '../../../piePagina.php' ?></footer>

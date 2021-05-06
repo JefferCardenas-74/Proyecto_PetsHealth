@@ -1,5 +1,5 @@
 <?php 
-    // session_start();
+    session_start();
 
     // if(!isset($_SESSION['idEmpleado'])){
 
@@ -73,7 +73,7 @@
 <body>
     <div class="contaiener-fluid">
         
-        <?php include 'menu.php'?>
+        <?php include '../menu.php'?>
 
         <header><?php include 'cabecera.php' ?></header>
 

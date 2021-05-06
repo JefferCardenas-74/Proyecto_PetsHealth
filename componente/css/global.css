@@ -430,3 +430,7 @@ hr {
 .swal2-container {
   z-index: 100000!important;
 }
+
+#irPrincipal{
+  cursor: pointer;
+}

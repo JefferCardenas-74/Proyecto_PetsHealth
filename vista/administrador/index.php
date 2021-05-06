@@ -10,6 +10,7 @@ else if ($_SESSION["rol"] !== "Administrador"||$_SESSION["estado"] !== 1) {
     header("location:../principal/login/?x=4");
 }
 
+
 require_once("../../configuracion/validaciones.php");// llamo archivo que retorna mensajes que validan la URL
 ?>
 
