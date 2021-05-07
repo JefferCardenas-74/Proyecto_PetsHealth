@@ -1,4 +1,5 @@
 <?php
+extract($_REQUEST);
 require_once("../../../configuracion/validaciones.php");
 ?>
 

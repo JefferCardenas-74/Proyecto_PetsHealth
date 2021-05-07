@@ -21,6 +21,7 @@ $GLOBALS['actualizarDatosE']="../actualizarDatos/";
 // CLIENTE
 $GLOBALS['agendarCitaC']="../agendarCita/";
 $GLOBALS['verCitaC']="../verCita/";
+$GLOBALS['gestionMascota']="../gestionMascota/";
 $GLOBALS['Historial_MascotaC']="../Historial_Mascota/";
 $GLOBALS['actualizarDatosC']="../actualizarDatos/";
 
@@ -48,6 +49,7 @@ $arreglo =[];
     $GLOBALS['agendarCitaC']="agendarCita/";
     $GLOBALS['verCitaC']="verCita/";
     $GLOBALS['Historial_MascotaC']="Historial_Mascota/";
+    $GLOBALS['gestionMascota']="gestionMascota/";
     $GLOBALS['actualizarDatosC']="actualizarDatos/";
 
     }

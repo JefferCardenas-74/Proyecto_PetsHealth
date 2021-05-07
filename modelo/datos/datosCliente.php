@@ -42,8 +42,34 @@ class datosCliente{
         return $this->retorno;
     }
 
+    function listarMascotas($idPersona){
+
+        try{
+
+            $consulta = 'select * from mascota inner join tipomascota
+            on mascota.idTipoMascota = tipomascota.idTipoMascota
+            where idPersona = ?';
+
+            $resultado = $this->conexion->prepare($consulta);
+            $resultado->bindParam(1, $idPersona);
+            $resultado->execute();
+
+            $this->retorno->mensaje = 'lista de las mascotas del cliente';
+            $this->retorno->estado = true;
+            $this->retorno->datos = $resultado->fetchAll();
+            
+        }catch(PDOException $e){
+
+            $this->retorno->mensaje = $e->getMessage();
+            $this->retorno->estado = false;
+            $this->retorno->datos = null;
+
+        }
+
+        return $this->retorno;
+
+    }
+
 }
-
-
 ?>
 

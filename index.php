@@ -30,15 +30,18 @@ require_once("configuracion/validaciones.php");
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Pompiere&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="componente/css/global.css">
+    <!-- estilo del menu -->
+    <link rel="stylesheet" href="componente/css/menu.css">
     <!-- js del proyecto -->
     <script src="js/global.js"></script>
+    <script src="js/menu.js"></script>
     <!-- icono del proyecto traida de imgur -->
     <link rel="icon" href="https://i.imgur.com/ILKE0xE.png">
     <!-- cdn de iconos -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css">
 
       <!-- libreria de alerta personalizada -->
-      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.4/dist/sweetalert2.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.4/dist/sweetalert2.all.min.js"></script>
 
 </head>
 

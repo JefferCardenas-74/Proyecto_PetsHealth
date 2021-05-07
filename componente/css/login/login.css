@@ -85,6 +85,18 @@ form{
     transition: all 0.4s;
 }
 
+
+
+.ojito{
+    position: absolute;
+    margin-top: 13px;
+    right: 10px;
+    cursor: pointer;
+    z-index: 100;
+}
+
+
+
 .ContenedorBtnLogin {
     width: 50%;
     display: flex;
@@ -116,7 +128,7 @@ form{
     transition: all 0.4s;
 }
 
-.modal-content-olvidoContraseña{
+.contentModalolvidoContraseña{
     width: 60%;
     height: auto;
     background: #fff;
@@ -143,7 +155,7 @@ form{
     align-content: right;
 }
 
-.modal-header-olvidoContraseña{
+.headerModalOlvidoPassword{
     width: 100%;
     height: 100px;
     display: flex;
@@ -182,6 +194,15 @@ form{
 #crearCuenta{
     z-index: 1111;
 }
+
+.segundaParte{
+    margin-top: 30px;
+}
+
+.segundaParteMascota{
+    margin-top: 50px;
+}
+
 .cb_tipoMascota{
     width: 100%;
     border-radius: 8px;
@@ -204,7 +225,7 @@ form{
 
 /*responsive*/
 
-@media screen and (max-width: 567px){
+@media screen and (max-width: 577px){
 
     .contenedorTituloLogin{        
         font-size: 50px;
@@ -220,6 +241,62 @@ form{
     .contenedorFormularioLogin{
         width: 100%;
     }
+
+    .contentModalolvidoContraseña{
+        width: 100%;
+        height: auto;
+        background: #fff;
+        border-radius: 20px;
+        overflow: hidden;
+        display: flex;
+        flex-flow: column wrap;   
+        justify-content: space-evenly;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        padding: 25px;
+        margin-top: 100px;
+    }
+
+
+    .headerModalOlvidoPassword{
+        width: 100%;
+        height: auto;
+        font-size: larger;
+    }
+
+    .textoOlvidoContraseña{
+        width: 100%;
+        height: auto;
+    }
+
+    .frm_olvidoPassword{
+        position: absolute;
+        width: 100%;
+        height: auto;
+    }
+
+    .footerModal{
+        display: flex;
+    }
+    
+    .frm_crearCuenta{
+        display: block;
+    }
+
+    .frm_crearCuentaMascota{
+        display: block;
+    }
+
+    .cb_tipoMascota{
+        width: 100%;
+        border-radius: 8px;
+        border: 2px solid #00000096;
+        font-weight: bold;
+        padding-left: 12px;
+        outline: none;
+        background: rgba(255, 255, 255, 0.603);
+    }
+
 }
 
 
@@ -240,4 +317,6 @@ form{
     .contenedorFormularioLogin{
         width: 100%;
     }
+
+    
 }

@@ -21,6 +21,7 @@
             <li class="sub_menu item">
                 <a href="#">Mascota<i class="fa fa-caret-down"></i></a>
                 <ul>
+                        <li><a class="dropdown-item" href=<?php echo $GLOBALS['gestionMascota']; ?> >agregar</a></li>
                         <li><a class="dropdown-item" href=<?php echo $GLOBALS['Historial_MascotaC']; ?> >ver historial</a></li>
                 </ul>
             </li>

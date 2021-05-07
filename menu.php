@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="componente/css/menu.css">
 <nav class="menu">
 
     <div class="logo">
@@ -23,6 +22,6 @@
         </ul>
     </div>
 </nav>
-<script src="js/menu.js"></script>
+
 
 
