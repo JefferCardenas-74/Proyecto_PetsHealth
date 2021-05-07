@@ -67,6 +67,8 @@ require_once("../../configuracion/validaciones.php");// llamo archivo que retorn
 
     <!-- estilos del menu -->
     <link rel="stylesheet" href="../../componente/css/menu.css">
+    <!-- estilso de la vista general  -->
+    <link rel="stylesheet" href="../../componente/css/vistasGeneral/vistaGeneral.css">
     <!-- script del menu -->
     <script src="../../js/menu.js"></script>
 

@@ -1,8 +1,63 @@
 <?php
 
 ?>
-<br> <br>
-<br>
-<br>
-<br>
-<h1>Welcome Empleado: <?php echo $_SESSION["nombreUsuario"]; ?> </h1>
+
+<div class="container vista-principal">
+    <div class="contenedorTitulo">
+        <h2 class="titulo fredoka text-center">Bienvenido Veterinario</h2>
+    </div>
+
+    <h4 class="texto-bienvenida text-center ">Hola <span class="user"> <?php echo $_SESSION["nombreUsuario"]; ?> </span>
+        te presentamos
+        algunos modulos que puedes realizar como Empleado</h4>
+    <div class="row g-5 py-5">
+        <div class="col-md-6 d-flex align-items-start">
+            <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
+                <img src="../../componente/img/vistaGeneral/citasAsignadas.png" width="50px" alt="">
+            </div>
+            <div class="titulos-modulos ">
+                <h2>Ver citas asignadas</h2>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Suscipit sit dignissimos nam pariatur ullam illum eum, enim neque accusamus illo non, asperiores
+                    nihil at quidem expedita cumque debitis adipisci! Delectus?
+                    .</p>
+            </div>
+        </div>
+        <div class="col-md-6 d-flex align-items-start">
+            <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
+                <img src="../../componente/img/vistaGeneral/health-report.png" width="50px" alt="">
+            </div>
+            <div class="titulos-modulos ">
+                <h2>Realizar reportes</h2>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Suscipit sit dignissimos nam pariatur ullam illum eum, enim neque accusamus illo non, asperiores
+                    nihil at quidem expedita cumque debitis adipisci! Delectus?
+                    .</p>
+            </div>
+        </div>
+        <div class="col-md-6 d-flex ">
+            <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
+                <img src="../../componente/img/vistaGeneral/citasNoprogramadas.png" width="50px" alt="">
+            </div>
+            <div class="titulos-modulos ">
+                <h2>Citas no programadas</h2>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Suscipit sit dignissimos nam pariatur ullam illum eum, enim neque accusamus illo non, asperiores
+                    nihil at quidem expedita cumque debitis adipisci! Delectus?
+                </p>
+            </div>
+        </div>
+        <div class="col-md-6 d-flex ">
+            <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
+                <img src="../../componente/img/vistaGeneral/dog.png" width="50px" alt="">
+            </div>
+            <div class="titulos-modulos ">
+                <h2>Atender citas</h2>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Suscipit sit dignissimos nam pariatur ullam illum eum, enim neque accusamus illo non, asperiores
+                    nihil at quidem expedita cumque debitis adipisci! Delectus?
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

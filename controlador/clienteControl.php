@@ -1,5 +1,5 @@
 <?php
-
+    session_start();
     extract($_REQUEST);
 
     /**modelo entidades */
@@ -28,11 +28,10 @@
     $dMascota = new datosMascota();
     $listaRol = [];
 
-
     switch($accion){
 
         case 'AgregarCliente':
-            
+
             $persona = new Persona(null, $cedula, $nombre, $apellidos, $telefono, $correo);
 
             $idPersona = $dCliente->registrarPersonaCli($persona);
@@ -41,6 +40,8 @@
             break;
 
         case 'AgregarMascota':
+            /**se calcula la edad de la mascota */
+            $edadMascota = $year - $año;
 
             $mascota = new Mascota(null, $idPersona, $tipoMascota, $nombreMascota, $fechaNacimientoMascota, $edadMascota);
             $resultado = $dMascota->agregarMascota($mascota);
@@ -59,9 +60,45 @@
             $usuario = new Usuario(null, $idPersona, $correo, $contra, $listaRol);
 
             $resultado = $dUsuario->registrarUsuario($usuario);
+            if($resultado->estado){
+                // Envia correo cuando se crea un cliente
+                $enviarCorreo = new enviarCorreoPrueba();
+                $objCorreo = new stdClass();
+                $objCorreo->correoRemitente = "soporte.petsHealth@gmail.com"; //aqui pueden colocar el correo del administrador
+                $objCorreo->nombreRemitente = "Administración Pets Health"; //igual el nombre del administrador
+                $objCorreo->correoDestinatario = $correo;
+                $objCorreo->nombreDestinatario = $nombre . " " . $apellido;
+                $objCorreo->asunto = "Confirmación Registro de cliente en  Pets Health";
+                $objCorreo->mensaje = "Cordial saludo  " . $nombre . " " . $apellido . ".<br> se
+                            informa que el usuario se creo con exito <br>
+                            sus datos son :<br> 
+                            Usuario inicio sesion  : <b>  " . $correo . " </b> <br>
+                            contraseña : <b>  " . $cedula . " </b>
+                            <table  width='50%' border='0' >
+                            <tr>
+                            <td width ='50%' align='center'>
+                            <img src='https://i.imgur.com/yzjVfUS.png' alt='logoLargoEmpresa' width='250' >
+                            </td>
+                            <td width='50%'>
+                            <br>
+                            <b> Atentamente Administración Pets Health 	</b>
+                            <br>
+                            Gracias por confiar en nosotros
+                            </td>
+                            </tr>
+                            </table>
+                             ";
+                $resultadoCorreo = $enviarCorreo->enviarCorreo($objCorreo);
+            }
 
             echo json_encode($resultado);
 
+            break;
+        
+        case 'listarMascotas':
+
+            $resultado = $dCliente->listarMascotas($idPersona);
+            echo json_encode($resultado);
             break;
         
 

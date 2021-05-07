@@ -98,6 +98,7 @@ hr {
   border: 2px solid #8E2DE2;
 }
 
+
 /*fin propiedades antiguas */
 
 
@@ -425,3 +426,8 @@ hr {
   border-radius: 20px !important;
 }
 /* fin footer */
+
+/* Z index de alertas personalizadas */
+.swal2-container {
+  z-index: 100000!important;
+}

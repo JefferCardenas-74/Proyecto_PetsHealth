@@ -1,0 +1,62 @@
+.vista-principal{
+padding-top: 9em !important;
+
+}
+
+.titulo{
+    font-size: 70px;
+    padding-bottom: 1.5em;
+}
+.contenedorTitulo {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 14px;
+    width: 100%;
+    /* height: 500px; */
+}
+
+.titulo .border-bottom{
+    background: blueviolet!important;
+}
+
+.icon-square {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    font-size: 1.5rem;
+    border-radius: .75rem;
+}
+
+.titulos-modulos h2{
+    font-family:var(--fuenteTitulos);
+}
+.titulos-modulos p{
+    font-family: var(--fuenteParrafos);
+    font-size: 1.5em;
+    color: var(--colorParrafo);
+}
+.texto-bienvenida{
+    font-family: var(--fuenteParrafos);
+    font-size: 1.7em;
+    padding-bottom: 1.5em;
+}
+.user{
+    color:var(--colorTitulo);
+}
+
+
+@media screen and (max-width: 576px){
+
+    
+    .titulo{
+        font-size: 50px;
+    }
+    .texto-bienvenida{
+        font-size: 28px;
+    }
+
+}

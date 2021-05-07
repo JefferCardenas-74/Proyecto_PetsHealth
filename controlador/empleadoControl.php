@@ -1,5 +1,5 @@
 <?php
-
+    session_start();
     /**modelo entidades */
     include '../modelo/entidad/Persona.php';
     include '../modelo/entidad/Empleado.php';
@@ -59,7 +59,7 @@
             /**se encripta la contrasenia con md5 */
             $contra = md5($identificacion);
 
-            $usuario = new Usuario(null, $id, $email, $contra, $listaRol);
+            $usuario = new Usuario(null, $id, $email, $contra, $listaRol,null);
                 
             $resultado = $dUsuario->registrarUsuario($usuario);
             //si se pudo crear el empleado se envia correo
@@ -107,6 +107,29 @@
 
         case 'listarRol':
             $resultado = $dEmpleado->listarRol();
+            echo json_encode($resultado);
+            break;
+
+        case 'listarEmpleados':
+            $resultado = $dEmpleado->listarEmpleados($_SESSION['idPersona']);
+            echo json_encode($resultado);
+            break;
+
+        case 'inactivarEmpleado':
+            $resultado = $dEmpleado->inactivarEmpleado($estado,$idEmpleado);
+            echo json_encode($resultado);
+            break;
+
+        case 'listarEmpleadosParaActualizar':
+            $resultado = $dEmpleado->listarEmpleadosParaActualizar($idPersona);
+            echo json_encode($resultado);
+            break;
+
+        case 'actualizarEmpleado':
+            $empleado= new Empleado(null,null,$idPersona,$identificacion,$nombre,$apellido,$telefono,$correo);
+            $usuario=new Usuario($idUsuario,$idPersona,$correo,null,$rol,$empleado);
+            $resultado = $dEmpleado->actualizarEmpleado($usuario);
+            
             echo json_encode($resultado);
             break;
     }

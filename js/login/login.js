@@ -55,16 +55,57 @@ $(function () {
   });
 
   $("#btn_registrar").click(function () {
-    registrarPersona();
+    if ($("#txt_cedula").val() != "" && $("#txt_nombre").val() != "" && $("#txt_apellidos").val() != "" && $("#txt_telefono").val() != "" && $("#txt_correo").val() != "" && $("#txt_nombreMascota").val() != "" && $("#txt_edadMascota").val() != "" && $("#dt_fechaNacimientoMascota").val() != "" && $("#cb_tipoMascota").val() != "") {
+      alert("Se registro");
+      //registrarPersona();
+      limpiarFormulario();
+    } else {
+      Swal.fire({
+        title: "Campos vacios !",
+        text: "Ingresa datos por favor",
+        icon: "warning",
+        confirmButtonText: "Ok",
+        width: 400,
+      });
+    }
   });
 
 
 
-  // $("btn_registrar").click(function(){
-  //   $("#accion").val("AgregarCliente");
-  //   registrarCliente();
-  // });
 });
+
+
+function mostrarPassword(){
+  let inputPassword = document.querySelector('.password');
+  if (inputPassword.type === "password") {
+    inputPassword.type = "text";
+  } else {
+    inputPassword.type = "password";
+  }
+}
+
+function limpiarFormulario(){
+  let numeroCedula = document.querySelector("#txt_cedula");
+  numeroCedula.value="";
+  let nombreCliente = document.querySelector("#txt_nombre");
+  nombreCliente.value="";
+  let apellidosCliente = document.querySelector("#txt_apellidos");
+  apellidosCliente.value="";
+  let telefonoCliente = document.querySelector("#txt_telefono");
+  telefonoCliente.value="";
+  let correoCliente = document.querySelector("#txt_correo");
+  correoCliente.value="";
+  let nombremascotaCliente = document.querySelector("#txt_nombreMascota");
+  nombremascotaCliente.value="";
+  let edadMascotaCliente = document.querySelector("#txt_edadMascota");
+  edadMascotaCliente.value="";
+  let fechaNacimientoMascotaCliente = document.querySelector("#dt_fechaNacimientoMascota");
+  fechaNacimientoMascotaCliente.value="";
+  let tipoMascotaCliente = document.querySelector("#cb_tipoMascota");
+  tipoMascotaCliente.value="";
+  
+}
+
 
 
 
@@ -471,7 +512,8 @@ function registrarUsuario(){
     idPersona : idPersona,
     cedula: $('#txt_cedula').val(),
     correo : $('#txt_correo').val(),
-
+    nombre:$('#txt_nombre').val(),
+    apellido:$('#txt_apellidos').val(),
     accion : "AgregarUsuario"
 
   }

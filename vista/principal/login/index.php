@@ -43,8 +43,8 @@ extract($_REQUEST);
         <!-- script de alerta personalizada -->
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.4/dist/sweetalert2.all.min.js"></script>
 
-<!-- api google recapthcha -->
-<script src="https://www.google.com/recaptcha/api.js"></script>
+        <!-- api google recapthcha -->
+        <script src="https://www.google.com/recaptcha/api.js"></script>
 
     <title>login</title>
 </head>

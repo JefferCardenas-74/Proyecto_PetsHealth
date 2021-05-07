@@ -96,7 +96,7 @@ $(function () {
 
         }else{
 
-          alert(' se atiende');
+          // alert(' se atiende');
           atenderCita();
         }
       

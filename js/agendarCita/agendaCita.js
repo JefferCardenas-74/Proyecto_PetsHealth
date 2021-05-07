@@ -4,6 +4,7 @@ var servicio = null;
 var nombreCliente = "";
 var horaFormateada = "";
 var cliente=null;
+var nombreServicio=null;
 
 $(function () {
     cargarControles();
@@ -62,12 +63,19 @@ $(function () {
         }
     });
 
+    $("#btnLimpiar").click(function () {
+        limpiarCampos();
+    })
+
     // boton del modal de servicios
     $("#btnTipoServicios").click(function () {
         if ($(".chkTipoServicio").is(":checked")) {
             escojerServicios.hide();
         } else {
-            alert("No has seleccionado ninguno");
+            Swal.fire({
+                icon: 'warning',
+                text: 'Chequea por favor',
+            });
         }
     });
 });
@@ -137,14 +145,16 @@ function cargarControles() {
  */
 
 function limpiarCampos() {
+    // datepicker.setDate('todayHighlight');
     $("#txt_fecha").val("");
-    $("#cb_cliente option").remove();
-    $("#cb_hora option").remove();
+    $("#cb_hora option ").remove();
+    $("#cb_cliente").val([0]).trigger('change');
+    $(".chkTipoServicio").prop("disabled", false);
     $(".chkTipoServicio").prop("checked", false);
     validarMascotaCita(cliente);
-    listarCliente();
+    // listarCliente();
     servicio = null;
-    listarHorasDisponibles(fechaEscogida);
+    // listarHorasDisponibles(fechaEscogida);
     
   
 }
@@ -154,11 +164,13 @@ function limpiarCampos() {
 function obtenerServicioCita() {
     $(".chkTipoServicio").on("change", function () {
         if ($(this).is(":checked")) {
-            $("input:checkbox:not(:checked)").prop("disabled", true);
+            $(".chkTipoServicio:not(:checked)").prop("disabled", true);
+            // $("input:checkbox:not(:checked)").prop("disabled", true);
             servicio = $(this).val();
-            $("#txt_tipoServicio").val("Servicio #" + servicio);
+            nombreServicio=$(this).data('nombre');
+            console.log(nombreServicio);
         } else {
-            $("input:checkbox:not(:checked)").prop("disabled", false);
+            $(".chkTipoServicio:not(:checked)").prop("disabled", false);
             //alert("Checkbox " + $(this).prop("id") +  " (" + $(this).val() + ") => Deseleccionado");
         }
     });
@@ -183,7 +195,11 @@ function mostrarDatosCita() {
     } else {
         $("#hora").val("No ha Seleccionado");
     }
-    if (!servicio) {
+    // $("#txt_tipoServicio").val(nombreServicio);
+    console.log(nombreServicio);
+    if (servicio) {
+        $("#txt_tipoServicio").val(nombreServicio);
+    }else{
         $("#txt_tipoServicio").val("No ha Seleccionado");
     }
 
@@ -210,7 +226,7 @@ function mostrarDatosCita() {
  */
 function listarCliente() {
     let parametros = {
-        accion: "buscarMascotas",
+        accion: "listarMascotaCliente",
     };
     $.ajax({
         url: "../../../controlador/citaControl.php",
@@ -263,7 +279,7 @@ function listarServicios() {
                 $.each(servicios, function (i, servicio) {
                     $(".form-check").append(
                         "<input type=checkbox class='form-check chkTipoServicio'" +
-                        "value=" +
+                        "data-nombre='"+servicio.serTipo+ "' value=" +
                         servicio.idServicio +
                         ">" +
                         "<span id='tipoServicio'>" +
@@ -298,24 +314,28 @@ function listarHorasDisponibles(fechaEscogida) {
         dataType: "json",
         cache: false,
         success: function (resultado) {
-            // arregloFechas.push(resultado.datos);
-            // xd =arregloFechas.slice(-1,arregloFechas.lenght);
-            // console.log(xd[0]);
-            // var nuevoArr = arregloFechas.slice(-1,arregloFechas.lenght);
-            // console.log(nuevoArr);
-            // // console.log(x);
-            if (resultado.estado) {
 
-                let horas = resultado.datos;
-                // console.log(xd[0]);
-                $.each(horas, function (i, hora) {
+            if (resultado.estado) {
+                /**
+                 * Se recorre el json 
+                 * y se elimina los datos duplicados
+                 */
+                let horas = Array.from(new Set(resultado.datos.map(s => s.idHora)))
+                .map(idHora => {
+                    return {
+                        id: idHora,
+                        hora: resultado.datos.find(s => s.idHora === idHora).hoHora,
+                        tipo:resultado.datos.find(s => s.idHora === idHora).hoTipo
+                    };
+                });
+                $.each(horas, function (i, hora) { 
                     $("#cb_hora").append(
                         "<option value=" +
-                        hora.idHora +
+                        hora.id +
                         ">" +
-                        hora.hoHora +
+                        hora.hora +
                         " " +
-                        hora.hoTipo +
+                        hora.tipo +
                         "</option>"
                     );
                 });
@@ -333,7 +353,7 @@ function agendarCita() {
     let parametros = {
         accion: "agendarCita",
         cliente: $("#cb_cliente").val(),
-        servicio: servicio,
+        servicio: $(".chkTipoServicio").val(),
         fecha: fechaEscogida,
         hora: $("#cb_hora").val(),
         horaFormateada: $("#cb_hora option:selected").text(),

@@ -13,9 +13,8 @@
         <li class="sub_menu item">
                 <a href="#">Empleados<i class="fa fa-caret-down"></i></a>
                 <ul>
-                        <li><a class="dropdown-item " href="#">Ver Empleados</a></li>
+                        <li><a class="dropdown-item " href="verEmpleados/">Ver Empleados</a></li>
                         <li><a class="dropdown-item" href="registrarEmpleado/">Registrar empleado</a></li>
-                        <li><a class="dropdown-item" href="#">Opciones</a></li>
                 </ul>
             </li>
 
@@ -30,9 +29,8 @@
             <li class="sub_menu item">
                 <a href="#">Estadisticas<i class="fa fa-caret-down"></i></a>
                 <ul>
-                        <li><a class="dropdown-item" href="#">Reporte grafico</a></li>
-                        <li><a class="dropdown-item" href="../verCita/">Reporte pdf citas</a></li>
-                        <li><a class="dropdown-item" href="#">Mas</a></li>
+                        <li><a class="dropdown-item" href="verReporteGraficoEmpleados/">Reporte grafico empleados</a></li>
+                        <li><a class="dropdown-item" href="verReporteGraficoCitas/">Reporte grafico citas</a></li>
                 </ul>
             </li>
 
@@ -40,9 +38,8 @@
                 <a href="#">Configuraciones<i class="fa fa-caret-down"></i></a>
                 <ul class="posRight">
                 <li>
-                        <a class="dropdown-item " href="#">
-                        <img src="../../componente/img/user/avatar.svg" width="32px" class="img-circle elevation-2" alt="User Image"> 
-                         nombre usuario</a>
+                <a class="dropdown-item " href="#">
+                        Admin <span class="active"><?php echo $_SESSION["nombreUsuario"]; ?> </span> </a>
                         </li>
                         <li><a class="dropdown-item " href="actualizarDatos/">actualizar datos</a></li>
                         <li><a class="dropdown-item" href="#">actualizar mascotas</a></li>

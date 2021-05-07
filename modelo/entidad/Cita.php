@@ -7,13 +7,15 @@ class Cita{
     private $fecha;
     private $estado;
     private $idHora;
+    private $servicio;
  
 
     function __construct($idCita = null,
-        $mascota = null, 
+        Mascota $mascota = null, 
         $fecha = null,
         $estado =null,
-        $idHora=null
+        $idHora=null,
+        Servicio $servicio=null
         ){
 
         $this->idCita = $idCita;
@@ -21,6 +23,7 @@ class Cita{
         $this->fecha = $fecha;
         $this->estado = $estado;
         $this->idHora= $idHora;
+        $this->servicio=$servicio;
         
     }
 
