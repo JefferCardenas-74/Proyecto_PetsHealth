@@ -1,6 +1,7 @@
 <?php
 extract($_REQUEST);
 error_reporting(1);
+require_once('rutasMenu.php');
 
 if ($x == 3) {
     // echo "Para ingresar debe iniciar primero la sesión";

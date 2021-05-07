@@ -52,6 +52,7 @@ require_once("../../../configuracion/validaciones.php");
 
     <!--js externo-->
     <script src="../../../js/menu.js"></script>
+    <script src="../../../js/actualizarDatosPersona/actualizarDatosPersona.js"></script>
     <title>Actualizar Datos</title>
 </head>
 
