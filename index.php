@@ -4,6 +4,7 @@ if (!isset($page)) {
 } else {
     $pagina = $page . ".php";
 }
+require_once("configuracion/validaciones.php");
 ?>
 
 <!DOCTYPE html>

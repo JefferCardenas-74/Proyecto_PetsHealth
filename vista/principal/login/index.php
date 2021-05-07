@@ -1,5 +1,5 @@
 <?php
-extract($_REQUEST);
+require_once("../../../configuracion/validaciones.php");
 ?>
 
 <!DOCTYPE html>
@@ -53,7 +53,7 @@ extract($_REQUEST);
     <div class="container-fluid">
 
         <!--menu-->
-            <?php include "menu.php"?>
+            <?php include "../../../menu.php"?>
 
         <!--Seccion principal-->
         <section>

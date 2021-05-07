@@ -1,5 +1,9 @@
 <?php
 // Se definen las rutas del menu
+//PRINCIAPAL
+$GLOBALS['casa']="../../../";
+$GLOBALS['iniciarSesion']="../login/";
+$GLOBALS['preguntasFrecuentes']="../preguntasFrecuentes/";
 
 // ADMINISTRADOR
 $GLOBALS['verEmpleadosA']="../verEmpleados/";
@@ -25,6 +29,10 @@ $arreglo =[];
     $ruta = $_SERVER['REQUEST_URI'];
     $arregloUrl = explode('/', $ruta);
     if($arregloUrl[4]==""){
+    //PRINCIPAL
+    $GLOBALS['casa']="../repositorio_desarrollo/";
+    $GLOBALS['iniciarSesion']="vista/principal/login/";
+    $GLOBALS['preguntasFrecuentes']="vista/principal/preguntasFrecuentes/";
     //ADMINISTRADOR 
     $GLOBALS['verEmpleadosA']="verEmpleados/";
     $GLOBALS['regitrarEmpleadosA']="registrarEmpleado/";
