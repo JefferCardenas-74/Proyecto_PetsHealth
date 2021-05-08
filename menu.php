@@ -1,3 +1,6 @@
+<?php
+require_once("configuracion/validaciones.php");
+?>
 <nav class="menu">
 
     <div class="logo">

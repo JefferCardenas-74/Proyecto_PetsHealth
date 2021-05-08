@@ -1,8 +1,3 @@
-<?php
-extract($_REQUEST);
-require_once("../../../configuracion/validaciones.php");
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -1,12 +1,3 @@
-<?php
-if (!isset($page)) {
-    $pagina = "contenido.php";
-} else {
-    $pagina = $page . ".php";
-}
-require_once("configuracion/validaciones.php");
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -49,7 +40,7 @@ require_once("configuracion/validaciones.php");
 
     <navbar><?php include "menu.php" ?></navbar>
     <header> <?php include "header.php" ?></header>
-    <section><?php include $pagina ?> </section>
+    <section><?php include  "contenido.php"  ?> </section>
     <footer><?php include "piePagina.php"?> </footer>
 
 </body>

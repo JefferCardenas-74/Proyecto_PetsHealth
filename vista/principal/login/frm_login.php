@@ -1,6 +1,5 @@
 <?php
 require_once("../../../configuracion/validaciones.php");
-extract($_REQUEST);
 ?>
 <div class="row">
     <div class="col">

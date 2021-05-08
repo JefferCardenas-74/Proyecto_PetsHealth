@@ -9,8 +9,6 @@ else if ($_SESSION["rol"] !== "Administrador"||$_SESSION["estado"] !== 1) {
     // si no corresponde se redrije al login con la variable x=5
     header("location:../principal/login/?x=4");
 }
-
-
 require_once("../../configuracion/validaciones.php");// llamo archivo que retorna mensajes que validan la URL
 ?>
 
@@ -75,6 +73,8 @@ require_once("../../configuracion/validaciones.php");// llamo archivo que retorn
 
     <!-- script de alerta personalizada -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.4/dist/sweetalert2.all.min.js"></script>
+
+
 </head>
 
 <body>
