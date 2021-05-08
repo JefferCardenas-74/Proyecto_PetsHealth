@@ -56,9 +56,7 @@ $(function () {
 
   $("#btn_registrar").click(function () {
     if ($("#txt_cedula").val() != "" && $("#txt_nombre").val() != "" && $("#txt_apellidos").val() != "" && $("#txt_telefono").val() != "" && $("#txt_correo").val() != "" && $("#txt_nombreMascota").val() != "" && $("#txt_edadMascota").val() != "" && $("#dt_fechaNacimientoMascota").val() != "" && $("#cb_tipoMascota").val() != "") {
-      alert("Se registro");
-      //registrarPersona();
-      limpiarFormulario();
+      registrarPersona();
     } else {
       Swal.fire({
         title: "Campos vacios !",
@@ -485,6 +483,7 @@ function agregarMascota(id){
     accion : "AgregarMascota"
 
   }
+ 
 
   $.ajax({
     url:"../../../controlador/clienteControl.php",
@@ -529,7 +528,7 @@ function registrarUsuario(){
       
       console.log(resultado.mensaje);
       if(resultado.estado==true){
-
+        limpiarFormulario();
         Swal.fire({
           icon:'success',
           title:'Success',
