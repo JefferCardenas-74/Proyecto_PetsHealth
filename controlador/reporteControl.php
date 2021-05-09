@@ -36,9 +36,19 @@
         $yDatosEmpleados=array(); //Arreglo que guarda los valores númericos a graficar
         $xResultado=array(); //Valor que guarda el nombre de cada resultado en formato texto
         switch($tipoGrafica){
-            
             case "reporteCitaPorMes":
                 $resultado=$dCita->reporteCitaPorMes();
+                while($dato = $resultado->datos->fetchObject()){
+                    $i++;
+                    $xMeses[$i] = (string)$meses[$dato->mes-1];
+                    $yDatos[$i] = (int)$dato->cantidad;
+                    $data[$i] = array($xMeses[$i],$yDatos[$i]);
+                }
+                echo json_encode($data);
+                break;  
+            
+            case "reporteCitaPorMesSeleccionado":
+                $resultado=$dCita->reporteCitaPorMesIndicado($fecha);
                 while($dato = $resultado->datos->fetchObject()){
                     $i++;
                     $xMeses[$i] = (string)$meses[$dato->mes-1];

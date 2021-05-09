@@ -339,6 +339,28 @@
             }
             return $this->retorno;
         }
+         /**
+         * se hace una consulta para concer la cantidad de citas
+         * por el mes que se hizo
+         */
+        function reporteCitaPorMesIndicado($fecha)
+        {
+            try{
+                $consulta="SELECT count(idCita) as cantidad, month(ciFecha) as mes
+                FROM cita WHERE MONTH(ciFecha)=MONTH('$fecha') AND YEAR(ciFecha)=YEAR('$fecha')
+                group by month(ciFecha)";
+                $resultado=$this->conexion->prepare($consulta);          
+                $resultado->execute();  
+                $this->retorno->estado=true;
+                $this->retorno->mensaje="Cantidad de citas por mes indicado ";
+                $this->retorno->datos=$resultado;
+            }catch(PDOException $ex){
+                $this->retorno->estado=false;
+                $this->retorno->mensaje=$ex->getMessage();
+                $this->retorno->datos=null;
+            }
+            return $this->retorno;
+        }
         
     }
 ?>
