@@ -339,6 +339,64 @@
             }
             return $this->retorno;
         }
-        
-    }
+
+        function listarCitasAsignadasVete(){
+            try{
+
+                $consulta = "select cita.idCita,cita.ciFecha,servicio.serTipo,persona.perNombre from cita 
+                inner join citaservicio on cita.idCita=citaservicio.idCita
+                inner join servicio on servicio.idServicio=citaservicio.idServicio
+                inner join mascota on mascota.idMascota=cita.idMascota
+                inner join persona on persona.idPersona=mascota.idPersona
+                where cita.ciEstado='Solicitada'";
+
+                $resultado = $this->conexion->query($consulta);
+                $resultado->execute();
+
+                $this->retorno->estado = true;
+                $this->retorno->mensaje = 'listado de citas por asignar';
+                $this->retorno->datos = $resultado->fetchAll();
+
+
+            }catch(PDOException $ex){
+
+                $this->retorno->estado = false;
+                $this->retorno->mensaje = $ex->getMessage();
+                $this->retorno->datos = null;
+
+            }
+
+            return $this->retorno;
+        }
+
+        function asignarVeterinario(CitaEmpleado $citaEmpleado){
+            try{
+                $this->conexion->beginTransaction();
+
+                $consulta= " insert into citaempleado values (null,?,?)";
+                $resultado=$this->conexion->prepare($consulta);
+
+                $resultado->bindParam(1,$citaEmpleado->getIdCita());
+                $resultado->bindParam(2,$citaEmpleado->getIdEmpleado());
+                $resultado->execute();
+
+                $consulta = "update cita set ciEstado ='Asignada' where cita.idCita = ?";
+                $resultado = $this->conexion->prepare($consulta);
+                $resultado->bindParam(1,$citaEmpleado->getIdCita());
+                $resultado->execute();
+                $this->conexion->commit();
+
+                $this->retorno->estado=true;
+                $this->retorno->mensaje="Cita asignada correctamente";
+                $this->retorno->datos=null;
+                
+
+            }catch(PDOException $ex){
+                $this->retorno->estado=false;
+                $this->retorno->mensaje=$ex->getMessage();
+                $this->retorno->datos=null;
+            }
+            return $this->retorno;
+        }
+}
 ?>

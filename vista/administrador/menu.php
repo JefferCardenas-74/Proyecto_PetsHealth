@@ -15,6 +15,7 @@
                 <ul>
                         <li><a class="dropdown-item " href="verEmpleados/">Ver Empleados</a></li>
                         <li><a class="dropdown-item" href="registrarEmpleado/">Registrar empleado</a></li>
+                        <li><a class="dropdown-item" href="asignarveterinario/">Asignar Veterinario</a></li>
                 </ul>
             </li>
 

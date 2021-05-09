@@ -188,7 +188,7 @@ function ActualizarDescripcion(){
         success: function(resultado){
             if(resultado.estado){
                 Swal.fire({
-                    title: 'Registrado',
+                    title: 'Actualizado',
                     text: 'Descripcion Actualizado con Exito..!',
                     icon: 'success',
                     ConfirmButtonText: 'Ok'

@@ -1,11 +1,12 @@
 <div class="datos_ListaCitasPorAsignarVete">
-    <table border ="1" name="tbl_AsignarVete" id="tbl_AsignarVete">
+    <table name="tbl_AsignarVete" id="tbl_AsignarVete" class="tabla">
         <thead>
             <tr>
                 <th>N°</th>
                 <th>Fecha y Hora</th>
                 <th>tipo de Cita</th>
                 <th>Solicitante</th>
+                <th>Accion</th>
             </tr>
         </thead>
         <tbody>
@@ -14,7 +15,7 @@
                 <td id="VFechayHora"></td>
                 <td id="VTipoCita"></td>
                 <td id="VSolicitante"></td>
-                <th><button type="button" id="btn_mostrarModal" data-toggle="modal" data-target="#modalAsignar" class="btn_morado">Asignar</button></th>
+                <th><button type="button"  class="btnMorado fredoka" id="btn_mostrarModal" data-toggle="modal" data-target="#modalAsignar" class="btn_morado">Asignar</button></th>
             </tr>
         
         </tbody>
@@ -43,8 +44,8 @@
             </div>
             <!-- Modal Pie Pagina -->
             <div class="modal-footer">
-                <button type="button" class="btn_morado" data-dismiss="modal" id="btn_asignarVete">Asignar</button>
-                <button type="button" class="btn_naranja" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btnMorado" data-dismiss="modal" id="btn_asignarVete">Asignar</button>
+                <button type="button" class="btnNaranja" data-dismiss="modal">Cerrar</button>
             </div>
         </div>
     </div>

@@ -1,3 +1,3 @@
 <div class="cabecera">
-    <h1>Asignar Veterinario</h1>
+    <h1 id="titulo">Asignar Veterinario</h1>
 </div>

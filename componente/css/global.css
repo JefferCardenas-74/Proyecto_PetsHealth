@@ -98,6 +98,7 @@ hr {
   border: 2px solid #8E2DE2;
 }
 
+
 /*fin propiedades antiguas */
 
 
@@ -429,4 +430,8 @@ hr {
 /* Z index de alertas personalizadas */
 .swal2-container {
   z-index: 100000!important;
+}
+
+#irPrincipal{
+  cursor: pointer;
 }

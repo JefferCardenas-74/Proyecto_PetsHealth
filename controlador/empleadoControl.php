@@ -133,5 +133,10 @@
             
             echo json_encode($resultado);
             break;
+
+        case "listarVeterinarios":
+            $resultado= $dEmpleado->listarVeterinariosAsignar();
+            echo json_encode($resultado);
+            break;
     }
 ?>
