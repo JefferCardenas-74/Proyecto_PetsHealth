@@ -19,7 +19,7 @@
                 on persona.idPersona = mascota.idPersona inner join citaservicio
                 on citaservicio.idCita = cita.idCita inner join servicio
                 on servicio.idServicio = citaservicio.idServicio
-                where empleado.idEmpleado = ? and cita.ciEstado = 'Solicitada'";
+                where empleado.idEmpleado = ? and cita.ciEstado = 'Asignada'";
 
                 $resultado = $this->conexion->prepare($consulta);
                 $resultado->bindParam(1, $idEmpleado);
