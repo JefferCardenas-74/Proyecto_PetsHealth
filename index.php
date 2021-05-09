@@ -1,11 +1,3 @@
-<?php
-if (!isset($page)) {
-    $pagina = "contenido.php";
-} else {
-    $pagina = $page . ".php";
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,15 +21,18 @@ if (!isset($page)) {
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Pompiere&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="componente/css/global.css">
+    <!-- estilo del menu -->
+    <link rel="stylesheet" href="componente/css/menu.css">
     <!-- js del proyecto -->
     <script src="js/global.js"></script>
+    <script src="js/menu.js"></script>
     <!-- icono del proyecto traida de imgur -->
     <link rel="icon" href="https://i.imgur.com/ILKE0xE.png">
     <!-- cdn de iconos -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css">
 
       <!-- libreria de alerta personalizada -->
-      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.4/dist/sweetalert2.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.4/dist/sweetalert2.all.min.js"></script>
 
 </head>
 
@@ -45,7 +40,7 @@ if (!isset($page)) {
 
     <navbar><?php include "menu.php" ?></navbar>
     <header> <?php include "header.php" ?></header>
-    <section><?php include $pagina ?> </section>
+    <section><?php include  "contenido.php"  ?> </section>
     <footer><?php include "piePagina.php"?> </footer>
 
 </body>

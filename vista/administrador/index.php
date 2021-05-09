@@ -1,17 +1,16 @@
 <?php
 session_start();
 // valido si la session esta disponible
-//if (!isset($_SESSION["idPersona"])) {
+if (!isset($_SESSION["idPersona"])) {
     // lo redirije a login con la varible x=3
-  //  header("location:../principal/login/?x=3");
-//}
-//else if ($_SESSION["rol"] !== "Administrador"||$_SESSION["estado"] !== 1) {
+    header("location:../principal/login/?x=3");
+}
+else if ($_SESSION["rol"] !== "Administrador"||$_SESSION["estado"] !== 1) {
 
     // si no corresponde se redrije al login con la variable x=5
-  //  header("location:../principal/login/?x=4");
-//}
-
-//require_once("../../configuracion/validaciones.php");// llamo archivo que retorna mensajes que validan la URL
+    header("location:../principal/login/?x=4");
+}
+require_once("../../configuracion/validaciones.php");// llamo archivo que retorna mensajes que validan la URL
 ?>
 
 <!DOCTYPE html>
@@ -75,6 +74,8 @@ session_start();
 
     <!-- script de alerta personalizada -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.4/dist/sweetalert2.all.min.js"></script>
+
+
 </head>
 
 <body>

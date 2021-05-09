@@ -77,7 +77,7 @@ require_once("../../../configuracion/validaciones.php");
 
         <input type="hidden" id='idPersona' name='idPersona' value="<?php echo $idPersona ?>">
 
-        <?php include 'menu.php' ?>
+        <?php include '../menu.php' ?>
 
         <header><?php include 'cabecera.php' ?></header>
 

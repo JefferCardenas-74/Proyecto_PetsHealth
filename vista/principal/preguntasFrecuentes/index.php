@@ -1,6 +1,6 @@
 <?php 
 
-
+require_once("../../../configuracion/validaciones.php");
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -47,7 +47,7 @@
 
         <!--navbar-->
 
-            <?php include 'menu.php' ?>        
+            <?php include '../../../menu.php' ?>        
 
         <!--contenido principal-->
         <section>

@@ -154,7 +154,7 @@
 
                                             <div class="row fredoka">
                                                 <div class="col-4">
-                                                    <div class="item precioTotal">
+                                                    <div class="itemC precioTotal">
                                                         <h6>Total</h6>
                                                         <p class="txt_total">$</p>
                                                     </div>

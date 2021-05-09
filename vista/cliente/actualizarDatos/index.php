@@ -52,6 +52,7 @@ require_once("../../../configuracion/validaciones.php");
 
     <!--js externo-->
     <script src="../../../js/menu.js"></script>
+    <script src="../../../js/actualizarDatosPersona/actualizarDatosPersona.js"></script>
     <title>Actualizar Datos</title>
 </head>
 
@@ -60,7 +61,7 @@ require_once("../../../configuracion/validaciones.php");
     <div class="container-fluid">
 
         <!--menu-->
-        <?php include "menu.php"?>
+        <?php include "../menu.php"?>
 
         <!--cabecara-->
         <header>

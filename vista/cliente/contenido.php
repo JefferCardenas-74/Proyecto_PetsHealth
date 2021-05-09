@@ -10,7 +10,7 @@
 
     <h4 class="texto-bienvenida text-center ">Hola <span class="user"> <?php echo $_SESSION["nombreUsuario"]; ?> </span>
         te presentamos
-        algunos modulos que puedes realizar como cliente</h4>
+        algunos modulos que puedes realizar como <span class="rol"> cliente </span></h4>
     <div class="row g-5 py-5">
         <div class="col-md-4 d-flex align-items-start">
             <div class="icon-square bg-light text-dark flex-shrink-0 me-3">

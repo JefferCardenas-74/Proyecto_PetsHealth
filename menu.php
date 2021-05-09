@@ -1,4 +1,6 @@
-<link rel="stylesheet" href="componente/css/menu.css">
+<?php
+require_once("configuracion/validaciones.php");
+?>
 <nav class="menu">
 
     <div class="logo">
@@ -12,25 +14,17 @@
     <div class="menu-items uno">
         <ul>
             <li class="item">
-                <a class="active" href="#">Inicio</a>
+                <a class="activePrueba" href=<?php echo $GLOBALS['casa']; ?> >Inicio</a>
             </li>
             <li class="item">
-                <a href="vista/principal/preguntasFrecuentes/">Preguntas frecuentes</a>
+                <a href=<?php echo  $GLOBALS['preguntasFrecuentes']; ?> >Preguntas frecuentes</a>
             </li>
 			<li class="item" >
-			<a id="login" href="vista/principal/login/">Iniciar sesion</a>
+			<a id="login" href=<?php echo $GLOBALS['iniciarSesion']; ?> >Iniciar sesion</a>
 			</li>
-            <li class="sub_menu item">
-                <a href="#">Acerca de nosotros<i class="fa fa-caret-down"></i></a>
-
-                <ul class="posRight">
-                    <li><a href="#">¿Por que petshealth?</a></li>
-                    <li><a href="#">quienes somos</a></li>
-                </ul>
-            </li>
         </ul>
     </div>
 </nav>
-<script src="js/menu.js"></script>
+
 
 

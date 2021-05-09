@@ -30,7 +30,8 @@ else if ($_SESSION["rol"] !== "Cliente"  and $_SESSION["estado"] !== 1){
             <!--cdn de jquery-->
             <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+            <!-- icono del proyecto -->
+            <link rel="icon" href="../../../componente/img/petshealth/logoMini.png">
             <!--fuentes de letras -->
             <link rel="preconnect" href="https://fonts.gstatic.com">
             <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Pompiere&display=swap" rel="stylesheet">
@@ -48,9 +49,13 @@ else if ($_SESSION["rol"] !== "Cliente"  and $_SESSION["estado"] !== 1){
 
         <body>
             <div class="container-fluid">
+<<<<<<< HEAD
                 <input type="hidden" value="<?php echo $rol?>" id="rol">
                 <input type="hidden" value="<?php echo $persona?>" id="persona">
                 <nav><?php include "menu.php" ?></nav>
+=======
+                <nav><?php include "../menu.php" ?></nav>
+>>>>>>> 2d637c83746d73dece90df177f373a37e751a00b
                 <header ><?php include "encabezado.php"?> </header>
                 <section ><?php include "frm_historialMascota.php"?></section>
                 <footer > <?php include "../../../piePagina.php"?></footer>

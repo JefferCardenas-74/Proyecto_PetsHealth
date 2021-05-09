@@ -51,7 +51,7 @@ require_once("../../../configuracion/validaciones.php");
     <div class="container-fluid">
 
         <!--menu-->
-            <?php include "menu.php"?>
+            <?php include "../../../menu.php"?>
 
         <!--Seccion principal-->
         <section>

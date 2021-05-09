@@ -40,6 +40,8 @@
             break;
 
         case 'AgregarMascota':
+            /**se calcula la edad de la mascota */
+            $edadMascota = $year - $año;
 
             $mascota = new Mascota(null, $idPersona, $tipoMascota, $nombreMascota, $fechaNacimientoMascota, $edadMascota);
             $resultado = $dMascota->agregarMascota($mascota);
@@ -91,6 +93,12 @@
 
             echo json_encode($resultado);
 
+            break;
+        
+        case 'listarMascotas':
+
+            $resultado = $dCliente->listarMascotas($idPersona);
+            echo json_encode($resultado);
             break;
         
 
