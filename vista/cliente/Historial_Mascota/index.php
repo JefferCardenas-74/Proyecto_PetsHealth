@@ -1,20 +1,21 @@
 <?php
 session_start();
- $rol=$_SESSION["rol"];
- $persona=$_SESSION["idPersona"];
+$rol=$_SESSION["rol"];
+$persona=$_SESSION["idPersona"];
 if (!isset($_SESSION['idPersona'])) {
-   header("location:../../principal/login/?x=3");
+  header("location:../../principal/login/?x=3");
 }
 else if ($_SESSION["rol"] !== "Cliente"  and $_SESSION["estado"] !== 1){
-    // si no corresponde se redrije al login con la variable x=4
-  header("location:../../principal/login/?x=4");
+   // si no corresponde se redrije al login con la variable x=4
+ header("location:../../principal/login/?x=4");
 }
 //else if ($_SESSION["rol"] !== "Administrador" and $_SESSION["estado"] !== 1){
-    // si no corresponde se redrije al login con la variable x=4
-  //header("location:../../principal/login/?x=4");
+   // si no corresponde se redrije al login con la variable x=4
+ //header("location:../../principal/login/?x=4");
 //}
 
 //require_once("../../../configuracion/validaciones.php");
+
 ?> 
     <html lang="es"><!--Indica el idioma del contenido de la pagina -->
         <head>
@@ -49,16 +50,16 @@ else if ($_SESSION["rol"] !== "Cliente"  and $_SESSION["estado"] !== 1){
 
         <body>
             <div class="container-fluid">
-<<<<<<< HEAD
                 <input type="hidden" value="<?php echo $rol?>" id="rol">
                 <input type="hidden" value="<?php echo $persona?>" id="persona">
                 <nav><?php include "menu.php" ?></nav>
-=======
-                <nav><?php include "../menu.php" ?></nav>
->>>>>>> 2d637c83746d73dece90df177f373a37e751a00b
                 <header ><?php include "encabezado.php"?> </header>
                 <section ><?php include "frm_historialMascota.php"?></section>
                 <footer > <?php include "../../../piePagina.php"?></footer>
             </div>
         </body>
     </html>
+
+
+
+
