@@ -40,6 +40,9 @@ thead{
     background: #a200ff57;
     font-weight: bold;
 }
+#modalAsignar{
+    z-index: 1111;
+}
 
 @media screen and (max-width: 492px){
 

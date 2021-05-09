@@ -58,7 +58,7 @@
                 <th>Descripción</th>
                 <th>tipo de Cita</th>
                 <th>Responsable</th>
-                <th>Accion</th>
+                <th id="Accion">Accion</th>
             </tr>
         </thead>
         <tbody>

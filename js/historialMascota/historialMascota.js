@@ -22,6 +22,9 @@ $(function(){
         $("#btn_mostrarModal").css({
             display: 'none'
         });
+        $("#Accion").css({
+            display: 'none'
+        });
         ListarMascotasClienteH();
     }else{
         $(".buscador").css({
