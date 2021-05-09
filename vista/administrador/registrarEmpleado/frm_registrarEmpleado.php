@@ -35,7 +35,7 @@
                         <div>
                             <label for="cb_rol" class="fredoka">Rol</label>
                             <select name="cb_rol" id="cb_rol" class="cajaTexto">
-                                <option value="0">Seleccione</option>
+                                <option  value="0">Seleccione</option>
                             </select>
                         </div>
                     </div>
@@ -47,9 +47,9 @@
                     <div id="contenedorBotonRegistrar">
                         <button class="btnMorado fredoka" id="btn_registrar">Registrar</button>
                     </div>
+
                 </div>
             </div>
-
         </div>
     </div>
 </div>

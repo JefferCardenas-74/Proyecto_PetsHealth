@@ -17,9 +17,12 @@ body{
     font-family: 'Fredoka one';
 }
 
+.contenedorBusqueda{
+    margin-left: 50%;
+}
+
 .datos_mascota{
     width: 100%;
-    margin-left: 50%;
     font-family: 'Pompiere';
 }
 
@@ -29,28 +32,41 @@ body{
     border:black 2px solid;
 }
 
-p{
-    font-size: 120%;
-    margin: auto;
-    height: 30px;
-    font-family: 'Pompiere';
+
+
+.datos_historialMascota{
+    overflow-x: auto;
 }
 
-table tr th{
-    font-family: 'Fredoka one';
-    font-size: 120%;
-}
 
-table{
-    font-size: 110%;
-    width: 85%;
-    margin: 0 auto;
-    margin-top: 20px;
-    text-align: center;
+.tabla{
+    margin-left: auto;
+    margin-right: auto;
     border-collapse: collapse;
-    font-family: 'Pompiere';
+    min-width: 800px;
+    text-align: center;
+    margin-bottom: 40px;
+} 
+
+thead{
+    background: #a200ff;
+    color: #fff;
+    font-family: 'Fredoka One';
+    letter-spacing: 2px;
 }
 
+.tabla td, .tabla th{
+
+    height: 60px;
+    border-bottom: 1px solid #a200ff;
+    text-align: center;
+}
+
+.tabla tr:hover{
+
+    background: #a200ff57;
+    font-weight: bold;
+}
 .btn_morado{
     border-radius: 15px;
     border: none;
@@ -67,8 +83,44 @@ table{
     padding: 5px 15px;
     background: linear-gradient(to right, #f12711, #f5af19);
 }
-.tbl_piePagina{
-    font-family: 'Fredoka one';
-    text-align: left;
-    margin-left: 15%;
+
+.modalActualizar{
+    z-index: 1111;
+    margin-top: 100px;
+}
+
+
+@media screen and (max-width: 492px){
+
+    .cabecera{
+        width: 100%;
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Fredoka one';
+        margin-top: 40px;
+    }
+
+    .contenedorBusqueda{
+        margin-left: 5%;
+    }
+
+    .datos_mascota{
+        width: 100%;
+        margin-top: 20px;
+        margin-left: 5%;
+    }
+
+    .contenerdorTodo{
+        display: block;
+    }
+    .modalActualizar{
+        margin-top: 50%;
+        z-index: 1111;
+    }
+
+
+
+
 }

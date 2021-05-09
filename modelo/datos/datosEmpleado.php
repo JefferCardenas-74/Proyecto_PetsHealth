@@ -233,6 +233,27 @@
             return $this->retorno;
         }
 
+        function listarVeterinariosAsignar(){
+            try{
+                $consulta="select persona.perNombre,persona.perApellido,empleado.idEmpleado,empleado.idPersona " 
+                . " from empleado INNER JOIN persona on persona.idPersona=empleado.idPersona "
+                . " INNER JOIN usuario on usuario.idPersona=persona.idPersona "
+                . " INNER JOIN usuariorol on usuariorol.idUsuario=usuario.idUsuario "
+                . " INNER JOIN rol on rol.idRol = usuariorol.idRol "
+                . " WHERE usuariorol.idRol='2' and usuariorol.usuEstado='1'";
 
+                $resultado = $this->conexion->query($consulta);
+                $this->retorno->mensaje = "Listado de los empleados";
+                $this->retorno->estado = true;
+                $this->retorno->datos = $resultado->fetchAll();
+
+            }catch(PDOException $e){
+                
+                $this->retorno->mensaje = $e->getMessage();
+                $this->retorno->estado = false;
+                $this->retorno->datos = null;
+            }
+            return $this->retorno;
+        }
     }
 ?>
