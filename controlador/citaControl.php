@@ -1,21 +1,23 @@
 <?php
     session_start();
-
-    include '../modelo/entidad/Cita.php';
-    include '../modelo/entidad/Servicio.php';
-    include '../modelo/entidad/Mascota.php';
-    include '../modelo/entidad/Detalle.php';
-    include '../modelo/entidad/Factura.php';
-
     include '../modelo/datos/conexion.php';
     include '../modelo/datos/datosCita.php';
     include '../modelo/datos/datosDetalle.php';
     include '../modelo/datos/datosFactura.php';
+    include '../modelo/datos/datosEmpleado.php';
+
+    include '../modelo/entidad/Persona.php';
+    include '../modelo/entidad/Empleado.php';
+    include '../modelo/entidad/Cita.php';
+    include '../modelo/entidad/Servicio.php';
+    include '../modelo/entidad/Mascota.php';
+    include '../modelo/entidad/CitaEmpleado.php';
+    include '../modelo/entidad/Detalle.php';
+    include '../modelo/entidad/Factura.php';
 
     // archivos especiales
     require_once("../configuracion/fechaHora.php");
     require_once("../modelo/datos/enviarCorreo.php");
-
 
     extract($_REQUEST);
 
@@ -149,9 +151,25 @@
 
             /**se actualiza el estado de la cita */
             $resultado = $dCita->actualizarEstado($idCita);
+            //Se actualiza el estado de la mascota
+            $resultado = $dCita->actualizarEstadoMascota($idMascota);
 
             echo json_encode($resultado);
-            
+            break;
+
+        case "listarCitasAsignar":
+            //print_r("entro");
+            $resultado= $dCita->listarCitasAsignadasVete();
+            //print_r($resultado);
+            echo json_encode($resultado);
+            break;
+
+        case "AsignarVeterinario":
+            $citaEmpleado= new CitaEmpleado(null,$idCita,$idVeterinario);
+            $resultado = $dCita->asignarVeterinario($citaEmpleado);
+            //print_r($resultado);
+            echo json_encode($resultado);
+            break;
     }
 
 ?>

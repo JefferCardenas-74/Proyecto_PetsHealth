@@ -47,6 +47,13 @@ require_once("../../../configuracion/validaciones.php");
 
     <!-- libreria de alerta personalizada -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.4/dist/sweetalert2.all.min.js"></script>
+     <!-- librerias para datePicker -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.1.4/dist/css/datepicker.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.1.4/dist/js/datepicker-full.min.js"></script>
+
+
+    <!-- lenguaje español para datapicker -->
+    <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.1.4/dist/js/locales/es.js"></script>
 
 
     <!-- estilos del menu -->

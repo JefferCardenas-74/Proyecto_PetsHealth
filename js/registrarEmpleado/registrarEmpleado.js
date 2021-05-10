@@ -10,6 +10,16 @@ $(function(){
     $('#btn_registrar').click(function(){
         agregarEmpleado();
     });
+
+    $('#btn_consultar').click(function(){
+        ConsultarEmpleado();
+    });
+
+    $('#btn_Actualizar').click(function(){
+        ActualizarEmpleado();
+    });
+
+
 });
 
 function listarRol(){

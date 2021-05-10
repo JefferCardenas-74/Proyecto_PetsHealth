@@ -6,7 +6,7 @@ include "../modelo/datos/datosHistorialM.php";
 include "../modelo/Entidad/Persona.php";
 include "../modelo/Entidad/Mascota.php";
 include "../modelo/Entidad/Detalle.php";
-
+include "../modelo/Entidad/Usuario.php";
 error_reporting(0);
 $dHistorialM = new datos_HistorialM();
 
@@ -33,6 +33,12 @@ switch ($accion){
         $detalle = new detalle();
         $detalle->setDescripcion($descripcion);
         $resultado = $dHistorialM->ActualizarDescripcionM($idDetalle,$descripcion);
+        //print_r($resultado);
+        echo json_encode($resultado);
+        break;
+
+    case "ListarMascotasCli":
+        $resultado=$dHistorialM->listarMascotasCli($idPersona);
         //print_r($resultado);
         echo json_encode($resultado);
         break;
