@@ -24,9 +24,36 @@ $(function () {
     }
   });
 
+  /**function para evitar que ejecute el evento de las etiquetas a con atributo href='#'
+   * ya que esto hace que la pagina se vuelva a cargar
+   */
+  deshabilitarEventoHref();
+  
+
   redirijirPrincipal();
   validacionPassword();
 });
+
+function deshabilitarEventoHref(){
+
+  /**se obtiene todas las etiquetas a */
+  var elementos = document.querySelectorAll('a');
+
+  /**a cada etiqueta a le vamos a asignar un evento click y obtenemos el valor de href
+   * si es igual a '#', entonces se deshabilita el evento de esa etiqueta a.
+   */
+  elementos.forEach((elemento)=>{
+
+    elemento.addEventListener('click', (e)=>{
+      var contenido = elemento.getAttribute('href');
+  
+      if(contenido == '#'){
+          e.preventDefault();
+      }
+    });
+  });
+  
+}
 
 function redirijirPrincipal() {
   /**

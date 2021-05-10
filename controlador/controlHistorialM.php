@@ -1,10 +1,12 @@
 <?php
 extract($_REQUEST);
+
 include "../modelo/datos/conexion.php";
 include "../modelo/datos/datosHistorialM.php";
 include "../modelo/Entidad/Persona.php";
 include "../modelo/Entidad/Mascota.php";
 include "../modelo/Entidad/Detalle.php";
+
 error_reporting(0);
 $dHistorialM = new datos_HistorialM();
 
