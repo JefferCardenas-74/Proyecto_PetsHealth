@@ -1,7 +1,3 @@
-<?php
-extract($_REQUEST);
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,7 +49,7 @@ extract($_REQUEST);
     <div class="container-fluid">
 
         <!--menu-->
-            <?php include "menu.php"?>
+            <?php include "../../../menu.php"?>
 
         <!--Seccion principal-->
         <section>

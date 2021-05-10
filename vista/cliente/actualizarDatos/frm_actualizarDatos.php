@@ -2,7 +2,10 @@
     <div class="col">
         <form action="#">
             <div class="contenedorFormulario">
-
+                <div class="grupos">
+                    <label for="" class="fredoka">Nro Identificación</label>
+                    <input type="text" class="cajaTexto pompiere" id="txt_identificacion" placeholder="Ingrese su Número identificación.">
+                </div> 
                 <div class="grupos">
                     <label for="" class="fredoka">Nombre</label>
                     <input type="text" class="cajaTexto pompiere" id="txt_nombre" placeholder="Ingrese su Nombre.">
@@ -24,7 +27,7 @@
                 </div>
 
                 <div id="boton">
-                    <button type="button" class="btnMorado fredoka">Actualizar</button> 
+                    <button type="button"  id="btnActualizarDatos" class="btnMorado fredoka">Actualizar</button> 
                 </div>  
             </div>       
             

@@ -1,8 +1,10 @@
+<?php
+?>
 <nav class="menu">
 
     <div class="logo">
-        <img src="https://i.imgur.com/yzjVfUS.png" alt="Logo de la empresa"
-       >
+        <img src="https://i.imgur.com/yzjVfUS.png" alt="Logo de la empresa">
+       
     </div>
 
         <input type="checkbox" id="btn_menu">
@@ -13,24 +15,30 @@
         <li class="sub_menu item">
                 <a href="#">Empleados<i class="fa fa-caret-down"></i></a>
                 <ul>
-                        <li><a class="dropdown-item " href="verEmpleados/">Ver Empleados</a></li>
-                        <li><a class="dropdown-item" href="registrarEmpleado/">Registrar empleado</a></li>
+                        <li><a class="dropdown-item " href=<?php echo $GLOBALS['verEmpleadosA'];?> >Ver Empleados</a></li>
+                        <li><a class="dropdown-item" href=<?php echo $GLOBALS['regitrarEmpleadosA']; ?> >Registrar empleado</a></li>
                 </ul>
             </li>
 
             <li class="sub_menu item">
                 <a href="#">Productos<i class="fa fa-caret-down"></i></a>
                 <ul>
-                        <li><a class="dropdown-item" href="gestionProductos/">Gestionar</a></li>
-                        <li><a class="dropdown-item" href="">Opciones</a></li>
+                        <li><a  class="dropdown-item" href=<?php echo $GLOBALS['gestionProductosA'];  ?> > Gestionar</a></li>
+                </ul>
+            </li>
+            <li class="sub_menu item">
+                <a href="#">Cita<i class="fa fa-caret-down"></i></a>
+                <ul>
+                        <li><a  class="dropdown-item" href=<?php echo $GLOBALS['asingarVeterinarioA'];  ?> >Asignar cita</a></li>
+                        <li><a  class="dropdown-item" href=<?php echo $GLOBALS['historialMascotaA'];  ?> >Ver historial mascota</a></li>
                 </ul>
             </li>
 
             <li class="sub_menu item">
                 <a href="#">Estadisticas<i class="fa fa-caret-down"></i></a>
                 <ul>
-                        <li><a class="dropdown-item" href="verReporteGraficoEmpleados/">Reporte grafico empleados</a></li>
-                        <li><a class="dropdown-item" href="verReporteGraficoCitas/">Reporte grafico citas</a></li>
+                        <li><a class="dropdown-item" href= <?php echo $GLOBALS['verReporteCitasA']; ?> >Reporte grafico citas</a></li>
+                        <li><a class="dropdown-item" href=<?php echo $GLOBALS['verReporteEmpleadosA']; ?> >Reporte grafico empleado</a></li>
                 </ul>
             </li>
 
@@ -41,12 +49,11 @@
                 <a class="dropdown-item " href="#">
                         Admin <span class="active"><?php echo $_SESSION["nombreUsuario"]; ?> </span> </a>
                         </li>
-                        <li><a class="dropdown-item " href="actualizarDatos/">actualizar datos</a></li>
-                        <li><a class="dropdown-item" href="#">actualizar mascotas</a></li>
+                        <li><a class="dropdown-item " href=<?php echo $GLOBALS['actualizarDatosA']; ?> > actualizar datos</a></li>
                         <li><a class="dropdown-item" id="cerrarSesion" href="#">cerrar sesion</a></li>
                 </ul>
             </li>
 
         </ul>
-    </div> 
+    </div>
 </nav>

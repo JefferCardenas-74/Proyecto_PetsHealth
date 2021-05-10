@@ -1,12 +1,19 @@
+var url = location.pathname.split("/", 4); //obtener el nombre de la carpeta
+var ulrCompleta = location.pathname.split("/"); //obtener la url completa
+
 $(function () {
+  // Cuando carga el js se asigna el id  a la clase logo
+  $(".logo").attr("id", "irPrincipal");
 
   cerrarSession();
-  //EVENTOS DEL FORMULARIO DE CAMBIAR CONTRASEÑA 
+  //EVENTOS DEL FORMULARIO DE CAMBIAR CONTRASEÑA
   $("#btn_actualizarPassword").click(function () {
-    if ($("#txt_passwordNueva").val() !== "" && $("#txt_passwordNueva2").val() !== "") {
+    if (
+      $("#txt_passwordNueva").val() !== "" &&
+      $("#txt_passwordNueva2").val() !== ""
+    ) {
       // la mandamos la accion agregar al controlador
       actualizarPassword();
-
     } else {
       Swal.fire({
         // title: "Campos vacios !",
@@ -14,25 +21,64 @@ $(function () {
         icon: "warning",
         confirmButtonText: "Ok",
       });
-
     }
-
   });
 
+  /**function para evitar que ejecute el evento de las etiquetas a con atributo href='#'
+   * ya que esto hace que la pagina se vuelva a cargar
+   */
+  deshabilitarEventoHref();
+  
+
+  redirijirPrincipal();
   validacionPassword();
-
-
 });
 
+function deshabilitarEventoHref(){
 
+  /**se obtiene todas las etiquetas a */
+  var elementos = document.querySelectorAll('a');
 
+  /**a cada etiqueta a le vamos a asignar un evento click y obtenemos el valor de href
+   * si es igual a '#', entonces se deshabilita el evento de esa etiqueta a.
+   */
+  elementos.forEach((elemento)=>{
 
+    elemento.addEventListener('click', (e)=>{
+      var contenido = elemento.getAttribute('href');
+  
+      if(contenido == '#'){
+          e.preventDefault();
+      }
+    });
+  });
+  
+}
 
-
-
-
-
-
+function redirijirPrincipal() {
+  /**
+   * Redirige dependiendo de la vista que se encuentre
+   */
+  $("#irPrincipal").click(function () {
+    console.log(url[3]); //obtengo el nombre de la vista
+    if ("administrador" == url[3]) {
+      $(location).attr(
+        "href",
+        "http://localhost/repositorio_desarrollo/vista/administrador/"
+      );
+    } else if ("cliente" == url[3]) {
+      $(location).attr(
+        "href",
+        "http://localhost/repositorio_desarrollo/vista/cliente/"
+      );
+    } else if ("empleado" == url[3]) {
+      $(location).attr(
+        "href",
+        "http://localhost/repositorio_desarrollo/vista/empleado/"
+      );
+    }
+  });
+}
 
 /**
  * Cierra la sesion activa
@@ -78,10 +124,8 @@ function cerrarSession() {
   });
 }
 
-
-
 /**
- * Valida si los inputs de la 
+ * Valida si los inputs de la
  * contraseña si son iguales
  */
 function validacionPassword() {
@@ -91,14 +135,14 @@ function validacionPassword() {
     if ($("#txt_passwordNueva2").val() === $("#txt_passwordNueva").val()) {
       $("#btn_actualizarPassword").attr("disabled", false);
       $("#btn_actualizarPassword").css({
-        background: 'linear-gradient(to right, #8E2DE2, #4A00E0)'
+        background: "linear-gradient(to right, #8E2DE2, #4A00E0)",
       });
       $("#txt_passwordNueva").attr("disabled", false);
 
       $("#msgPassword").hide(); //esconde el mensaja
     } else {
       $("#btn_actualizarPassword").css({
-        background: '#3000ff8f'
+        background: "#3000ff8f",
       });
       $("#btn_actualizarPassword").attr("disabled", true);
       $("#txt_passwordNueva").attr("disabled", true); //bloquea el input de arriba
@@ -108,7 +152,7 @@ function validacionPassword() {
 
   $("#txt_passwordNueva").change(function () {
     if ($("#txt_passwordNueva2").val() !== "") {
-      $("#txt_passwordNueva2").val("");//impia el input de txtPasswordNueva2
+      $("#txt_passwordNueva2").val(""); //impia el input de txtPasswordNueva2
     }
   });
 }
@@ -119,8 +163,8 @@ function actualizarPassword() {
   let parametros = {
     accion: "actualizarPassword",
     password: $("#txt_passwordNueva").val(),
-    idUsuario: $("#id_usuarioPassword").val()
-  }
+    idUsuario: $("#id_usuarioPassword").val(),
+  };
   $.ajax({
     url: "../../../controlador/usuarioControl.php",
     data: parametros,
@@ -135,29 +179,31 @@ function actualizarPassword() {
           text: "Contraseña cambiada con exito",
           icon: "success",
           confirmButtonText: "Ok",
-          footer: "<p class=text-muted  >Sera refirijido a la pagina de inicio </p>"
+          footer:
+            "<p class=text-muted  >Sera refirijido a la pagina de inicio </p>",
         });
         // limpia los campos
         $("#txt_passwordNueva").val("");
         $("#txt_passwordNueva2").val("");
         $("#id_usuarioPassword").val("");
         // borra la varibale de la url
-        history.pushState({ data: true }, 'p', 'http://localhost/repositorio_desarrollo/vista/principal/cambiarContrasenia/');
+        history.pushState(
+          { data: true },
+          "p",
+          "http://localhost/repositorio_desarrollo/vista/principal/cambiarContrasenia/"
+        );
         // lo reirije a la vista despues de 3 segundos
         window.setTimeout(function () {
           location.href = "../../../";
         }, 3000);
-
       } else {
         Swal.fire({
           title: "Error",
           icon: "error",
           confirmButtonText: "Ok",
-          footer: resultado.mensaje
+          footer: resultado.mensaje,
         });
-
       }
-
     },
     error: function (ex) {
       console.log(ex.responseText);
@@ -166,38 +212,14 @@ function actualizarPassword() {
 }
 
 /**
- * Cierra la session 
- * dea cuerdo a la url 
- * 
+ * Cierra la session
+ * dea cuerdo a la url
+ *
  */
 function cerrarSesionDinamico() {
-
-// PARA VISTAS PRINCIPALES
-  if(window.location=="http://localhost/repositorio_desarrollo/vista/administrador/#"
-  ||window.location=="http://localhost/repositorio_desarrollo/vista/empleado/#"
-  ||window.location=="http://localhost/repositorio_desarrollo/vista/cliente/#"){
+  if (ulrCompleta.length == 5) {
     $(location).attr("href", "../../configuracion/cerrarSesion.php");
+  } else if (ulrCompleta.length == 6) {
+    $(location).attr("href", "../../../configuracion/cerrarSesion.php");
   }
-// VISTA CLIENTE ,ADMINISTRACION, Y EMPLEADOS
-  else if(
-  //Cliente
-  window.location=="http://localhost/repositorio_desarrollo/vista/cliente/agendarCita/#"
-  ||window.location =="http://localhost/repositorio_desarrollo/vista/cliente/verCita/#"
-  ||window.location=="http://localhost/repositorio_desarrollo/vista/cliente/Historial_Mascota/#"
-  ||window.location=="http://localhost/repositorio_desarrollo/vista/cliente/actualizarDatos/#"
-  // Empleado
-  ||window.location=="http://localhost/repositorio_desarrollo/vista/empleado/actualizarDatos/#"
-  ||window.location=="http://localhost/repositorio_desarrollo/vista/empleado/citasAsignadas/#"
-  ||window.location=="http://localhost/repositorio_desarrollo/vista/empleado/citasAsignadas/index.php?page=frm_citasAsignadas#"
-  ||window.location=="http://localhost/repositorio_desarrollo/vista/empleado/citasAsignadas/index.php?page=frm_citasNoProgramadas#"
-  //Admin
-  ||window.location=="http://localhost/repositorio_desarrollo/vista/administrador/registrarEmpleado/#"
-  ||window.location=="http://localhost/repositorio_desarrollo/vista/administrador/actualizarDatos/#"
-  ||window.location=="http://localhost/repositorio_desarrollo/vista/administrador/registrarEmpleado/#"
-  ||window.location=="http://localhost/repositorio_desarrollo/vista/administrador/gestionProductos/#"){
-  // lo reirije al script php que  cierrar la sesion 
-   $(location).attr("href", "../../../configuracion/cerrarSesion.php");
-  }
-
-  
 }

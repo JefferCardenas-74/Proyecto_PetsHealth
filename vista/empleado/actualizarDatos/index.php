@@ -1,12 +1,12 @@
 <?php
-    // session_start();
+    session_start();
     // if (!isset($_SESSION['idEmpleado'])) {
     //     header("location:../../principal/login/?x=3");
     // } else if ($_SESSION["rol"] !== "Empleado" || $_SESSION["estado"] !== 1) {
     //     // si no corresponde se redrije al login con la variable x=4
     //     header("location:../../principal/login/?x=4");
     // }
-    // require_once("../../../configuracion/validaciones.php");
+    require_once("../../../configuracion/validaciones.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,6 +44,7 @@
 
     <!--js externo-->
     <script src="../../../js/menu.js"></script>
+    <script src="../../../js/actualizarDatosPersona/actualizarDatosPersona.js"></script>
     <!-- js global -->
     <script src="../../../js/global.js"></script>
     <title>Actualizar Datos</title>
@@ -54,7 +55,7 @@
     <div class="container-fluid">
 
         <!--menu-->
-        <?php include "menu.php" ?>
+        <?php include "../menu.php" ?>
 
         <!--cabecara-->
         <header>

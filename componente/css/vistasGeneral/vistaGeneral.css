@@ -46,8 +46,11 @@ padding-top: 9em !important;
 }
 .user{
     color:var(--colorTitulo);
+    font-weight: bold;
 }
-
+.rol{
+    font-weight: bold;
+}
 
 @media screen and (max-width: 576px){
 

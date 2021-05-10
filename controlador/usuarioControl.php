@@ -3,6 +3,7 @@ session_start();
 extract($_REQUEST);
 include "../modelo/datos/conexion.php";
 include "../modelo/entidad/Usuario.php";
+include "../modelo/entidad/Persona.php";
 include "../modelo/datos/datosUsuario.php";
 require_once("../modelo/datos/enviarCorreo.php");
 require_once("../configuracion/encriptar.php");
@@ -33,7 +34,6 @@ switch ($accion) {
         //obtiene el estado del usuario true o false (0 , 1)
         $_SESSION["estado"] = $resultado->datos->usuEstado;
         $_SESSION["identificacion"] = $resultado->datos->perIdentificacion;
-
         echo json_encode($resultado);
         break;
 
@@ -93,6 +93,23 @@ switch ($accion) {
             $passwordMd5 = md5($password); //se encripta a md5 la contraseña que llega
             $resultado = $dUsuario->actualizarPaswordUsuario($passwordMd5, $idUsuario);
             echo json_encode($resultado);
+            break;
+
+        case "listarUsuario":
+            $resultado=$dUsuario->listarPersona($_SESSION['idPersona']);
+            echo json_encode($resultado);
+            break;
+
+
+        case "actualizarPersona":
+            $persona=new Persona($idPersona,$identificacion,$nombre,$apellido,$telefono,$correo);
+            $resultado = $dUsuario->actualizarPersona($persona);
+            if($resultado->estado){
+            session_start();
+            $_SESSION['nombreUsuario']=$nombre." ".$apellido; 
+            echo json_encode($resultado);
+            }
+            
             break;
 
             

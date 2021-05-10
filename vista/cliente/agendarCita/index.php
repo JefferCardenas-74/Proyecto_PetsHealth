@@ -76,7 +76,7 @@ require_once("../../../configuracion/validaciones.php");
 <body>
 
 
-    <header><?php include "menu.php" ?></header>
+    <header><?php include "../menu.php" ?></header>
     <section><?php include "frm_agendarCita.php" ?> </section>
     <footer><?php include "../../../piePagina.php" ?></footer>
 

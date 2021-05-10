@@ -13,19 +13,16 @@
         <li class="sub_menu item">
                 <a href="#">Cita<i class="fa fa-caret-down"></i></a>
                 <ul>
-                        <li><a class="dropdown-item " href="citasAsignadas/">Ver Asignadas</a></li>
-                        <li><a href="citasAsignadas/?page=frm_citasNoProgramadas">Citas No Programadas</a></li>                    
-                        <li><a class="dropdown-item" href="#">Opciones</a></li>
+                        <li><a class="dropdown-item " href=<?php echo $GLOBALS['verCitasAsignadasE']; ?> >Ver Asignadas</a></li>
+                        <li><a href=<?php echo $GLOBALS['citasNoProgramadasE']; ?> >Citas No Programadas</a></li>                    
                 </ul>
             </li>
 
             <li class="sub_menu item">
                 <a href="#">Estadisticas<i class="fa fa-caret-down"></i></a>
-                <ul>
-                        <li><a class="dropdown-item" href="#">Ver reporte Citas por mes</a></li>
-                        <li><a class="dropdown-item" href="#">ver  reporte Citas por año</a></li>
-                        <li><a class="dropdown-item" href="#">Otros</a></li>
-                </ul>
+                <!-- <ul>
+
+                </ul> -->
             </li>
 
             <li class="sub_menu item " >
@@ -34,8 +31,7 @@
                 <li>
                 <a class="dropdown-item " href="#">
                         Empleado <span class="active"><?php echo $_SESSION["nombreUsuario"]; ?> </span> </a>
-                        <li><a class="dropdown-item " href="actualizarDatos/">actualizar datos</a></li>
-                        <li><a class="dropdown-item" href="#">actualizar mascotas</a></li>
+                        <li><a class="dropdown-item " href=<?php echo $GLOBALS['actualizarDatosE']; ?> >actualizar datos</a></li>
                         <li><a class="dropdown-item" id="cerrarSesion" href="#">cerrar sesion</a></li>
                 </ul>
             </li>

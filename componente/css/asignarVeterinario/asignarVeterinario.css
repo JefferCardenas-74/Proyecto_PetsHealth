@@ -1,0 +1,70 @@
+.cabecera{
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#titulo{
+    font-family:"Fredoka One";
+    font-size: 70px;
+    color:var(--colorTitulo);
+}
+.datos_ListaCitasPorAsignarVete{
+    overflow-x: auto;
+}
+.tabla{
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+    min-width: 800px;
+    text-align: center;
+    margin-bottom: 40px;
+} 
+
+thead{
+    background: #a200ff;
+    color: #fff;
+    font-family: 'Fredoka One';
+    letter-spacing: 2px;
+}
+
+.tabla td, .tabla th{
+
+    height: 60px;
+    border-bottom: 1px solid #a200ff;
+    text-align: center;
+}
+
+.tabla tr:hover{
+
+    background: #a200ff57;
+    font-weight: bold;
+}
+#modalAsignar{
+    z-index: 1111;
+}
+
+@media screen and (max-width: 492px){
+
+    .cabecera{
+        width: 100%;
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Fredoka one';
+        margin-top: 40px;
+    }
+
+    #titulo{
+        font-family:"Fredoka One";
+        font-size: 40px;
+        color:var(--colorTitulo);
+    }
+
+    #modalAsignar{
+        margin-top: 50%;
+        z-index: 1111;
+    }
+
+}

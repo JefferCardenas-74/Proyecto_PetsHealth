@@ -81,7 +81,7 @@ require_once("../../../configuracion/validaciones.php");
 <body>
 
 
-    <header><?php include "menu.php" ?></header>
+    <header><?php include "../menu.php" ?></header>
     <section><?php include "frm_verCita.php" ?> </section>
     <footer><?php include "../../../piePagina.php" ?></footer>
 

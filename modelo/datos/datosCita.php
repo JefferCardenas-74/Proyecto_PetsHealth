@@ -12,14 +12,14 @@
         function listarCitasAsignadas($idEmpleado){
             try{
 
-                $consulta = "select empleado.idEmpleado, cita.idCita, perNombre, masNombre, serTipo, ciFecha from cita inner join citaempleado
+                $consulta = "select empleado.idEmpleado, cita.idCita, perNombre, masNombre, serTipo,mascota.idMascota, ciFecha from cita inner join citaempleado
                 on cita.idCita = citaempleado.idCita inner join empleado 
                 on empleado.idEmpleado = citaempleado.idEmpleado inner join mascota
                 on mascota.idMascota = cita.idMascota inner join persona
                 on persona.idPersona = mascota.idPersona inner join citaservicio
                 on citaservicio.idCita = cita.idCita inner join servicio
                 on servicio.idServicio = citaservicio.idServicio
-                where empleado.idEmpleado = ? and cita.ciEstado = 'Solicitada'";
+                where empleado.idEmpleado = ? and cita.ciEstado = 'Asignada'";
 
                 $resultado = $this->conexion->prepare($consulta);
                 $resultado->bindParam(1, $idEmpleado);
@@ -317,6 +317,30 @@
 
             return $this->retorno;
         }
+        function actualizarEstadoMascota($idMascota){
+
+            try{    
+
+                $consulta = 'UPDATE mascota SET masEstado =1 where idMascota = ?';
+                $resultado = $this->conexion->prepare($consulta);
+
+                $resultado->bindParam(1, $idMascota);
+
+                $resultado->execute();
+
+                $this->retorno->mensaje = 'se actualizo correctamente';
+                $this->retorno->estado = true;
+                $this->retorno->datos = null;
+
+            }catch(PDOException $e){
+
+                $this->retorno->mensaje = $e->getMessage();
+                $this->retorno->estado = false;
+                $this->retorno->datos = null;
+            }
+
+            return $this->retorno;
+        }
 
           /**
          * se hace una consulta para concer la cantidad de citas
@@ -339,6 +363,87 @@
             }
             return $this->retorno;
         }
+        /**
+         * se hace una consulta para concer la cantidad de citas
+         * por el mes que se hizo
+         */
+        function reporteCitaPorMesIndicado($fecha)
+        {
+            try{
+                $consulta="SELECT count(idCita) as cantidad, month(ciFecha) as mes
+                FROM cita WHERE MONTH(ciFecha)=MONTH('$fecha') AND YEAR(ciFecha)=YEAR('$fecha')
+                group by month(ciFecha)";
+                $resultado=$this->conexion->prepare($consulta);          
+                $resultado->execute();  
+                $this->retorno->estado=true;
+                $this->retorno->mensaje="Cantidad de citas por mes indicado ";
+                $this->retorno->datos=$resultado;
+	        }catch(PDOException $ex){
+                $this->retorno->estado=false;
+                $this->retorno->mensaje=$ex->getMessage();
+                $this->retorno->datos=null;
+            }
+            return $this->retorno;
+        }
+
+        function listarCitasAsignadasVete(){
+            try{
+
+                $consulta = "select cita.idCita,cita.ciFecha,servicio.serTipo,persona.perNombre from cita 
+                inner join citaservicio on cita.idCita=citaservicio.idCita
+                inner join servicio on servicio.idServicio=citaservicio.idServicio
+                inner join mascota on mascota.idMascota=cita.idMascota
+                inner join persona on persona.idPersona=mascota.idPersona
+                where cita.ciEstado='Solicitada'";
+
+                $resultado = $this->conexion->query($consulta);
+                $resultado->execute();
+
+                $this->retorno->estado = true;
+                $this->retorno->mensaje = 'listado de citas por asignar';
+                $this->retorno->datos = $resultado->fetchAll();
+
+
+            }catch(PDOException $ex){
+
+                $this->retorno->estado = false;
+                $this->retorno->mensaje = $ex->getMessage();
+                $this->retorno->datos = null;
+
+            }
+
+            return $this->retorno;
+        }
+
+        function asignarVeterinario(CitaEmpleado $citaEmpleado){
+            try{
+                $this->conexion->beginTransaction();
+
+                $consulta= " insert into citaempleado values (null,?,?)";
+                $resultado=$this->conexion->prepare($consulta);
+
+                $resultado->bindParam(1,$citaEmpleado->getIdCita());
+                $resultado->bindParam(2,$citaEmpleado->getIdEmpleado());
+                $resultado->execute();
+
+                $consulta = "update cita set ciEstado ='Asignada' where cita.idCita = ?";
+                $resultado = $this->conexion->prepare($consulta);
+                $resultado->bindParam(1,$citaEmpleado->getIdCita());
+                $resultado->execute();
+                $this->conexion->commit();
+
+                $this->retorno->estado=true;
+                $this->retorno->mensaje="Cita asignada correctamente";
+                $this->retorno->datos=null;
+                
+
+            }catch(PDOException $ex){
+                $this->retorno->estado=false;
+                $this->retorno->mensaje=$ex->getMessage();
+                $this->retorno->datos=null;
+            }
+            return $this->retorno;
+        }
         
-    }
+}
 ?>

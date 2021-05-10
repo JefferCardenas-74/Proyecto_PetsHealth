@@ -1,6 +1,9 @@
 <?php
 extract($_REQUEST);
 error_reporting(1);
+require_once 'rutasMenu.php';
+
+
 
 if ($x == 3) {
     // echo "Para ingresar debe iniciar primero la sesión";
@@ -36,7 +39,7 @@ if ($x == 4) {
 
 if ($x == 5) {
     echo '<script type="text/javascript">'
-    , 'const Toast = Swal.mixin({
+    , ' const Toast = Swal.mixin({
 					toast: true,
 					position: "bottom-end",
 					showConfirmButton: false,
@@ -49,3 +52,7 @@ if ($x == 5) {
     // "  ";
     '</script>';
 }
+
+?>
+
+

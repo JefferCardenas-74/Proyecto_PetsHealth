@@ -151,4 +151,50 @@ class datosUsuario
 
         return $this->retorno;
     }
+
+    public function listarPersona($idPersona)
+    {
+        try{
+            $consulta = "SELECT * FROM persona as p 
+            WHERE p.idPersona='$idPersona'"
+            ;
+            $resultado = $this->conexion->query($consulta);
+            $this->retorno->mensaje = 'datos de la persona';
+            $this->retorno->estado = true;
+            $this->retorno->datos = $resultado->fetchObject();
+        }catch(PDOException $e){
+            
+            $this->retorno->mensaje = $e->getMessage();
+            $this->retorno->estado = false;
+            $this->retorno->datos = null;
+        }
+        return $this->retorno;
+    }
+
+
+    public function actualizarPersona(Persona $persona)
+    {
+        try {
+            $consulta = "UPDATE persona SET perIdentificacion=?,
+            perNombre=?, perApellido=?,perTelefono=?,perCorreo=?
+            WHERE idPersona=?";
+            $resultado=$this->conexion->prepare($consulta);
+            
+            $resultado->bindParam(1, $persona->getIdentificacion());
+            $resultado->bindParam(2, $persona->getNombre());
+            $resultado->bindParam(3, $persona->getApellido());
+            $resultado->bindParam(4, $persona->getTelefono());
+            $resultado->bindParam(5, $persona->getCorreo());
+            $resultado->bindParam(6, $persona->getIdPersona());
+            $resultado->execute();
+            $this->retorno->datos = $resultado->fetchObject();
+            $this->retorno->mensaje = 'Usuario actualizado con exito';
+            $this->retorno->estado = true;
+        } catch (PDOException $ex) {
+            $this->retorno->estado = false;
+            $this->retorno->mensaje = $ex->getMessage();
+            $this->retorno->datos = null;
+        }
+        return $this->retorno;
+    }
 }

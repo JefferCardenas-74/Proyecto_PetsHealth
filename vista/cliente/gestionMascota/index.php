@@ -73,7 +73,7 @@
 
         <input type="hidden" id="idPersona" value="<?php echo $_SESSION["idPersona"] ?>">
         
-        <?php include 'menu.php'?>
+        <?php include '../menu.php'?>
 
         <header><?php include 'cabecera.php' ?></header>
 

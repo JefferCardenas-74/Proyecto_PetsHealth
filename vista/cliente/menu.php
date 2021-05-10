@@ -13,18 +13,16 @@
         <li class="sub_menu item">
                 <a href="#">Cita<i class="fa fa-caret-down"></i></a>
                 <ul>
-                        <li><a class="dropdown-item " href="agendarCita/">agendar</a></li>
-                        <li><a class="dropdown-item" href="verCita/">ver</a></li>
-                        <li><a class="dropdown-item" href="#">Opciones</a></li>
+                        <li><a class="dropdown-item " href="<?php echo $GLOBALS['agendarCitaC']; ?>">agendar</a></li>
+                        <li><a class="dropdown-item" href=<?php echo $GLOBALS['verCitaC']; ?> >ver</a></li>
                 </ul>
             </li>
 
             <li class="sub_menu item">
                 <a href="#">Mascota<i class="fa fa-caret-down"></i></a>
                 <ul>
-                        <li><a class="dropdown-item" href="gestionMascota/">agregar</a></li>
-                        <li><a class="dropdown-item" href="Historial_Mascota/">ver historial</a></li>
-                        <li><a class="dropdown-item" href="#">opciones</a></li>
+                        <li><a class="dropdown-item" href=<?php echo $GLOBALS['gestionMascota']; ?> >agregar</a></li>
+                        <li><a class="dropdown-item" href=<?php echo $GLOBALS['historialMascotaC']; ?> >ver historial</a></li>
                 </ul>
             </li>
 
@@ -35,8 +33,7 @@
                         <a class="dropdown-item " href="#">
                         Cliente <span class="active"><?php echo $_SESSION["nombreUsuario"]; ?> </span> </a>
                         </li>
-                        <li><a class="dropdown-item " href="actualizarDatos/">actualizar datos</a></li>
-                        <li><a class="dropdown-item" href="#">actualizar mascotas</a></li>
+                        <li><a class="dropdown-item " href=<?php echo $GLOBALS['actualizarDatosC']; ?> >actualizar datos</a></li>
                         <li><a class="dropdown-item" id="cerrarSesion" href="#">cerrar sesion</a></li>
                 </ul>
             </li>

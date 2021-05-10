@@ -21,6 +21,7 @@
 
     $dEmpleado = new datosEmpleado();
     $dUsuario = new datosUsuario();
+
     $listaRol = [];
 
     switch($accion){
@@ -130,6 +131,11 @@
             $usuario=new Usuario($idUsuario,$idPersona,$correo,null,$rol,$empleado);
             $resultado = $dEmpleado->actualizarEmpleado($usuario);
             
+            echo json_encode($resultado);
+            break;
+
+        case "listarVeterinarios":
+            $resultado= $dEmpleado->listarVeterinariosAsignar();
             echo json_encode($resultado);
             break;
     }
