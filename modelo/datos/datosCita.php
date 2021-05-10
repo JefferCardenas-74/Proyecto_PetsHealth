@@ -12,7 +12,7 @@
         function listarCitasAsignadas($idEmpleado){
             try{
 
-                $consulta = "select empleado.idEmpleado, cita.idCita, perNombre, masNombre, serTipo, ciFecha from cita inner join citaempleado
+                $consulta = "select empleado.idEmpleado, cita.idCita, perNombre, masNombre, serTipo,mascota.idMascota, ciFecha from cita inner join citaempleado
                 on cita.idCita = citaempleado.idCita inner join empleado 
                 on empleado.idEmpleado = citaempleado.idEmpleado inner join mascota
                 on mascota.idMascota = cita.idMascota inner join persona
@@ -301,6 +301,30 @@
                 $resultado = $this->conexion->prepare($consulta);
 
                 $resultado->bindParam(1, $idCita);
+
+                $resultado->execute();
+
+                $this->retorno->mensaje = 'se actualizo correctamente';
+                $this->retorno->estado = true;
+                $this->retorno->datos = null;
+
+            }catch(PDOException $e){
+
+                $this->retorno->mensaje = $e->getMessage();
+                $this->retorno->estado = false;
+                $this->retorno->datos = null;
+            }
+
+            return $this->retorno;
+        }
+        function actualizarEstadoMascota($idMascota){
+
+            try{    
+
+                $consulta = 'UPDATE mascota SET masEstado =1 where idMascota = ?';
+                $resultado = $this->conexion->prepare($consulta);
+
+                $resultado->bindParam(1, $idMascota);
 
                 $resultado->execute();
 

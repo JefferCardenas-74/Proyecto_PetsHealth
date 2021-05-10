@@ -34,11 +34,14 @@ function graficarTortaEmpleadoConCitas() {
         // data = JSON.parse(data);
         var data = google.visualization.arrayToDataTable(data);
         var options = {
+          title: "Total de empleados con cita asignadas",
           backgroundColor: 'transparent',
           legend: {
             alignment: 'center',
             position: 'left'
-          }
+          },
+          // is3D:true,
+          pieHole: 0.4,
         };
         // para cambiar solo indicar el tipo de diagreama que desea , en este caso es pieChart(torta)
         let chart = new google.visualization.PieChart(

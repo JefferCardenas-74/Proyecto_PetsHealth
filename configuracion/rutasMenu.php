@@ -12,6 +12,8 @@ $GLOBALS['gestionProductosA']="../gestionProductos/";
 $GLOBALS['actualizarDatosA']="../actualizarDatos/";
 $GLOBALS['verReporteCitasA']="../verReporteGraficoCitas";
 $GLOBALS['verReporteEmpleadosA']="../verReporteGraficoEmpleados/";
+$GLOBALS['asingarVeterinarioA']="../asignarVeterinario/";
+$GLOBALS['historialMascotaA']="../historialMascota/";
 
 //EMPLEADO
 $GLOBALS['verCitasAsignadasE']="../citasAsignadas/";
@@ -22,7 +24,7 @@ $GLOBALS['actualizarDatosE']="../actualizarDatos/";
 $GLOBALS['agendarCitaC']="../agendarCita/";
 $GLOBALS['verCitaC']="../verCita/";
 $GLOBALS['gestionMascota']="../gestionMascota/";
-$GLOBALS['Historial_MascotaC']="../Historial_Mascota/";
+$GLOBALS['historialMascotaC']="../historialMascota/";
 $GLOBALS['actualizarDatosC']="../actualizarDatos/";
 
 
@@ -41,6 +43,8 @@ $arreglo =[];
     $GLOBALS['actualizarDatosA']="actualizarDatos/";
     $GLOBALS['verReporteCitasA']="verReporteGraficoCitas";
     $GLOBALS['verReporteEmpleadosA']="verReporteGraficoEmpleados/";
+    $GLOBALS['asingarVeterinarioA']="asignarVeterinario/";
+    $GLOBALS['historialMascotaA']="historialMascota/";
     // EMPLEADO
     $GLOBALS['verCitasAsignadasE']="citasAsignadas/";
     $GLOBALS['citasNoProgramadasE']="citasAsignadas/?page=frm_citasNoProgramadas";
@@ -48,7 +52,7 @@ $arreglo =[];
     // CLIENTE
     $GLOBALS['agendarCitaC']="agendarCita/";
     $GLOBALS['verCitaC']="verCita/";
-    $GLOBALS['Historial_MascotaC']="Historial_Mascota/";
+    $GLOBALS['historialMascotaC']="historialMascota/";
     $GLOBALS['gestionMascota']="gestionMascota/";
     $GLOBALS['actualizarDatosC']="actualizarDatos/";
 

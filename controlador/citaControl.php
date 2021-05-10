@@ -151,6 +151,8 @@
 
             /**se actualiza el estado de la cita */
             $resultado = $dCita->actualizarEstado($idCita);
+            //Se actualiza el estado de la mascota
+            $resultado = $dCita->actualizarEstadoMascota($idMascota);
 
             echo json_encode($resultado);
             break;

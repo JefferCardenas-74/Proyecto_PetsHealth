@@ -581,7 +581,8 @@ function atenderCita(){
           productos: productosFactura,
           total: total,
           idCita: idCita,
-          idEmpleado: idEmpleado
+          idEmpleado: idEmpleado,
+          idMascota:idMascota
        };
 
        $.ajax({

@@ -216,7 +216,7 @@
         function reporteEmpleadosConCitas()
         {
             try{
-                $consulta="SELECT COUNT(em.idEmpleado) as cantidad ,  if(ce.idCitaEmpleado>1, 'si tiene cita' , 'no tiene cita')as resultado   
+                $consulta="SELECT  DISTINCT(em.idEmpleado) , COUNT(em.idEmpleado) as cantidad ,  if(ce.idEmpleado>1, 'si tiene cita' , 'no tiene cita')as resultado   
                 from empleado as em
                 LEFT JOIN citaempleado as ce  on ce.idEmpleado=em.idEmpleado
                 GROUP BY ce.idCitaEmpleado ";

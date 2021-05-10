@@ -1,5 +1,6 @@
 <?php
 session_start();
+$menu=null;
 $rol=$_SESSION["rol"];
 $persona=$_SESSION["idPersona"];
 if (!isset($_SESSION['idPersona'])) {
@@ -9,12 +10,7 @@ else if ($_SESSION["rol"] !== "Cliente"  and $_SESSION["estado"] !== 1){
    // si no corresponde se redrije al login con la variable x=4
  header("location:../../principal/login/?x=4");
 }
-//else if ($_SESSION["rol"] !== "Administrador" and $_SESSION["estado"] !== 1){
-   // si no corresponde se redrije al login con la variable x=4
- //header("location:../../principal/login/?x=4");
-//}
-
-//require_once("../../../configuracion/validaciones.php");
+require_once("../../../configuracion/validaciones.php");
 
 ?> 
     <html lang="es"><!--Indica el idioma del contenido de la pagina -->
@@ -52,7 +48,7 @@ else if ($_SESSION["rol"] !== "Cliente"  and $_SESSION["estado"] !== 1){
             <div class="container-fluid">
                 <input type="hidden" value="<?php echo $rol?>" id="rol">
                 <input type="hidden" value="<?php echo $persona?>" id="persona">
-                <nav><?php include "menu.php" ?></nav>
+                <nav><?php include "../menu.php" ?></nav>
                 <header ><?php include "encabezado.php"?> </header>
                 <section ><?php include "frm_historialMascota.php"?></section>
                 <footer > <?php include "../../../piePagina.php"?></footer>

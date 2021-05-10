@@ -26,12 +26,19 @@
                         <li><a  class="dropdown-item" href=<?php echo $GLOBALS['gestionProductosA'];  ?> > Gestionar</a></li>
                 </ul>
             </li>
+            <li class="sub_menu item">
+                <a href="#">Cita<i class="fa fa-caret-down"></i></a>
+                <ul>
+                        <li><a  class="dropdown-item" href=<?php echo $GLOBALS['asingarVeterinarioA'];  ?> >Asignar cita</a></li>
+                        <li><a  class="dropdown-item" href=<?php echo $GLOBALS['historialMascotaA'];  ?> >Ver historial mascota</a></li>
+                </ul>
+            </li>
 
             <li class="sub_menu item">
                 <a href="#">Estadisticas<i class="fa fa-caret-down"></i></a>
                 <ul>
-                        <li><a class="dropdown-item" href= <?php echo $GLOBALS['verReporteCitasA']; ?> >Reporte grafico empleados</a></li>
-                        <li><a class="dropdown-item" href=<?php echo $GLOBALS['verReporteEmpleadosA']; ?> >Reporte grafico citas</a></li>
+                        <li><a class="dropdown-item" href= <?php echo $GLOBALS['verReporteCitasA']; ?> >Reporte grafico citas</a></li>
+                        <li><a class="dropdown-item" href=<?php echo $GLOBALS['verReporteEmpleadosA']; ?> >Reporte grafico empleado</a></li>
                 </ul>
             </li>
 
