@@ -1,5 +1,6 @@
 <?php
 require_once("../../../configuracion/validaciones.php");
+$rol = $_GET['rol'];
 ?>
 <div class="row">
     <div class="col">
@@ -32,9 +33,6 @@ require_once("../../../configuracion/validaciones.php");
 
                 </div>
 
-
-
-
                 <div class="ContenedorBtnLogin">
                     <button type="button" id="btn_iniciarSesion" class="btnLogin fredoka">
                         Ingresar
@@ -53,6 +51,7 @@ require_once("../../../configuracion/validaciones.php");
                 </div>
 
                 <div class="text-center pompiere">
+                <input type="hidden" id='rolPersona' value='<?php echo $rol ?>'>
                     <a class="txtCrearCuenta" href="#" onclick="limpiarFormulario()">
                         Crear Cuenta
                     </a>
@@ -245,6 +244,7 @@ require_once("../../../configuracion/validaciones.php");
                         </div>
                     </div>
                     <div class="modal-footer">
+                        <button type='button' class="btnMorado pompiere" id="btn_volverCitaNoPro">Volver al registro de la cita</button>
                         <button type="button" class="btnNaranja pompiere" id="btn_cerrarCuenta"
                             data-dismiss="modal">Cerrar</button>
                         <button type="button" class="btnMorado pompiere" id="btn_registrar">Registrarse</button>

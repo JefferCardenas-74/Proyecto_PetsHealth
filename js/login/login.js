@@ -3,12 +3,23 @@ var numeroIntentos = 3;
 var count = 0;
 var restantes = 3;
 var idPersona;
-
+var rol;
 
 $(function () {
 
-  
+  rol = $('#rolPersona').val();
+  console.log(rol);
 
+  if(rol == 'Empleado'){
+
+    $('#btn_volverCitaNoPro').css('display', 'block');
+    $('#btn_volverCitaNoPro').click(()=>{
+      window.location.href = '../../empleado/citasAsignadas/';
+    });
+
+  }else{
+    $('#btn_volverCitaNoPro').css('display', 'none');
+  }
   /*EVENTOS DE INCIO DE SESION */
   $(".txtCrearCuenta").click(function () {
     $("#crearCuenta").modal();
@@ -56,8 +67,11 @@ $(function () {
 
   $("#btn_registrar").click(function () {
     if ($("#txt_cedula").val() != "" && $("#txt_nombre").val() != "" && $("#txt_apellidos").val() != "" && $("#txt_telefono").val() != "" && $("#txt_correo").val() != "" && $("#txt_nombreMascota").val() != "" && $("#txt_edadMascota").val() != "" && $("#dt_fechaNacimientoMascota").val() != "" && $("#cb_tipoMascota").val() != "") {
+
       registrarPersona();
+
     } else {
+
       Swal.fire({
         title: "Campos vacios !",
         text: "Ingresa datos por favor",
@@ -103,10 +117,6 @@ function limpiarFormulario(){
   tipoMascotaCliente.value="";
   
 }
-
-
-
-
 
 function iniciarSesion() {
   $.ajax({
@@ -260,7 +270,6 @@ function iniciarSesion() {
   });
 }
 
-
 /**
  * carga el recaptcha si supera la cantidad de intentos
  */
@@ -389,7 +398,6 @@ function obtenerUsuario() {
   });
 
 }
-
 
 function enviarCorreoRecuperacionContrasenia() {
   // se manda la accion y el value del input del correo al controlador

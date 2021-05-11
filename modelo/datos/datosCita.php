@@ -12,13 +12,14 @@
         function listarCitasAsignadas($idEmpleado){
             try{
 
-                $consulta = "select empleado.idEmpleado, cita.idCita, perNombre, masNombre, serTipo,mascota.idMascota, ciFecha from cita inner join citaempleado
+                $consulta = "select empleado.idEmpleado, cita.idCita, perNombre, masNombre, tipoServicio, mascota.idMascota, ciFecha from cita inner join citaempleado
                 on cita.idCita = citaempleado.idCita inner join empleado 
                 on empleado.idEmpleado = citaempleado.idEmpleado inner join mascota
                 on mascota.idMascota = cita.idMascota inner join persona
                 on persona.idPersona = mascota.idPersona inner join citaservicio
-                on citaservicio.idCita = cita.idCita inner join servicio
-                on servicio.idServicio = citaservicio.idServicio
+                on cita.idCita = citaservicio.idCita inner join servicio
+                on servicio.idServicio = citaservicio.idServicio inner join tiposervicio
+                on servicio.idTipoServicio = tiposervicio.idTipoServicio
                 where empleado.idEmpleado = ? and cita.ciEstado = 'Asignada'";
 
                 $resultado = $this->conexion->prepare($consulta);
@@ -44,11 +45,12 @@
         function mostrarDatosCita($idCita){
             try{    
 
-                $consulta = 'select cita.idCita, perNombre, servicio.idServicio ,serTipo, serPrecio, mascota.idMascota, masNombre from cita inner join citaservicio 
+                $consulta = 'select cita.idCita, perNombre, perCorreo, servicio.idServicio ,tipoServicio, serPrecio, mascota.idMascota, masNombre from cita inner join citaservicio 
                 on cita.idCita = citaservicio.idCita inner join servicio
                 on servicio.idServicio = citaservicio.idServicio inner join mascota
                 on mascota.idMascota = cita.idMascota inner join persona 
-                on persona.idPersona = mascota.idPersona
+                on persona.idPersona = mascota.idPersona inner join tiposervicio
+                on servicio.idTipoServicio = tiposervicio.idTipoServicio
                 where cita.idCita = ?';
 
                 $resultado = $this->conexion->prepare($consulta);
@@ -136,7 +138,8 @@
 
         function listarTipoCita(){
             try{
-                $consulta = 'select * from servicio';
+                $consulta = 'select * from servicio inner join tiposervicio
+                on servicio.idTipoServicio = tiposervicio.idTipoServicio';
                 $resultado = $this->conexion->query($consulta);
 
                 $this->retorno->mensaje = 'tipo de citas';

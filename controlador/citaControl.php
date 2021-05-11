@@ -154,6 +154,48 @@
             //Se actualiza el estado de la mascota
             $resultado = $dCita->actualizarEstadoMascota($idMascota);
 
+            /**se organizan los productos en una tabla */
+            foreach($productos as $producto){
+
+                $item += '<li><strong>'.$producto.'</strong></li>';
+            };
+
+            $listaProductos = '<ul>'.$item.'</ul>';
+
+            if($resultado->estado){
+                //Enviar correo cuando se agenda cita
+                $correo = new enviarCorreoPrueba();
+                $objCorreo = new stdClass();
+                $objCorreo->correoRemitente = "soporte.petsHealth@gmail.com"; //aqui pueden colocar el correo del administrador
+                $objCorreo->nombreRemitente = "Administración Pets Health"; //igual el nombre del administrador
+                $objCorreo->correoDestinatario = $correoPersona;
+                $objCorreo->nombreDestinatario = $nombreCliente;
+                $objCorreo->asunto = "Informe de la cita atendida.";
+                $objCorreo->mensaje = "Cordial saludo , <br> "
+                ." nos permitimos informar que si cita con identificacion <b>".$idCita
+                ." </b> fue atendida con exito.
+                <br><b>Veterinario: </b>". $encargado."
+                <br><b>Fecha: </b>".$fechaHora."
+                <br><b>Nombre de la mascota: </b> ".$nombreMascota."
+                <br><b>Productos: </b> ".$listaProductos."
+                
+                <table  width='50%' border='0' >
+                <tr>
+                <td width ='50%' align='center'>
+                <img src='https://i.imgur.com/yzjVfUS.png' alt='logoLargoEmpresa' width='250' >
+                </td>
+                <td width='50%'>
+                <br>
+                <b> Atentamente Administración Pets Health 	</b>
+                <br>
+                Gracias por confiar en nosotros
+                </td>
+                </tr>
+                </table>";
+
+                $resultadoCorreo = $correo->enviarCorreo($objCorreo);
+            }
+
             echo json_encode($resultado);
             break;
 

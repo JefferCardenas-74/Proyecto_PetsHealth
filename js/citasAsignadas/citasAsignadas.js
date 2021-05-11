@@ -7,12 +7,15 @@ var idEmpleado;
 var idMascota;
 var idServicio;
 var precioServicio;
+var rol;
+var correoPersona;
 
 $(function () {
   primerCampo = $("#primerCampo");
   productoAgregado  = document.querySelector('.factura-items-container');
   primeraFila = $('#primeraFila');
-
+  rol = $('#rolPersona').val();
+  
   /**funcion para listar los tipos de citas */
   listarTipoCita();
 
@@ -102,6 +105,11 @@ $(function () {
       
     });
     /***********************************************************************************************************/
+    console.log(rol);
+    $('#btn_redirigir').click(()=>{
+      
+      window.location.href = '../../principal/login/?rol='+rol;
+    });
 
 }); 
 
@@ -177,12 +185,13 @@ function mostrarDatosCita(){
 
         $('#txt_mascota').val(dato.masNombre);
         $('#txt_dueño').val(dato.perNombre);
-        $('#txt_tipoCita').val(dato.serTipo);
+        $('#txt_tipoCita').val(dato.tipoServicio);
         /**se obtien el id de las mascota para usarse a la hora de atender la cita */
         idMascota = dato.idMascota;
         idServicio = dato.idServicio;
         precioServicio = dato.serPrecio;
         idCita = dato.idCita;
+        correoPersona = dato.perCorreo;
       });
 
     },
@@ -331,7 +340,7 @@ function listarTipoCita(){
       $.each(resultado.datos, function(j, dato){
         const opcion = document.createElement('option');
         opcion.value = dato.idServicio;
-        opcion.text = dato.serTipo;
+        opcion.text = dato.tipoServicio;
         opcion.setAttribute('class', 'opcionCita');
         $('#cb_tipoCita').append(opcion);
       });
@@ -582,7 +591,10 @@ function atenderCita(){
           total: total,
           idCita: idCita,
           idEmpleado: idEmpleado,
-          idMascota:idMascota
+          idMascota:idMascota,
+          correoPersona: correoPersona,
+          nombreCliente: $('#txt_dueño').val(),
+          nombreMascota: $('#txt_mascota').val()
        };
 
        $.ajax({
@@ -595,7 +607,13 @@ function atenderCita(){
           success: function(resultado){
 
             console.log(resultado);
-            alert('se atendio la cita con exito..!');
+
+            Swal.fire({
+              icon:'success',
+              title:'Bien hecho!',
+              text:'La cita se atendio con exito!',
+              textButtonText:'Ok',
+            });
 
           },
           error: function(e){
