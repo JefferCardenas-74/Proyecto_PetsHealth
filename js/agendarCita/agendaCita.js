@@ -279,11 +279,11 @@ function listarServicios() {
                 $.each(servicios, function (i, servicio) {
                     $(".form-check").append(
                         "<input type=checkbox class='form-check chkTipoServicio'" +
-                        "data-nombre='"+servicio.serTipo+ "' value=" +
+                        "data-nombre='"+servicio.tipoServicio+ "' value=" +
                         servicio.idServicio +
                         ">" +
                         "<span id='tipoServicio'>" +
-                        servicio.serTipo +
+                        servicio.tipoServicio +
                         "</span>" +
                         "<label class='form-check-label'>" +
                         "<small class='text-muted'><p>" +
