@@ -11,6 +11,7 @@ var rol;
 var correoPersona;
 
 $(function () {
+
   primerCampo = $("#primerCampo");
   productoAgregado  = document.querySelector('.factura-items-container');
   primeraFila = $('#primeraFila');
@@ -99,16 +100,44 @@ $(function () {
 
         }else{
 
-          // alert(' se atiende');
           atenderCita();
         }
       
     });
+
     /***********************************************************************************************************/
-    console.log(rol);
+    $('#btn_cerrar').click(()=>{
+
+      limpiarModalAtenderCita();
+
+    });
+
+    /***********************************************************************************************************/
     $('#btn_redirigir').click(()=>{
       
       window.location.href = '../../principal/login/?rol='+rol;
+
+    });
+
+    /***********************************************************************************************************/
+
+    $('#btn_atenderCitaNoPro').click(()=>{
+      /**se valida el formulario */
+      if($('#txt_encargado').val() == '' || $('#txt_observacion').val() == ''){
+
+            Swal.fire({
+              icon:'error',
+              title:'Oops...!',
+              text:'Debe validar todos los campos',
+              textButtonText:'Ok',
+            });
+
+        }else{
+
+          atenderCitaNoProgramada();
+          
+        }
+      
     });
 
 }); 
@@ -136,7 +165,7 @@ function listarCitas(id){
       console.log(resultado.datos);
 
       $.each(resultado.datos, function(j, dato){
-        $('#idCita').html(dato.idCita);
+        $('#idCita').html(j + 1);
         $('#tipoCita').html(dato.serTipo);
         $('#solicitante').html(dato.perNombre);
         $('#fechaHora').html(dato.ciFecha);
@@ -185,7 +214,7 @@ function mostrarDatosCita(){
 
         $('#txt_mascota').val(dato.masNombre);
         $('#txt_dueño').val(dato.perNombre);
-        $('#txt_tipoCita').val(dato.tipoServicio);
+        $('#txt_tipoCita').val(dato.serTipo);
         /**se obtien el id de las mascota para usarse a la hora de atender la cita */
         idMascota = dato.idMascota;
         idServicio = dato.idServicio;
@@ -205,6 +234,7 @@ function mostrarDatosCita(){
 
 
 }
+
 function buscarCliente(cedula){
 
   var cedulaNueva;
@@ -224,6 +254,7 @@ function buscarCliente(cedula){
     success:function(resultado){
 
       console.log(resultado.datos);
+
       if(resultado.datos.length > 0){
 
         $.each(resultado.datos, function(j, dato){
@@ -237,6 +268,8 @@ function buscarCliente(cedula){
 
       }else{
           $('#registrarCliente').modal();
+          $('#txt_encargado').val('');
+          $('.opcion').remove();
       }
 
 
@@ -340,7 +373,7 @@ function listarTipoCita(){
       $.each(resultado.datos, function(j, dato){
         const opcion = document.createElement('option');
         opcion.value = dato.idServicio;
-        opcion.text = dato.tipoServicio;
+        opcion.text = dato.serTipo;
         opcion.setAttribute('class', 'opcionCita');
         $('#cb_tipoCita').append(opcion);
       });
@@ -559,15 +592,24 @@ function atenderCita(){
        }
        console.log(productosFactura);
 
+       /**se obtiene los nombres de los productosq que se agregaron para posteriormente agregarlos a un arreglo
+        */
+       let nombreProductos = document.querySelectorAll('.factura-items #txt_nombre');
+       var arrayNombres = Array.from(nombreProductos);
+       var arrayNombreProductos = [];
+
+       for(let j in arrayNombres){
+
+         arrayNombreProductos.push(arrayNombres[j].innerHTML);
+       }
+
+       console.log(arrayNombreProductos);
+
        /**validamos que tipo de encargado es */
 
        if($('#chk_dueño').is(':checked')){
 
           encargado = $('#txt_dueño').val();
-
-       }else if($('#chk_empleado').is(':checked')){
-
-          encargado = $('#cb_empleado').text();
 
        }else if($('#chk_otro').is(':checked')){
 
@@ -588,6 +630,7 @@ function atenderCita(){
           idServicio: idServicio,
           observacion: $('#txt_observacion').val(),
           productos: productosFactura,
+          nombreProductos: arrayNombreProductos,
           total: total,
           idCita: idCita,
           idEmpleado: idEmpleado,
@@ -612,7 +655,16 @@ function atenderCita(){
               icon:'success',
               title:'Bien hecho!',
               text:'La cita se atendio con exito!',
-              textButtonText:'Ok',
+              confirmButtonText:'Ok',
+
+            }).then((result)=>{
+
+              if(result.isConfirmed){
+
+                limpiarModalAtenderCita();
+                window.location.reload();
+
+              } 
             });
 
           },
@@ -622,4 +674,66 @@ function atenderCita(){
           }
        });
 
+}
+
+function limpiarModalAtenderCita(){
+
+  $('#txt_observacion').val('');
+  $('.factura-items').remove();
+  $('#txt_buscadorProductos').val('');
+  let precio = document.querySelector('.txt_total');
+  precio.innerHTML = `$0`;
+}
+
+function atenderCitaNoProgramada(){
+  /**se obtiene el total de los productos */
+
+  let total = document.querySelector('.txt_total').innerHTML;
+  let precioTotal = Number(total.replace('$', ''));
+
+  /**se obtiene el id de los procuctos */
+  let datos = document.querySelectorAll('.factura-items #txt_idProducto');
+  /**creamos un arreglo a partir de esos elementos que retorna el querySelectorAll */
+  var arrayProductos = Array.from(datos);
+  var productosFactura = [];
+  /**obtenemos el texto plano de los elementos que tenemos en el arreglo arrayProductos
+   * con el fin de tener un arreglo final mas limpio
+  */
+  for(let j in arrayProductos){
+
+    productosFactura.push(arrayProductos[j].value);
+
+  }
+  console.log(productosFactura);
+
+  var parametros = {
+
+    accion:'atenderCitaNoProgramada',
+    idMascota: $('#cb_mascota').val(),
+    tipoCita: $('#cb_tipoCita').val(),
+    observacion: $('#txt_observacion').val(),
+    idEmpleado: idEmpleado,
+    precioProductos: precioTotal,
+    productos: productosFactura
+  };
+
+  $.ajax({
+    url:'../../../controlador/citaControl.php',
+    data: parametros,
+    dataType: 'json',
+    type:'POST',
+    cache:'false',
+
+    success: function(resultado){
+
+      console.table(resultado);
+      alert('se atendio la cita con exito');
+
+    },
+    error: function(e){
+
+      console.error(e.responseText);
+
+    }
+  });
 }

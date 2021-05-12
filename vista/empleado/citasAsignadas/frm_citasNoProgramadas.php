@@ -15,7 +15,7 @@
 
             <div class="form-group">
                 <label for="txt_encargado" class="col-form-label fredoka">Nombre del encargado</label>
-                <input type="text" class="cajaTexto pompiere" id="txt_encargado" readonly>
+                <input type="text" class="cajaTexto pompiere" id="txt_encargado">
             </div>
 
             <div class="form-group">
@@ -56,7 +56,7 @@
                 </div>
                 <div class="modal-footer">
                 <input type="hidden" id="rolPersona" value="<?php echo $rol ?>">
-                    <button type="button" class="btnMorado" id="btn_redirigir">Registrar Cliente</button>
+                    <button type="button" class="btnMorado pompiere" id="btn_redirigir">Registrar Cliente</button>
                 </div>
             </div>
         </div>
@@ -127,7 +127,7 @@
     </div>
 
     <div class="botonCitaNoPro">
-        <button class="btnMorado" id="btn_atenderCitaNoPro">Atender Cita</button>
+        <button class="btnMorado pompiere" id="btn_atenderCitaNoPro">Atender Cita</button>
     </div>
 
 </div>

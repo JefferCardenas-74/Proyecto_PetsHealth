@@ -14,7 +14,7 @@ $(function () {
 
     $('#btn_volverCitaNoPro').css('display', 'block');
     $('#btn_volverCitaNoPro').click(()=>{
-      window.location.href = '../../empleado/citasAsignadas/';
+      window.location.href = '../../empleado/citasAsignadas/?page=frm_citasNoProgramadas';
     });
 
   }else{
