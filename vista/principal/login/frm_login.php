@@ -25,10 +25,8 @@ $rol = $_GET['rol'];
                         placeholder="Contraseña" pattern=".{6,}" required>
                     <span class="simbolo">
                         <i class="fa fa-lock" aria-hidden="true"></i>
-
                     </span>
-                    <img class="ojito" onclick="mostrarPassword();" src="../../../componente/img/passwordOjo.png"
-                        style="height:20px; width:20px;" alt="">
+                    <img class="ojito" onclick="mostrarPassword();" src="../../../componente/img/passwordOjo.png" style="height:20px; width:20px;" alt="">
 
 
                 </div>
