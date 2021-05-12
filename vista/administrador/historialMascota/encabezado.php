@@ -1,3 +1,3 @@
 <div class="cabecera">
-    <h1>Historial Mascota</h1>
+    <h1 class="titulo fredoka">Historial Mascota</h1>
 </div>
