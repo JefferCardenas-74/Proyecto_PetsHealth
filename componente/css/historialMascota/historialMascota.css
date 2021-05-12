@@ -14,7 +14,9 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Fredoka one';
+}
+.titulo{
+    font-size: 70px;
 }
 
 .contenedorBusqueda{
@@ -23,7 +25,6 @@ body{
 
 .datos_mascota{
     width: 100%;
-    font-family: 'Pompiere';
 }
 
 .campos_datosMascota{
@@ -31,7 +32,6 @@ body{
     width: 50%;
     border:black 2px solid;
 }
-
 
 
 .datos_historialMascota{
@@ -55,11 +55,23 @@ thead{
     letter-spacing: 2px;
 }
 
-.tabla td, .tabla th{
+
+.tabla td{
+    height: 60px;
+    border-bottom: 1px solid #a200ff;
+    text-align: center;
+    font-family: 'pompiere';
+    font-size: 1.5em;
+}
+
+
+.tabla th{
 
     height: 60px;
     border-bottom: 1px solid #a200ff;
     text-align: center;
+    font-size: 1.1em;
+
 }
 
 .tabla tr:hover{
@@ -121,6 +133,37 @@ thead{
     }
 
 
+}
 
+@media screen and (max-width: 720px) {
+    
+    .cabecera{
+        width: 100%;
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Fredoka one';
+        margin-top: 40px;
+    }
 
+    .contenedorBusqueda{
+        margin-left: 5%;
+    }
+
+    .datos_mascota{
+        width: 100%;
+        margin-top: 20px;
+        margin-left: 5%;
+    }
+
+    .contenerdorTodo{
+        display: block;
+    }
+    .modalActualizar{
+        margin-top: 50%;
+        z-index: 1111;
+    }
+
+    
 }
