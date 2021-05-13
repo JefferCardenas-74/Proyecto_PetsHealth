@@ -1,6 +1,6 @@
 var fechaEscogida = null;
 var datepicker = null;
-var servicio = null;
+var servicioSeleccionado = null;
 var nombreCliente = "";
 var horaFormateada = "";
 var cliente=null;
@@ -47,7 +47,7 @@ $(function () {
             $("#cb_hora").val() != 0 &&
             $("#txt_fecha").val().length > 0
         ) {
-            if (servicio != null) {
+            if (servicioSeleccionado != null) {
                 agendarCita();
             } else {
                 Swal.fire({
@@ -151,9 +151,10 @@ function limpiarCampos() {
     $("#cb_cliente").val([0]).trigger('change');
     $(".chkTipoServicio").prop("disabled", false);
     $(".chkTipoServicio").prop("checked", false);
+
     validarMascotaCita(cliente);
     // listarCliente();
-    servicio = null;
+    servicioSeleccionado = null;
     // listarHorasDisponibles(fechaEscogida);
     
   
@@ -166,9 +167,8 @@ function obtenerServicioCita() {
         if ($(this).is(":checked")) {
             $(".chkTipoServicio:not(:checked)").prop("disabled", true);
             // $("input:checkbox:not(:checked)").prop("disabled", true);
-            servicio = $(this).val();
+            servicioSeleccionado = $(this).val();
             nombreServicio=$(this).data('nombre');
-            console.log(nombreServicio);
         } else {
             $(".chkTipoServicio:not(:checked)").prop("disabled", false);
             //alert("Checkbox " + $(this).prop("id") +  " (" + $(this).val() + ") => Deseleccionado");
@@ -185,7 +185,7 @@ function mostrarDatosCita() {
     let fecha = $("#txt_fecha").val();
     let hora = $('select[name="cb_hora"] option:selected').text();
     let cliente = $('select[name="cb_cliente"] option:selected').text();
-    servicio = $(".chkTipoServicio").is(":checked");
+    let servicio = $(".chkTipoServicio").is(":checked");
 
     if (cliente !== "") {
         $("#txt_cliente").val(cliente);
@@ -279,11 +279,11 @@ function listarServicios() {
                 $.each(servicios, function (i, servicio) {
                     $(".form-check").append(
                         "<input type=checkbox class='form-check chkTipoServicio'" +
-                        "data-nombre='"+servicio.tipoServicio+ "' value=" +
+                        "data-nombre='"+servicio.serTipo+ "' value=" +
                         servicio.idServicio +
                         ">" +
                         "<span id='tipoServicio'>" +
-                        servicio.tipoServicio +
+                        servicio.serTipo +
                         "</span>" +
                         "<label class='form-check-label'>" +
                         "<small class='text-muted'><p>" +
@@ -353,7 +353,7 @@ function agendarCita() {
     let parametros = {
         accion: "agendarCita",
         cliente: $("#cb_cliente").val(),
-        servicio: $(".chkTipoServicio").val(),
+        servicio: servicioSeleccionado,
         fecha: fechaEscogida,
         hora: $("#cb_hora").val(),
         horaFormateada: $("#cb_hora option:selected").text(),

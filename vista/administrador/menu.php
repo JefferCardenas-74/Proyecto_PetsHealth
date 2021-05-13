@@ -27,6 +27,12 @@
                 </ul>
             </li>
             <li class="sub_menu item">
+                <a href="#">Servicios<i class="fa fa-caret-down"></i></a>
+                <ul>
+                        <li><a  class="dropdown-item" href=<?php echo $GLOBALS['gestionProductosA'];  ?> > Gestionar</a></li>
+                </ul>
+            </li>
+            <li class="sub_menu item">
                 <a href="#">Cita<i class="fa fa-caret-down"></i></a>
                 <ul>
                         <li><a  class="dropdown-item" href=<?php echo $GLOBALS['asingarVeterinarioA'];  ?> >Asignar cita</a></li>
@@ -39,6 +45,7 @@
                 <ul>
                         <li><a class="dropdown-item" href= <?php echo $GLOBALS['verReporteCitasA']; ?> >Reporte grafico citas</a></li>
                         <li><a class="dropdown-item" href=<?php echo $GLOBALS['verReporteEmpleadosA']; ?> >Reporte grafico empleado</a></li>
+                        <li><a class="dropdown-item" href=<?php echo $GLOBALS['verReporteServiciosA']; ?> > Reporte grafico servicios</a></li>
                 </ul>
             </li>
 
