@@ -43,8 +43,11 @@ $parametro=$desencriptar($md5Array[1]);
                                     </div>
                                     <div class="mb-3 col-md-6">
                                         <h5 class="text-inf">Confirmar Contraseña </h5>
-                                        <input type="password" class="form-control" id="txt_passwordNueva2"
-                                            name="txt_passwordNueva2">
+                                        <div class="contenedorOjoPassword">
+                                            <input type="password" class="form-control passwordNueva2" id="txt_passwordNueva2"
+                                                name="txt_passwordNueva2">
+                                            <img class="ojito" onclick="mostrarPassword();" src="../../../componente/img/passwordOjo.png" style="height:20px; width:20px;" alt="">    
+                                        </div>
                                     </div>
                                 </div>
                             </div>
