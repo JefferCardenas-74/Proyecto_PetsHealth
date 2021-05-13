@@ -1,18 +1,18 @@
 
-    <div class="row contenerdorTodo">
+    <div class="row contenerdorTodo pompiere">
         <div class="col">
             <div class="contenedorBusqueda">
                 <form name="frm_buscarDueño" id="frm_buscarDueño" method="post"></form>
 
                     <div class="buscador">
-                        <p>Digite Cedula Dueño:  <input type="text"  name="busquedaEncargado" id="busquedaEncargado" >
+                        <p style="font-weight:bold;">Digite Cedula Dueño:  <input type="text"  name="busquedaEncargado" id="busquedaEncargado" >
                             <input type="button" class="btn_morado" value="Buscar" name="btn_buscar" id="btn_buscar">
                         </p>
                     </div>
 
-                    <p><label name="lbl_mascota" id="lbl_mascota">Eliga la Mascota</label></p>
+                    <p><label style="font-weight:bold;"  name="lbl_mascota" id="lbl_mascota">Eliga la Mascota</label></p>
                         <select style="width:70%" size="5" name="cb_mascota" id="cb_mascota">
-                            <option value="0" >Seleccione</option>
+                            <option  value="0" >Seleccione</option>
                         </select>
                     <!--Campos ocultos -->
                     <input type="hidden" value="" id="idPersona" name="idPersona">
@@ -28,7 +28,7 @@
             <div class="datos_mascota">   
                     <div class="campos_datosMascota">
                         <p><label name="lbl_nombreEncargado" id="lbl_nombreEncargado" style="font-weight:bold;">Nombre Dueño:</label></p>
-                        <p><label name="lbl_nombre" id="lbl_nombre"> </label></p>
+                        <p><label name="lbl_nombre" id="lbl_nombre" > </label></p>
                         <p><label name="lbl_cedulaEncargado" id="lbl_cedulaEncargado" style="font-weight:bold;">Cedula:</label></p>
                         <p><label name="lbl_cedula" id="lbl_cedula"> </label></p>
                         <p><label name="lbl_nombreMascota" id="lbl_nombreMascota" style="font-weight:bold;">Nombre Mascota:</label></p>

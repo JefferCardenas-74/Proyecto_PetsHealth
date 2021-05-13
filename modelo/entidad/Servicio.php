@@ -5,13 +5,15 @@ class Servicio
 
     private $idServicio;
     private $tipo;
+    private $descripcion;
     private $precio;
 
-    public function __construct($idServicio = null, $tipo = null,$precio=null)
+    public function __construct($idServicio = null, $tipo = null, $descripcion=null, $precio=null)
     {
 
         $this->idServicio = $idServicio;
         $this->tipo = $tipo;
+        $this->descripcion= $descripcion;
         $this->precio = $precio;
 
     }
@@ -48,6 +50,24 @@ class Servicio
     public function setTipo($tipo)
     {
         $this->tipo = $tipo;
+
+        return $this;
+    }
+
+        /**
+     * Get the value of tipo
+     */
+    public function getDescripcion()
+    {
+        return $this->descripcion;
+    }
+
+    /**
+     * Set the value of tipo
+     */
+    public function setDescripcion($descripcion)
+    {
+        $this->tipo = $descripcion;
 
         return $this;
     }

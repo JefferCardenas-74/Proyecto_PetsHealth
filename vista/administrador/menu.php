@@ -29,7 +29,7 @@
             <li class="sub_menu item">
                 <a href="#">Servicios<i class="fa fa-caret-down"></i></a>
                 <ul>
-                        <li><a  class="dropdown-item" href=<?php echo $GLOBALS['gestionProductosA'];  ?> > Gestionar</a></li>
+                        <li><a  class="dropdown-item" href=<?php echo $GLOBALS['gestionServiciosA'];  ?> > Gestionar</a></li>
                 </ul>
             </li>
             <li class="sub_menu item">

@@ -15,6 +15,7 @@ $GLOBALS['verReporteEmpleadosA']="../verReporteGraficoEmpleados/";
 $GLOBALS['verReporteServiciosA']="../verReporteGraficoServicios/";
 $GLOBALS['asingarVeterinarioA']="../asignarVeterinario/";
 $GLOBALS['historialMascotaA']="../historialMascota/";
+$GLOBALS['gestionServiciosA']="../gestionServicios/";
 
 //EMPLEADO
 $GLOBALS['verCitasAsignadasE']="../citasAsignadas/";
@@ -48,6 +49,7 @@ $arreglo =[];
     $GLOBALS['gestionMascotasA']="gestionMascotas/";
     $GLOBALS['asingarVeterinarioA']="asignarVeterinario/";
     $GLOBALS['historialMascotaA']="historialMascota/";
+    $GLOBALS['gestionServiciosA']="gestionServicios/";
     // EMPLEADO
     $GLOBALS['verCitasAsignadasE']="citasAsignadas/";
     $GLOBALS['citasNoProgramadasE']="citasAsignadas/?page=frm_citasNoProgramadas";

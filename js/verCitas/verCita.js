@@ -146,7 +146,7 @@ const cambiarColorCita = (estado)=>{
     }else if(estado=="Solicitada"){
         $("#btnCancelar").prop("disabled", false);
         $("#ciEstado").css({
-        background: '#ffff',
+        background: 'transparent',
         color:'var(--colorTitulo)'
         });
         $("#btnCancelar").css({
