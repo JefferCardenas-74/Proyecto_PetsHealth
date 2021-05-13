@@ -116,7 +116,6 @@ class datosServicio
     function agregarServicio(Servicio $servicio){
         try{
             
-            
             $consulta = 'insert into servicio values (null, ?,?,?)';
 
             $resultado = $this->conexion->prepare($consulta);

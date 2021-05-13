@@ -23,12 +23,11 @@
     margin-bottom: 25px;
 }
 
-
-#botones{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+.contenedorTablaServicios{
+    overflow-x: auto;
 }
+
+
 
 .cajaArea{
     width: 100%;
@@ -41,9 +40,19 @@
     background: rgba(255, 255, 255, 0.603);
 }
 
-.contenedorTablaServicios{
-    overflow-x: auto;
+
+#botones{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
+
+.dtr-data{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 
 #btn_actualizar, #btn_eliminar{
     width: 50px;
@@ -88,5 +97,6 @@ thead{
     display: flex;
     justify-content: center;
 }
+
 
 

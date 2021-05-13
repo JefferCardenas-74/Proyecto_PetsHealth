@@ -65,3 +65,20 @@
   color: var(--colorTitulo);
   font-size: 1.4em !important;
 }
+
+
+.contenedorOjoPassword {
+  display: flex;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  margin-bottom: 10px;
+}
+
+.ojito{
+  position: absolute;
+  margin-top: 13px;
+  right: 10px;
+  cursor: pointer;
+  z-index: 100;
+}

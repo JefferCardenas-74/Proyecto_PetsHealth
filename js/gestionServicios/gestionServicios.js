@@ -51,7 +51,7 @@ function listarServicios(){
 
             $('#tbl_servicios').DataTable({
 
-                responsive: false,
+                responsive: true,
 
                 language: {
                     processing:     "Traitement en cours...",
@@ -96,7 +96,7 @@ function abrirModalAgregar(){
 
 function agregarServicio(){
 
-    if($('#txt_tipo').val() == '' || $('#txt_descripcion').val() == '' || $('#txt_precio').val() == 0){
+    if($('#txt_tipo').val() == '' || $('#txt_descripcion').val() == '' || $('#txt_precio').val() == ''){
 
         Swal.fire({
             icon: 'error',
@@ -124,23 +124,37 @@ function agregarServicio(){
             cache: false,
     
             success: function(resultado){
-    
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Success',
-                    text: resultado.mensaje,
-                    confirmButtonText: 'ok',
-                
-                }).then((result)=>{
-                    if(result.isConfirmed){
-                        window.location.reload();
-                        limpiar(); 
-                    }
-                       
-                })
+            
+                if(resultado.estado){
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Agregado',
+                        text: resultado.mensaje,
+                        confirmButtonText: 'ok',
+                    }).then((result)=>{
+                        if(result.isConfirmed){
+                            window.location.reload();
+                            limpiar(); 
+                        }  
+                    })
+
+                }else{
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops..',
+                        text: 'No se pudo agregar los datos.',
+                        confirmButtonText: 'ok',
+                    }).then((result)=>{
+                        if(result.isConfirmed){
+                            limpiar(); 
+                        }  
+                    })
+                }
 
             },
+
             error: function(e){
+
 
                 console.log(e);
             }
@@ -228,9 +242,14 @@ function actualizarDatosServicio(id){
                 title: 'Success',
                 text: 'Se actualizaron los datos correctamente',
                 confirmButtonText: 'ok' 
-            });
 
-            window.location.reload();
+            }).then((result)=>{
+            if(result.isConfirmed){
+                window.location.reload();
+                limpiar(); 
+            }
+               
+        })
 
         },
         error:function(e){
@@ -266,13 +285,20 @@ function modalEliminar(id){
     
             eliminarServicio();
 
-            Swal.fire(
-                'Eliminado!',
-                'Acabas de eliminar un servicio de la base de datos',
-                'success'
-            )
 
-            window.location.reload();
+            Swal.fire({
+                icon: 'success',
+                title: 'Eliminado!',
+                text: 'Acabas de eliminar un servicio de la base de datos',
+                confirmButtonText: 'ok' 
+
+            }).then((result)=>{
+            if(result.isConfirmed){
+                window.location.reload();
+            }
+               
+        })
+
         }
     });
 

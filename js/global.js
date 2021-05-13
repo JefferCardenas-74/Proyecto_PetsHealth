@@ -196,3 +196,13 @@ function cerrarSesionDinamico() {
     $(location).attr("href", "../../../configuracion/cerrarSesion.php");
   }
 }
+
+
+function mostrarPassword(){
+  let inputPassword = document.querySelector('.passwordNueva2');
+  if (inputPassword.type === "password") {
+    inputPassword.type = "text";
+  } else {
+    inputPassword.type = "password";
+  }
+}
