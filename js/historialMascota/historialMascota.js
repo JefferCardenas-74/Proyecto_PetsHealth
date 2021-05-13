@@ -5,7 +5,6 @@ var validacion;
 var rol;
 var persona;
 
-//var dato = <?php echo json_encode($validacion); ?>;
 
 $(function(){
     primeraFila=$("#fila");
@@ -37,7 +36,12 @@ $(function(){
         if($("#busquedaEncargado").val() !==""){
             ListarMascotasEncargado();
         }else{
-            alert("DIGITE SU CEDULA ");
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops',
+                text: 'Digite su Cedula.',
+                ConfirmButtonText: 'Ok',
+            });
         }
     });
     $("#cb_mascota").click(function(){
@@ -46,7 +50,16 @@ $(function(){
         ListarConsultaHistorialM();
     });
     $("#btn_actualizarDescripcion").click(function(){
-        ActualizarDescripcion();
+        if ( $("#txt_descripcion").val() !=="") {
+            ActualizarDescripcion();
+        }else{
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops',
+                text: 'La Descripcion no puede estar vacia.',
+                ConfirmButtonText: 'Ok',
+            });
+        }
     });
 
     
@@ -80,6 +93,13 @@ function ListarMascotasEncargado(){
                 $.each(mascotas, function(i, mascota){
                     $("#cb_mascota").append("<option value="+ mascota.idMascota +">" 
                     + mascota.masNombre + "</option>");
+                });
+            }else{
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops',
+                    text: 'Revisar Datos.',
+                    ConfirmButtonText: 'Ok',
                 });
             }
         },
