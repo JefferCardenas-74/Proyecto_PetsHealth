@@ -137,7 +137,7 @@ const cambiarColorCita = (estado)=>{
     if(estado=="Cancelada"){
         $("#btnCancelar").prop("disabled", true);
         $("#ciEstado").css({
-        background: 'rgb(244 7 254)',
+        background: 'linear-gradient(to right, #f12711, #f5af19)',
         color:"#ffff"
         });
         $("#btnCancelar").css({
@@ -146,7 +146,7 @@ const cambiarColorCita = (estado)=>{
     }else if(estado=="Solicitada"){
         $("#btnCancelar").prop("disabled", false);
         $("#ciEstado").css({
-        background: '#ffff',
+        background: 'transparent',
         color:'var(--colorTitulo)'
         });
         $("#btnCancelar").css({
@@ -155,7 +155,16 @@ const cambiarColorCita = (estado)=>{
     }else if(estado=="Atendida"){
         $("#btnCancelar").prop("disabled", true);
         $("#ciEstado").css({
-        background: 'rgb(244 7 254)',
+        background: 'linear-gradient(to right, #8E2DE2, #4A00E0)',
+        color:"#ffff"
+        });
+        $("#btnCancelar").css({
+            background :'#3000ff8f'
+        })
+    }else if(estado=="Asignada"){
+        $("#btnCancelar").prop("disabled", true);
+        $("#ciEstado").css({
+        background: '#36ACE5',
         color:"#ffff"
         });
         $("#btnCancelar").css({

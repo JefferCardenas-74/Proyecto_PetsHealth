@@ -224,6 +224,15 @@ function cerrarSesionDinamico() {
   }
 }
 
+function mostrarPassword(){
+  let inputPassword = document.querySelector('.passwordNueva2');
+  if (inputPassword.type === "password") {
+    inputPassword.type = "text";
+  } else {
+    inputPassword.type = "password";
+  }
+}
+
 /**la funcion toma un string de entrada y usando la funcion replace de js 
  * se remplazan todos caracteres especiales a vacios
  * la expresion regular /[^a-zA-Z0-9]/g indica que tomara todo caracter que no este especificado dentro del grupo de corchetes
@@ -241,3 +250,4 @@ const eliminarCaracteresEspeciales = (palabra)=>{
 // module.exports = {
 //   'eliminarCaracteresEspeciales':eliminarCaracteresEspeciales
 // };
+

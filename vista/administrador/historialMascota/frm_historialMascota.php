@@ -5,7 +5,7 @@
                 <form name="frm_buscarDueño" id="frm_buscarDueño" method="post"></form>
 
                     <div class="buscador">
-                        <p style="font-weight:bold;">Digite Cedula Dueño:  <input type="text"  name="busquedaEncargado" id="busquedaEncargado" >
+                        <p style="font-weight:bold;">Digite Cedula Dueño:  <input type="number" min="0"  name="busquedaEncargado" id="busquedaEncargado" >
                             <input type="button" class="btn_morado" value="Buscar" name="btn_buscar" id="btn_buscar">
                         </p>
                     </div>
@@ -27,15 +27,23 @@
         <div class="col">
             <div class="datos_mascota">   
                     <div class="campos_datosMascota">
-                        <p><label name="lbl_nombreEncargado" id="lbl_nombreEncargado" style="font-weight:bold;">Nombre Dueño:</label></p>
-                        <p><label name="lbl_nombre" id="lbl_nombre" > </label></p>
-                        <p><label name="lbl_cedulaEncargado" id="lbl_cedulaEncargado" style="font-weight:bold;">Cedula:</label></p>
-                        <p><label name="lbl_cedula" id="lbl_cedula"> </label></p>
-                        <p><label name="lbl_nombreMascota" id="lbl_nombreMascota" style="font-weight:bold;">Nombre Mascota:</label></p>
-                        <p><label name="lbl_nombreM" id="lbl_nombreM"> </label></p>
-                        <p><label name="lbl_edad" id="lbl_edad" style="font-weight:bold;">Edad:</label></p>
-                        <p><label name="lbl_edadM" id="lbl_edadM"> </label></p>
-                    </div>
+                        <div class="contenedorDatosPequeña">
+                            <p><label name="lbl_nombreEncargado" id="lbl_nombreEncargado" style="font-weight:bold;">Nombre Dueño:</label></p>
+                            <p><label name="lbl_nombre" id="lbl_nombre"> </label></p>
+                        </div>
+                        <div class="contenedorDatosPequeña">
+                            <p><label name="lbl_cedulaEncargado" id="lbl_cedulaEncargado" style="font-weight:bold;">Cedula:</label></p>
+                            <p><label name="lbl_cedula" id="lbl_cedula"> </label></p>
+                        </div>  
+                        <div class="contenedorDatosPequeña">
+                            <p><label name="lbl_nombreMascota" id="lbl_nombreMascota" style="font-weight:bold;">Nombre Mascota:</label></p>
+                            <p><label name="lbl_nombreM" id="lbl_nombreM"> </label></p>
+                        </div>
+                        <div class="contenedorDatosPequeña">
+                            <p><label name="lbl_edad" id="lbl_edad" style="font-weight:bold;">Edad:</label></p>
+                            <p><label name="lbl_edadM" id="lbl_edadM"> </label></p>
+                        </div>
+                    </div>    
                 </form> 
             </div>       
         </div>

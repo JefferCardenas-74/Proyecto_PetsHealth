@@ -30,11 +30,15 @@ function graficarTortaEmpleadoConCitas() {
       type: "post",
       dataType: "json",  
       success: function (data) {
-        console.log(data);
         // data = JSON.parse(data);
         var data = google.visualization.arrayToDataTable(data);
         var options = {
-          title: "Total de empleados con cita asignadas",
+          title: "Cantidad de citas por empleados",
+        titleTextStyle: {
+          color:"var(--colorParrafo)",
+          fontName:"var(--fuenteParrafos)",
+          fontSize:30
+      },
           backgroundColor: 'transparent',
           legend: {
             alignment: 'center',
@@ -75,7 +79,12 @@ function graficarTortaEmpleadoConCitas() {
         var data = google.visualization.arrayToDataTable(data);
         var options = {
           backgroundColor: 'transparent',
-          title: "Empleados con cita asignadas",
+          title: "Cantidad de citas por empleado",
+        titleTextStyle: {
+          color:"var(--colorParrafo)",
+          fontName:"var(--fuenteParrafos)",
+          fontSize:30
+      },
           bar: {groupWidth: "95%"},
           legend: { position: "none" },
         };

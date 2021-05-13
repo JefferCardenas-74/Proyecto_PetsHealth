@@ -20,10 +20,14 @@ class datos_HistorialM{
             $resultado=$this->miConexion->prepare($consulta);
             $resultado->bindParam(1,$identificacion);
             $resultado->execute();
-
-            $this->retorno->estado=true;
-            $this->retorno->datos=$resultado->fetchAll();
-            $this->retorno->mensaje="Listado de Mascotas del encargado";
+            if($resultado->rowCount()>0){
+                $this->retorno->estado=true;
+                 $this->retorno->datos=$resultado->fetchAll();
+                 $this->retorno->mensaje="Listado de Mascotas del encargado";
+            }else{
+                $this->retorno->estado=false;
+                $this->retorno->datos=null;
+           }
 
         }catch(PDOException $ex){
             $this->retorno->estado=false;
