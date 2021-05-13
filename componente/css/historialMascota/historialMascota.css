@@ -14,9 +14,18 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 70px;
 }
 .titulo{
-    font-size: 70px;
+    font-size: 80px;
+}
+.contenedorDatosPequeña{
+    display: flex;
+}
+
+p{
+    margin-bottom: auto;
+    
 }
 
 .contenedorBusqueda{
@@ -111,7 +120,7 @@ thead{
         justify-content: center;
         align-items: center;
         font-family: 'Fredoka one';
-        margin-top: 40px;
+        margin-top: 50px;
     }
 
     .contenedorBusqueda{
@@ -144,7 +153,7 @@ thead{
         justify-content: center;
         align-items: center;
         font-family: 'Fredoka one';
-        margin-top: 40px;
+        margin-top: 70px;
     }
 
     .contenedorBusqueda{

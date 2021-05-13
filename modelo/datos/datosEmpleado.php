@@ -110,7 +110,7 @@
         public function listarEmpleados($idPersona)
         {
             try{
-                $consulta = "SELECT * , if(ce.idCitaEmpleado>1, 'si tiene cita' , 'no tiene cita') as resultado
+                $consulta = "SELECT DISTINCT(ce.idEmpleado),  em.* , p.* ,  u.*, ur.*,r.* ,   if(ce.idCitaEmpleado>1, 'si tiene cita' , 'no tiene cita') as resultado 
                 from empleado as em
                 LEFT JOIN citaempleado as ce  on ce.idEmpleado=em.idEmpleado
                 INNER JOIN persona as p on p.idPersona=em.idPersona
@@ -216,10 +216,15 @@
         function reporteEmpleadosConCitas()
         {
             try{
-                $consulta="SELECT  DISTINCT(em.idEmpleado) , COUNT(em.idEmpleado) as cantidad ,  if(ce.idEmpleado>1, 'si tiene cita' , 'no tiene cita')as resultado   
-                from empleado as em
-                LEFT JOIN citaempleado as ce  on ce.idEmpleado=em.idEmpleado
-                GROUP BY ce.idCitaEmpleado ";
+                $consulta="SELECT   COUNT(ce.idEmpleado) as cantidad ,if(ce.idEmpleado>1, 'si tiene cita' , 'no tiene cita')as resultado
+                , p.perNombre from empleado as em
+  				LEFT JOIN citaempleado as ce  on ce.idEmpleado=em.idEmpleado
+                INNER JOIN persona as p on p.idPersona=em.idPersona
+                INNER JOIN usuario as u on u.idPersona=p.idPersona
+                INNER JOIN usuariorol as ur on ur.idUsuario=u.idUsuario
+                INNER JOIN rol as r on r.idRol = ur.idRol
+                WHERE r.rolNombre='empleado'
+                GROUP BY em.idEmpleado";
                 $resultado=$this->conexion->prepare($consulta);          
                 $resultado->execute();  
                 $this->retorno->estado=true;

@@ -21,7 +21,7 @@
                                     <th scope="col">Citas Asignadas</th>
                                     <th scope="col">Cargo</th>
                                     <th scope="col">Estado</th>
-                                    <th scope="col">Acciones</th>
+                                    <th scope="col" class="acciones">Acciones</th>
                                 </tr>
                             </thead>
                             <tbody class="datos pompiere">

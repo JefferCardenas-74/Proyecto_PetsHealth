@@ -29,7 +29,9 @@ switch ($accion) {
         break;
 
     case 'agregarServicio':   
+        
         $servicio = new Servicio(null, $tipo, $descripcion, $precio);
+        
         
         $resultado = $dServicio->agregarServicio($servicio);
 

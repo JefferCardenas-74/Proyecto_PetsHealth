@@ -5,8 +5,8 @@
 
 
 .lading_page-agendar_Cita .card {
-  border: 0.0625rem solid rgba(46, 54, 80, 0.125);
-  border-radius: 1rem;
+  background:transparent !important;
+  border: none !important;
 }
 
 

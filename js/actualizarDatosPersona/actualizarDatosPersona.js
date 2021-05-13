@@ -79,6 +79,7 @@ function actualizarPersona() {
                     text: 'Usuario actualizado con exito.',
                     icon: 'success'
                 });
+                window.location.reload(); 
                 listarPersona();
             }
         },

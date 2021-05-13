@@ -5,7 +5,7 @@ $persona=$_SESSION["idPersona"];
 if (!isset($_SESSION['idPersona'])) {
   header("location:../../principal/login/?x=3");
 }
-else if ($_SESSION["rol"] !== "Cliente"  and $_SESSION["estado"] !== 1){
+else if ($_SESSION["rol"] !== "Administrador"  and $_SESSION["estado"] !== 1){
    // si no corresponde se redrije al login con la variable x=4
  header("location:../../principal/login/?x=4");
 }

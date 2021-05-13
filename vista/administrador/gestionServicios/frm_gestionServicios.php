@@ -10,7 +10,7 @@
             </div>
 
             <div class='contenedorTablaServicios fredoka'>
-                <table class="table tabla display nowrap" cellspacing='0' id='tbl_servicios' width='100%'>
+                <table class="tabla display nowrap" cellspacing='0' id='tbl_servicios' width='100%'>
                     <thead>
                         <th>Tipo</th>
                         <th>Descripcion</th>
@@ -24,7 +24,7 @@
                             <td id="precio">Pre</td>
                             <td id="botones"><button class="btnMorado" id='btn_actualizar'><i class="fas fa-edit"></i></button>
                                 <button class="btnNaranja" id='btn_eliminar'><i class="fas fa-trash"></i></button>
-                            </td>
+                            </td>    
                         </tr>
                     </tbody>
                 </table>
