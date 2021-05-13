@@ -2,6 +2,10 @@
   padding-bottom: 85px;
 }
 
+.lading_page-ver-empleados .card{
+  background:transparent !important;
+  border: none !important;
+}
 .titulo {
     font-size: 70px;
   }
@@ -28,6 +32,9 @@
 .table tr:hover {
   background: #a200ff57 ;
   font-weight: bold ;
+}
+.table .acciones{
+text-align: center !important;
 }
 
 

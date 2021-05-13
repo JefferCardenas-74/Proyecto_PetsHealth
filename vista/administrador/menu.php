@@ -13,6 +13,13 @@
     <div class="menu-items uno">
         <ul>
         <li class="sub_menu item">
+                <a href="#">Cita<i class="fa fa-caret-down"></i></a>
+                <ul>
+                        <li><a  class="dropdown-item" href=<?php echo $GLOBALS['asingarVeterinarioA'];  ?> >Asignar cita</a></li>
+                        <li><a  class="dropdown-item" href=<?php echo $GLOBALS['historialMascotaA'];  ?> >Ver historial mascota</a></li>
+                </ul>
+            </li>
+        <li class="sub_menu item">
                 <a href="#">Empleados<i class="fa fa-caret-down"></i></a>
                 <ul>
                         <li><a class="dropdown-item " href=<?php echo $GLOBALS['verEmpleadosA'];?> >Ver Empleados</a></li>
@@ -30,13 +37,6 @@
                 <a href="#">Servicios<i class="fa fa-caret-down"></i></a>
                 <ul>
                         <li><a  class="dropdown-item" href=<?php echo $GLOBALS['gestionServiciosA'];  ?> > Gestionar</a></li>
-                </ul>
-            </li>
-            <li class="sub_menu item">
-                <a href="#">Cita<i class="fa fa-caret-down"></i></a>
-                <ul>
-                        <li><a  class="dropdown-item" href=<?php echo $GLOBALS['asingarVeterinarioA'];  ?> >Asignar cita</a></li>
-                        <li><a  class="dropdown-item" href=<?php echo $GLOBALS['historialMascotaA'];  ?> >Ver historial mascota</a></li>
                 </ul>
             </li>
 
