@@ -20,10 +20,9 @@
 
             <div class="form-group">
                 <label for="cb_mascota" class="col-form-label fredoka">Mascota</label>
-                <select id="cb_mascota" class="form-control fredoka">
-
-                </select>
+                <select id="cb_mascota" class="form-control fredoka"></select>
             </div>
+
         </div>
 
         <div class="col">

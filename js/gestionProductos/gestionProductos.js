@@ -139,13 +139,18 @@ function agregarProducto(){
 
     }else{
 
+        var precio = $('#txt_precio').val();
+        var precioParseado = precio.replace('.','');
+
         var parametros = {
             accion: 'agregarProducto',
     
             nombre: $('#txt_nombre').val(),
-            precio: $('#txt_precio').val(),
+            precio: parseInt(precioParseado),
             unidad: $('#cb_unidad').val()
         };
+
+        
     
         $.ajax({
     

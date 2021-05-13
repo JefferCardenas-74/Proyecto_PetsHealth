@@ -99,8 +99,21 @@ $(function () {
             });
 
         }else{
+          if($('#txt_encargado').val() == ''){
 
-          atenderCita();
+            Swal.fire({
+              icon:'error',
+              title:'Oops...!',
+              text:'Debe validar todos los campos',
+              textButtonText:'Ok',
+            });
+
+          }else if($('#txt_encargado').val() == '' && $('#txt_dueño').val().length > 0){
+            alert('se atendio');
+            //atenderCita();
+          }else if($('#txt_encargado').val().length > 0 && $('#txt_dueño').val() == ''){
+            alert('se atendio');
+          }
         }
       
     });
@@ -706,6 +719,20 @@ function atenderCitaNoProgramada(){
   }
   console.log(productosFactura);
 
+  /**se obtiene los nombres de los productosq que se agregaron para posteriormente agregarlos a un arreglo
+        */
+   let nombreProductos = document.querySelectorAll('.factura-items #txt_nombre');
+   var arrayNombres = Array.from(nombreProductos);
+   var arrayNombreProductos = [];
+
+   for(let j in arrayNombres){
+
+     arrayNombreProductos.push(arrayNombres[j].innerHTML);
+   }
+
+  /**se obtiene el nombre de la mascota */
+  var mascota = document.getElementById('cb_mascota').innerText;
+
   var parametros = {
 
     accion:'atenderCitaNoProgramada',
@@ -714,7 +741,9 @@ function atenderCitaNoProgramada(){
     observacion: $('#txt_observacion').val(),
     idEmpleado: idEmpleado,
     precioProductos: precioTotal,
-    productos: productosFactura
+    productos: productosFactura,
+    nombreProductos: arrayNombreProductos,
+    nombreMascota: mascota
   };
 
   $.ajax({
@@ -727,7 +756,19 @@ function atenderCitaNoProgramada(){
     success: function(resultado){
 
       console.table(resultado);
-      alert('se atendio la cita con exito');
+      Swal.fire({
+        icon:'success',
+        title:'Bien hecho!',
+        text:'La cita se atendio con exito',
+        confirmTextButton:'Ok'
+
+      }).then((result)=>{
+
+        if(result.isConfirmed){
+
+            limpiarFormularioCitasNoProgramadas();
+        }
+      });
 
     },
     error: function(e){
@@ -736,4 +777,16 @@ function atenderCitaNoProgramada(){
 
     }
   });
+}
+
+function limpiarFormularioCitasNoProgramadas(){
+
+  $('#txt_cedula').val('');
+  $('#txt_encargado').val('');
+  $('#txt_observacion').val('');
+  $('.opcion').remove();
+  $('#txt_buscadorProductos').val('');
+  $('.factura-items').remove();
+  let total = document.querySelector('.txt_total');
+  total.innerHTML = `$0`;
 }

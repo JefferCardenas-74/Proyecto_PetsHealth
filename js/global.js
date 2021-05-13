@@ -223,3 +223,21 @@ function cerrarSesionDinamico() {
     $(location).attr("href", "../../../configuracion/cerrarSesion.php");
   }
 }
+
+/**la funcion toma un string de entrada y usando la funcion replace de js 
+ * se remplazan todos caracteres especiales a vacios
+ * la expresion regular /[^a-zA-Z0-9]/g indica que tomara todo caracter que no este especificado dentro del grupo de corchetes
+ * la g al final del grupo indica que la busqueda se hace de manera globlal ya que por defecto replace solo toma el primer caracter 
+ * que encuentra
+ */
+const eliminarCaracteresEspeciales = (palabra)=>{
+
+  
+  palabra = palabra.replace(/[^a-zA-Z0-9]/g, '');
+
+  return palabra;
+}
+//export {eliminarCaracteresEspeciales};
+// module.exports = {
+//   'eliminarCaracteresEspeciales':eliminarCaracteresEspeciales
+// };

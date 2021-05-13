@@ -1,7 +1,8 @@
+//import {eliminarCaracteresEspeciales} from '../global.js';
+
 var nombreRol="";
 
 $(function(){
-
     /**funciones para llenar los select dinamicamente*/
     listarRol();
     /**---------------------------------------------- */
@@ -76,9 +77,15 @@ function agregarEmpleado(){
         });
 
     }else{
+        
+        let identificacion = eliminarCaracteresEspeciales($('#txt_identificacion').val());
+        let nombre = eliminarCaracteresEspeciales($('#txt_nombre').val());
+
+        console.log(nombre);
+
         var parametros = {
 
-            identificacion: $('#txt_identificacion').val(),
+            identificacion: identificacion,
             nombre: $('#txt_nombre').val(),
             apellido: $('#txt_apellido').val(),
             correo: $('#txt_correo').val(),
@@ -89,43 +96,41 @@ function agregarEmpleado(){
             accion: 'registrarEmpleado'
         };
     
-        $.ajax({
-            url: '../../../controlador/empleadoControl.php',
-            data: parametros,
-            dataType: 'json',
-            type: 'post',
-            cache: false,
+    //     $.ajax({
+    //         url: '../../../controlador/empleadoControl.php',
+    //         data: parametros,
+    //         dataType: 'json',
+    //         type: 'post',
+    //         cache: false,
     
-            success: function(resultado){
-                if(resultado.estado){
-                    /**mustra una alerta de completado */
-                    Swal.fire({
-                        title: 'Registrado',
-                        text: 'Empleado Registrado con exito..!',
-                        icon: 'success',
-                        ConfirmButtonText: 'Ok'
-                    });
+    //         success: function(resultado){
+    //             if(resultado.estado){
+    //                 /**mustra una alerta de completado */
+    //                 Swal.fire({
+    //                     title: 'Registrado',
+    //                     text: 'Empleado Registrado con exito..!',
+    //                     icon: 'success',
+    //                     ConfirmButtonText: 'Ok'
+    //                 });
     
-                }else{
-                    /**mustra una alerta de error */
-                    Swal.fire({
-                        title: 'Oops',
-                        text: 'Ha ocurrido un error a la hora del registro. Revise',
-                        icon: 'error',
-                        ConfirmButtonText: 'Ok'
-                    });
-                }
-                /**funcion que limpia todos los campos de texto */
-                limpiar();
+    //             }else{
+    //                 /**mustra una alerta de error */
+    //                 Swal.fire({
+    //                     title: 'Oops',
+    //                     text: 'Ha ocurrido un error a la hora del registro. Revise',
+    //                     icon: 'error',
+    //                     ConfirmButtonText: 'Ok'
+    //                 });
+    //             }
+    //             /**funcion que limpia todos los campos de texto */
+    //             limpiar();
     
-            },
-            error: function(e){
+    //         },
+    //         error: function(e){
     
-            }
-        })
+    //         }
+    //     })
     }
-
-
 
 }
 
