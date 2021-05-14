@@ -8,9 +8,9 @@
 
     include '../modelo/entidad/Persona.php';
     include '../modelo/entidad/Empleado.php';
-    include '../modelo/entidad/Cita.php';
     include '../modelo/entidad/Servicio.php';
     include '../modelo/entidad/Mascota.php';
+    include '../modelo/entidad/Cita.php';
     include '../modelo/entidad/CitaEmpleado.php';
     include '../modelo/entidad/Detalle.php';
     include '../modelo/entidad/Factura.php';
@@ -154,6 +154,50 @@
             //Se actualiza el estado de la mascota
             $resultado = $dCita->actualizarEstadoMascota($idMascota);
 
+            /**se organizan los productos en una tabla */
+            $tamano = count($nombreProductos);
+            for($j = 0; $j < $tamano; $j++){
+
+                $item .= '<li><strong>'.$nombreProductos[$j].'</strong></li>';
+            };
+
+            $listaProductos = '<ul>'.$item.'</ul>';
+            
+            if($resultado->estado){
+                //Enviar correo cuando se agenda cita
+                $correo = new enviarCorreoPrueba();
+                $objCorreo = new stdClass();
+                $objCorreo->correoRemitente = "soporte.petsHealth@gmail.com"; //aqui pueden colocar el correo del administrador
+                $objCorreo->nombreRemitente = "Administración Pets Health"; //igual el nombre del administrador
+                $objCorreo->correoDestinatario = $correoPersona;
+                $objCorreo->nombreDestinatario = $nombreCliente;
+                $objCorreo->asunto = "Informe de la cita atendida.";
+                $objCorreo->mensaje = "Cordial saludo , <br> "
+                ." nos permitimos informar que su cita con identificacion <b>".$idCita
+                ." </b> fue atendida con exito.
+                <br><b>Veterinario: </b>". $_SESSION['nombreUsuario']."
+                <br><b>Fecha y Hora: </b>".$fechaHora."
+                <br><b>Nombre de la mascota: </b> ".$nombreMascota."
+                <br><b>Observacion: </b> ".$observacion."
+                <br><b>Productos: </b> ".$listaProductos."
+                <br><b>Total de la consulta: </b> ".$totalFinal."
+                <table  width='50%' border='0' >
+                <tr>
+                <td width ='50%' align='center'>
+                <img src='https://i.imgur.com/yzjVfUS.png' alt='logoLargoEmpresa' width='250' >
+                </td>
+                <td width='50%'>
+                <br>
+                <b> Atentamente Administración Pets Health 	</b>
+                <br>
+                Gracias por confiar en nosotros
+                </td>
+                </tr>
+                </table>";
+
+                $resultadoCorreo = $correo->enviarCorreo($objCorreo);
+            }
+
             echo json_encode($resultado);
             break;
 
@@ -168,6 +212,74 @@
             $citaEmpleado= new CitaEmpleado(null,$idCita,$idVeterinario);
             $resultado = $dCita->asignarVeterinario($citaEmpleado);
             //print_r($resultado);
+            echo json_encode($resultado);
+            break;
+
+        case 'atenderCitaNoProgramada':
+
+            $servicio = new Servicio($tipoCita, null,null);
+            $mascota= new Mascota($idMascota,null,null,null,null,null);
+
+            $cita = new Cita(null, $mascota, $fechaHoraMysql, 'Atendida', 1, $servicio);
+            /**se agrega la cita a la base de datos*/
+            $idCita = $dCita->agendarCitaNoProgramada($cita, $idEmpleado);
+            
+            /**se agrega el detalle a la base de datos */
+            $detalle = new Detalle(null, $observacion, $idCita->datos);
+            $resultadoDetalle = $dDetalle->agregarDetalle($detalle);
+
+            /**se obtiene el valor del servicio */
+            $valorServicio = $dCita->obtenerValorServicio($tipoCita);
+            json_encode($valorServicio);
+
+            $total = $precioProductos + $valorServicio->datos[0]['serPrecio'];
+
+            /**se agrega la factura a la base de datos */
+            $factura = new Factura(null, $idEmpleado, $fechaHoraMysql, $total, $productos);
+            $resultado = $dFactura->agregarFactura($factura);
+
+            $tamano = count($nombreProductos);
+            for($j = 0; $j < $tamano; $j++){
+
+                $item .= '<li><strong>'.$nombreProductos[$j].'</strong></li>';
+            };
+
+            $listaProductos = '<ul>'.$item.'</ul>';
+            
+            if($resultado->estado){
+                //Enviar correo cuando se agenda cita
+                $correo = new enviarCorreoPrueba();
+                $objCorreo = new stdClass();
+                $objCorreo->correoRemitente = "soporte.petsHealth@gmail.com"; //aqui pueden colocar el correo del administrador
+                $objCorreo->nombreRemitente = "Administración Pets Health"; //igual el nombre del administrador
+                $objCorreo->correoDestinatario = $correoPersona;
+                $objCorreo->nombreDestinatario = $nombreCliente;
+                $objCorreo->asunto = "Informe de la cita atendida.";
+                $objCorreo->mensaje = "Cordial saludo , <br> "
+                ."Nos permitimos informarle que su cita fue atendida con exito.
+                <br><b>Veterinario: </b>". $_SESSION['nombreUsuario']."
+                <br><b>Fecha y Hora: </b>".$fechaHora."
+                <br><b>Nombre de la mascota: </b> ".$nombreMascota."
+                <br><b>Observacion: </b> ".$observacion."
+                <br><b>Productos: </b> ".$listaProductos."
+                <br><b>Total de la consulta: </b> ".$totalFinal."
+                <table  width='50%' border='0' >
+                <tr>
+                <td width ='50%' align='center'>
+                <img src='https://i.imgur.com/yzjVfUS.png' alt='logoLargoEmpresa' width='250' >
+                </td>
+                <td width='50%'>
+                <br>
+                <b> Atentamente Administración Pets Health 	</b>
+                <br>
+                Gracias por confiar en nosotros
+                </td>
+                </tr>
+                </table>";
+
+                $resultadoCorreo = $correo->enviarCorreo($objCorreo);
+            }
+
             echo json_encode($resultado);
             break;
     }

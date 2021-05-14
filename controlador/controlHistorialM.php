@@ -1,5 +1,6 @@
 <?php
 extract($_REQUEST);
+
 include "../modelo/datos/conexion.php";
 include "../modelo/datos/datosHistorialM.php";
 include "../modelo/Entidad/Persona.php";

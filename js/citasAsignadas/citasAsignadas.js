@@ -7,12 +7,16 @@ var idEmpleado;
 var idMascota;
 var idServicio;
 var precioServicio;
+var rol;
+var correoPersona;
 
 $(function () {
+
   primerCampo = $("#primerCampo");
   productoAgregado  = document.querySelector('.factura-items-container');
   primeraFila = $('#primeraFila');
-
+  rol = $('#rolPersona').val();
+  
   /**funcion para listar los tipos de citas */
   listarTipoCita();
 
@@ -57,7 +61,6 @@ $(function () {
   /**------------------------------------------ */
   /**cada vez que se digita una letra se hace una consulta a la base de datos */
     $("#txt_buscadorProductos").keyup(function () {
-      let x = $("#txt_buscadorProductos").val();
       buscarProducto();
     });
 
@@ -95,13 +98,59 @@ $(function () {
             });
 
         }else{
+          if($('#txt_encargado').val() == ''){
 
-          // alert(' se atiende');
-          atenderCita();
+            Swal.fire({
+              icon:'error',
+              title:'Oops...!',
+              text:'Debe validar todos los campos',
+              textButtonText:'Ok',
+            });
+
+          }else if($('#txt_encargado').val() == '' && $('#txt_dueño').val().length > 0){
+            alert('se atendio');
+            //atenderCita();
+          }else if($('#txt_encargado').val().length > 0 && $('#txt_dueño').val() == ''){
+            alert('se atendio');
+          }
         }
       
     });
+
     /***********************************************************************************************************/
+    $('#btn_cerrar').click(()=>{
+
+      limpiarModalAtenderCita();
+
+    });
+
+    /***********************************************************************************************************/
+    $('#btn_redirigir').click(()=>{
+      
+      window.location.href = '../../principal/login/?rol='+rol;
+
+    });
+
+    /***********************************************************************************************************/
+
+    $('#btn_atenderCitaNoPro').click(()=>{
+      /**se valida el formulario */
+      if($('#txt_encargado').val() == '' || $('#txt_observacion').val() == ''){
+
+            Swal.fire({
+              icon:'error',
+              title:'Oops...!',
+              text:'Debe validar todos los campos',
+              textButtonText:'Ok',
+            });
+
+        }else{
+
+          atenderCitaNoProgramada();
+          
+        }
+      
+    });
 
 }); 
 
@@ -128,7 +177,7 @@ function listarCitas(id){
       console.log(resultado.datos);
 
       $.each(resultado.datos, function(j, dato){
-        $('#idCita').html(dato.idCita);
+        $('#idCita').html(j + 1);
         $('#tipoCita').html(dato.serTipo);
         $('#solicitante').html(dato.perNombre);
         $('#fechaHora').html(dato.ciFecha);
@@ -183,6 +232,7 @@ function mostrarDatosCita(){
         idServicio = dato.idServicio;
         precioServicio = dato.serPrecio;
         idCita = dato.idCita;
+        correoPersona = dato.perCorreo;
       });
 
     },
@@ -196,6 +246,7 @@ function mostrarDatosCita(){
 
 
 }
+
 function buscarCliente(cedula){
 
   var cedulaNueva;
@@ -215,6 +266,7 @@ function buscarCliente(cedula){
     success:function(resultado){
 
       console.log(resultado.datos);
+
       if(resultado.datos.length > 0){
 
         $.each(resultado.datos, function(j, dato){
@@ -228,6 +280,8 @@ function buscarCliente(cedula){
 
       }else{
           $('#registrarCliente').modal();
+          $('#txt_encargado').val('');
+          $('.opcion').remove();
       }
 
 
@@ -550,15 +604,24 @@ function atenderCita(){
        }
        console.log(productosFactura);
 
+       /**se obtiene los nombres de los productosq que se agregaron para posteriormente agregarlos a un arreglo
+        */
+       let nombreProductos = document.querySelectorAll('.factura-items #txt_nombre');
+       var arrayNombres = Array.from(nombreProductos);
+       var arrayNombreProductos = [];
+
+       for(let j in arrayNombres){
+
+         arrayNombreProductos.push(arrayNombres[j].innerHTML);
+       }
+
+       console.log(arrayNombreProductos);
+
        /**validamos que tipo de encargado es */
 
        if($('#chk_dueño').is(':checked')){
 
           encargado = $('#txt_dueño').val();
-
-       }else if($('#chk_empleado').is(':checked')){
-
-          encargado = $('#cb_empleado').text();
 
        }else if($('#chk_otro').is(':checked')){
 
@@ -579,10 +642,14 @@ function atenderCita(){
           idServicio: idServicio,
           observacion: $('#txt_observacion').val(),
           productos: productosFactura,
+          nombreProductos: arrayNombreProductos,
           total: total,
           idCita: idCita,
           idEmpleado: idEmpleado,
-          idMascota:idMascota
+          idMascota:idMascota,
+          correoPersona: correoPersona,
+          nombreCliente: $('#txt_dueño').val(),
+          nombreMascota: $('#txt_mascota').val()
        };
 
        $.ajax({
@@ -595,7 +662,22 @@ function atenderCita(){
           success: function(resultado){
 
             console.log(resultado);
-            alert('se atendio la cita con exito..!');
+
+            Swal.fire({
+              icon:'success',
+              title:'Bien hecho!',
+              text:'La cita se atendio con exito!',
+              confirmButtonText:'Ok',
+
+            }).then((result)=>{
+
+              if(result.isConfirmed){
+
+                limpiarModalAtenderCita();
+                window.location.reload();
+
+              } 
+            });
 
           },
           error: function(e){
@@ -604,4 +686,106 @@ function atenderCita(){
           }
        });
 
+}
+
+function limpiarModalAtenderCita(){
+
+  $('#txt_observacion').val('');
+  $('.factura-items').remove();
+  $('#txt_buscadorProductos').val('');
+  let precio = document.querySelector('.txt_total');
+  precio.innerHTML = `$0`;
+}
+
+function atenderCitaNoProgramada(){
+  /**se obtiene el total de los productos */
+
+  let total = document.querySelector('.txt_total').innerHTML;
+  let precioTotal = Number(total.replace('$', ''));
+
+  /**se obtiene el id de los procuctos */
+  let datos = document.querySelectorAll('.factura-items #txt_idProducto');
+  /**creamos un arreglo a partir de esos elementos que retorna el querySelectorAll */
+  var arrayProductos = Array.from(datos);
+  var productosFactura = [];
+  /**obtenemos el texto plano de los elementos que tenemos en el arreglo arrayProductos
+   * con el fin de tener un arreglo final mas limpio
+  */
+  for(let j in arrayProductos){
+
+    productosFactura.push(arrayProductos[j].value);
+
+  }
+  console.log(productosFactura);
+
+  /**se obtiene los nombres de los productosq que se agregaron para posteriormente agregarlos a un arreglo
+        */
+   let nombreProductos = document.querySelectorAll('.factura-items #txt_nombre');
+   var arrayNombres = Array.from(nombreProductos);
+   var arrayNombreProductos = [];
+
+   for(let j in arrayNombres){
+
+     arrayNombreProductos.push(arrayNombres[j].innerHTML);
+   }
+
+  /**se obtiene el nombre de la mascota */
+  var mascota = document.getElementById('cb_mascota').innerText;
+
+  var parametros = {
+
+    accion:'atenderCitaNoProgramada',
+    idMascota: $('#cb_mascota').val(),
+    tipoCita: $('#cb_tipoCita').val(),
+    observacion: $('#txt_observacion').val(),
+    idEmpleado: idEmpleado,
+    precioProductos: precioTotal,
+    productos: productosFactura,
+    nombreProductos: arrayNombreProductos,
+    nombreMascota: mascota
+  };
+
+  $.ajax({
+    url:'../../../controlador/citaControl.php',
+    data: parametros,
+    dataType: 'json',
+    type:'POST',
+    cache:'false',
+
+    success: function(resultado){
+
+      console.table(resultado);
+      Swal.fire({
+        icon:'success',
+        title:'Bien hecho!',
+        text:'La cita se atendio con exito',
+        confirmTextButton:'Ok'
+
+      }).then((result)=>{
+
+        if(result.isConfirmed){
+
+            limpiarFormularioCitasNoProgramadas();
+        }
+      });
+
+    },
+    error: function(e){
+
+      console.error(e.responseText);
+
+    }
+  });
+}
+
+function limpiarFormularioCitasNoProgramadas(){
+
+  $('#txt_cedula').val('');
+  $('#txt_encargado').val('');
+  $('#txt_observacion').val('');
+  $('.opcion').remove();
+  $('#txt_buscadorProductos').val('');
+  $('.factura-items').remove();
+  let total = document.querySelector('.txt_total');
+  total.innerHTML = `$0`;
 }

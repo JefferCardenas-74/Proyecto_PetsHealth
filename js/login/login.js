@@ -3,12 +3,23 @@ var numeroIntentos = 3;
 var count = 0;
 var restantes = 3;
 var idPersona;
-
+var rol;
 
 $(function () {
 
-  
+  rol = $('#rolPersona').val();
+  console.log(rol);
 
+  if(rol == 'Empleado'){
+
+    $('#btn_volverCitaNoPro').css('display', 'block');
+    $('#btn_volverCitaNoPro').click(()=>{
+      window.location.href = '../../empleado/citasAsignadas/?page=frm_citasNoProgramadas';
+    });
+
+  }else{
+    $('#btn_volverCitaNoPro').css('display', 'none');
+  }
   /*EVENTOS DE INCIO DE SESION */
   $(".txtCrearCuenta").click(function () {
     $("#crearCuenta").modal();
@@ -55,12 +66,19 @@ $(function () {
   });
 
   $("#btn_registrar").click(function () {
+<<<<<<< HEAD
 
    
     if ($("#txt_cedula").val() != "" && $("#txt_nombre").val() != "" && $("#txt_apellidos").val() != "" && $("#txt_telefono").val() != "" && $("#txt_correo").val() != "" && $("#txt_nombreMascota").val() != "" && $("#txt_edadMascota").val() != "" && $("#dt_fechaNacimientoMascota").val() != "" ) {
       validarcb()
+=======
+    if ($("#txt_cedula").val() != "" && $("#txt_nombre").val() != "" && $("#txt_apellidos").val() != "" && $("#txt_telefono").val() != "" && $("#txt_correo").val() != "" && $("#txt_nombreMascota").val() != "" && $("#txt_edadMascota").val() != "" && $("#dt_fechaNacimientoMascota").val() != "" && $("#cb_tipoMascota").val() != "") {
+
+>>>>>>> master
       registrarPersona();
+
     } else {
+
       Swal.fire({
         title: "Campos vacios !",
         text: "Ingresa datos por favor",

@@ -58,11 +58,13 @@ require_once("../../../configuracion/validaciones.php");
     <!--libreria sweetalert para alertas personalizadas-->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.4/dist/sweetalert2.all.min.js"></script>
 
-    <!--js externo-->
-    <script src="../../../js/registrarEmpleado/registrarEmpleado.js"></script>
-    <script src="../../../js/menu.js"></script>
     <!-- js global -->
     <script src="../../../js/global.js"></script>
+    
+    <!--js externo-->
+    <script type="module" src="../../../js/registrarEmpleado/registrarEmpleado.js"></script>
+    <script src="../../../js/menu.js"></script>
+    
 </head>
 
 <body>

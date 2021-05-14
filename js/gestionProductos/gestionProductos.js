@@ -52,30 +52,59 @@ function listarProductos(){
 
             $('#tbl_productos').DataTable({
 
-                responsive: true,
-
                 language: {
-                    processing:     "Traitement en cours...",
-                    search:         "Buscar",
-                    lengthMenu:    "Mostrar _MENU_ Elementos",
-                    info:           "Mostrando de _START_ a _END_ de _TOTAL_ elementos",
-                    infoEmpty:      "Mostrando de 0 a 0 de 0 elementos",
-                    infoFiltered:   "(filtro de _MAX_ elementos en total)",
-                    infoPostFix:    "",
-                    loadingRecords: "Chargement en cours...",
-                    zeroRecords:    "No existe registro con ese nombre",
-                    emptyTable:     "Aucune donnée disponible dans le tableau",
-                    paginate: {
-                        first:      "Premier",
-                        previous:   "Anterior",
-                        next:       "Siguiente",
-                        last:       "Ultimo"
+                    url: "//cdn.datatables.net/plug-ins/1.10.22/i18n/Spanish.json",
+                    // cambiar el texto del boton de copiar
+                    buttons: {
+                        copyTitle: "Datos copiados",
+                        copySuccess: {
+                            _: "%d Registros copiados al portapapeles",
+                        },
                     },
-                    aria: {
-                        sortAscending:  ": activer pour trier la colonne par ordre croissant",
-                        sortDescending: ": activer pour trier la colonne par ordre décroissant"
-                    }
-                }
+                },
+                responsive: true,
+                // decir que botones mostrar en posicion el dom (Blfrtip)
+                // fBrtlp       dom: 'Bfrtip', Se configura manualmente
+                dom: '<"row"<"col-sm-12 col-md-4"l><"text-center col-sm-12 col-md-4"<"dt-buttons btn-group flex-wrap"B>><"col-sm-12 col-md-4"f>>t<"row"<"col-sm-12 col-md-6"i><"col-sm-12 col-md-6"p>>',
+                //  configurar la cantidad de filas que mostrara  la tabla
+                lengthMenu: [[5, 25, 50, -1],
+                ['5 Filas ', '25 Filas', '50 Filas ', ' Mostrar todo ']],
+                // arreglo con los botones y su personalizacion
+                buttons:
+                    [
+                        {
+                            extend: "copy",
+                            text: '<i class="fas fa-copy"></i>',
+                            titleAttr: "copiar",
+                            className: "btn btn-warning",
+                        },
+                        
+                        {
+                            extend: "excelHtml5",
+                            text: '<i class="fas fa-file-excel"></i>',
+                            titleAttr: "Exportar a excel",
+                            className: "btn btn-success",
+                        },
+                        {
+                            extend: "print",
+                            text: '<i class="fas fa-print"></i>',
+                            titleAttr: "Imprimir",
+                            className: "btn btn-primary",
+                        },
+                        {
+                            text: '<i class="fas fa-file-pdf"></i>',
+                            extend: "pdfHtml5",
+                            title: "Datos de los empleados",
+                            titleAttr: "Exportar a pdf",
+                            className: "btn btn-danger",
+                        },
+                        {
+                            extend: "csvHtml5",
+                            text: '<i class="fas fa-file-csv"></i>',
+                            titleAttr: "Exportar a CSV",
+                            className: "btn btn-info",
+                        }
+                    ]
             });
             
         },
@@ -110,13 +139,18 @@ function agregarProducto(){
 
     }else{
 
+        var precio = $('#txt_precio').val();
+        var precioParseado = precio.replace('.','');
+
         var parametros = {
             accion: 'agregarProducto',
     
             nombre: $('#txt_nombre').val(),
-            precio: $('#txt_precio').val(),
+            precio: parseInt(precioParseado),
             unidad: $('#cb_unidad').val()
         };
+
+        
     
         $.ajax({
     
