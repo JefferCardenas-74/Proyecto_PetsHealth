@@ -28,31 +28,47 @@ $(function () {
    * ya que esto hace que la pagina se vuelva a cargar
    */
   deshabilitarEventoHref();
-  
 
   redirijirPrincipal();
   validacionPassword();
+
+  /**///////////////////////////////////////////////////////////////////// */
+  /**function para validar que no se digite caracteres especiales en los input de type number */
+  var inputNumber = $('input[type="number"]');
+
+  inputNumber.keypress((e) => {
+
+    if(e.charCode < 48 || e.charCode > 57) return false;
+  });
+
+  /**///////////////////////////////////////////////////////////////////// */
+  // /**function para validar que solo se digiten letras en mayusculas y minusculas */
+  // var inputText = $('input[type="text"]');
+  // inputText.keypress((e)=>{
+
+  //   if(e.charCode < 65 || e.charCode > 90 && e.charCode < 97 || e.charCode > 122) return false;
+      
+  // });
+  // /**///////////////////////////////////////////////////////////////////// */
+
 });
 
-function deshabilitarEventoHref(){
-
+function deshabilitarEventoHref() {
   /**se obtiene todas las etiquetas a */
-  var elementos = document.querySelectorAll('a');
+  var elementos = document.querySelectorAll("a");
 
   /**a cada etiqueta a le vamos a asignar un evento click y obtenemos el valor de href
    * si es igual a '#', entonces se deshabilita el evento de esa etiqueta a.
    */
-  elementos.forEach((elemento)=>{
+  elementos.forEach((elemento) => {
+    elemento.addEventListener("click", (e) => {
+      var contenido = elemento.getAttribute("href");
 
-    elemento.addEventListener('click', (e)=>{
-      var contenido = elemento.getAttribute('href');
-  
-      if(contenido == '#'){
-          e.preventDefault();
+      if (contenido == "#") {
+        e.preventDefault();
       }
     });
   });
-  
 }
 
 function redirijirPrincipal() {
@@ -224,8 +240,8 @@ function cerrarSesionDinamico() {
   }
 }
 
-function mostrarPassword(){
-  let inputPassword = document.querySelector('.passwordNueva2');
+function mostrarPassword() {
+  let inputPassword = document.querySelector(".passwordNueva2");
   if (inputPassword.type === "password") {
     inputPassword.type = "text";
   } else {
@@ -233,21 +249,33 @@ function mostrarPassword(){
   }
 }
 
-/**la funcion toma un string de entrada y usando la funcion replace de js 
- * se remplazan todos caracteres especiales a vacios
- * la expresion regular /[^a-zA-Z0-9]/g indica que tomara todo caracter que no este especificado dentro del grupo de corchetes
- * la g al final del grupo indica que la busqueda se hace de manera globlal ya que por defecto replace solo toma el primer caracter 
- * que encuentra
+
+/**funcion que toma un string como entrada y valida que este no tenga caracteres especiales
+ * true si contiene caracteres y false si no 
  */
-const eliminarCaracteresEspeciales = (palabra)=>{
 
+ function buscarCe(string){
+
+  if((string.search(/[^a-zA-Z0-9]/g)) != -1){
+
+      return true;
   
-  palabra = palabra.replace(/[^a-zA-Z0-9]/g, '');
-
-  return palabra;
+  }else{
+      return false;
+  }
 }
-//export {eliminarCaracteresEspeciales};
-// module.exports = {
-//   'eliminarCaracteresEspeciales':eliminarCaracteresEspeciales
-// };
 
+/**funcion toma un string y valida que este formateado basado en la expresio regular regexEmail
+ * si se cumple esta expresion la funcion retorna true indicando que el correo es valido
+ * de lo constraio retorna false indicando que no lo es
+ */
+function validarEmail(string){
+
+  let regexEmail = /[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+/g;
+
+  if(string.search(regexEmail) != -1){
+      return true;
+  }else{
+      return false;
+  }
+}

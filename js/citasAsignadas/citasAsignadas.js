@@ -61,7 +61,6 @@ $(function () {
   /**------------------------------------------ */
   /**cada vez que se digita una letra se hace una consulta a la base de datos */
     $("#txt_buscadorProductos").keyup(function () {
-      let x = $("#txt_buscadorProductos").val();
       buscarProducto();
     });
 

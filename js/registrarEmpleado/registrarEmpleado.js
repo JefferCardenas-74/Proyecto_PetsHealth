@@ -1,4 +1,3 @@
-//import {eliminarCaracteresEspeciales} from '../global.js';
 
 var nombreRol="";
 
@@ -61,12 +60,18 @@ function listarRol(){
 function agregarEmpleado(){
 
     /**se valida que los campos tengan datos */
-    
-    if($('#txt_identificacion').val() == '' ||
-        $('#txt_nombre').val() == '' ||
-        $('#txt_apellido').val() == '' ||
-        $('#txt_telefono').val() == '' || 
-        $('#txt_correo').val() == '' ||
+
+    var identificacion = $('#txt_identificacion').val();
+    var nombre = $('#txt_nombre').val();
+    var apellido = $('#txt_apellido').val();
+    var telefono = $('#txt_telefono').val();
+    var correo = $('#txt_correo').val();
+
+    if(identificacion == '' ||
+        nombre == '' ||
+        apellido == '' ||
+        telefono == '' || 
+        correo == '' ||
         $('#cb_rol').val() == 0){
 
         Swal.fire({
@@ -76,26 +81,41 @@ function agregarEmpleado(){
             ConfirmButtonText: 'Ok'
         });
 
+
+    }else if(buscarCe(nombre) == true || buscarCe(apellido) == true){
+
+        Swal.fire({
+            title: 'Oops',
+            text: 'Los nombres y apellidos no puede tener caracteres especiales...!',
+            icon: 'warning',
+            ConfirmButtonText: 'Ok'
+        });
+
+    }else if(validarEmail(correo) == false){
+
+        Swal.fire({
+            title: 'Oops',
+            text: 'El correo no valido',
+            icon: 'warning',
+            ConfirmButtonText: 'Ok'
+        });
+
     }else{
         
-        let identificacion = eliminarCaracteresEspeciales($('#txt_identificacion').val());
-        let nombre = eliminarCaracteresEspeciales($('#txt_nombre').val());
-
-        console.log(nombre);
 
         var parametros = {
 
-            identificacion: identificacion,
+            identificacion: $('#txt_identificacion').val(),
             nombre: $('#txt_nombre').val(),
             apellido: $('#txt_apellido').val(),
             correo: $('#txt_correo').val(),
-            password: $('#txt_password').val(),
             telefono: $('#txt_telefono').val(),
             rol: $('#cb_rol').val(),
             nombreRol:nombreRol, //se manda el nombre del rol
             accion: 'registrarEmpleado'
         };
-    
+        
+        console.table(parametros);
     //     $.ajax({
     //         url: '../../../controlador/empleadoControl.php',
     //         data: parametros,
