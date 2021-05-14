@@ -1,3 +1,6 @@
+<div class="contenedorTitulo">
+    <h1 class="titulo fredoka">Citas no programadas </h1>
+</div>
 <div class="container-fluid">
     <div class="row frm_atenderUrgencia">
         <div class="col">
@@ -77,7 +80,9 @@
                     <p>Parece que este cliente no esta registrado :(</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btnMorado">Registrar Cliente</button>
+                    <button type="button"  class="btnMorado">
+                    <a  href="../.../../../principal/login/#"></a>    
+                    Registrar Cliente</button>
                 </div>
             </div>
         </div>

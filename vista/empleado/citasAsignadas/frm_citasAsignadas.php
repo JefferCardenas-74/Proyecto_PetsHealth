@@ -1,3 +1,8 @@
+
+<div class="contenedorTitulo">
+    <h1 class="titulo fredoka">Citas Asignadas</h1>
+</div>
+
 <div class="row">
     <div class="col">
         <div class="contenedorTabla">

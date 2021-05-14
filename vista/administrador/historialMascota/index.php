@@ -48,7 +48,6 @@ require_once("../../../configuracion/validaciones.php");
                 <input type="hidden" value="<?php echo $rol?>" id="rol">
                 <input type="hidden" value="<?php echo $persona?>" id="persona">
                 <nav><?php include "../menu.php" ?></nav>
-                <header ><?php include "encabezado.php"?> </header>
                 <section ><?php include "frm_historialMascota.php"?></section>
                 <footer > <?php include "../../../piePagina.php"?></footer>
             </div>

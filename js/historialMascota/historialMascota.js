@@ -37,10 +37,13 @@ $(function(){
             ListarMascotasEncargado();
         }else{
             Swal.fire({
-                icon: 'error',
+                icon: 'warning',
                 title: 'Oops',
-                text: 'Digite su Cedula.',
+                text: 'Digite cedula del cliente por favor.',
                 ConfirmButtonText: 'Ok',
+                customClass: {
+                    confirmButton: 'btnAceptar'
+                }
             });
         }
     });
@@ -54,10 +57,13 @@ $(function(){
             ActualizarDescripcion();
         }else{
             Swal.fire({
-                icon: 'error',
+                icon: 'warning',
                 title: 'Oops',
                 text: 'La Descripcion no puede estar vacia.',
                 ConfirmButtonText: 'Ok',
+                customClass: {
+                    confirmButton: 'btnAceptar'
+                  }
             });
         }
     });
@@ -93,13 +99,6 @@ function ListarMascotasEncargado(){
                 $.each(mascotas, function(i, mascota){
                     $("#cb_mascota").append("<option value="+ mascota.idMascota +">" 
                     + mascota.masNombre + "</option>");
-                });
-            }else{
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops',
-                    text: 'Revisar Datos.',
-                    ConfirmButtonText: 'Ok',
                 });
             }
         },
@@ -211,10 +210,13 @@ function ActualizarDescripcion(){
         success: function(resultado){
             if(resultado.estado){
                 Swal.fire({
-                    title: 'Actualizado',
+                    title: 'Perfecto',
                     text: 'Descripcion Actualizado con Exito..!',
                     icon: 'success',
-                    ConfirmButtonText: 'Ok'
+                    ConfirmButtonText: 'Aceptar',
+                    customClass: {
+                        confirmButton: 'btnAceptar'
+                    }
                 });
                 ListarConsultaHistorialM();
             }else{
@@ -222,7 +224,10 @@ function ActualizarDescripcion(){
                     title: 'Oops',
                     text: 'Ha ocurrido un error a la hora de Actualizar la Descripción. Revise',
                     icon: 'Error',
-                    ConfirmButtonText: 'Ok'
+                    ConfirmButtonText: 'Aceptar',
+                    customClass: {
+                        confirmButton: 'btnAceptar'
+                      }
                 });
             }
         },

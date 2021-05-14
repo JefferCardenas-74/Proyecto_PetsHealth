@@ -57,7 +57,6 @@ require_once("../../../configuracion/validaciones.php");
     
         <!--hoja de estilos personalizada-->
         <link rel="stylesheet" href="../../../componente/css/citasAsignadas/citasAsignadas.css">
-        <link rel="stylesheet" href="../../../componente/css/citasAsignadas/cabecera.css">
         <link rel="stylesheet" href="../../../componente/css/menu.css">
     
         <!--js externo-->
@@ -79,7 +78,6 @@ require_once("../../../configuracion/validaciones.php");
 
         <?php include '../menu.php' ?>
 
-        <header><?php include 'cabecera.php' ?></header>
 
         <section><?php include $page.'.php' ?></section>
 

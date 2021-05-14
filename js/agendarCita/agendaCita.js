@@ -53,13 +53,14 @@ $(function () {
                 Swal.fire({
                     icon: "warning",
                     text: "Seleccione el servicio por favor",
+                    confirmButtonText: "Aceptar",
+                    customClass: {
+                      confirmButton: 'btnAceptar'
+                    }
                 });
             }
         } else {
-            Swal.fire({
-                icon: "warning",
-                text: "Campos vacios verificar",
-            });
+            alertaCamposVacios();
         }
     });
 
@@ -75,6 +76,10 @@ $(function () {
             Swal.fire({
                 icon: 'warning',
                 text: 'Chequea por favor',
+                confirmButtonText: "Aceptar",
+                    customClass: {
+                      confirmButton: 'btnAceptar'
+                    },
             });
         }
     });
@@ -369,6 +374,9 @@ function agendarCita() {
         beforeSend: function () {
             $("#btnEnviarCita").text("Procesando...");
             $("#btnEnviarCita").attr("disabled", true);
+            $("#btnEnviarCita").css({
+                background: '#3000ff8f'
+                });
         },
         success: function (resultado) {
             console.log(resultado);
@@ -376,20 +384,22 @@ function agendarCita() {
                 // vuelvo a poner el texto como estaba
                 $("#btnEnviarCita").text("Enviar cita");
                 $("#btnEnviarCita").attr("disabled", false);
+                $("#btnEnviarCita").css({
+                    background: 'linear-gradient(to right, #8E2DE2, #4A00E0)'
+                    });
                 limpiarCampos();
                 Swal.fire({
                     title: "Bien hecho",
                     icon: "success",
                     text: resultado.mensaje,
-                    footer: "<a>Revisa tu correo </a>",
+                    footer: "<a>Revisa tu correo  por favor.</a>",
+                    confirmButtonText: "Aceptar",
+                    customClass: {
+                      confirmButton: 'btnAceptar'
+                    },
                 });
             } else {
-                Swal.fire({
-                    title: "Error",
-                    icon: "error",
-                    text: resultado.mensaje,
-                    footer: "<a>Ocurrio un problema verfica por favor</a>",
-                });
+                alertaError();
             }
         },
         error: function (ex) {

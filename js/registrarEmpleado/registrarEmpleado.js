@@ -68,12 +68,7 @@ function agregarEmpleado(){
         $('#txt_correo').val() == '' ||
         $('#cb_rol').val() == 0){
 
-        Swal.fire({
-            title: 'Oops',
-            text: 'Debe validar todos los campos.',
-            icon: 'error',
-            ConfirmButtonText: 'Ok'
-        });
+        alertaCamposVacios();
 
     }else{
         var parametros = {
@@ -103,17 +98,15 @@ function agregarEmpleado(){
                         title: 'Registrado',
                         text: 'Empleado Registrado con exito..!',
                         icon: 'success',
-                        ConfirmButtonText: 'Ok'
+                        ConfirmButtonText: 'Aceptar',
+                        customClass: {
+                            confirmButton: 'btnAceptar'
+                          }
                     });
     
                 }else{
                     /**mustra una alerta de error */
-                    Swal.fire({
-                        title: 'Oops',
-                        text: 'Ha ocurrido un error a la hora del registro. Revise',
-                        icon: 'error',
-                        ConfirmButtonText: 'Ok'
-                    });
+                    alertaError();
                 }
                 /**funcion que limpia todos los campos de texto */
                 limpiar();

@@ -98,12 +98,7 @@ function agregarServicio(){
 
     if($('#txt_tipo').val() == '' || $('#txt_descripcion').val() == '' || $('#txt_precio').val() == ''){
 
-        Swal.fire({
-            icon: 'error',
-            title: 'Oops..',
-            text: 'Debe validar todos los campos.',
-            confirmButtonText: 'ok' 
-        });
+        alertaCamposVacios();
 
     }else{
 
@@ -130,7 +125,11 @@ function agregarServicio(){
                         icon: 'success',
                         title: 'Agregado',
                         text: resultado.mensaje,
-                        confirmButtonText: 'ok',
+                        confirmButtonText: 'Aceptar',
+                        customClass: {
+                            confirmButton: 'btnAceptar',
+                            cancelButton: 'btnCancelar',
+                        }
                     }).then((result)=>{
                         if(result.isConfirmed){
                             window.location.reload();
@@ -143,7 +142,11 @@ function agregarServicio(){
                         icon: 'error',
                         title: 'Oops..',
                         text: 'No se pudo agregar los datos.',
-                        confirmButtonText: 'ok',
+                        confirmButtonText: 'Aceptar',
+                        customClass: {
+                            confirmButton: 'btnAceptar',
+                            cancelButton: 'btnCancelar',
+                        }
                     }).then((result)=>{
                         if(result.isConfirmed){
                             limpiar(); 
@@ -271,13 +274,15 @@ function modalEliminar(id){
     idServicio = id;   
     
     Swal.fire({
-        title:'Estas Seguro?',
-        text:'Estas a un pazo de eliminar un servicio de la base de datos..!',
-        icon:'warning',
+        title:'Deseas eliminar este servicio?',
+        icon:'question',
         showCancelButton: true,
-        confirmButtonColor: '#5105E0',
-        cancelButtonColor: '#F24613',
-        confirmButtonText:'Si, Eliminar servicio'
+        confirmButtonText:'Si',
+        cancelButtonText:'No',
+        customClass: {
+            confirmButton: 'btnAceptar',
+            cancelButton: 'btnCancelar',
+        }
 
     }).then((result) => {
 
@@ -290,7 +295,11 @@ function modalEliminar(id){
                 icon: 'success',
                 title: 'Eliminado!',
                 text: 'Acabas de eliminar un servicio de la base de datos',
-                confirmButtonText: 'ok' 
+                confirmButtonText: 'ok' ,
+                customClass: {
+                    confirmButton: 'btnAceptar',
+                    cancelButton: 'btnCancelar',
+                }
 
             }).then((result)=>{
             if(result.isConfirmed){

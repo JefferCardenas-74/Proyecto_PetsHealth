@@ -48,7 +48,6 @@ require_once("../../../configuracion/validaciones.php");// llamo archivo que ret
         <body>
             <div class="container-fluid">
                 <nav><?php include "../menu.php" ?></nav>
-                <header ><?php include "encabezado.php"?> </header>
                 <section ><?php include "frm_asignarvete.php"?></section>
                 <footer > <?php include "../../../piePagina.php"?></footer>
             </div>

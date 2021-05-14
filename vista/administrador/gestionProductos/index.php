@@ -75,8 +75,6 @@
         
         <?php include '../menu.php'?>
 
-        <header><?php include 'cabecera.php' ?></header>
-
         <section><?php include $page.'.php' ?></section>
 
         <footer><?php include '../../../piePagina.php'?></footer>

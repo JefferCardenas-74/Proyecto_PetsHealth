@@ -14,12 +14,7 @@ $(function () {
         ) {
             actualizarPersona();
         } else {
-            Swal.fire({
-                title: 'Oops',
-                text: 'Debe validar todos los campos.',
-                icon: 'error',
-                ConfirmButtonText: 'Ok'
-            });
+            alertaCamposVacios();
         }
     });
 });
@@ -77,7 +72,11 @@ function actualizarPersona() {
                 Swal.fire({
                     title: 'Muy bien',
                     text: 'Usuario actualizado con exito.',
-                    icon: 'success'
+                    icon: 'success',
+                    confirmButtonText: 'Aceptar',
+                    customClass: {
+                        confirmButton: 'btnAceptar',
+                    }
                 });
                 window.location.reload(); 
                 listarPersona();

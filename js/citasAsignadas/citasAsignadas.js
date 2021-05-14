@@ -87,12 +87,7 @@ $(function () {
       if($('#txt_mascota').val() == '' || $('#txt_dueño').val() == '' || 
           $('#txt_tipoCita').val() == '' || $('#txt_observacion').val() == ''){
 
-            Swal.fire({
-              icon:'error',
-              title:'Oops...!',
-              text:'Debe validar todos los campos',
-              textButtonText:'Ok',
-            });
+            alertaCamposVacios();
 
         }else{
 
@@ -594,8 +589,14 @@ function atenderCita(){
 
           success: function(resultado){
 
-            console.log(resultado);
-            alert('se atendio la cita con exito..!');
+            Swal.fire({
+              title: "La cita se atendio correctamente",
+              icon: "success",
+              confirmButtonText: "Aceptar",
+              customClass: {
+                confirmButton: 'btnAceptar'
+              }
+            });
 
           },
           error: function(e){

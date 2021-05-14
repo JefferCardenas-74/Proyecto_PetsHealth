@@ -3,7 +3,7 @@
 ?>
 
 <div class="contenedorTitulo">
-    <h1 class="titulo fredoka">Gestiona tus Mascotas!</h1>
+    <h1 class="titulo fredoka">Gestiona tus Mascotas</h1>
 </div>
 
 <div class="container-fluid">

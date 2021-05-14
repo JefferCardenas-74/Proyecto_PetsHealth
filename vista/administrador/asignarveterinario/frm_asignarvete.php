@@ -1,3 +1,6 @@
+<div class="contenedorTitulo">
+        <h1 class="titulo fredoka">Asignar veterinario</h1>
+</div>
 <div class="datos_ListaCitasPorAsignarVete">
     <table name="tbl_AsignarVete" id="tbl_AsignarVete" class="tabla">
         <thead>

@@ -426,12 +426,43 @@ hr {
   border-radius: 20px !important;
 }
 /* fin footer */
-
+/* SWEEALERT */
 /* Z index de alertas personalizadas */
 .swal2-container {
   z-index: 100000!important;
 }
 
+/* PROPIEDADES ALERTA BOTONES */
+.btnAceptar{
+  background: linear-gradient(to right, #8E2DE2, #4A00E0) !important;
+} 
+.btnCancelar{
+  background:linear-gradient(to right, #f12711, #f5af19) !important;
+} 
+
+
 #irPrincipal{
   cursor: pointer;
 }
+
+/* PROPIEDADES DE LOS TITULOS */
+
+.contenedorTitulo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+}
+
+.titulo{
+  font-size: 70px;
+  text-align: center;
+  transition: all .5s;
+}
+@media screen and (max-width: 576px){
+  .titulo{
+      font-size: 50px;
+      text-align: center;
+  }
+}
+
