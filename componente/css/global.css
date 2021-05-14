@@ -439,9 +439,11 @@ a[href*="#"]{
 /* PROPIEDADES ALERTA BOTONES */
 .btnAceptar{
   background: linear-gradient(to right, #8E2DE2, #4A00E0) !important;
+  font-family: 'Fredoka One';
 } 
 .btnCancelar{
   background:linear-gradient(to right, #f12711, #f5af19) !important;
+  font-family: 'Fredoka One';
 } 
 
 

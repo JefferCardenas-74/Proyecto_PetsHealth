@@ -6,15 +6,32 @@ $(function () {
     listarPersona();
 
     $("#btnActualizarDatos").click(function () {
-        if ($("#txt_identificacion").val() != "" &&
-            $("#txt_nombre").val() != "" &&
-            $("#txt_apellido").val() != "" &&
-            $("#txt_telefono").val() != "" &&
-            $("#txt_correo").val() != "" 
+
+        var identificacion = $("#txt_identificacion").val();
+        var nombre = $("#txt_nombre").val();
+        var apellido = $("#txt_apellido").val();
+        var telefono = $("#txt_telefono").val();
+        var correo = $("#txt_correo").val();
+
+        if(identificacion == "" ||
+            nombre == "" ||
+            apellido == "" ||
+            telefono == "" ||
+            correo == "" 
         ) {
-            actualizarPersona();
-        } else {
             alertaCamposVacios();
+    
+        } else if(buscarCe(nombre) == true || buscarCe(apellido)) {
+            
+            alertaInputCaracteres();
+
+        }else if(!validarEmail(correo)){
+
+          alertaCorreoInvalido();
+
+        }else{
+
+            actualizarPersona();
         }
     });
 });
@@ -77,9 +94,14 @@ function actualizarPersona() {
                     customClass: {
                         confirmButton: 'btnAceptar',
                     }
+                }).then((result)=>{
+
+                    if(result.isConfirmed){
+
+                        window.location.reload(); 
+                        listarPersona();
+                    }
                 });
-                window.location.reload(); 
-                listarPersona();
             }
         },
         error: function (ex) {

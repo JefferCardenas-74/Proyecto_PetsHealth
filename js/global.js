@@ -44,15 +44,6 @@ $(function () {
     if(e.charCode < 48 || e.charCode > 57) return false;
   });
 
-  /**///////////////////////////////////////////////////////////////////// */
-  // /**function para validar que solo se digiten letras en mayusculas y minusculas */
-  // var inputText = $('input[type="text"]');
-  // inputText.keypress((e)=>{
-
-  //   if(e.charCode < 65 || e.charCode > 90 && e.charCode < 97 || e.charCode > 122) return false;
-      
-  // });
-  // /**///////////////////////////////////////////////////////////////////// */
 
 });
 
@@ -295,6 +286,35 @@ function alertaError() {
   });
 }
 
+/**alerta para indicar que el correo es invalido */
+function alertaCorreoInvalido(){
+
+  Swal.fire({
+    icon: 'warning',
+    title: 'Advertencia',
+    text: 'El formato del correo no es valido.',
+    confirmButtonText:'Aceptar',
+    customClass:{
+        confirmButton:'btnAceptar'
+    },
+    footer:'Ejemplo de correo: example@example.com'
+  });
+
+}
+/**alerta para indicar cuando los input type text tienen caracteres */
+function alertaInputCaracteres(){
+
+  Swal.fire({
+    icon: 'warning',
+    title: 'Advertencia',
+    text: 'Los nombres y apellidos no pueden tener caracteres especiales.',
+    confirmButtonText:'Aceptar',
+    customClass:{
+        confirmButton:'btnAceptar'
+    }
+  });
+  
+}
 
 /**funcion que toma un string como entrada y valida que este no tenga caracteres especiales
  * true si contiene caracteres y false si no 
