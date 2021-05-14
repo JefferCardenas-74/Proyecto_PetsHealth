@@ -11,10 +11,6 @@ $(function () {
     listarCliente();
     listarServicios();
 
-
-
-
-
     // eventos secundarios
     let escojerServicios = new bootstrap.Modal(
         document.getElementById("modalSelServicios"),

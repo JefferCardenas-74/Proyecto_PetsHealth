@@ -12,12 +12,12 @@
         function listarCitasAsignadas($idEmpleado){
             try{
 
-                $consulta = "select empleado.idEmpleado, cita.idCita, perNombre, masNombre, serTipo,mascota.idMascota, ciFecha from cita inner join citaempleado
+                $consulta = "select empleado.idEmpleado, cita.idCita, perNombre, masNombre, serTipo, mascota.idMascota, ciFecha from cita inner join citaempleado
                 on cita.idCita = citaempleado.idCita inner join empleado 
                 on empleado.idEmpleado = citaempleado.idEmpleado inner join mascota
                 on mascota.idMascota = cita.idMascota inner join persona
                 on persona.idPersona = mascota.idPersona inner join citaservicio
-                on citaservicio.idCita = cita.idCita inner join servicio
+                on cita.idCita = citaservicio.idCita inner join servicio
                 on servicio.idServicio = citaservicio.idServicio
                 where empleado.idEmpleado = ? and cita.ciEstado = 'Asignada'";
 
@@ -44,7 +44,7 @@
         function mostrarDatosCita($idCita){
             try{    
 
-                $consulta = 'select cita.idCita, perNombre, servicio.idServicio ,serTipo, serPrecio, mascota.idMascota, masNombre from cita inner join citaservicio 
+                $consulta = 'select cita.idCita, perNombre, perCorreo, serTipo, serPrecio, mascota.idMascota, masNombre from cita inner join citaservicio 
                 on cita.idCita = citaservicio.idCita inner join servicio
                 on servicio.idServicio = citaservicio.idServicio inner join mascota
                 on mascota.idMascota = cita.idMascota inner join persona 
@@ -442,6 +442,74 @@
                 $this->retorno->mensaje=$ex->getMessage();
                 $this->retorno->datos=null;
             }
+            return $this->retorno;
+        }
+        
+        function agendarCitaNoProgramada(Cita $cita, $idEmpleado){
+            try{
+                $this->conexion->beginTransaction();
+
+                $consulta = "insert into cita values(null, ?,?,?,?)";
+                $resultado = $this->conexion->prepare($consulta);
+                $resultado->bindParam(1, $cita->getMascota()->getIdMascota());
+                $resultado->bindParam(2, $cita->getFecha());
+                $resultado->bindParam(3, $cita->getEstado());
+                $resultado->bindParam(4, $cita->getIdHora());
+            
+                $resultado->execute();
+                
+                $idCita = $this->conexion->lastInsertId();
+
+                $consulta = 'insert into citaservicio values (null, ?,?)';
+                $resultado = $this->conexion->prepare($consulta);
+                $resultado->bindParam(1, $idCita);
+                $resultado->bindParam(2, $cita->getServicio()->getIdServicio());
+
+                $resultado->execute();
+
+                $consulta = 'insert into citaempleado values (null, ?,?)';
+                $resultado = $this->conexion->prepare($consulta);
+                $resultado->bindParam(1, $idCita);
+                $resultado->bindParam(2, $idEmpleado);
+
+                $resultado->execute();
+
+                $this->conexion->commit();
+
+                $this->retorno->mensaje = 'se hizo el registro de la cita con exito';
+                $this->retorno->estado = true;
+                $this->retorno->datos = $idCita;
+
+            }catch(PDOException $e){
+
+                $this->conexion->rollBack();
+                $this->retorno->mensaje = $e->getMessage();
+                $this->retorno->estado = false;
+                $this->retorno->datos = null;
+            }
+            return $this->retorno;
+        }
+
+        function obtenerValorServicio($idServicio){
+            try{
+                $consulta = 'SELECT serPrecio from servicio 
+                where idServicio = ?';
+                $resultado = $this->conexion->prepare($consulta);
+                $resultado->bindParam(1, $idServicio);
+                
+                $resultado->execute();
+
+                $this->retorno->mensaje = 'valor del servicio solicitado';
+                $this->retorno->estado = true;
+                $this->retorno->datos = $resultado->fetchAll();
+
+            }catch(PDOException $e){
+                
+                $this->retorno->mensaje = $e->getMessage();
+                $this->retorno->estado = false;
+                $this->retorno->datos = null;
+            }
+
             return $this->retorno;
         }
         

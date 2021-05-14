@@ -1,7 +1,7 @@
+
 var nombreRol="";
 
 $(function(){
-
     /**funciones para llenar los select dinamicamente*/
     listarRol();
     /**---------------------------------------------- */
@@ -60,65 +60,92 @@ function listarRol(){
 function agregarEmpleado(){
 
     /**se valida que los campos tengan datos */
-    
-    if($('#txt_identificacion').val() == '' ||
-        $('#txt_nombre').val() == '' ||
-        $('#txt_apellido').val() == '' ||
-        $('#txt_telefono').val() == '' || 
-        $('#txt_correo').val() == '' ||
+
+    var identificacion = $('#txt_identificacion').val();
+    var nombre = $('#txt_nombre').val();
+    var apellido = $('#txt_apellido').val();
+    var telefono = $('#txt_telefono').val();
+    var correo = $('#txt_correo').val();
+
+    if(identificacion == '' ||
+        nombre == '' ||
+        apellido == '' ||
+        telefono == '' || 
+        correo == '' ||
         $('#cb_rol').val() == 0){
 
         alertaCamposVacios();
 
+
+    }else if(buscarCe(nombre) == true || buscarCe(apellido) == true){
+
+        Swal.fire({
+            title: 'Oops',
+            text: 'Los nombres y apellidos no puede tener caracteres especiales...!',
+            icon: 'warning',
+            ConfirmButtonText: 'Ok'
+        });
+
+    }else if(validarEmail(correo) == false){
+
+        Swal.fire({
+            title: 'Oops',
+            text: 'El correo no valido',
+            icon: 'warning',
+            ConfirmButtonText: 'Ok'
+        });
+
     }else{
+        
+
         var parametros = {
 
             identificacion: $('#txt_identificacion').val(),
             nombre: $('#txt_nombre').val(),
             apellido: $('#txt_apellido').val(),
             correo: $('#txt_correo').val(),
-            password: $('#txt_password').val(),
             telefono: $('#txt_telefono').val(),
             rol: $('#cb_rol').val(),
             nombreRol:nombreRol, //se manda el nombre del rol
             accion: 'registrarEmpleado'
         };
+        
+        console.table(parametros);
+    //     $.ajax({
+    //         url: '../../../controlador/empleadoControl.php',
+    //         data: parametros,
+    //         dataType: 'json',
+    //         type: 'post',
+    //         cache: false,
     
-        $.ajax({
-            url: '../../../controlador/empleadoControl.php',
-            data: parametros,
-            dataType: 'json',
-            type: 'post',
-            cache: false,
+    //         success: function(resultado){
+    //             if(resultado.estado){
+    //                 /**mustra una alerta de completado */
+    //                 Swal.fire({
+    //                     title: 'Registrado',
+    //                     text: 'Empleado Registrado con exito..!',
+    //                     icon: 'success',
+    //                     ConfirmButtonText: 'Ok'
+    //                 });
     
-            success: function(resultado){
-                if(resultado.estado){
-                    /**mustra una alerta de completado */
-                    Swal.fire({
-                        title: 'Registrado',
-                        text: 'Empleado Registrado con exito..!',
-                        icon: 'success',
-                        ConfirmButtonText: 'Aceptar',
-                        customClass: {
-                            confirmButton: 'btnAceptar'
-                          }
-                    });
+    //             }else{
+    //                 /**mustra una alerta de error */
+    //                 Swal.fire({
+    //                     title: 'Oops',
+    //                     text: 'Ha ocurrido un error a la hora del registro. Revise',
+    //                     icon: 'error',
+    //                     ConfirmButtonText: 'Ok'
+    //                 });
+    //             }
+    //             /**funcion que limpia todos los campos de texto */
+    //             limpiar();
     
-                }else{
-                    /**mustra una alerta de error */
-                    alertaError();
-                }
-                /**funcion que limpia todos los campos de texto */
-                limpiar();
+    //         },
+    //         error: function(e){
     
-            },
-            error: function(e){
-    
-            }
-        })
+    //         }
+    //     })
     }
-
-
 
 }
 

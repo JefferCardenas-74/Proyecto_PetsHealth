@@ -14,26 +14,31 @@
     color: #fff;
     font-family: var(--fuenteParrafos);
     font-size: 1.5em !important;
-
+  }
+/* tabla */
+.table thead {
+  background: #a200ff;
+  color: #fff;
+  font-family: var(--fuenteParrafos);
+  font-size: 1.5em !important;
 }
 .table td {
   border-bottom: 1px solid #a200ff;
 }
 .table tr:hover {
-  background: #a200ff57 ;
-  font-weight: bold ;
+  background: #a200ff57;
+  font-weight: bold;
 }
 .table .acciones{
 text-align: center !important;
 }
 
-
 /* botones */
-.btnNaranja:hover{
-  background: linear-gradient(to right,  #f5af19,#f12711);
+.btnNaranja:hover {
+  background: linear-gradient(to right, #f5af19, #f12711);
   color: #fff;
 }
-.btnMorado:hover{
+.btnMorado:hover {
   background: linear-gradient(to right, #6d23ad, #4201c2);
   color: #fff;
 }
@@ -60,13 +65,12 @@ text-align: center !important;
   font-size: 1.4em !important;
 }
 
-
 /* modal cancelar */
-.modal{
+.modal {
   z-index: 1111;
- }
+}
 
- .form-width {
+.form-width {
   padding: 0px 30px 15px;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
@@ -87,7 +91,7 @@ text-align: center !important;
   font-family: var(--fuenteTitulos);
   color: #fff;
 }
-.form-width .text-modal{
+.form-width .text-modal {
   font-family: var(--fuenteTitulos);
   font-size: 1em;
 }

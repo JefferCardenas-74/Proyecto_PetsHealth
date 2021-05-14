@@ -16,7 +16,6 @@
                             <label for="txt_nombre" class="fredoka">Nombre</label>
                             <input class="cajaTexto" type="text" id="txt_nombre" name="txt_nombre">
                         </div>
-
                         <div>
                             <label for="txt_apellido" class="fredoka">Apellido</label>
                             <input class="cajaTexto" type="text" id="txt_apellido" name="txt_apellido">
@@ -32,7 +31,7 @@
 
                         <div>
                             <label for="txt_correo" class="fredoka">Correo</label>
-                            <input class="cajaTexto" type="text" id="txt_correo" name="txt_correo">
+                            <input class="cajaTexto" type="email" id="txt_correo" name="txt_correo">
                         </div>
 
                         <div>
