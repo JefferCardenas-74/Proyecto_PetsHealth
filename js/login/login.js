@@ -54,8 +54,9 @@ $(function () {
   });
 
   $("#btn_registrar").click(function () {
-    if ($("#txt_cedula").val() != "" && $("#txt_nombre").val() != "" && $("#txt_apellidos").val() != "" && $("#txt_telefono").val() != "" && $("#txt_correo").val() != "" && $("#txt_nombreMascota").val() != "" && $("#txt_edadMascota").val() != "" && $("#dt_fechaNacimientoMascota").val() != "" && $("#cb_tipoMascota").val() != "") {
 
+   
+    if ($("#txt_cedula").val() != "" && $("#txt_nombre").val() != "" && $("#txt_apellidos").val() != "" && $("#txt_telefono").val() != "" && $("#txt_correo").val() != "" && $("#txt_nombreMascota").val() != "" && $("#txt_edadMascota").val() != "" && $("#dt_fechaNacimientoMascota").val() != "" ) {
       registrarPersona();
 
     } else {
@@ -66,7 +67,6 @@ $(function () {
 
 
 });
-
 
 function mostrarPassword(){
   let inputPassword = document.querySelector('.password');
@@ -322,6 +322,7 @@ function mostrarModalPassword() {
   // });
 
 }
+
 function cerrarModalPassword() {
     // Detectar cuando modal se cerro
     $("#olvidoPasswordModal").on('hidden.bs.modal', function () {
@@ -338,6 +339,7 @@ function cerrarModalPassword() {
   
   });
 }
+
 function obtenerUsuario() {
   // se manda la accion y el value del input del correo al controlador
   let parametros = {
@@ -496,6 +498,7 @@ function agregarMascota(id){
     }
   })
 }
+
 
 function registrarUsuario(){
   
