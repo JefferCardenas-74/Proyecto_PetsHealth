@@ -1,12 +1,9 @@
-<<<<<<< HEAD
-<div class="contenedorTitulo">
-    <h1 class="titulo fredoka">Citas no programadas </h1>
-</div>
-=======
 <?php
     $rol = $_SESSION['rol'];
 ?>
->>>>>>> 459e55b99ddcf77adf468911de9b67558289e4f2
+<div class="contenedorTitulo">
+    <h1 class="titulo fredoka">Citas no programadas </h1>
+</div>
 <div class="container-fluid">
     <div class="row frm_atenderUrgencia">
         <div class="col">
@@ -66,7 +63,6 @@
             </div>
         </div>
     </div>
-      <!------------------------------------------------------------------------------>
     <br>
     <br>
 
@@ -127,7 +123,6 @@
                     </div>
                 </div>
             </section>
-            <!----------------------------------------------------------->
         </div>
     </div>
 

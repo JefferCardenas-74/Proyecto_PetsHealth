@@ -264,7 +264,7 @@ function alertaRegistroPersona() {
     title: "La información se guardo correctamente",
     icon: "success",
     confirmButtonText: "Aceptar",
-    footer:"<p class=text-muted  >Revisa tu correo electronico"+ 
+    footer:"<p class=text-muted  >Revisa el correo electronico"+ 
     " por favor </p>",
     customClass: {
       confirmButton: 'btnAceptar'

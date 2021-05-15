@@ -5,6 +5,7 @@ include "../modelo/datos/conexion.php";
 include "../modelo/entidad/Usuario.php";
 include "../modelo/entidad/Persona.php";
 include "../modelo/datos/datosUsuario.php";
+include "../modelo/entidad/Empleado.php";
 require_once("../modelo/datos/enviarCorreo.php");
 require_once("../configuracion/encriptar.php");
 require_once("../configuracion/fechaHora.php");
@@ -102,12 +103,15 @@ switch ($accion) {
 
 
         case "actualizarPersona":
-            $persona=new Persona($idPersona,$identificacion,$nombre,$apellido,$telefono,$correo);
-            $resultado = $dUsuario->actualizarPersona($persona);
+            $empleado=new Empleado(null,null,$idPersona,$identificacion,strtoupper($nombre),strtoupper($apellido),$telefono,$correo);
+            $usuario =new Usuario(null,$idPersona,$correo,null,null,$empleado);
+            $resultado = $dUsuario->actualizarPersona($usuario);
             if($resultado->estado){
             session_start();
-            $_SESSION['nombreUsuario']=$nombre." ".$apellido; 
+            $_SESSION['nombreUsuario']=strtoupper($nombre)." ".strtoupper($apellido); 
             echo json_encode($resultado);
+            }else{
+                echo json_encode($resultado);
             }
             
             break;

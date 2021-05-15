@@ -8,7 +8,7 @@
                 
                 <div class="grupos">
                     <label for="" class="fredoka">Nro Identificación</label>
-                    <input type="text" class="cajaTexto pompiere" id="txt_identificacion" placeholder="Ingrese su Número identificación.">
+                    <input disabled type="text" class="cajaTexto pompiere" id="txt_identificacion" placeholder="Ingrese su Número identificación.">
                 </div> 
 
                 <div class="grupos">

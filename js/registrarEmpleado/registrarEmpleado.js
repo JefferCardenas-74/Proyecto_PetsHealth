@@ -79,22 +79,10 @@ function agregarEmpleado(){
 
     }else if(buscarCe(nombre) == true || buscarCe(apellido) == true){
 
-        Swal.fire({
-            title: 'Oops',
-            text: 'Los nombres y apellidos no puede tener caracteres especiales...!',
-            icon: 'warning',
-            ConfirmButtonText: 'Ok'
-        });
+        alertaInputCaracteres();
 
     }else if(validarEmail(correo) == false){
-
-        Swal.fire({
-            title: 'Oops',
-            text: 'El correo no valido',
-            icon: 'warning',
-            ConfirmButtonText: 'Ok'
-        });
-
+        alertaCorreoInvalido();
     }else{
         
 
@@ -111,40 +99,29 @@ function agregarEmpleado(){
         };
         
         console.table(parametros);
-    //     $.ajax({
-    //         url: '../../../controlador/empleadoControl.php',
-    //         data: parametros,
-    //         dataType: 'json',
-    //         type: 'post',
-    //         cache: false,
+        $.ajax({
+            url: '../../../controlador/empleadoControl.php',
+            data: parametros,
+            dataType: 'json',
+            type: 'post',
+            cache: false,
     
-    //         success: function(resultado){
-    //             if(resultado.estado){
-    //                 /**mustra una alerta de completado */
-    //                 Swal.fire({
-    //                     title: 'Registrado',
-    //                     text: 'Empleado Registrado con exito..!',
-    //                     icon: 'success',
-    //                     ConfirmButtonText: 'Ok'
-    //                 });
+            success: function(resultado){
+                if(resultado.estado){
+                    /**mustra una alerta de completado */
+                    alertaRegistroPersona();
+                }else{
+                    /**mustra una alerta de error */
+                    alertaError();
+                }
+                /**funcion que limpia todos los campos de texto */
+                limpiar();
     
-    //             }else{
-    //                 /**mustra una alerta de error */
-    //                 Swal.fire({
-    //                     title: 'Oops',
-    //                     text: 'Ha ocurrido un error a la hora del registro. Revise',
-    //                     icon: 'error',
-    //                     ConfirmButtonText: 'Ok'
-    //                 });
-    //             }
-    //             /**funcion que limpia todos los campos de texto */
-    //             limpiar();
-    
-    //         },
-    //         error: function(e){
-    
-    //         }
-    //     })
+            },
+            error: function(e){
+                console.log(e);
+            }
+        })
     }
 
 }

@@ -84,17 +84,17 @@
                 $objCorreo = new stdClass();
                 $objCorreo->correoRemitente = "soporte.petsHealth@gmail.com"; //aqui pueden colocar el correo del administrador
                 $objCorreo->nombreRemitente = "Administración Pets Health"; //igual el nombre del administrador
-                $objCorreo->correoDestinatario =$_SESSION["correo"];
-                $objCorreo->nombreDestinatario =$_SESSION["nombreUsuario"];
+                $objCorreo->correoDestinatario =strtoupper($_SESSION["correo"]);
+                $objCorreo->nombreDestinatario =strtoupper($_SESSION["nombreUsuario"]);
                 $objCorreo->asunto = "Solicitud de cita en Pets Health";
                 $objCorreo->mensaje = "Cordial saludo , <br> "
-                ." nos permitimos informar que usted  <b>".$_SESSION["nombreUsuario"]
+                ." nos permitimos informar que usted  <b>".strtoupper($_SESSION["nombreUsuario"])
                 ." </b> solicito una cita en Pets Health lo cual fue  exitosa por lo tanto sus datos fueron
-                <br><b>Dueño mascota </b>". $_SESSION["nombreUsuario"]."
-                <br><b>Fecha </b>".$fecha."
-                <br><b>Hora </b> ".$horaFormateada."
-                <br><b>Cliente </b> ".$nombreCliente."
-                <br><b>Veterinario</b> POR ASIGNAR
+                <br><b>Dueño de la mascota: </b>".strtoupper($_SESSION["nombreUsuario"])."
+                <br><b>Fecha:</b>".$fecha."
+                <br><b>Hora:</b> ".$horaFormateada."
+                <br><b>Cliente:</b> ".$nombreCliente."
+                <br><b>Veterinario: </b> POR ASIGNAR
 
                 <table  width='50%' border='0' >
                 <tr>
@@ -175,9 +175,9 @@
                 $objCorreo->mensaje = "Cordial saludo , <br> "
                 ." nos permitimos informar que su cita con identificacion <b>".$idCita
                 ." </b> fue atendida con exito.
-                <br><b>Veterinario: </b>". $_SESSION['nombreUsuario']."
+                <br><b>Veterinario: </b>".strtoupper($_SESSION['nombreUsuario'])."
                 <br><b>Fecha y Hora: </b>".$fechaHora."
-                <br><b>Nombre de la mascota: </b> ".$nombreMascota."
+                <br><b>Nombre de la mascota: </b> ".strtoupper($nombreMascota)."
                 <br><b>Observacion: </b> ".$observacion."
                 <br><b>Productos: </b> ".$listaProductos."
                 <br><b>Total de la consulta: </b> ".$totalFinal."
@@ -257,9 +257,9 @@
                 $objCorreo->asunto = "Informe de la cita atendida.";
                 $objCorreo->mensaje = "Cordial saludo , <br> "
                 ."Nos permitimos informarle que su cita fue atendida con exito.
-                <br><b>Veterinario: </b>". $_SESSION['nombreUsuario']."
+                <br><b>Veterinario: </b>".strtoupper($_SESSION['nombreUsuario'])."
                 <br><b>Fecha y Hora: </b>".$fechaHora."
-                <br><b>Nombre de la mascota: </b> ".$nombreMascota."
+                <br><b>Nombre de la mascota: </b> ".strtoupper($nombreMascota)."
                 <br><b>Observacion: </b> ".$observacion."
                 <br><b>Productos: </b> ".$listaProductos."
                 <br><b>Total de la consulta: </b> ".$totalFinal."

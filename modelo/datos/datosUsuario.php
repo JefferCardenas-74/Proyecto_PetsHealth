@@ -172,25 +172,35 @@ class datosUsuario
     }
 
 
-    public function actualizarPersona(Persona $persona)
+    public function actualizarPersona(Usuario $usuario)
     {
         try {
+            $this->conexion->beginTransaction();
             $consulta = "UPDATE persona SET perIdentificacion=?,
             perNombre=?, perApellido=?,perTelefono=?,perCorreo=?
             WHERE idPersona=?";
             $resultado=$this->conexion->prepare($consulta);
             
-            $resultado->bindParam(1, $persona->getIdentificacion());
-            $resultado->bindParam(2, $persona->getNombre());
-            $resultado->bindParam(3, $persona->getApellido());
-            $resultado->bindParam(4, $persona->getTelefono());
-            $resultado->bindParam(5, $persona->getCorreo());
-            $resultado->bindParam(6, $persona->getIdPersona());
+            $resultado->bindParam(1, $usuario->getEmpleado()->getIdentificacion());
+            $resultado->bindParam(2, $usuario->getEmpleado()->getNombre());
+            $resultado->bindParam(3, $usuario->getEmpleado()->getApellido());
+            $resultado->bindParam(4, $usuario->getEmpleado()->getTelefono());
+            $resultado->bindParam(5, $usuario->getEmpleado()->getCorreo());
+            $resultado->bindParam(6, $usuario->getEmpleado()->getIdPersona());
             $resultado->execute();
+
+            $consulta = "UPDATE usuario SET usuLogin=?
+            WHERE idPersona=?";
+            $resultado=$this->conexion->prepare($consulta);
+            $resultado->bindParam(1, $usuario->getEmpleado()->getCorreo());
+            $resultado->bindParam(2, $usuario->getEmpleado()->getIdPersona());
+            $resultado->execute();
+            $this->conexion->commit();
             $this->retorno->datos = $resultado->fetchObject();
             $this->retorno->mensaje = 'Usuario actualizado con exito';
             $this->retorno->estado = true;
         } catch (PDOException $ex) {
+             $this->conexion->rollBack();
             $this->retorno->estado = false;
             $this->retorno->mensaje = $ex->getMessage();
             $this->retorno->datos = null;

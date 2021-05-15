@@ -52,7 +52,6 @@ require_once("../../../configuracion/validaciones.php");
 
     <!--hoja de estilos personalizada-->
     <link rel="stylesheet" href="../../../componente/css/registrarEmpleado/registrarEmpleado.css">
-    <link rel="stylesheet" href="../../../componente/css/citasAsignadas/cabecera.css">
     <link rel="stylesheet" href="../../../componente/css/menu.css">
     
     <!--libreria sweetalert para alertas personalizadas-->
@@ -71,7 +70,6 @@ require_once("../../../configuracion/validaciones.php");
     <div class="container-fluid">
 
         <?php include '../menu.php' ?>
-        <header><?php include 'cabecera.php' ?></header>
         <section><?php include $page.'.php' ?></section>
         <footer><?php include '../../../piePagina.php' ?></footer>
 

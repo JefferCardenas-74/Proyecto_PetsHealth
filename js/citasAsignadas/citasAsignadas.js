@@ -126,12 +126,7 @@ $(function () {
       /**se valida el formulario */
       if($('#txt_encargado').val() == '' || $('#txt_observacion').val() == ''){
 
-            Swal.fire({
-              icon:'error',
-              title:'Oops...!',
-              text:'Debe validar todos los campos',
-              textButtonText:'Ok',
-            });
+            alertaCamposVacios();
 
         }else{
 

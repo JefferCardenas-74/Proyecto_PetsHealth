@@ -102,6 +102,8 @@ function actualizarPersona() {
                         listarPersona();
                     }
                 });
+            }else{
+                alertaError();
             }
         },
         error: function (ex) {
