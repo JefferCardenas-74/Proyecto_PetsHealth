@@ -1,21 +1,3 @@
-.vista-principal{
-padding-top: 9em !important;
-
-}
-
-.titulo{
-    font-size: 70px;
-    padding-bottom: 1.5em;
-}
-.contenedorTitulo {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-items: center;
-    padding: 12px 14px;
-    width: 100%;
-    /* height: 500px; */
-}
 
 .titulo .border-bottom{
     background: blueviolet!important;
@@ -54,10 +36,6 @@ padding-top: 9em !important;
 
 @media screen and (max-width: 576px){
 
-    
-    .titulo{
-        font-size: 50px;
-    }
     .texto-bienvenida{
         font-size: 28px;
     }

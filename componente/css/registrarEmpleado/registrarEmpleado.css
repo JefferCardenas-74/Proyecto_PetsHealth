@@ -4,17 +4,6 @@
     box-sizing: border-box;
 }
 
-.contenedorTitulo{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 400px;
-}
-
-.titulo{
-    font-size: 70px;
-    text-align: center;
-}
 
 #frmEmpleado{
     display: flex;

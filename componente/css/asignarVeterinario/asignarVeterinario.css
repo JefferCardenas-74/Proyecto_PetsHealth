@@ -1,14 +1,3 @@
-.cabecera{
-    height: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-#titulo{
-    font-family:"Fredoka One";
-    font-size: 70px;
-    color:var(--colorTitulo);
-}
 .datos_ListaCitasPorAsignarVete{
     overflow-x: auto;
 }
@@ -45,22 +34,6 @@ thead{
 }
 
 @media screen and (max-width: 492px){
-
-    .cabecera{
-        width: 100%;
-        height: 200px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-family: 'Fredoka one';
-        margin-top: 40px;
-    }
-
-    #titulo{
-        font-family:"Fredoka One";
-        font-size: 40px;
-        color:var(--colorTitulo);
-    }
 
     #modalAsignar{
         margin-top: 50%;

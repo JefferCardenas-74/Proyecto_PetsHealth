@@ -1,4 +1,6 @@
-
+<div class="contenedorTitulo">
+    <h1 class="titulo fredoka">Historial Mascota</h1>
+</div>
     <div class="row contenerdorTodo pompiere">
         <div class="col">
             <div class="contenedorBusqueda">

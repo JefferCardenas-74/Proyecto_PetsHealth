@@ -4,17 +4,6 @@
     
 }
 
-#contenedorTitulo{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 400px;
-}
-
-.titulo{
-    font-size: 70px;
-}
-
 .contenedorAgregarServicio{
     display:flex;
     flex-flow: row wrap;

@@ -74,12 +74,7 @@ function agregarEmpleado(){
         correo == '' ||
         $('#cb_rol').val() == 0){
 
-        Swal.fire({
-            title: 'Oops',
-            text: 'Debe validar todos los campos.',
-            icon: 'error',
-            ConfirmButtonText: 'Ok'
-        });
+        alertaCamposVacios();
 
 
     }else if(buscarCe(nombre) == true || buscarCe(apellido) == true){

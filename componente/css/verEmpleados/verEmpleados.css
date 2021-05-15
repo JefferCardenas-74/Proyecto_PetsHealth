@@ -6,18 +6,15 @@
   background:transparent !important;
   border: none !important;
 }
-.titulo {
-  font-size: 70px;
-}
-.contenedorTitulo {
-  width: 100%;
-  height: 400px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 70px;
-}
 
+
+  /* tabla */
+  .table thead{
+    background: #a200ff;
+    color: #fff;
+    font-family: var(--fuenteParrafos);
+    font-size: 1.5em !important;
+  }
 /* tabla */
 .table thead {
   background: #a200ff;

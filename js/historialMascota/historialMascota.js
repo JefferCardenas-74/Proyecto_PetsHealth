@@ -37,10 +37,13 @@ $(function(){
             ListarMascotasEncargado();
         }else{
             Swal.fire({
-                icon: 'error',
+                icon: 'warning',
                 title: 'Oops',
-                text: 'Digite su Cedula.',
+                text: 'Digite cedula del cliente por favor.',
                 ConfirmButtonText: 'Ok',
+                customClass: {
+                    confirmButton: 'btnAceptar'
+                }
             });
         }
     });
@@ -54,10 +57,13 @@ $(function(){
             ActualizarDescripcion();
         }else{
             Swal.fire({
-                icon: 'error',
+                icon: 'warning',
                 title: 'Oops',
                 text: 'La Descripcion no puede estar vacia.',
                 ConfirmButtonText: 'Ok',
+                customClass: {
+                    confirmButton: 'btnAceptar'
+                  }
             });
         }
     });
@@ -93,13 +99,6 @@ function ListarMascotasEncargado(){
                 $.each(mascotas, function(i, mascota){
                     $("#cb_mascota").append("<option value="+ mascota.idMascota +">" 
                     + mascota.masNombre + "</option>");
-                });
-            }else{
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops',
-                    text: 'Revisar Datos.',
-                    ConfirmButtonText: 'Ok',
                 });
             }
         },

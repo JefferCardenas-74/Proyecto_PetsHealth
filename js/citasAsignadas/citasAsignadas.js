@@ -90,23 +90,12 @@ $(function () {
       if($('#txt_mascota').val() == '' || $('#txt_dueño').val() == '' || 
           $('#txt_tipoCita').val() == '' || $('#txt_observacion').val() == ''){
 
-            Swal.fire({
-              icon:'error',
-              title:'Oops...!',
-              text:'Debe validar todos los campos',
-              textButtonText:'Ok',
-            });
+            alertaCamposVacios();
 
         }else{
           if($('#txt_encargado').val() == ''){
 
-            Swal.fire({
-              icon:'error',
-              title:'Oops...!',
-              text:'Debe validar todos los campos',
-              textButtonText:'Ok',
-            });
-
+            alertaCamposVacios();
           }else if($('#txt_encargado').val() == '' && $('#txt_dueño').val().length > 0){
             alert('se atendio');
             //atenderCita();

@@ -91,9 +91,7 @@ if (!isset($page)) {
 
         <?php include '../menu.php' ?>
 
-        <header><?php include 'cabecera.php' ?></header>
-
-        <section><?php include $page . '.php' ?></section>
+        <section><?php include $page.'.php' ?></section>
 
         <footer><?php include '../../../piePagina.php' ?></footer>
     </div>

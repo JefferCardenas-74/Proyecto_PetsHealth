@@ -12,7 +12,10 @@ if ($x == 3) {
     , 'Swal.fire({
         title: "Advertencia",
         icon: "warning",
-        text: "Para ingresar debe iniciar primero la sesión"
+        text: "Para ingresar debe iniciar primero la sesión",
+        customClass: {
+            confirmButton: "btnAceptar"
+          }
     });
          '
     , '</script>'
@@ -24,9 +27,11 @@ if ($x == 4) {
     // se ejecut codigo js desde php
     echo '<script type="text/javascript">'
     , 'Swal.fire({
-        title: "Error",
-        icon: "warning",
-        html: "No puedes acceder o tu usuario esta <span class=text-danger> Inactivo</span> ",
+        title: "Algo anda mal..",
+        icon: "error",
+        customClass: {
+            confirmButton: "btnAceptar"
+          },
         footer: "<p class=text-muted >Estas intentado ingresar a un rol que no tienes acceso </p>"
 
 

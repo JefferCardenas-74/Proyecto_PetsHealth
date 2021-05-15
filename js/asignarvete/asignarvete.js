@@ -111,6 +111,9 @@ function asignarVeterinario(){
                     text: "Veterinario Asignado con exito..!",
                     icon: "success",
                     ConfirmButtonText: "Ok",
+                    customClass: {
+                        confirmButton: 'btnAceptar'
+                      }
                 });
                 listarCitas();
             }else{
@@ -118,7 +121,10 @@ function asignarVeterinario(){
                     title: 'Oops',
                     text: 'Ha ocurrido un error a la hora de asignar el veterinario. Revise',
                     icon: 'error',
-                    ConfirmButtonText: 'Ok'
+                    ConfirmButtonText: 'Ok',
+                    customClass: {
+                        confirmButton: 'btnAceptar'
+                      }
                 });
             }
         },

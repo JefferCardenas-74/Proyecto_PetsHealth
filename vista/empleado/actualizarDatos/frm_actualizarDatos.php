@@ -1,3 +1,6 @@
+<div class="contenedorTitulo">
+    <label class="titulo fredoka">Actualiza tus Datos</label>
+</div>
 <div class="row">
     <div class="col">
         <form action="#">

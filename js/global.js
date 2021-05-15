@@ -19,7 +19,10 @@ $(function () {
         // title: "Campos vacios !",
         text: "Ingresa la contraseña nueva por favor ",
         icon: "warning",
-        confirmButtonText: "Ok",
+        confirmButtonText: "Aceptar",
+        customClass: {
+          confirmButton: 'btnAceptar'
+        }
       });
     }
   });
@@ -41,15 +44,6 @@ $(function () {
     if(e.charCode < 48 || e.charCode > 57) return false;
   });
 
-  /**///////////////////////////////////////////////////////////////////// */
-  // /**function para validar que solo se digiten letras en mayusculas y minusculas */
-  // var inputText = $('input[type="text"]');
-  // inputText.keypress((e)=>{
-
-  //   if(e.charCode < 65 || e.charCode > 90 && e.charCode < 97 || e.charCode > 122) return false;
-      
-  // });
-  // /**///////////////////////////////////////////////////////////////////// */
 
 });
 
@@ -108,10 +102,12 @@ function cerrarSession() {
       icon: "question",
       width: 400,
       showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
       confirmButtonText: "Si",
       cancelButtonText: "No",
+      customClass: {
+        confirmButton: 'btnAceptar',
+        cancelButton: 'btnCancelar'
+      },
       // funciones para no poder saltar la ventana emergente
       allowOutsideClick: false,
       allowEscapeKey: false,
@@ -213,12 +209,7 @@ function actualizarPassword() {
           location.href = "../../../";
         }, 3000);
       } else {
-        Swal.fire({
-          title: "Error",
-          icon: "error",
-          confirmButtonText: "Ok",
-          footer: resultado.mensaje,
-        });
+        alertaError();
       }
     },
     error: function (ex) {
@@ -249,6 +240,81 @@ function mostrarPassword() {
   }
 }
 
+
+/**
+ * Funcion para mostrar cuando los inputs estan vacios
+ */
+ function alertaCamposVacios() {
+  Swal.fire({
+    title: "Campos vacios !",
+    text: "Ingresa datos por favor",
+    icon: "warning",
+    confirmButtonText: "Aceptar",
+    customClass: {
+      confirmButton: 'btnAceptar'
+    }
+  });
+  
+}
+/**
+ * Funcion cuando se registra un usuario 
+ */
+function alertaRegistroPersona() {
+  Swal.fire({
+    title: "La información se guardo correctamente",
+    icon: "success",
+    confirmButtonText: "Aceptar",
+    footer:"<p class=text-muted  >Revisa tu correo electronico"+ 
+    " por favor </p>",
+    customClass: {
+      confirmButton: 'btnAceptar'
+    }
+  });
+}
+/**
+ * Funcion cuando se produce un error al guardar modificar etc
+ */
+function alertaError() {
+  Swal.fire({
+    title: "Ops ",
+    text: "Ocurrio un problema",
+    icon: "error",
+    confirmButtonText: "Aceptar",
+    customClass: {
+      confirmButton: 'btnAceptar'
+    }
+  });
+}
+
+/**alerta para indicar que el correo es invalido */
+function alertaCorreoInvalido(){
+
+  Swal.fire({
+    icon: 'warning',
+    title: 'Advertencia',
+    text: 'El formato del correo no es valido.',
+    confirmButtonText:'Aceptar',
+    customClass:{
+        confirmButton:'btnAceptar'
+    },
+    footer:'Ejemplo de correo: example@example.com'
+  });
+
+}
+/**alerta para indicar cuando los input type text tienen caracteres */
+function alertaInputCaracteres(){
+
+  Swal.fire({
+    icon: 'warning',
+    title: 'Advertencia',
+    text: 'Los nombres y apellidos no pueden tener caracteres especiales.',
+    confirmButtonText:'Aceptar',
+    customClass:{
+        confirmButton:'btnAceptar'
+    }
+  });
+  
+}
 
 /**funcion que toma un string como entrada y valida que este no tenga caracteres especiales
  * true si contiene caracteres y false si no 

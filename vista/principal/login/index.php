@@ -43,6 +43,9 @@
         <!-- api google recapthcha -->
         <script src="https://www.google.com/recaptcha/api.js"></script>
 
+        <!-- js global -->
+        <script src="../../../js/global.js" ></script>
+
     <title>login</title>
 </head>
 <body>

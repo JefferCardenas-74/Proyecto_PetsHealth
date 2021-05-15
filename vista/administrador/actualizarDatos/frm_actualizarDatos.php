@@ -1,3 +1,6 @@
+<div class="contenedorTitulo">
+    <label class="titulo fredoka">Actualiza tus Datos</label>
+</div>
 <div class="row">
     <div class="col">
         <form action="#">
@@ -5,7 +8,7 @@
                 
                 <div class="grupos">
                     <label for="" class="fredoka">Nro Identificación</label>
-                    <input type="text" class="cajaTexto pompiere" id="txt_identificacion" placeholder="Ingrese su Número identificación.">
+                    <input type="number" class="cajaTexto pompiere" id="txt_identificacion" placeholder="Ingrese su Número identificación.">
                 </div> 
 
                 <div class="grupos">
@@ -20,12 +23,12 @@
                     
                 <div class="grupos">     
                     <label for="" class="fredoka">Correo</label>
-                    <input type="text" class="cajaTexto pompiere" id="txt_correo" placeholder="Ingrese su Correo.">
+                    <input type="email" class="cajaTexto pompiere" id="txt_correo" placeholder="Ingrese su Correo.">
                 </div>
 
                 <div class="grupos">     
                     <label for="" class="fredoka">Telefono</label>
-                    <input type="text" class="cajaTexto pompiere" id="txt_telefono" placeholder="Ingrese su Telefono.">
+                    <input type="number" class="cajaTexto pompiere" id="txt_telefono" placeholder="Ingrese su Telefono.">
                 </div>
 
                 <div id="boton">

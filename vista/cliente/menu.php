@@ -30,7 +30,7 @@
                 <a href="#">Configuraciones<i class="fa fa-caret-down"></i></a>
                 <ul class="posRight">
                 <li>
-                        <a class="dropdown-item " href="#">
+                        <a class="dropdown-item " id="usuario"  href="javascript:void(0);">
                         Cliente <span class="active"><?php echo $_SESSION["nombreUsuario"]; ?> </span> </a>
                         </li>
                         <li><a class="dropdown-item " href=<?php echo $GLOBALS['actualizarDatosC']; ?> >actualizar datos</a></li>

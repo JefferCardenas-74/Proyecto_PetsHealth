@@ -31,13 +31,7 @@ $(function () {
     if ($("#txt_user").val() != "" && $("#txt_password").val() != "") {
       iniciarSesion();
     } else {
-      Swal.fire({
-        title: "Campos vacios !",
-        text: "Ingresa datos por favor",
-        icon: "warning",
-        confirmButtonText: "Ok",
-        width: 400,
-      });
+      alertaCamposVacios();
     }
 
   });
@@ -55,13 +49,7 @@ $(function () {
     if ($("#txt_olvidoPassword").val() !== "") {
       enviarCorreoRecuperacionContrasenia();
     } else {
-      Swal.fire({
-        // title: "Campos vacios !",
-        text: "Ingresa el correo por favor ",
-        icon: "warning",
-        confirmButtonText: "Ok",
-        width: 400,
-      });
+      alertaCamposVacios();
     }
   });
 
@@ -72,14 +60,7 @@ $(function () {
       registrarPersona();
 
     } else {
-
-      Swal.fire({
-        title: "Campos vacios !",
-        text: "Ingresa datos por favor",
-        icon: "warning",
-        confirmButtonText: "Ok",
-        width: 400,
-      });
+      alertaCamposVacios();
     }
   });
 
@@ -220,6 +201,9 @@ function iniciarSesion() {
               icon: "info",
               title: "Usuario inactivo",
               text: "Comuniquese con el Administrador para mas informacion",
+              customClass: {
+                confirmButton: 'btnAceptar',
+            }
             });
             // cambia el texto asu estado inicial
             $("#btn_iniciarSesion").text("Ingresar");
@@ -279,6 +263,10 @@ function mostrarRecaptcha() {
     // id para mas  poner estilos css
     html: '<div id="recaptcha"></div>',
     footer: "Pasaste el numero de intentos por esta razon verificamos",
+    confirmButtonText: "Aceptar",
+    customClass: {
+      confirmButton: 'btnAceptar'
+    },
     // funciones para no poder saltar la ventana emergente
     allowOutsideClick: false,
     allowEscapeKey: false,
@@ -418,18 +406,14 @@ function enviarCorreoRecuperacionContrasenia() {
       $("#btn_olvidoContrasenia").text("Cargando...");
       $("#btn_olvidoContrasenia").attr("disabled", true);
       $("#txt_olvidoPassword").prop("disabled", true);
+      $("#btn_olvidoContrasenia").css({
+        background: '#3000ff8f'
+      });
     },
     success: function (resultado) {
       console.log(resultado);
       if (resultado.datos) {
-     
-      Swal.fire({
-        title: "Listo",
-        icon: "success",
-        confirmButtonText: "Ok",
-        footer:"<p class=text-muted  >Revisa tu correo electronico ahi"+ 
-        "te llego un link para poder cambiar la contraseña</p>"
-      });
+        alertaRegistroPersona();
       // se activan los botones
       $("#btn_olvidoContrasenia").text("Enviar");
       $("#txt_olvidoPassword").prop("disabled", false);
@@ -540,20 +524,10 @@ function registrarUsuario(){
       console.log(resultado.mensaje);
       if(resultado.estado==true){
         limpiarFormulario();
-        Swal.fire({
-          icon:'success',
-          title:'Success',
-          text:'se agrego correctamente',
-          confirmButtonText: 'ok'
-        });
+        alertaRegistroPersona();
 
       }else{
-        Swal.fire({
-          icon:'error',
-          title:'Oops...',
-          text:'hubo un error al registrar cliente',
-          confirmButtonText: 'ok'
-        });
+        alertaError();
       }
 
     },

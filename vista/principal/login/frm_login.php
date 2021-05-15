@@ -21,7 +21,7 @@ $rol = $_GET['rol'];
                 </div>
 
                 <div class="contenedorLogin">
-                    <input class="login password" type="password" id="txt_password" name="txt_password"
+                    <input class="login password passwordNueva2" type="password" id="txt_password" name="txt_password"
                         placeholder="Contraseña" pattern=".{6,}" required>
                     <span class="simbolo">
                         <i class="fa fa-lock" aria-hidden="true"></i>

@@ -21,12 +21,7 @@ $(function(){
         
         if($('#txt_nombreMascota').val() == '' || $('#cb_tipoMascota').val() == '0' || $('#txt_fechaNacimiento').val() == ''){
             
-            Swal.fire({
-                icon:'error',
-                title:'Opps...!',
-                text:'Debe validar todos los campos.',
-                textButtonConfirm:'Ok'
-            });
+            alertaCamposVacios();
 
         }else{
 
@@ -46,12 +41,7 @@ $(function(){
 
         if($('#txt_nombreMascotaA').val() == '' || $('#cb_tipoMascotaA').val() == '0' || $('#txt_fechaNacimientoA').val() == ''){
             
-            Swal.fire({
-                icon:'error',
-                title:'Opps...!',
-                text:'Debe validar todos los campos.',
-                textButtonConfirm:'Ok'
-            });
+            alertaCamposVacios();
 
         }else{
             
@@ -168,7 +158,10 @@ function actualizarDatosMascota(){
                 icon:'success',
                 title:'Bien hecho!',
                 text:'Se actualizaron los datos correctamente.!',
-                textButtonConfirm:'Ok'
+                confirmButtonText: "Aceptar",
+    customClass: {
+      confirmButton: 'btnAceptar'
+    },
             }).then((result)=>{
                 if(result.isConfirmed){
                     window.location.reload();
@@ -189,11 +182,14 @@ function abrirModalEliminar(id){
     Swal.fire({
         title:'Avertencia!',
         text:'Estas seguro de eliminar esta mascota?',
-        icon:'warning',
+        icon:'question',
         showCancelButton: true,
-        confirmButtonColor: '#5105E0',
-        cancelButtonColor: '#F24613',
-        confirmButtonText:'Si, Eliminar Mascota',
+        confirmButtonText:'Si',
+        cancelButtonText: "No",
+    customClass: {
+      confirmButton: 'btnAceptar',
+      cancelButton: 'btnCancelar'
+    },
     }).then((result)=>{
         if(result.isConfirmed){
             eliminarMascota();

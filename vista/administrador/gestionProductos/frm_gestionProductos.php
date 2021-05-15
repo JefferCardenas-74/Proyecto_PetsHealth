@@ -1,5 +1,8 @@
+<div class='contenedorTitulo'>
+    <h1 class="titulo fredoka">Gestion de Productos</h1>
+</div>
 <div class="container-fluid">
-    <div class="row">
+    <div class="row">|
         <div class="col">
             <div class="contenedorAgregar">
 

@@ -130,12 +130,7 @@ function agregarProducto(){
 
     if($('#txt_nombre').val() == '' || $('#txt_precio').val() == '' || $('#cb_unidad').val() == 0){
 
-        Swal.fire({
-            icon: 'error',
-            title: 'Oops..',
-            text: 'Debe validar todos los campos.',
-            confirmButtonText: 'ok' 
-        });
+        alertaCamposVacios();
 
     }else{
 
@@ -166,9 +161,12 @@ function agregarProducto(){
 
                 Swal.fire({
                     icon: 'success',
-                    title: 'Success',
+                    title: 'Muy bien',
                     text: resultado.mensaje,
-                    confirmButtonText: 'ok' 
+                    confirmButtonText: 'Aceptar',
+                    customClass: {
+                        confirmButton: 'btnAceptar'
+                      } 
                 });
 
                 limpiar();
@@ -258,9 +256,12 @@ function actualizarDatosProducto(id){
 
             Swal.fire({
                 icon: 'success',
-                title: 'Success',
+                title: 'Muy bien',
                 text: 'Se actualizaron los datos correctamente',
-                confirmButtonText: 'ok' 
+                confirmButtonText: 'Aceptar',
+                customClass: {
+                    confirmButton: 'btnAceptar'
+                  } 
             });
 
             window.location.reload();
@@ -268,12 +269,7 @@ function actualizarDatosProducto(id){
         },
         error:function(e){
 
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops..',
-                text: 'No se pudo actualizar los datos.',
-                confirmButtonText: 'ok' 
-            });
+            alertaError();
             console.log(e.responseText);
             
         }
@@ -285,26 +281,20 @@ function modalEliminar(id){
     idProducto = id;   
     
     Swal.fire({
-        title:'Estas Seguro?',
-        text:'Estas a un pazo de eliminar un producto de la base de datos..!',
-        icon:'warning',
+        title:'Deseas eliminar este producto?',
+        icon:'question',
         showCancelButton: true,
-        confirmButtonColor: '#5105E0',
-        cancelButtonColor: '#F24613',
-        confirmButtonText:'Si, Eliminar producto'
+        confirmButtonText:'Si',
+        cancelButtonText:'No',
+        customClass: {
+            confirmButton: 'btnAceptar',
+            cancelButton: 'btnCancelar',
+        }
 
     }).then((result) => {
 
         if(result.isConfirmed){
-    
             eliminarProducto();
-
-            Swal.fire(
-                'Eliminado!',
-                'Acabas de eliminar un producto de la base de datos',
-                'success'
-            )
-
             window.location.reload();
         }
     });
