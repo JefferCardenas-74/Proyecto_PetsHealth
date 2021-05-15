@@ -194,42 +194,55 @@ function abrirModal(pos){
  * Actualizacion de la Descripcion 
  */
 function ActualizarDescripcion(){
-    var parametros={
-        accion:"ActualizarDesc",
-        idDetalle:idDetalle,
-        descripcion:$("#txt_descripcion").val()
-    };
-    console.log(parametros);
 
-    $.ajax({
-        url:"../../../controlador/controlHistorialM.php",
-        data:parametros,
-        type:"post",
-        dataType:"json",
-        cache:false,
+    var descripcion=$("#txt_descripcion").val();
 
-        success: function(resultado){
-            if(resultado.estado){
-                Swal.fire({
-                    title: 'Actualizado',
-                    text: 'Descripcion Actualizado con Exito..!',
-                    icon: 'success',
-                    ConfirmButtonText: 'Ok'
-                });
-                ListarConsultaHistorialM();
-            }else{
-                Swal.fire({
-                    title: 'Oops',
-                    text: 'Ha ocurrido un error a la hora de Actualizar la Descripción. Revise',
-                    icon: 'Error',
-                    ConfirmButtonText: 'Ok'
-                });
+    if(buscarCe(descripcion)== true){
+        Swal.fire({
+            title: 'Oops',
+            text: 'La descripcion no puede tener caracteres especiales...!',
+            icon: 'warning',
+            ConfirmButtonText: 'Ok'
+        });
+    }else{
+        var parametros={
+            accion:"ActualizarDesc",
+            idDetalle:idDetalle,
+            descripcion:$("#txt_descripcion").val()
+        };
+        console.log(parametros);
+    
+        $.ajax({
+            url:"../../../controlador/controlHistorialM.php",
+            data:parametros,
+            type:"post",
+            dataType:"json",
+            cache:false,
+    
+            success: function(resultado){
+                if(resultado.estado){
+                    Swal.fire({
+                        title: 'Actualizado',
+                        text: 'Descripcion Actualizado con Exito..!',
+                        icon: 'success',
+                        ConfirmButtonText: 'Ok'
+                    });
+                    ListarConsultaHistorialM();
+                }else{
+                    Swal.fire({
+                        title: 'Oops',
+                        text: 'Ha ocurrido un error a la hora de Actualizar la Descripción. Revise',
+                        icon: 'Error',
+                        ConfirmButtonText: 'Ok'
+                    });
+                }
+            },
+            error: function(ex){
+                console.log(ex.responseText,"no trae nada");
             }
-        },
-        error: function(ex){
-            console.log(ex.responseText,"no trae nada");
-        }
-    });
+        });
+    }
+    
 }
 
 function ListarMascotasClienteH(){

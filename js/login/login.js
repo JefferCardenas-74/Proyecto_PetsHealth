@@ -66,15 +66,9 @@ $(function () {
   });
 
   $("#btn_registrar").click(function () {
-<<<<<<< HEAD
 
    
     if ($("#txt_cedula").val() != "" && $("#txt_nombre").val() != "" && $("#txt_apellidos").val() != "" && $("#txt_telefono").val() != "" && $("#txt_correo").val() != "" && $("#txt_nombreMascota").val() != "" && $("#txt_edadMascota").val() != "" && $("#dt_fechaNacimientoMascota").val() != "" ) {
-      validarcb()
-=======
-    if ($("#txt_cedula").val() != "" && $("#txt_nombre").val() != "" && $("#txt_apellidos").val() != "" && $("#txt_telefono").val() != "" && $("#txt_correo").val() != "" && $("#txt_nombreMascota").val() != "" && $("#txt_edadMascota").val() != "" && $("#dt_fechaNacimientoMascota").val() != "" && $("#cb_tipoMascota").val() != "") {
-
->>>>>>> master
       registrarPersona();
 
     } else {
@@ -92,21 +86,6 @@ $(function () {
 
 
 });
-
-
-
-function validarcb(){
-  var validarcb = document.getElementsByName('cb_mascota');
-  if(validarcb.value==0 ||
-    validarcb.value==""){
-      Swal.fire({
-        title: "Campos vacios !",
-        text: "Ingresa datos por favor",
-        icon: "warning",
-        confirmButtonText: "Ok",
-      });
-    }
-}
 
 function mostrarPassword(){
   let inputPassword = document.querySelector('.password');
