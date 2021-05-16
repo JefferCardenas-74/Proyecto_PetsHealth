@@ -65,6 +65,16 @@
                     $data[$i] = array($xMeses[$i],$yDatos[$i]);
                 }
                 echo json_encode($data);
+                break;
+            case "reporteCitaAtendidaPorVeterinario":
+                $resultado=$dCita->reporteCitaAtendidaPorVeterinario($fechaInicial,$fechaFinal,$_SESSION['idPersona']);
+                while($dato = $resultado->datos->fetchObject()){
+                    $i++;
+                    $xMeses[$i] = (string)$meses[$dato->mes-1];
+                    $yDatos[$i] = (int)$dato->cantidad;
+                    $data[$i] = array($xMeses[$i],$yDatos[$i]);
+                }
+                echo json_encode($data);
                 break;  
             case "reporteEmpleados":
                 $resultado=$dEmpleado->reporteEmpleadosConCitas();

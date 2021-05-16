@@ -23,7 +23,6 @@ class datosMascota{
             $resultado->bindParam(5, $mascota->getEdad());
 
             $resultado->execute();
-
             $this->retorno->datos=null;
             $this->retorno->estado=true;
             $this->retorno->mensaje="Se agrego correctamente la mascota";

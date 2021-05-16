@@ -158,12 +158,7 @@ $(function () {
 
       if(encargado == '' || observacion == ''){
 
-            Swal.fire({
-              icon:'error',
-              title:'Oops...!',
-              text:'Debe validar todos los campos',
-              textButtonText:'Ok',
-            });
+            alertaCamposVacios();
 
         }else if(buscarCe(encargado) == true || buscarCe(observacion) == true){
 

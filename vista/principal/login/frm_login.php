@@ -231,7 +231,7 @@ $rol = $_GET['rol'];
                                         <label class="col-form-label fredoka">Tipo de la mascota</label>
                                         <select style="width:70%" class="cb_tipoMascota" name="cb_tipoMascota"
                                             id="cb_tipoMascota">
-                                            <option value="0" class="limpiar">Seleccione</option>
+                                            <option value="" selected class="limpiar" disabled="disabled">Seleccione</option>
                                         </select>
                                     </div>
 

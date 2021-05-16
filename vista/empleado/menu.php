@@ -17,6 +17,13 @@
                         <li><a href=<?php echo $GLOBALS['citasNoProgramadasE']; ?> >Citas No Programadas</a></li>                    
                 </ul>
             </li>
+            <li class="sub_menu item">
+                <a href="#">Estadisticas<i class="fa fa-caret-down"></i></a>
+                <ul>
+                        <li><a class="dropdown-item" href= <?php echo $GLOBALS['verReporteGraficoCitasAtendidasPorMiE']; ?> >Reporte grafico citas</a></li>
+                </ul>
+            </li>
+
             <li class="sub_menu item " >
                 <a href="#">Configuraciones<i class="fa fa-caret-down"></i></a>
                 <ul class="posRight">

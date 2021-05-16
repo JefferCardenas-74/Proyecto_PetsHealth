@@ -32,7 +32,7 @@
 
         case 'AgregarCliente':
 
-            $persona = new Persona(null, $cedula, $nombre, $apellidos, $telefono, $correo);
+            $persona = new Persona(null, $cedula, strtoupper($nombre), strtoupper($apellidos), $telefono, $correo);
 
             $idPersona = $dCliente->registrarPersonaCli($persona);
 
@@ -43,7 +43,7 @@
             /**se calcula la edad de la mascota */
             $edadMascota = $year - $año;
 
-            $mascota = new Mascota(null, $idPersona, $tipoMascota, $nombreMascota, $fechaNacimientoMascota, $edadMascota);
+            $mascota = new Mascota(null, $idPersona, $tipoMascota, strtoupper($nombreMascota), $fechaNacimientoMascota, $edadMascota);
             $resultado = $dMascota->agregarMascota($mascota);
 
             echo json_encode($resultado);
@@ -67,9 +67,9 @@
                 $objCorreo->correoRemitente = "soporte.petsHealth@gmail.com"; //aqui pueden colocar el correo del administrador
                 $objCorreo->nombreRemitente = "Administración Pets Health"; //igual el nombre del administrador
                 $objCorreo->correoDestinatario = $correo;
-                $objCorreo->nombreDestinatario = $nombre . " " . $apellido;
+                $objCorreo->nombreDestinatario =strtoupper($nombre) . " " . strtoupper($apellido);
                 $objCorreo->asunto = "Confirmación Registro de cliente en  Pets Health";
-                $objCorreo->mensaje = "Cordial saludo  " . $nombre . " " . $apellido . ".<br> se
+                $objCorreo->mensaje = "Cordial saludo  " .strtoupper($nombre). " " . strtoupper($apellido) . ".<br> se
                             informa que el usuario se creo con exito <br>
                             sus datos son :<br> 
                             Usuario inicio sesion  : <b>  " . $correo . " </b> <br>
