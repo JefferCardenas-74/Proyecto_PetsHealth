@@ -9,6 +9,8 @@ var idServicio;
 var precioServicio;
 var rol;
 var correoPersona;
+var correoEncargado;
+
 
 $(function () {
 
@@ -113,7 +115,7 @@ $(function () {
 
           alertaCamposVacios();
 
-        }else if(buscarCe(encargado) == true || buscarCe(observacion) == true){
+        }else if(buscarCe(encargado) == true){
 
             Swal.fire({
                 icon:'warning',
@@ -127,7 +129,7 @@ $(function () {
 
         }else{
 
-          alert('pasa');
+         atenderCita();
         }
       
     });
@@ -160,20 +162,8 @@ $(function () {
 
             alertaCamposVacios();
 
-        }else if(buscarCe(encargado) == true || buscarCe(observacion) == true){
-
-          Swal.fire({
-            icon: 'warning',
-            title: 'Advertencia',
-            text: 'Los campos no pueden tener caracteres especiales.',
-            confirmButtonText:'Aceptar',
-            customClass:{
-                confirmButton:'btnAceptar'
-            }
-          });
-          alert('pasa');
-          //atenderCitaNoProgramada();
-          
+        }else {
+          atenderCitaNoProgramada();
         }
       
     });
@@ -294,12 +284,11 @@ function buscarCliente(cedula){
       console.log(resultado.datos);
 
       if(resultado.datos.length > 0){
-
         $.each(resultado.datos, function(j, dato){
 
           cedulaNueva = dato.perIdentificacion;
           $('#txt_encargado').val(dato.perNombre +' '+ dato.perApellido);
-
+          correoEncargado=dato.perCorreo;
         }); 
 
         buscarMascotasPersona(cedulaNueva);
@@ -678,39 +667,39 @@ function atenderCita(){
           nombreMascota: $('#txt_mascota').val()
        };
 
-      //  $.ajax({
-      //     url:'../../../controlador/citaControl.php',
-      //     data: parametros,
-      //     dataType: 'json',
-      //     type: 'post',
-      //     cache: 'false',
+       $.ajax({
+          url:'../../../controlador/citaControl.php',
+          data: parametros,
+          dataType: 'json',
+          type: 'post',
+          cache: 'false',
 
-      //     success: function(resultado){
+          success: function(resultado){
 
-      //       console.log(resultado);
+            console.log(resultado);
 
-      //       Swal.fire({
-      //         icon:'success',
-      //         title:'Bien hecho!',
-      //         text:'La cita se atendio con exito!',
-      //         confirmButtonText:'Ok',
+            Swal.fire({
+              icon:'success',
+              title:'Bien hecho!',
+              text:'La cita se atendio con exito!',
+              confirmButtonText:'Ok',
 
-      //       }).then((result)=>{
+            }).then((result)=>{
 
-      //         if(result.isConfirmed){
+              if(result.isConfirmed){
 
-      //           limpiarModalAtenderCita();
-      //           window.location.reload();
+                limpiarModalAtenderCita();
+                window.location.reload();
 
-      //         } 
-      //       });
+              } 
+            });
 
-      //     },
-      //     error: function(e){
+          },
+          error: function(e){
 
-      //       console.log(e.responseText);
-      //     }
-      //  });
+            console.log(e.responseText);
+          }
+       });
 
 }
 
@@ -768,7 +757,9 @@ function atenderCitaNoProgramada(){
     precioProductos: precioTotal,
     productos: productosFactura,
     nombreProductos: arrayNombreProductos,
-    nombreMascota: mascota
+    nombreMascota: mascota,
+    correoPersona: correoEncargado,
+    nombreCliente: $('#txt_encargado').val(),
   };
 
   $.ajax({

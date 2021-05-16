@@ -180,7 +180,7 @@
                 <br><b>Nombre de la mascota: </b> ".strtoupper($nombreMascota)."
                 <br><b>Observacion: </b> ".$observacion."
                 <br><b>Productos: </b> ".$listaProductos."
-                <br><b>Total de la consulta: </b> ".$totalFinal."
+                <br><b>Total de la consulta : </b> $ ".number_format($totalFinal,2)." pesos
                 <table  width='50%' border='0' >
                 <tr>
                 <td width ='50%' align='center'>
@@ -246,6 +246,7 @@
 
             $listaProductos = '<ul>'.$item.'</ul>';
             
+            
             if($resultado->estado){
                 //Enviar correo cuando se agenda cita
                 $correo = new enviarCorreoPrueba();
@@ -262,7 +263,7 @@
                 <br><b>Nombre de la mascota: </b> ".strtoupper($nombreMascota)."
                 <br><b>Observacion: </b> ".$observacion."
                 <br><b>Productos: </b> ".$listaProductos."
-                <br><b>Total de la consulta: </b> ".$totalFinal."
+                <br><b>Total de la consulta: </b> $ ".number_format($total,2)." pesos
                 <table  width='50%' border='0' >
                 <tr>
                 <td width ='50%' align='center'>

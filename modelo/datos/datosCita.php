@@ -93,7 +93,7 @@
         function buscarCliente($cedula){
             try{    
 
-                $consulta = 'select persona.idPersona, perIdentificacion, perNombre, perApellido, masNombre from persona inner join mascota
+                $consulta = 'select persona.idPersona, perIdentificacion, perNombre, perApellido, perCorreo ,masNombre from persona inner join mascota
                 on persona.idPersona = mascota.idPersona
                 where perIdentificacion = ?';
                 $resultado = $this->conexion->prepare($consulta);
