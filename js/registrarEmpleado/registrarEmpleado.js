@@ -79,21 +79,11 @@ function agregarEmpleado(){
 
     }else if(buscarCe(nombre) == true || buscarCe(apellido) == true){
 
-        Swal.fire({
-            title: 'Oops',
-            text: 'Los nombres y apellidos no puede tener caracteres especiales...!',
-            icon: 'warning',
-            ConfirmButtonText: 'Ok'
-        });
+        alertaInputCaracteres();
 
     }else if(validarEmail(correo) == false){
 
-        Swal.fire({
-            title: 'Oops',
-            text: 'El correo no valido',
-            icon: 'warning',
-            ConfirmButtonText: 'Ok'
-        });
+        alertaCorreoInvalido();
 
     }else{
         
@@ -111,6 +101,7 @@ function agregarEmpleado(){
         };
         
         console.table(parametros);
+        alert('pasa');
     //     $.ajax({
     //         url: '../../../controlador/empleadoControl.php',
     //         data: parametros,

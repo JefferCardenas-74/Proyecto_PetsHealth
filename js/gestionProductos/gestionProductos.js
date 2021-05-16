@@ -120,8 +120,48 @@ function abrirModalAgregar(){
     $('#mdl_agregar').modal();
     
     $('#btn_agregar').click(function(){
-        
-        agregarProducto();
+
+        var nombre = $('#txt_nombre').val();
+        var precio = $('#txt_precio').val();
+
+        if(nombre == '' || precio == ''){
+            
+            alertaCamposVacios();
+
+        }else if(buscarCe(nombre) == true){
+            
+            Swal.fire({
+                icon:'warning',
+                title:'Advertencia',
+                text:'El campo nombre no puede tene caracteres especiales.',
+                confirmButtonText:'Aceptar',
+                customClass:{
+                    confirmButton:'btnAceptar'
+                }
+            });
+
+        }else if($('#cb_unidad').val() == 0){
+    
+            Swal.fire({
+                icon:'warning',
+                title:'Advertencia',
+                text:'Debe seleccionar una unidad de medida.',
+                confirmButtonText:'Aceptar',
+                customClass:{
+                    confirmButton:'btnAceptar'
+                }
+            });
+
+        }else{
+
+            agregarProducto();
+
+        }
+    });
+
+    /** evento para cerrar el modal y limpiar los input*/
+    $('#btn_cerrar').click(()=>{
+        limpiar();
     });
 
 }
@@ -220,8 +260,42 @@ function listarDatosProducto(){
             });
 
             $('#btn_actualizarM').click(function(){
-            
-                actualizarDatosProducto(idProducto);
+                
+                var nombre = $('#txt_nombreA').val();
+                var precio = $('#txt_precioA').val();
+
+                if(nombre == '' || precio == ''){
+
+                    alertaCamposVacios();
+
+                }else if(buscarCe(nombre) == true){
+                    
+                    Swal.fire({
+                        icon:'warning',
+                        title:'Advertencia',
+                        text:'El campo nombre no puede tene caracteres especiales.',
+                        confirmButtonText:'Aceptar',
+                        customClass:{
+                            confirmButton:'btnAceptar'
+                        }
+                    });
+
+                }else if($('#cb_unidadA').val() == 0){
+
+                    Swal.fire({
+                        icon:'warning',
+                        title:'Advertencia',
+                        text:'Debe seleccionar una unidad de medida.',
+                        confirmButtonText:'Aceptar',
+                        customClass:{
+                            confirmButton:'btnAceptar'
+                        }
+                    });
+
+                }else{
+                    
+                    actualizarDatosProducto(idProducto);
+                }
 
             });
         },
@@ -262,9 +336,14 @@ function actualizarDatosProducto(id){
                 customClass: {
                     confirmButton: 'btnAceptar'
                   } 
-            });
 
-            window.location.reload();
+            }).then((result)=>{
+
+                if(result.isConfirmed){
+
+                    window.location.reload();
+                }
+            });
 
         },
         error:function(e){

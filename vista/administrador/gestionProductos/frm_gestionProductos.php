@@ -38,13 +38,13 @@
 
 <!-- modal para agregar un producto -->
 
-<div class="modal fade" id='mdl_agregar'>
+<div class="modal fade" id='mdl_agregar' data-backdrop='static'>
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header barra">
                 <p class="modal-title fredoka" style="color:#fff;">Agregar Producto</p>
                 <button class="close" data-dismiss='modal' aria-label="modal">
-                    <span aria-hidden="true">&times;</span>
+                    <span aria-hidden="true" id="btn_cerrar">&times;</span>
                 </button>
             </div>
             <div class='modal-body'>
@@ -58,7 +58,7 @@
 
                         <div>
                             <label for="txt_precio" class="fredoka">Precio</label>
-                            <input class=" cajaTexto pompiere" type="text" name="txt_precio" id='txt_precio'>
+                            <input class=" cajaTexto pompiere" type="number" name="txt_precio" id='txt_precio'>
                         </div>
 
                         <div>
@@ -77,7 +77,7 @@
             <div class="modal-footer botonModal">
 
                 <div>
-                    <button class="btnMorado" id='btn_agregar' name='btn_agregar'>Agregar</button>
+                    <button class="btnMorado fredoka" id='btn_agregar' name='btn_agregar'>Agregar</button>
                 </div>
 
             </div>
@@ -107,7 +107,7 @@
 
                         <div>
                             <label for="txt_precioA" class="fredoka">Precio</label>
-                            <input class=" cajaTexto pompiere" type="text" name="txt_precioA" id='txt_precioA'>
+                            <input class=" cajaTexto pompiere" type="number" name="txt_precioA" id='txt_precioA'>
                         </div>
 
                         <div>

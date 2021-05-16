@@ -86,22 +86,48 @@ $(function () {
     /**boton que crear un arreglo de los productos usados y ejecuta una funcion para atender la cita */
     $('#btn_registrar').click(function(){
 
+      var encargado;
+
+      if($('#chk_dueño').is(':checked')){
+
+        encargado = $('#txt_dueño').val();
+
+     }else if($('#chk_otro').is(':checked')){
+
+        encargado = $('#txt_encargado').val();
+     }
+
+      var mascota = $('#txt_mascota').val();
+      var dueño = $('#txt_dueño').val();
+      var tipoCita = $('#txt_tipoCita').val();
+      var observacion = $('#txt_observacion').val();
+
       /**se valida el formulario */
-      if($('#txt_mascota').val() == '' || $('#txt_dueño').val() == '' || 
-          $('#txt_tipoCita').val() == '' || $('#txt_observacion').val() == ''){
+      if(mascota == '' || dueño == '' ||  
+          tipoCita == '' || observacion == ''){
 
             alertaCamposVacios();
+
+        }else if(mascota == '' || encargado == '' ||  
+            tipoCita == '' || observacion == ''){
+
+          alertaCamposVacios();
+
+        }else if(buscarCe(encargado) == true || buscarCe(observacion) == true){
+
+            Swal.fire({
+                icon:'warning',
+                title:'Advertencia',
+                text:'Los campos de texto no pueden tener caracteres especiales.',
+                confirmButtonText: 'Aceptar',
+                customClass:{
+                  confirmButton:'btnAceptar'
+                }
+            });
 
         }else{
-          if($('#txt_encargado').val() == ''){
 
-            alertaCamposVacios();
-          }else if($('#txt_encargado').val() == '' && $('#txt_dueño').val().length > 0){
-            alert('se atendio');
-            //atenderCita();
-          }else if($('#txt_encargado').val().length > 0 && $('#txt_dueño').val() == ''){
-            alert('se atendio');
-          }
+          alert('pasa');
         }
       
     });
@@ -124,7 +150,13 @@ $(function () {
 
     $('#btn_atenderCitaNoPro').click(()=>{
       /**se valida el formulario */
-      if($('#txt_encargado').val() == '' || $('#txt_observacion').val() == ''){
+
+      var cedula = $('#txt_cedula').val();
+      var encargado = $('#txt_encargado').val();
+      var mascota = $('#cb_mascota').val();
+      var observacion = $('#txt_observacion').val();
+
+      if(encargado == '' || observacion == ''){
 
             Swal.fire({
               icon:'error',
@@ -133,9 +165,19 @@ $(function () {
               textButtonText:'Ok',
             });
 
-        }else{
+        }else if(buscarCe(encargado) == true || buscarCe(observacion) == true){
 
-          atenderCitaNoProgramada();
+          Swal.fire({
+            icon: 'warning',
+            title: 'Advertencia',
+            text: 'Los campos no pueden tener caracteres especiales.',
+            confirmButtonText:'Aceptar',
+            customClass:{
+                confirmButton:'btnAceptar'
+            }
+          });
+          alert('pasa');
+          //atenderCitaNoProgramada();
           
         }
       
@@ -641,39 +683,39 @@ function atenderCita(){
           nombreMascota: $('#txt_mascota').val()
        };
 
-       $.ajax({
-          url:'../../../controlador/citaControl.php',
-          data: parametros,
-          dataType: 'json',
-          type: 'post',
-          cache: 'false',
+      //  $.ajax({
+      //     url:'../../../controlador/citaControl.php',
+      //     data: parametros,
+      //     dataType: 'json',
+      //     type: 'post',
+      //     cache: 'false',
 
-          success: function(resultado){
+      //     success: function(resultado){
 
-            console.log(resultado);
+      //       console.log(resultado);
 
-            Swal.fire({
-              icon:'success',
-              title:'Bien hecho!',
-              text:'La cita se atendio con exito!',
-              confirmButtonText:'Ok',
+      //       Swal.fire({
+      //         icon:'success',
+      //         title:'Bien hecho!',
+      //         text:'La cita se atendio con exito!',
+      //         confirmButtonText:'Ok',
 
-            }).then((result)=>{
+      //       }).then((result)=>{
 
-              if(result.isConfirmed){
+      //         if(result.isConfirmed){
 
-                limpiarModalAtenderCita();
-                window.location.reload();
+      //           limpiarModalAtenderCita();
+      //           window.location.reload();
 
-              } 
-            });
+      //         } 
+      //       });
 
-          },
-          error: function(e){
+      //     },
+      //     error: function(e){
 
-            console.log(e.responseText);
-          }
-       });
+      //       console.log(e.responseText);
+      //     }
+      //  });
 
 }
 
