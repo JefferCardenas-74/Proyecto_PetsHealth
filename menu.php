@@ -19,9 +19,6 @@ require_once("configuracion/validaciones.php");
             <li class="item">
                 <a href=<?php echo  $GLOBALS['preguntasFrecuentes']; ?> >Preguntas frecuentes</a>
             </li>
-            <li class="item">
-                <a href="vista/principal/ubicacionEmpresa/" >Encuentranos</a>
-            </li>
 			<li class="item" >
 			<a id="login" href=<?php echo $GLOBALS['iniciarSesion']; ?> >Iniciar sesion</a>
 			</li>
