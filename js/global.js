@@ -41,7 +41,7 @@ $(function () {
 
   inputNumber.keypress((e) => {
 
-    if(e.charCode < 48 || e.charCode > 57) return false;
+    if (e.charCode < 48 || e.charCode > 57) return false;
   });
   /**///////////////////////////////////////////////////////////////////// */
 
@@ -244,7 +244,7 @@ function mostrarPassword() {
 /**
  * Funcion para mostrar cuando los inputs estan vacios
  */
- function alertaCamposVacios() {
+function alertaCamposVacios() {
   Swal.fire({
     title: "Campos vacios !",
     text: "Ingresa datos por favor",
@@ -254,7 +254,7 @@ function mostrarPassword() {
       confirmButton: 'btnAceptar'
     }
   });
-  
+
 }
 /**
  * Funcion cuando se registra un usuario 
@@ -264,8 +264,8 @@ function alertaRegistroPersona() {
     title: "La información se guardo correctamente",
     icon: "success",
     confirmButtonText: "Aceptar",
-    footer:"<p class=text-muted  >Revisa el correo electronico"+ 
-    " por favor </p>",
+    footer: "<p class=text-muted  >Revisa el correo electronico" +
+      " por favor </p>",
     customClass: {
       confirmButton: 'btnAceptar'
     }
@@ -287,49 +287,49 @@ function alertaError() {
 }
 
 /**alerta para indicar que el correo es invalido */
-function alertaCorreoInvalido(){
+function alertaCorreoInvalido() {
 
   Swal.fire({
     icon: 'warning',
     title: 'Advertencia',
     text: 'El formato del correo no es valido.',
-    confirmButtonText:'Aceptar',
-    customClass:{
-        confirmButton:'btnAceptar'
+    confirmButtonText: 'Aceptar',
+    customClass: {
+      confirmButton: 'btnAceptar'
     },
-    footer:'Ejemplo de correo: example@example.com'
+    footer: 'Ejemplo de correo: example@example.com'
   });
 
 }
 /**alerta para indicar cuando los input type text tienen caracteres */
-function alertaInputCaracteres(){
+function alertaInputCaracteres() {
 
   Swal.fire({
     icon: 'warning',
     title: 'Advertencia',
     text: 'Los nombres y apellidos no pueden tener caracteres especiales.',
-    confirmButtonText:'Aceptar',
-    customClass:{
-        confirmButton:'btnAceptar'
+    confirmButtonText: 'Aceptar',
+    customClass: {
+      confirmButton: 'btnAceptar'
     }
   });
-  
+
 }
 
 /**funcion que toma un string como entrada y valida que este no tenga caracteres especiales
  * true si contiene caracteres y false si no 
  */
 
- function buscarCe(string){
+function buscarCe(string) {
 
   var regexCaracteres = /[^a-zA-Z0-9.,\s\r\n\t\f\v\u00a0\u1680\u2000-\u200a\u2028\u2029\u202f\u205f\u3000\ufeff]/g;
 
-  if((string.search(regexCaracteres)) != -1){
+  if ((string.search(regexCaracteres)) != -1) {
 
-      return true;
-  
-  }else{
-      return false;
+    return true;
+
+  } else {
+    return false;
   }
 }
 
@@ -337,13 +337,13 @@ function alertaInputCaracteres(){
  * si se cumple esta expresion la funcion retorna true indicando que el correo es valido
  * de lo constraio retorna false indicando que no lo es
  */
-function validarEmail(string){
+function validarEmail(string) {
 
   let regexEmail = /[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+/g;
 
-  if(string.search(regexEmail) != -1){
-      return true;
-  }else{
-      return false;
+  if (string.search(regexEmail) != -1) {
+    return true;
+  } else {
+    return false;
   }
 }

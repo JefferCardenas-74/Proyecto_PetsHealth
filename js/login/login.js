@@ -6,19 +6,19 @@ var idPersona;
 var rol;
 
 $(function () {
+  cargarElementos();
 
-  rol = $('#rolPersona').val();
+  rol = $("#rolPersona").val();
   console.log(rol);
 
-  if(rol == 'Empleado'){
-
-    $('#btn_volverCitaNoPro').css('display', 'block');
-    $('#btn_volverCitaNoPro').click(()=>{
-      window.location.href = '../../empleado/citasAsignadas/?page=frm_citasNoProgramadas';
+  if (rol == "Empleado") {
+    $("#btn_volverCitaNoPro").css("display", "block");
+    $("#btn_volverCitaNoPro").click(() => {
+      window.location.href =
+        "../../empleado/citasAsignadas/?page=frm_citasNoProgramadas";
     });
-
-  }else{
-    $('#btn_volverCitaNoPro').css('display', 'none');
+  } else {
+    $("#btn_volverCitaNoPro").css("display", "none");
   }
   /*EVENTOS DE INCIO DE SESION */
   $(".txtCrearCuenta").click(function () {
@@ -26,20 +26,17 @@ $(function () {
     listarTipoMascota();
   });
 
-
   $(".btnLogin").click(function () {
     if ($("#txt_user").val() != "" && $("#txt_password").val() != "") {
       iniciarSesion();
     } else {
       alertaCamposVacios();
     }
-
   });
 
   //EVENTOS DE RECUPERAR CONTRASEÑA
   mostrarModalPassword();
   cerrarModalPassword();
-
 
   $("#txt_olvidoPassword").change(function () {
     obtenerUsuario();
@@ -54,22 +51,28 @@ $(function () {
   });
 
   $("#btn_registrar").click(function () {
-    if ($("#txt_cedula").val() != "" && $("#txt_nombre").val() != "" && $("#txt_apellidos").val() != "" && $("#txt_telefono").val() != "" && $("#txt_correo").val() != "" && $("#txt_nombreMascota").val() != "" && $("#txt_edadMascota").val() != "" && $("#dt_fechaNacimientoMascota").val() != "" && $("#cb_tipoMascota").val() != "") {
-
-      registrarPersona();
-
-    } else {
+    if (
+      $("#txt_cedula").val() == "" ||
+      $("#txt_nombre").val() == "" ||
+      $("#txt_apellidos").val() == "" ||
+      $("#txt_telefono").val() == "" ||
+      $("#txt_correo").val() == "" ||
+      $("#txt_nombreMascota").val() == "" ||
+      $("#txt_edadMascota").val() == "" ||
+      $("#dt_fechaNacimientoMascota").val() == "" ||
+      $("#cb_tipoMascota").val() == ""
+    ) {
       alertaCamposVacios();
+    } else if (!validarEmail($("#txt_correo").val())) {
+      alertaCorreoInvalido();
+    } else {
+      registrarPersona();
     }
   });
-
-
-
 });
 
-
-function mostrarPassword(){
-  let inputPassword = document.querySelector('.password');
+function mostrarPassword() {
+  let inputPassword = document.querySelector(".password");
   if (inputPassword.type === "password") {
     inputPassword.type = "text";
   } else {
@@ -77,26 +80,48 @@ function mostrarPassword(){
   }
 }
 
-function limpiarFormulario(){
+const cargarElementos = () => {
+  var element = document.getElementById("dt_fechaNacimientoMascota");
+  datepicker = new Datepicker(element, {
+    language: "es",
+    buttonClass: "btn",
+    format: "yyyy-mm-dd",
+    // fecha minima
+    maxDate: "data-date",
+  });
+  // Establecer libreria de selects personalizados
+  // establecer el select de horas
+  $("#cb_tipoMascota").select2({
+    language: {
+      noResults: function () {
+        return "No encontramos el tipo para tu mascota :(";
+      },
+      searching: function () {
+        return "Buscando..";
+      },
+    },
+  });
+};
+
+function limpiarFormulario() {
   let numeroCedula = document.querySelector("#txt_cedula");
-  numeroCedula.value="";
+  numeroCedula.value = "";
   let nombreCliente = document.querySelector("#txt_nombre");
-  nombreCliente.value="";
+  nombreCliente.value = "";
   let apellidosCliente = document.querySelector("#txt_apellidos");
-  apellidosCliente.value="";
+  apellidosCliente.value = "";
   let telefonoCliente = document.querySelector("#txt_telefono");
-  telefonoCliente.value="";
+  telefonoCliente.value = "";
   let correoCliente = document.querySelector("#txt_correo");
-  correoCliente.value="";
+  correoCliente.value = "";
   let nombremascotaCliente = document.querySelector("#txt_nombreMascota");
-  nombremascotaCliente.value="";
-  let edadMascotaCliente = document.querySelector("#txt_edadMascota");
-  edadMascotaCliente.value="";
-  let fechaNacimientoMascotaCliente = document.querySelector("#dt_fechaNacimientoMascota");
-  fechaNacimientoMascotaCliente.value="";
+  nombremascotaCliente.value = "";
+  let fechaNacimientoMascotaCliente = document.querySelector(
+    "#dt_fechaNacimientoMascota"
+  );
+  fechaNacimientoMascotaCliente.value = "";
   let tipoMascotaCliente = document.querySelector("#cb_tipoMascota");
-  tipoMascotaCliente.value="";
-  
+  tipoMascotaCliente.value = "";
 }
 
 function iniciarSesion() {
@@ -109,9 +134,9 @@ function iniciarSesion() {
     //ANTES de enviar se poone el boton el siguinete texto
     beforeSend: function () {
       $("#btn_iniciarSesion").text("Validando datos....");
-      $("#btn_iniciarSesion").prop('disabled',true);
+      $("#btn_iniciarSesion").prop("disabled", true);
       $("#btn_iniciarSesion").css({
-        background: '#3000ff8f'
+        background: "#3000ff8f",
       });
     },
     success: function (resultado) {
@@ -202,12 +227,12 @@ function iniciarSesion() {
               title: "Usuario inactivo",
               text: "Comuniquese con el Administrador para mas informacion",
               customClass: {
-                confirmButton: 'btnAceptar',
-            }
+                confirmButton: "btnAceptar",
+              },
             });
             // cambia el texto asu estado inicial
             $("#btn_iniciarSesion").text("Ingresar");
-            $("#btn_iniciarSesion").prop("disabled",false);
+            $("#btn_iniciarSesion").prop("disabled", false);
           }
         } else {
           //    en caso de que no sea asi botara el mensaje del controlador
@@ -235,9 +260,9 @@ function iniciarSesion() {
           });
           // cambia el texto asu estado inicial
           $("#btn_iniciarSesion").text("INGRESAR");
-          $("#btn_iniciarSesion").prop("disabled",false);
+          $("#btn_iniciarSesion").prop("disabled", false);
           $("#btn_iniciarSesion").css({
-            background: 'linear-gradient(to right, #8E2DE2, #4A00E0)'
+            background: "linear-gradient(to right, #8E2DE2, #4A00E0)",
           });
           // alert(resultado.mensaje);
         }
@@ -265,7 +290,7 @@ function mostrarRecaptcha() {
     footer: "Pasaste el numero de intentos por esta razon verificamos",
     confirmButtonText: "Aceptar",
     customClass: {
-      confirmButton: 'btnAceptar'
+      confirmButton: "btnAceptar",
     },
     // funciones para no poder saltar la ventana emergente
     allowOutsideClick: false,
@@ -286,9 +311,9 @@ function mostrarRecaptcha() {
       count = 0;
       console.log("%cReinicio del contador a =", "color:blue", count);
       $("#btn_iniciarSesion").text("INGRESAR");
-      $("#btn_iniciarSesion").prop("disabled",false);
+      $("#btn_iniciarSesion").prop("disabled", false);
       $("#btn_iniciarSesion").css({
-        background: 'linear-gradient(to right, #8E2DE2, #4A00E0)'
+        background: "linear-gradient(to right, #8E2DE2, #4A00E0)",
       });
     },
   });
@@ -298,13 +323,12 @@ function mostrarRecaptcha() {
  * Carga la modal para recuperar contraseña
  */
 function mostrarModalPassword() {
-  
-  $("#msgUser").hide(); //oculta el span para mostrar mensaje  
+  $("#msgUser").hide(); //oculta el span para mostrar mensaje
   /*evento escucha para activarl el modal */
   $(".olvidoPassword").click(function () {
     $("#olvidoPasswordModal").modal();
   });
-  
+
   // $("#btn_cerrarOlvidoContrasenia").click(function () {
   //   $("#olvidoPasswordModal").modal('hide');
 
@@ -320,22 +344,20 @@ function mostrarModalPassword() {
   //   });
 
   // });
-
 }
 function cerrarModalPassword() {
-    // Detectar cuando modal se cerro
-    $("#olvidoPasswordModal").on('hidden.bs.modal', function () {
-      // destruyo todo los elementos del modal si se cerro
-      $("#btn_olvidoContrasenia").prop("disabled", false);
-      $("#btn_olvidoContrasenia").css({
-        background: 'linear-gradient(to right, #8E2DE2, #4A00E0)'
-      });
-      $("#msgUser").hide();
-      $("#txt_olvidoPassword").val("");
-      $("#txt_olvidoPassword").css({
-        border: 'none'
-      });
-  
+  // Detectar cuando modal se cerro
+  $("#olvidoPasswordModal").on("hidden.bs.modal", function () {
+    // destruyo todo los elementos del modal si se cerro
+    $("#btn_olvidoContrasenia").prop("disabled", false);
+    $("#btn_olvidoContrasenia").css({
+      background: "linear-gradient(to right, #8E2DE2, #4A00E0)",
+    });
+    $("#msgUser").hide();
+    $("#txt_olvidoPassword").val("");
+    $("#txt_olvidoPassword").css({
+      border: "none",
+    });
   });
 }
 function obtenerUsuario() {
@@ -353,45 +375,43 @@ function obtenerUsuario() {
     success: function (resultado) {
       console.log(resultado);
       if (resultado.datos) {
-
         $("#txt_olvidoPassword").css({
-          border: '2px solid var(--colorBarra2) '
+          border: "2px solid var(--colorBarra2) ",
         });
         // // activo el boton
         $("#btn_olvidoContrasenia").prop("disabled", false);
         $("#btn_olvidoContrasenia").css({
-          background: 'linear-gradient(to right, #8E2DE2, #4A00E0)'
+          background: "linear-gradient(to right, #8E2DE2, #4A00E0)",
         });
-        // oculta el mensaje 
+        // oculta el mensaje
         $("#msgUser").hide();
       } else {
         // cambia el border del input
         $("#txt_olvidoPassword").css({
-          border: '2px solid var(--colorBoton1)'
+          border: "2px solid var(--colorBoton1)",
         });
         $("#btn_olvidoContrasenia").text("Enviar");
         // //  desactivo el buttom para que no pueda dar click
         $("#btn_olvidoContrasenia").prop("disabled", true);
         $("#btn_olvidoContrasenia").css({
-          background: '#3000ff8f'
+          background: "#3000ff8f",
         });
         // muestra el mensaje cuando el correo este mal
         $("#msgUser").show();
-        $("#msgUser").text(resultado.mensaje)
+        $("#msgUser").text(resultado.mensaje);
       }
     },
     error: function (ex) {
       console.log(ex.responseText);
     },
   });
-
 }
 
 function enviarCorreoRecuperacionContrasenia() {
   // se manda la accion y el value del input del correo al controlador
   let parametros = {
     accion: "enviarCorreoRecuperacionContrasenia",
-    usuario: $("#txt_olvidoPassword").val()
+    usuario: $("#txt_olvidoPassword").val(),
   };
   $.ajax({
     url: "../../../controlador/usuarioControl.php",
@@ -405,42 +425,37 @@ function enviarCorreoRecuperacionContrasenia() {
       $("#btn_olvidoContrasenia").attr("disabled", true);
       $("#txt_olvidoPassword").prop("disabled", true);
       $("#btn_olvidoContrasenia").css({
-        background: '#3000ff8f'
+        background: "#3000ff8f",
       });
     },
     success: function (resultado) {
       console.log(resultado);
       if (resultado.datos) {
         alertaRegistroPersona();
-      // se activan los botones
-      $("#btn_olvidoContrasenia").text("Enviar");
-      $("#txt_olvidoPassword").prop("disabled", false);
-      $("#btn_olvidoContrasenia").attr("disabled", false);
-      $("#txtRecuperarpassword").val("");
-      // oculta modal
-      $('#olvidoPasswordModal').modal('hide');
-      } 
-      
+        // se activan los botones
+        $("#btn_olvidoContrasenia").text("Enviar");
+        $("#txt_olvidoPassword").prop("disabled", false);
+        $("#btn_olvidoContrasenia").attr("disabled", false);
+        $("#txtRecuperarpassword").val("");
+        // oculta modal
+        $("#olvidoPasswordModal").modal("hide");
+      }
     },
     error: function (ex) {
       console.log(ex.responseText);
     },
   });
-
 }
 
-function registrarPersona(){
+function registrarPersona() {
+  var parametros = {
+    accion: "AgregarCliente",
 
-  var parametros = { 
-    
-    accion : "AgregarCliente",
-
-    cedula: $('#txt_cedula').val(),
-    nombre : $('#txt_nombre').val(),
-    apellidos: $('#txt_apellidos').val(),
-    telefono : $('#txt_telefono').val(),
-    correo : $('#txt_correo').val(),
-
+    cedula: $("#txt_cedula").val(),
+    nombre: $("#txt_nombre").val(),
+    apellidos: $("#txt_apellidos").val(),
+    telefono: $("#txt_telefono").val(),
+    correo: $("#txt_correo").val(),
   };
 
   $.ajax({
@@ -451,131 +466,124 @@ function registrarPersona(){
     cache: "false",
 
     success: function (resultado) {
+      console.log(resultado.datos);
 
-    console.log(resultado.datos);
-
-    idPersona = resultado.datos;
-    agregarMascota(idPersona);
-
+      idPersona = resultado.datos;
+      agregarMascota(idPersona);
     },
-    error:function(e){
+    error: function (e) {
       console.log(e);
-    }
+    },
   });
 }
 
-function agregarMascota(id){
-  let parametros = { 
+function agregarMascota(id) {
+  let parametros = {
     idPersona: id,
-    nombreMascota: $('#txt_nombreMascota').val(),
-    edadMascota : $('#txt_edadMascota').val(),
-    fechaNacimientoMascota: $('#dt_fechaNacimientoMascota').val(),
-    tipoMascota : $('#cb_tipoMascota').val(),
+    nombreMascota: $("#txt_nombreMascota").val(),
+    edadMascota: $("#txt_edadMascota").val(),
+    fechaNacimientoMascota: $("#dt_fechaNacimientoMascota").val(),
+    tipoMascota: $("#cb_tipoMascota").val(),
 
-    accion : "AgregarMascota"
-
-  }
- 
+    accion: "AgregarMascota",
+  };
 
   $.ajax({
-    url:"../../../controlador/clienteControl.php",
+    url: "../../../controlador/clienteControl.php",
     data: parametros,
     dataType: "json",
     type: "post",
     cache: "false",
 
-    success: function(resultado){
-
+    success: function (resultado) {
       console.log(resultado.mensaje);
 
       registrarUsuario();
-
     },
-    error:function(e){
+    error: function (e) {
       console.log(e);
-    }
-  })
+    },
+  });
 }
 
-function registrarUsuario(){
-  
-  var parametros = { 
-    idPersona : idPersona,
-    cedula: $('#txt_cedula').val(),
-    correo : $('#txt_correo').val(),
-    nombre:$('#txt_nombre').val(),
-    apellido:$('#txt_apellidos').val(),
-    accion : "AgregarUsuario"
-
-  }
+function registrarUsuario() {
+  var parametros = {
+    idPersona: idPersona,
+    cedula: $("#txt_cedula").val(),
+    correo: $("#txt_correo").val(),
+    nombre: $("#txt_nombre").val(),
+    apellido: $("#txt_apellidos").val(),
+    accion: "AgregarUsuario",
+  };
 
   $.ajax({
-    url:"../../../controlador/clienteControl.php",
+    url: "../../../controlador/clienteControl.php",
     data: parametros,
     dataType: "json",
     type: "post",
     cache: "false",
-
-    success: function(resultado){
-      
+    beforeSend: function () {
+      $("#btn_registrar").text("Procesando...");
+      $("#btn_registrar").attr("disabled", true);
+      $("#btn_registrar").css({
+          background: '#3000ff8f'
+          });
+  },
+    success: function (resultado) {
+      $("#btn_registrar").text("Registrarse");
+      $("#btn_registrar").attr("disabled", false);
+      $("#btn_registrar").css({
+          background: 'linear-gradient(to right, #8E2DE2, #4A00E0)'
+          });
       console.log(resultado.mensaje);
-      if(resultado.estado==true){
+      if (resultado.estado == true) {
         limpiarFormulario();
         alertaRegistroPersona();
-
-      }else{
+      } else {
         alertaError();
       }
-
     },
-    error:function(e){
+    error: function (e) {
       console.log(e);
-    }
-  })
+    },
+  });
 }
 
-
-function listarTipoMascota(){
+function listarTipoMascota() {
   $(".opcion").remove();
   let parametros = {
-    accion:"ListarTM"
-};
-$.ajax({
-   url: "../../../controlador/tipoMascotaControl.php",
-   data: parametros,
-   type: "post",
-   dataType: "json",
-   cache: false,
+    accion: "ListarTM",
+  };
+  $.ajax({
+    url: "../../../controlador/tipoMascotaControl.php",
+    data: parametros,
+    type: "post",
+    dataType: "json",
+    cache: false,
 
-    success:function(resultado){
-     console.log(resultado);
-    
-        if(resultado.estado){
+    success: function (resultado) {
+      console.log(resultado);
 
-            var tipoMascotas= resultado.datos;
+      if (resultado.estado) {
+        var tipoMascotas = resultado.datos;
 
-            console.log(tipoMascotas);
+        console.log(tipoMascotas);
 
-              $.each(tipoMascotas, function(i, tipomascota){
+        $.each(tipoMascotas, function (i, tipomascota) {
+          var opcion = document.createElement("option");
 
-                
-                var opcion = document.createElement('option');    
+          opcion.value = tipomascota.idTipoMascota;
+          opcion.text = tipomascota.tipoCategoria;
+          opcion.setAttribute("class", "opcion");
+          $("#cb_tipoMascota").append(opcion);
 
-                opcion.value = tipomascota.idTipoMascota;
-                opcion.text = tipomascota.tipoCategoria;
-                opcion.setAttribute("class", "opcion");
-                $("#cb_tipoMascota").append(opcion);
-
-                // $("#cb_tipoMascota").append("<option class='opcion' value="+ tipomascota.idTipoMascota +">" 
-                //   + tipomascota.tipoCategoria + "</option>");
-                  
-
-              });
-        }
-       
+          // $("#cb_tipoMascota").append("<option class='opcion' value="+ tipomascota.idTipoMascota +">"
+          //   + tipomascota.tipoCategoria + "</option>");
+        });
+      }
     },
-   error: function(ex){
-       console.log(ex.responseText);
-   } 
-});
+    error: function (ex) {
+      console.log(ex.responseText);
+    },
+  });
 }
