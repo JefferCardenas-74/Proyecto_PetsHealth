@@ -115,7 +115,7 @@ $(function () {
 
           alertaCamposVacios();
 
-        }else if(buscarCe(encargado) == true){
+        }else if(buscarCe(encargado) == true || buscarCe(observacion) == true){
 
             Swal.fire({
                 icon:'warning',
@@ -128,8 +128,8 @@ $(function () {
             });
 
         }else{
-
-         atenderCita();
+          alert('pasa');
+         //atenderCita();
         }
       
     });
@@ -162,8 +162,21 @@ $(function () {
 
             alertaCamposVacios();
 
-        }else {
-          atenderCitaNoProgramada();
+        }else if(buscarCe(encargado) == true || buscarCe(observacion) == true){
+
+          Swal.fire({
+            icon:'warning',
+            title:'Advertencia',
+            text:'Los campos de texto no pueden tener caracteres especiales.',
+            confirmButtonText: 'Aceptar',
+            customClass:{
+              confirmButton:'btnAceptar'
+            }
+          });
+          
+        }else{
+          alert('pasa');
+          //atenderCitaNoProgramada();
         }
       
     });
