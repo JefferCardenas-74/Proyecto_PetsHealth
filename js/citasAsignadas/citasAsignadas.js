@@ -128,8 +128,7 @@ $(function () {
             });
 
         }else{
-          alert('pasa');
-         //atenderCita();
+         atenderCita();
         }
       
     });
@@ -175,8 +174,7 @@ $(function () {
           });
           
         }else{
-          alert('pasa');
-          //atenderCitaNoProgramada();
+          atenderCitaNoProgramada();
         }
       
     });

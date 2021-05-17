@@ -3,6 +3,7 @@
     color: var(--colorParrafos);
     font-family: var(--fuenteParrafos);
     font-weight: bold;
+    margin-bottom: 20px;
   }
   
   .rpt {

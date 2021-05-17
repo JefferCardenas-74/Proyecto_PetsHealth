@@ -25,6 +25,10 @@
 #usuario{
 cursor: context-menu;
 }
+.home{
+    cursor: context-menu !important;
+}
+    
 
 #btn_menu{
     display: none;
