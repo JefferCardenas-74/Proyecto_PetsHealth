@@ -322,7 +322,7 @@ function alertaInputCaracteres(){
 
  function buscarCe(string){
 
-  var regexCaracteres = /[^a-zA-Z0-9.\s\r\n\t\f\v\u00a0\u1680\u2000-\u200a\u2028\u2029\u202f\u205f\u3000\ufeff]/g;
+  var regexCaracteres = /[^a-zA-Z0-9.,\s\r\n\t\f\v\u00a0\u1680\u2000-\u200a\u2028\u2029\u202f\u205f\u3000\ufeff]/g;
 
   if((string.search(regexCaracteres)) != -1){
 

@@ -56,11 +56,6 @@
                                         <label for="chk_dueño" class="form-check-label fredoka">Dueño</label>
                                     </div>
 
-                                    <!-- <div class="form-check">
-                                        <input type="radio" class="form-check-input" id="chk_empleado" name="chk_tipoEncargado">
-                                        <label for="chk_empleado" class="form-check-label fredoka">Empleado</label>
-                                    </div> -->
-
                                     <div class="form-check">
                                         <input type="radio" class="form-check-input" id="chk_otro" name="chk_tipoEncargado">
                                         <label for="chk_otro" class="form-check-label fredoka">Otro</label>
@@ -71,25 +66,10 @@
                                         <input type="text" class="cajaTexto pompiere" id="txt_dueño" readonly>
                                     </div>
 
-                                    <!-- <div class="form-group empleado">
-                                        <label for="cb_empleado" class="col-form-label fredoka">Nombre del empleado</label>
-                                        <select name="cb_empleado" id="cb_empleado" class="cajaTexto">
-                                        </select>
-                                    </div> -->
-
                                     <div class="form-group encargado">
                                         <label for="txt_encargado" class="col-form-labe fredoka">Nombre del encargado</label>
                                         <input type="text" id="txt_encargado" class="cajaTexto pompiere" required>
                                     </div>
-
-                                    <!-- <div class="domicilio">
-                                        <label for="check_domicilio" class="col-form-label fredoka">Domicilio</label>
-
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" id="chk_si" name="chk_radios" checked>
-                                            <label class="form-check-label fredoka" for="chk_si">si</label>
-                                        </div>
-                                    </div> -->
                                 </div>
 
                                 <!----------------------------------------------------->
@@ -115,7 +95,7 @@
                                 <div class="col">
                                     <div class="from-group">
                                         <label for="txt_buscadorProductos" class="col-from-label fredoka">Buscador de Productos</label>
-                                        <input type="text" class="form-control cajaTexto" id="txt_buscadorProductos" name="txt_buscadorProductos" placeholder="Buscar">
+                                        <input type="text" class="pompiere cajaTexto" id="txt_buscadorProductos" name="txt_buscadorProductos" placeholder="Buscar">
 
                                         <div id="listaDatos">
                                             <div id="primerCampo" class="primerCampo">
