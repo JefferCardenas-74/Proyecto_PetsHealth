@@ -241,7 +241,7 @@ height: 30px !important;
 @media screen and (max-width: 577px){
 
     .contenedorTituloLogin{        
-        font-size: 50px;
+        font-size: 40px;
     }
 
     .contenedorTituloLogin label:nth-child(2){

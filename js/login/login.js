@@ -39,6 +39,9 @@ $(function () {
   cerrarModalPassword();
 
   $("#txt_olvidoPassword").change(function () {
+    if(!validarEmail($("#txt_olvidoPassword").val())){
+      alertaCorreoInvalido();
+    }
     obtenerUsuario();
   });
 
@@ -431,7 +434,7 @@ function enviarCorreoRecuperacionContrasenia() {
     success: function (resultado) {
       console.log(resultado);
       if (resultado.datos) {
-        alertaRegistroPersona();
+        alertaCorreoRecuperarContrasenia();
         // se activan los botones
         $("#btn_olvidoContrasenia").text("Enviar");
         $("#txt_olvidoPassword").prop("disabled", false);

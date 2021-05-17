@@ -272,6 +272,23 @@ function alertaRegistroPersona() {
   });
 }
 /**
+ * Enviar correo recuperar contrasea
+ */
+
+ function alertaCorreoRecuperarContrasenia() {
+  Swal.fire({
+    title: "Correo enviado",
+    icon: "success",
+    confirmButtonText: "Aceptar",
+    footer: "<p class=text-muted text-center  >Revisa tu correo electronico" +
+      " </p>",
+    customClass: {
+      confirmButton: 'btnAceptar'
+    }
+  });
+}
+
+/**
  * Funcion cuando se produce un error al guardar modificar etc
  */
 function alertaError() {
