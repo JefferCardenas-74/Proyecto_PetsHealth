@@ -81,6 +81,15 @@ thead{
     font-size: 50px;
 }
 
+.contenedorCitasNoProgramadas{
+
+    background: #fff;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    padding: 25px;
+    backdrop-filter: blur(2px);
+}
+
 .frm_atenderUrgencia{
 
     display: flex;
