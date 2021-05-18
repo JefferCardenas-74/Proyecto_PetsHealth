@@ -287,10 +287,10 @@ function iniciarSesion() {
  */
 function mostrarRecaptcha() {
   Swal.fire({
-    title: "Verificacion",
+    title: "<h2 class='fredoka'>VERIFICACIÓN</h2>",
     // id para mas  poner estilos css
-    html: '<div id="recaptcha"></div>',
-    footer: "Pasaste el numero de intentos por esta razon verificamos",
+    html: '<div id="recaptcha"  ></div>',
+    footer: " <p  class='pompiere'> Pasaste el numero de intentos por esta razon verificamos.</p> ",
     confirmButtonText: "Aceptar",
     customClass: {
       confirmButton: "btnAceptar",
@@ -301,7 +301,7 @@ function mostrarRecaptcha() {
     didOpen: function () {
       grecaptcha.render("recaptcha", {
         // clave secreta de la web google de recaptcha
-        sitekey: "6LcqLA0aAAAAAM1nMXtIXHSo2D7pRUJVXzqw7lwy",
+        sitekey: "6LdcndkaAAAAAENtw4BZMkhGTcGsrMwF9KXbml4N",
       });
     },
     preConfirm: function () {
