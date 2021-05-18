@@ -215,7 +215,7 @@ $rol = $_GET['rol'];
                                             mascota</label> <br>
                                             <select  class="cajaTexto"  name="cb_tipoMascota"
                                             id="cb_tipoMascota">
-                                            <option value="" selected class="limpiar" disabled="disabled">Seleccione</option>
+                                            <option value="0" selected class="limpiar" >Seleccione</option>
                                         </select>
                                     </div>
 

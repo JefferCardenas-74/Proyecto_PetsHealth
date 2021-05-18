@@ -32,11 +32,13 @@
 
         case 'AgregarCliente':
 
+            //$persona = new Persona(null, "123", "f", "s", "123", "test@sa");
+
             $persona = new Persona(null, $cedula, strtoupper($nombre), strtoupper($apellidos), $telefono, $correo);
 
-            $idPersona = $dCliente->registrarPersonaCli($persona);
+            $resultadoCliente = $dCliente->registrarPersonaCli($persona);
 
-            echo json_encode($idPersona);
+            echo json_encode($resultadoCliente);
             break;
 
         case 'AgregarMascota':

@@ -472,7 +472,7 @@ function registrarPersona() {
       console.log(resultado.datos);
 
       idPersona = resultado.datos;
-      agregarMascota(idPersona);
+      agregarMascota();
     },
     error: function (e) {
       console.log(e);
@@ -480,9 +480,9 @@ function registrarPersona() {
   });
 }
 
-function agregarMascota(id) {
+function agregarMascota() {
   let parametros = {
-    idPersona: id,
+    idPersona: idPersona,
     nombreMascota: $("#txt_nombreMascota").val(),
     edadMascota: $("#txt_edadMascota").val(),
     fechaNacimientoMascota: $("#dt_fechaNacimientoMascota").val(),
@@ -525,33 +525,6 @@ function registrarUsuario() {
     dataType: "json",
     type: "post",
     cache: "false",
-<<<<<<< HEAD
-
-    beforeSend: function () {
-      $("#btn_registrar").text("Validando datos....");
-      $("#btn_registrar").prop('disabled',true);
-      $("#btn_registrar").css({
-        
-      });
-    },
-    success: function(resultado){
-      
-      console.log(resultado.mensaje);
-      if(resultado.estado==true){
-        $("#btn_registrar").text("Registrarse");
-        $("#btn_registrar").prop("disabled",false);
-        $("#btn_registrar").css({
-          
-        });
-        
-        alertaError();
-        limpiarFormulario();
-        alertaRegistroPersona();
-
-      }else{
-        $("#btn_registrar").text("Registrarse");
-        $("#btn_registrar").prop("disabled",false);
-=======
     beforeSend: function () {
       $("#btn_registrar").text("Procesando...");
       $("#btn_registrar").attr("disabled", true);
@@ -570,7 +543,6 @@ function registrarUsuario() {
         limpiarFormulario();
         alertaRegistroPersona();
       } else {
->>>>>>> 168f346c3d8f6d4808d993c6d11b336783acecda
         alertaError();
       }
     },
