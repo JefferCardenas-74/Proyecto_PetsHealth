@@ -65,25 +65,35 @@ $rol = $_GET['rol'];
         <!--Modal para la interfaz de olvido contraseña-->
 
         <div class="modal fade" id="olvidoPasswordModal" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog modal-xl modal-dialog-scrollable">
-                <div class="modal-content contentModalolvidoContraseña">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content contentModalolvidoContraseña"> 
+
+
+                    <!-- <div class="salirModal">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div> -->
+
+                    
                     <div class="modal-header headerModalOlvidoPassword">
-                        <label class="fredoka">Olvido Contraseña</label>
+                        <label class="fredoka modal-title">Olvido Contraseña</label>
                     </div>
                     <!--formulario de olvido contraseña-->
                     <div class="modal-body bodyModalolvidoContraseña">
                         <div class="container-fluid">
-                            <label class="texto fredoka textoOlvidoContraseña">Ingresa correo registrado en el sistema
-                            </label>
+                            <label class="texto fredoka textoOlvidoContraseña">Ingresa correo registrado en el sistema</label>
                             <div class="row">
                                 <div class="col">
                                     <div class="frm_olvidoPassword">
                                         <form action="#" method="POST">
-                                            <input class="login" type="email" name="txt_olvidoPassword"
-                                                id="txt_olvidoPassword" placeholder="Correo">
-                                            <span class="simbolo">
-                                                <i class="fa fa-envelope" aria-hidden="true"></i>
-                                            </span>
+                                            <div class="input-group">
+                                                <input class="login" type="text" name="txt_olvidoPassword"
+                                                    id="txt_olvidoPassword" placeholder="Correo">
+                                                <span class="simbolo">
+                                                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                </span>
+                                            </div>
                                         </form>
                                     </div>
                                 </div>
@@ -101,6 +111,8 @@ $rol = $_GET['rol'];
                 </div>
             </div>
         </div>
+
+
 
 
         <!--Modal para crear cuenta-->
@@ -203,7 +215,7 @@ $rol = $_GET['rol'];
                                             mascota</label> <br>
                                             <select  class="cajaTexto"  name="cb_tipoMascota"
                                             id="cb_tipoMascota">
-                                            <option value="" selected class="limpiar" disabled="disabled">Seleccione</option>
+                                            <option value="0" selected class="limpiar" >Seleccione</option>
                                         </select>
                                     </div>
 

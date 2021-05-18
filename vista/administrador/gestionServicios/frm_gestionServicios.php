@@ -13,7 +13,7 @@
             </div>
 
             <div class='contenedorTablaServicios fredoka'>
-                <table class="tabla display nowrap" cellspacing='0' id='tbl_servicios' width='100%'>
+                <table class="table display nowrap" cellspacing='0' id='tbl_servicios' width='100%'>
                     <thead>
                         <th>Tipo</th>
                         <th>Descripcion</th>

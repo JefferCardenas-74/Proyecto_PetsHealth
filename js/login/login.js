@@ -472,7 +472,7 @@ function registrarPersona() {
       console.log(resultado.datos);
 
       idPersona = resultado.datos;
-      agregarMascota(idPersona);
+      agregarMascota();
     },
     error: function (e) {
       console.log(e);
@@ -480,9 +480,9 @@ function registrarPersona() {
   });
 }
 
-function agregarMascota(id) {
+function agregarMascota() {
   let parametros = {
-    idPersona: id,
+    idPersona: idPersona,
     nombreMascota: $("#txt_nombreMascota").val(),
     edadMascota: $("#txt_edadMascota").val(),
     fechaNacimientoMascota: $("#dt_fechaNacimientoMascota").val(),

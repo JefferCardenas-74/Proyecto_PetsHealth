@@ -73,6 +73,7 @@ class datosServicio
 
             $consulta = "SELECT *  FROM servicio ";
             $resultado = $this->conexion->query($consulta);   
+            
             $this->retorno->mensaje = 'lista de servicios veterinaria';
             $this->retorno->estado = true;
             $this->retorno->datos = $resultado->fetchAll();
