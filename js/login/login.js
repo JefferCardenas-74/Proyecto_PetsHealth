@@ -519,14 +519,30 @@ function registrarUsuario(){
     type: "post",
     cache: "false",
 
+    beforeSend: function () {
+      $("#btn_registrar").text("Validando datos....");
+      $("#btn_registrar").prop('disabled',true);
+      $("#btn_registrar").css({
+        
+      });
+    },
     success: function(resultado){
       
       console.log(resultado.mensaje);
       if(resultado.estado==true){
+        $("#btn_registrar").text("Registrarse");
+        $("#btn_registrar").prop("disabled",false);
+        $("#btn_registrar").css({
+          
+        });
+        
+        alertaError();
         limpiarFormulario();
         alertaRegistroPersona();
 
       }else{
+        $("#btn_registrar").text("Registrarse");
+        $("#btn_registrar").prop("disabled",false);
         alertaError();
       }
 

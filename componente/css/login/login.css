@@ -129,12 +129,10 @@ form{
 }
 
 .contentModalolvidoContraseña{
-    width: 60%;
-    height: auto;
     background: #fff;
     border-radius: 20px;
     overflow: hidden;
-    display: flex;
+    display: block;
     flex-flow: column wrap;   
     justify-content: space-evenly;
     margin: 0 auto;
@@ -157,7 +155,6 @@ form{
 
 .headerModalOlvidoPassword{
     width: 100%;
-    height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -225,6 +222,8 @@ form{
 
 /*responsive*/
 
+
+
 @media screen and (max-width: 577px){
 
     .contenedorTituloLogin{        
@@ -243,12 +242,10 @@ form{
     }
 
     .contentModalolvidoContraseña{
-        width: 100%;
-        height: auto;
         background: #fff;
         border-radius: 20px;
         overflow: hidden;
-        display: flex;
+        display: block;
         flex-flow: column wrap;   
         justify-content: space-evenly;
         margin: 0 auto;
@@ -258,25 +255,9 @@ form{
     }
 
 
-    .headerModalOlvidoPassword{
-        width: 100%;
-        height: auto;
-        font-size: larger;
-    }
-
     .textoOlvidoContraseña{
         width: 100%;
         height: auto;
-    }
-
-    .frm_olvidoPassword{
-        position: absolute;
-        width: 100%;
-        height: auto;
-    }
-
-    .footerModal{
-        display: flex;
     }
     
     .frm_crearCuenta{
@@ -297,7 +278,24 @@ form{
         background: rgba(255, 255, 255, 0.603);
     }
 
+    .footerModal{
+        margin-top: 25px;
+    }
+
 }
+
+@media screen and (max-width: 1199px){
+
+    .headerModalOlvidoPassword{
+        width: 100%;
+        height: auto;
+        font-size: 40px;
+    }
+
+}
+
+
+
 
 
 

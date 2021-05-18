@@ -85,13 +85,11 @@ require_once("../../../configuracion/validaciones.php");
 </head>
 
 <body>
-    <div class="contaiener-fluid">
+    <div class="container-fluid">
         
         <?php include '../menu.php'?>
 
-        <header><?php include 'cabecera.php' ?></header>
-
-        <section><?php include "frm_gestionServicios.php"?></section>
+        <section><?php include $page.'.php'?></section>
 
         <footer><?php include '../../../piePagina.php'?></footer>
     </div>
