@@ -4,6 +4,8 @@ var idMascota;
 
 $(function(){
 
+    cargarCalendario();
+
     primeraFila = $('#primeraFila');
     /**obtenemos la variable idPersona que se asgino a un input type(hidden) obtenida de la variable de session idPersona */
     idPersona = $('#idPersona').val();
@@ -41,8 +43,21 @@ $(function(){
             actualizarDatosMascota();
         }
     });
+    /**////////////////////////////////////////////////////////////////////// */
 
 });
+
+function cargarCalendario(){
+
+    var element = document.getElementById("dt_fechaNacimientoMascota");
+    datepicker = new Datepicker(element, {
+      language: "es",
+      buttonClass: "btn",
+      format: "yyyy-mm-dd",
+      // fecha minima
+      maxDate: "data-date",
+    });
+}
 
 function listarMascotas(idPersona){
 
