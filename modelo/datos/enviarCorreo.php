@@ -44,7 +44,7 @@ class enviarCorreoPrueba
             $this->mail->From = $objCorreo->correoRemitente;
             $this->mail->FromName = utf8_decode($objCorreo->nombreRemitente);
             $this->mail->Subject = utf8_decode($objCorreo->asunto);
-            $this->mail->Body = utf8_decode($objCorreo->mensaje);
+            $this->mail->Body = (utf8_decode($this->estilosMensaje($objCorreo->mensaje)));
             $this->mail->AddAddress($objCorreo->correoDestinatario, utf8_decode($objCorreo->nombreDestinatario));
             $this->mail->IsHTML(true);
             $this->mail->Send();
@@ -59,5 +59,43 @@ class enviarCorreoPrueba
         return $this->retorno;
     }
 
-
+ public function estilosMensaje($mensaje)
+    {
+    $html = "
+        <html>
+        <head>
+        <meta charset='UTF-8'>
+        <style>
+        p {
+        font-family: sans-serif;
+        color: #050d1e !important;
+        }
+        b{
+        color: #002A46;
+        }
+        .recomendacion{
+            color:#838383;
+        }
+        </style>
+        </head>
+        <body>
+        ".$mensaje."
+        <table  width='50%' border='0' >
+                <tr>
+                <td width ='50%' align='center'>
+                <img src='https://i.imgur.com/yzjVfUS.png' alt='logoLargoEmpresa' width='250' >
+                </td>
+                <td width='50%'>
+                <br>
+                <b> Atentamente Administración Pets Health 	</b>
+                <br>
+                Gracias por confiar en nosotros
+                </td>
+                </tr>
+                </table>
+        </body>
+        </html>
+    ";
+return $html;
+    }
 }
