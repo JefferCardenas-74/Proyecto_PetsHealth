@@ -129,12 +129,10 @@ form{
 }
 
 .contentModalolvidoContraseña{
-    width: 60%;
-    height: auto;
     background: #fff;
     border-radius: 20px;
     overflow: hidden;
-    display: flex;
+    display: block;
     flex-flow: column wrap;   
     justify-content: space-evenly;
     margin: 0 auto;
@@ -157,7 +155,6 @@ form{
 
 .headerModalOlvidoPassword{
     width: 100%;
-    height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -203,17 +200,30 @@ form{
     margin-top: 50px;
 }
 
-.cb_tipoMascota{
-    width: 100%;
-    border-radius: 8px;
-    border: 2px solid #00000096;
-    font-weight: bold;
-    padding-left: 12px;
-    outline: none;
-    background: rgba(255, 255, 255, 0.603);
+/* PROPIEDADES AL SELECT2 DE TIPO DE MASCOTA */
+.select2-container {
+    z-index: 11111 !important;
+    width: 100% !important;
+    height: 30px !important;
+    font-weight: bold !important;
+    padding-left: 12px !important;   
+  }
+
+.select2-container--default .select2-selection--single {
+background: rgba(255, 255, 255, 0.603) !important;
+border-radius: 8px !important;
+border: 2px solid #00000096 !important; 
+height: 35px !important;
 }
 
-
+/* flechita del select */
+.select2-container--default
+.select2-selection--single
+.select2-selection__arrow {
+height: 30px !important;
+}
+/* Datepicker en el modal de crear cuenta */
+.datepicker{z-index:1151 !important;}
 /* div recaptcha */
 
 #recaptcha > div {
@@ -225,10 +235,12 @@ form{
 
 /*responsive*/
 
+
+
 @media screen and (max-width: 577px){
 
     .contenedorTituloLogin{        
-        font-size: 50px;
+        font-size: 40px;
     }
 
     .contenedorTituloLogin label:nth-child(2){
@@ -243,12 +255,10 @@ form{
     }
 
     .contentModalolvidoContraseña{
-        width: 100%;
-        height: auto;
         background: #fff;
         border-radius: 20px;
         overflow: hidden;
-        display: flex;
+        display: block;
         flex-flow: column wrap;   
         justify-content: space-evenly;
         margin: 0 auto;
@@ -258,25 +268,9 @@ form{
     }
 
 
-    .headerModalOlvidoPassword{
-        width: 100%;
-        height: auto;
-        font-size: larger;
-    }
-
     .textoOlvidoContraseña{
         width: 100%;
         height: auto;
-    }
-
-    .frm_olvidoPassword{
-        position: absolute;
-        width: 100%;
-        height: auto;
-    }
-
-    .footerModal{
-        display: flex;
     }
     
     .frm_crearCuenta{
@@ -297,7 +291,24 @@ form{
         background: rgba(255, 255, 255, 0.603);
     }
 
+    .footerModal{
+        margin-top: 25px;
+    }
+
 }
+
+@media screen and (max-width: 1199px){
+
+    .headerModalOlvidoPassword{
+        width: 100%;
+        height: auto;
+        font-size: 40px;
+    }
+
+}
+
+
+
 
 
 

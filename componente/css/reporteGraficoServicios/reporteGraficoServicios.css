@@ -34,3 +34,10 @@
   font-size: 1.4em !important;
   padding-left: 20px;
 }
+@media screen and (max-width: 576px){
+
+  #txt_fecha{
+    width: 80%;
+  }
+
+}

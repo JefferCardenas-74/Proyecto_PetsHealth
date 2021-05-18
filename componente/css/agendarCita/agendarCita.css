@@ -132,6 +132,7 @@
 .modal{
  z-index: 1111;
 }
+
 .form-check {
   
   display: inline-block !important;
@@ -198,6 +199,12 @@
   font-family: var(--fuenteTitulos);
   color: var(--colorParrafo) !important;
 }
+.form-check  #tipoServicio #precio{
+  position: relative;
+  left: 20px ;
+  color: var(--colorTitulo) ;
+}
+
 .modal-body .form-check{
   border-radius: .25em !important;
 }

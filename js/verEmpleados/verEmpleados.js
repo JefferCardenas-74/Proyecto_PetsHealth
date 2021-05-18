@@ -247,6 +247,9 @@ const botonesDatatables = () => {
                 },
             },
         },
+        rowReorder: {
+            selector: 'td:nth-child(2)'
+        },
         responsive: true,
         // decir que botones mostrar en posicion el dom (Blfrtip)
         // fBrtlp       dom: 'Bfrtip', Se configura manualmente

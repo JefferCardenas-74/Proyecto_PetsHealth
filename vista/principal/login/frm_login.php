@@ -65,35 +65,35 @@ $rol = $_GET['rol'];
         <!--Modal para la interfaz de olvido contraseña-->
 
         <div class="modal fade" id="olvidoPasswordModal" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog modal-xl modal-dialog-scrollable">
-                <div class="modal-content contentModalolvidoContraseña">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content contentModalolvidoContraseña"> 
 
 
                     <!-- <div class="salirModal">
                     <button type="button" class="close" data-dismiss="modal">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                </div> -->
+                    </div> -->
 
+                    
                     <div class="modal-header headerModalOlvidoPassword">
-                        <label class="fredoka">Olvido Contraseña</label>
+                        <label class="fredoka modal-title">Olvido Contraseña</label>
                     </div>
-
-
                     <!--formulario de olvido contraseña-->
                     <div class="modal-body bodyModalolvidoContraseña">
                         <div class="container-fluid">
-                            <label class="texto fredoka textoOlvidoContraseña">Ingresa correo registrado en el sistema
-                            </label>
+                            <label class="texto fredoka textoOlvidoContraseña">Ingresa correo registrado en el sistema</label>
                             <div class="row">
                                 <div class="col">
                                     <div class="frm_olvidoPassword">
                                         <form action="#" method="POST">
-                                            <input class="login" type="text" name="txt_olvidoPassword"
-                                                id="txt_olvidoPassword" placeholder="Correo">
-                                            <span class="simbolo">
-                                                <i class="fa fa-envelope" aria-hidden="true"></i>
-                                            </span>
+                                            <div class="input-group">
+                                                <input class="login" type="text" name="txt_olvidoPassword"
+                                                    id="txt_olvidoPassword" placeholder="Correo">
+                                                <span class="simbolo">
+                                                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                </span>
+                                            </div>
                                         </form>
                                     </div>
                                 </div>
@@ -111,6 +111,8 @@ $rol = $_GET['rol'];
                 </div>
             </div>
         </div>
+
+
 
 
         <!--Modal para crear cuenta-->
@@ -209,33 +211,33 @@ $rol = $_GET['rol'];
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="txt_edadMascota" class="col-form-label fredoka">Edad de la
-                                            mascota</label>
-                                        <input class="cajaTexto" min="0" type="number" name="txt_edadMascota"
-                                            id="txt_edadMascota" placeholder="Edad de la mascota">
+                                        <label for="txt_edadMascota" class="col-form-label fredoka">Tipo de la mascota
+                                            mascota</label> <br>
+                                            <select  class="cajaTexto"  name="cb_tipoMascota"
+                                            id="cb_tipoMascota">
+                                            <option value="0" selected class="limpiar" >Seleccione</option>
+                                        </select>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="dt_fechaNacimientoMascota" class="col-form-label fredoka">Fecha de
+                                        <label for="dt_fechaNacimientoMascota"  class="col-form-label fredoka">Fecha de
                                             Nacimiento de la mascota</label>
                                         <br>
-                                        <input class="cajaTexto" type="date" name="dt_fechaNacimientoMascota"
+                                        <input class="cajaTexto"  type="text" data-datepicker=""  name="dt_fechaNacimientoMascota"
                                             id="dt_fechaNacimientoMascota">
                                     </div>
 
                                 </div>
 
-                                <div class="col segundaParteMascota">
-
+<!-- 
                                     <div class="form-group">
                                         <label class="col-form-label fredoka">Tipo de la mascota</label>
                                         <select style="width:70%" class="cb_tipoMascota" name="cb_tipoMascota"
                                             id="cb_tipoMascota">
                                             <option value="" selected class="limpiar" disabled="disabled">Seleccione</option>
                                         </select>
-                                    </div>
+                                    </div> -->
 
-                                </div>
 
 
                             </div>

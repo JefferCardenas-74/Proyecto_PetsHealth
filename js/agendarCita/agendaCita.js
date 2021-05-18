@@ -284,7 +284,7 @@ function listarServicios() {
                         servicio.idServicio +
                         ">" +
                         "<span id='tipoServicio'>" +
-                        servicio.serTipo +
+                        servicio.serTipo + "<span id='precio'>"+"$"+servicio.serPrecio.toFixed(1)+ "</span>"+
                         "</span>" +
                         "<label class='form-check-label'>" +
                         "<small class='text-muted'><p>" +
@@ -359,6 +359,7 @@ function agendarCita() {
         hora: $("#cb_hora").val(),
         horaFormateada: $("#cb_hora option:selected").text(),
         nombreCliente: nombreCliente,
+        nombreServicio:nombreServicio
     };
 
     $.ajax({

@@ -32,11 +32,13 @@
 
         case 'AgregarCliente':
 
+            //$persona = new Persona(null, "123", "f", "s", "123", "test@sa");
+
             $persona = new Persona(null, $cedula, strtoupper($nombre), strtoupper($apellidos), $telefono, $correo);
 
-            $idPersona = $dCliente->registrarPersonaCli($persona);
+            $resultadoCliente = $dCliente->registrarPersonaCli($persona);
 
-            echo json_encode($idPersona);
+            echo json_encode($resultadoCliente);
             break;
 
         case 'AgregarMascota':
@@ -74,19 +76,6 @@
                             sus datos son :<br> 
                             Usuario inicio sesion  : <b>  " . $correo . " </b> <br>
                             contraseña : <b>  " . $cedula . " </b>
-                            <table  width='50%' border='0' >
-                            <tr>
-                            <td width ='50%' align='center'>
-                            <img src='https://i.imgur.com/yzjVfUS.png' alt='logoLargoEmpresa' width='250' >
-                            </td>
-                            <td width='50%'>
-                            <br>
-                            <b> Atentamente Administración Pets Health 	</b>
-                            <br>
-                            Gracias por confiar en nosotros
-                            </td>
-                            </tr>
-                            </table>
                              ";
                 $resultadoCorreo = $enviarCorreo->enviarCorreo($objCorreo);
             }

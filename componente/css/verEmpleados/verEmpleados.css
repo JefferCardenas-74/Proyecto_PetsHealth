@@ -32,7 +32,15 @@
 .table .acciones{
 text-align: center !important;
 }
+/*ajuste en el icono responsive datatables */
+table.dataTable.dtr-inline.collapsed>tbody>tr>td.dtr-control:before, table.dataTable.dtr-inline.collapsed>tbody>tr>th.dtr-control:before {
+  left: -4px !important;
+  top: 40% !important;
+}
 
+#icon_inactivar{
+display: none;
+}
 /* botones */
 .btnNaranja:hover {
   background: linear-gradient(to right, #f5af19, #f12711);
