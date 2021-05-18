@@ -121,42 +121,8 @@ function abrirModalAgregar(){
     
     $('#btn_agregar').click(function(){
 
-        var nombre = $('#txt_nombre').val();
-        var precio = $('#txt_precio').val();
+       agregarProducto();
 
-        if(nombre == '' || precio == ''){
-            
-            alertaCamposVacios();
-
-        }else if(buscarCe(nombre) == true){
-            
-            Swal.fire({
-                icon:'warning',
-                title:'Advertencia',
-                text:'El campo nombre no puede tene caracteres especiales.',
-                confirmButtonText:'Aceptar',
-                customClass:{
-                    confirmButton:'btnAceptar'
-                }
-            });
-
-        }else if($('#cb_unidad').val() == 0){
-    
-            Swal.fire({
-                icon:'warning',
-                title:'Advertencia',
-                text:'Debe seleccionar una unidad de medida.',
-                confirmButtonText:'Aceptar',
-                customClass:{
-                    confirmButton:'btnAceptar'
-                }
-            });
-
-        }else{
-
-            agregarProducto();
-
-        }
     });
 
     /** evento para cerrar el modal y limpiar los input*/
@@ -168,24 +134,50 @@ function abrirModalAgregar(){
 
 function agregarProducto(){
 
-    if($('#txt_nombre').val() == '' || $('#txt_precio').val() == '' || $('#cb_unidad').val() == 0){
+    var nombre = $('#txt_nombre').val();
+    var precio = $('#txt_precio').val();
+    var unidad = $('#cb_unidad').val();
 
+    if(nombre == '' || precio == '' || unidad == 0 ){
+        
         alertaCamposVacios();
+
+    }else if(buscarCe(nombre) == true){
+        
+        Swal.fire({
+            icon:'warning',
+            title:'Advertencia',
+            text:'El campo nombre no puede tene caracteres especiales.',
+            confirmButtonText:'Aceptar',
+            customClass:{
+                confirmButton:'btnAceptar'
+            }
+        });
+
+    }else if($('#cb_unidad').val() == 0){
+
+        Swal.fire({
+            icon:'warning',
+            title:'Advertencia',
+            text:'Debe seleccionar una unidad de medida.',
+            confirmButtonText:'Aceptar',
+            customClass:{
+                confirmButton:'btnAceptar'
+            }
+        });
 
     }else{
 
-        var precio = $('#txt_precio').val();
         var precioParseado = precio.replace('.','');
-
+    
         var parametros = {
+    
             accion: 'agregarProducto',
     
-            nombre: $('#txt_nombre').val(),
+            nombre: nombre,
             precio: parseInt(precioParseado),
-            unidad: $('#cb_unidad').val()
+            unidad: unidad
         };
-
-        
     
         $.ajax({
     
@@ -198,27 +190,36 @@ function agregarProducto(){
             success: function(resultado){
     
                 console.log(resultado.mensaje);
-
+    
                 Swal.fire({
+
                     icon: 'success',
                     title: 'Muy bien',
                     text: resultado.mensaje,
                     confirmButtonText: 'Aceptar',
                     customClass: {
                         confirmButton: 'btnAceptar'
-                      } 
-                });
+                        } 
 
-                limpiar();
-                window.location.reload();
+                }).then((result)=>{
+
+                    if(result.isConfirmed){
+
+                        limpiar();
+                        window.location.reload();
+                    }
                 
+                });
+    
             },
             error: function(e){
-
+    
                 console.log(e);
             }
         });
+
     }
+
 }
 
 function limpiar(){

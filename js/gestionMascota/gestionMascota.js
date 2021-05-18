@@ -18,15 +18,8 @@ $(function(){
     /**///////////////////////////////////////////////////////////////////// */
 
     $('#btn_agregar').click(function(){
-        
-        if($('#txt_nombreMascota').val() == '' || $('#cb_tipoMascota').val() == '0' || $('#txt_fechaNacimiento').val() == ''){
-            
-            alertaCamposVacios();
 
-        }else{
-
-            agregarMascota();
-        }
+        agregarMascota();
     });
 
     /**////////////////////////////////////////////////////////////////////// */
@@ -308,45 +301,67 @@ function agregarMascota(){
     var fecha = document.getElementById('txt_fechaNacimiento').value;
     var year = fecha.toString().substr(0,4);
 
-    var parametros = {
+    var nombre = $('#txt_nombreMascota').val();
+    var tipoMascota = $('#cb_tipoMascota').val();
+    
+    if(nombre == '' || tipoMascota == '0' || fecha == ''){
+        
+        alertaCamposVacios();
 
-        accion:'AgregarMascota',
-        idPersona:idPersona,
-        nombreMascota: $('#txt_nombreMascota').val(),
-        tipoMascota: $('#cb_tipoMascota').val(),
-        año: year,
-        fechaNacimientoMascota: fecha
-    };
+    }else if(buscarCe(nombre) == true){
 
-    $.ajax({
-        url:'../../../controlador/clienteControl.php',
-        data:parametros,
-        dataType:'json',
-        type:'post',
-        cache:'false',
+        Swal.fire({
+            icon: 'warning',
+            title: 'Advertencia',
+            text: 'Los nombres no pueden tener caracteres especiales.',
+            confirmButtonText:'Aceptar',
+            customClass:{
+                confirmButton:'btnAceptar'
+            }
+          });
+          
+    }else{
+        
+        var parametros = {
 
-        success: function(resultado){
-
-            console.log(resultado);
-
-            Swal.fire({
-                icon:'success',
-                title:'Bien Hecho!',
-                text:'Se ha registrado tu mascota con exito.',
-                textButtonConfirm:'Ok'
-            }).then((result) => {
-                if(result.isConfirmed){
-                    window.location.reload();
-                }
-            });
-
-            limpiar();
-            
-        },
-        error:function(e){
-            console.log(e.responseText);
-        }
-    });
+            accion:'AgregarMascota',
+            idPersona:idPersona,
+            nombreMascota: nombre,
+            tipoMascota: tipoMascota,
+            año: year,
+            fechaNacimientoMascota: fecha
+        };
+    
+        $.ajax({
+            url:'../../../controlador/clienteControl.php',
+            data:parametros,
+            dataType:'json',
+            type:'post',
+            cache:'false',
+    
+            success: function(resultado){
+    
+                console.log(resultado);
+    
+                Swal.fire({
+                    icon:'success',
+                    title:'Bien Hecho!',
+                    text:'Se ha registrado tu mascota con exito.',
+                    textButtonConfirm:'Ok'
+                }).then((result) => {
+                    if(result.isConfirmed){
+                        window.location.reload();
+                    }
+                });
+    
+                limpiar();
+                
+            },
+            error:function(e){
+                console.log(e.responseText);
+            }
+        });
+    }
 }
 
 function limpiar(){
