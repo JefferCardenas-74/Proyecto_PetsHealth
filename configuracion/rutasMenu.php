@@ -21,6 +21,7 @@ $GLOBALS['gestionServiciosA']="../gestionServicios/";
 $GLOBALS['verCitasAsignadasE']="../citasAsignadas/";
 $GLOBALS['citasNoProgramadasE']="../citasAsignadas/?page=frm_citasNoProgramadas";
 $GLOBALS['actualizarDatosE']="../actualizarDatos/";
+$GLOBALS['verReporteGraficoCitasAtendidasPorMiE']="../verReporteGraficoCitasAtendidasPorMi/";
 
 // CLIENTE
 $GLOBALS['agendarCitaC']="../agendarCita/";
@@ -54,6 +55,7 @@ $arreglo =[];
     $GLOBALS['verCitasAsignadasE']="citasAsignadas/";
     $GLOBALS['citasNoProgramadasE']="citasAsignadas/?page=frm_citasNoProgramadas";
     $GLOBALS['actualizarDatosE']="actualizarDatos/";
+    $GLOBALS['verReporteGraficoCitasAtendidasPorMiE']="verReporteGraficoCitasAtendidasPorMi/";
     // CLIENTE
     $GLOBALS['agendarCitaC']="agendarCita/";
     $GLOBALS['verCitaC']="verCita/";

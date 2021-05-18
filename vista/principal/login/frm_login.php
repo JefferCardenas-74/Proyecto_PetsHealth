@@ -79,8 +79,6 @@ $rol = $_GET['rol'];
                     <div class="modal-header headerModalOlvidoPassword">
                         <label class="fredoka modal-title">Olvido Contraseña</label>
                     </div>
-
-
                     <!--formulario de olvido contraseña-->
                     <div class="modal-body bodyModalolvidoContraseña">
                         <div class="container-fluid">
@@ -113,31 +111,6 @@ $rol = $_GET['rol'];
                 </div>
             </div>
         </div>
-    -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -238,33 +211,33 @@ $rol = $_GET['rol'];
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="txt_edadMascota" class="col-form-label fredoka">Edad de la
-                                            mascota</label>
-                                        <input class="cajaTexto" min="0" type="number" name="txt_edadMascota"
-                                            id="txt_edadMascota" placeholder="Edad de la mascota">
+                                        <label for="txt_edadMascota" class="col-form-label fredoka">Tipo de la mascota
+                                            mascota</label> <br>
+                                            <select  class="cajaTexto"  name="cb_tipoMascota"
+                                            id="cb_tipoMascota">
+                                            <option value="" selected class="limpiar" disabled="disabled">Seleccione</option>
+                                        </select>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="dt_fechaNacimientoMascota" class="col-form-label fredoka">Fecha de
+                                        <label for="dt_fechaNacimientoMascota"  class="col-form-label fredoka">Fecha de
                                             Nacimiento de la mascota</label>
                                         <br>
-                                        <input class="cajaTexto" type="date" name="dt_fechaNacimientoMascota"
+                                        <input class="cajaTexto"  type="text" data-datepicker=""  name="dt_fechaNacimientoMascota"
                                             id="dt_fechaNacimientoMascota">
                                     </div>
 
                                 </div>
 
-                                <div class="col segundaParteMascota">
-
+<!-- 
                                     <div class="form-group">
                                         <label class="col-form-label fredoka">Tipo de la mascota</label>
                                         <select style="width:70%" class="cb_tipoMascota" name="cb_tipoMascota"
                                             id="cb_tipoMascota">
                                             <option value="" selected class="limpiar" disabled="disabled">Seleccione</option>
                                         </select>
-                                    </div>
+                                    </div> -->
 
-                                </div>
 
 
                             </div>

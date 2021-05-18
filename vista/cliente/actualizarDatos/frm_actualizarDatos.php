@@ -7,7 +7,7 @@
             <div class="contenedorFormulario">
                 <div class="grupos">
                     <label for="" class="fredoka">Nro Identificación</label>
-                    <input type="text" class="cajaTexto pompiere" id="txt_identificacion" placeholder="Ingrese su Número identificación.">
+                    <input disabled type="text" class="cajaTexto pompiere" id="txt_identificacion" placeholder="Ingrese su Número identificación.">
                 </div> 
                 <div class="grupos">
                     <label for="" class="fredoka">Nombre</label>
@@ -26,7 +26,7 @@
 
                 <div class="grupos">     
                     <label for="" class="fredoka">Telefono</label>
-                    <input type="text" class="cajaTexto pompiere" id="txt_telefono" placeholder="Ingrese su Telefono.">
+                    <input type="number" class="cajaTexto pompiere" id="txt_telefono" placeholder="Ingrese su Telefono.">
                 </div>
 
                 <div id="boton">

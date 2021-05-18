@@ -93,7 +93,7 @@
         function buscarCliente($cedula){
             try{    
 
-                $consulta = 'select persona.idPersona, perIdentificacion, perNombre, perApellido, masNombre from persona inner join mascota
+                $consulta = 'select persona.idPersona, perIdentificacion, perNombre, perApellido, perCorreo ,masNombre from persona inner join mascota
                 on persona.idPersona = mascota.idPersona
                 where perIdentificacion = ?';
                 $resultado = $this->conexion->prepare($consulta);
@@ -385,6 +385,36 @@
             }
             return $this->retorno;
         }
+
+        /**
+         * se hace una consulta para conocer la cantidad de citas
+         * por el mes entre mes que se realizo por el empleado
+         */
+        function reporteCitaAtendidaPorVeterinario($fechaInicial,$fechaFinal,$idPersona)
+        {
+            try{
+                $consulta="SELECT count(c.idCita) as cantidad, month(ciFecha) as mes
+                FROM cita as c 
+                INNER JOIN citaempleado as ce on ce.idCita=c.idCita
+                INNER JOIN empleado as em on ce.idEmpleado=em.idEmpleado
+                INNER JOIN persona as p on em.idPersona=p.idPersona
+                WHERE c.ciFecha BETWEEN '$fechaInicial' AND  '$fechaFinal'
+                AND c.ciEstado='Atendida' AND p.idPersona='$idPersona'
+                group by month(c.ciFecha)";
+                $resultado=$this->conexion->prepare($consulta);          
+                $resultado->execute();  
+                $this->retorno->estado=true;
+                $this->retorno->mensaje="Cantidad de citas por veterinario que atendio";
+                $this->retorno->datos=$resultado;
+	        }catch(PDOException $ex){
+                $this->retorno->estado=false;
+                $this->retorno->mensaje=$ex->getMessage();
+                $this->retorno->datos=null;
+            }
+            return $this->retorno;
+        }
+
+
 
         function listarCitasAsignadasVete(){
             try{

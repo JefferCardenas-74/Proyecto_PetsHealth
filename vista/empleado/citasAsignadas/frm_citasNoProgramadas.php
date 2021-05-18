@@ -1,13 +1,12 @@
-<<<<<<< HEAD
-<div class="contenedorTitulo">
-    <h1 class="titulo fredoka">Citas no programadas </h1>
-</div>
-=======
 <?php
     $rol = $_SESSION['rol'];
 ?>
->>>>>>> 459e55b99ddcf77adf468911de9b67558289e4f2
-<div class="container-fluid">
+
+<div class="contenedorTitulo">
+    <h1 class="titulo fredoka">Citas no programadas </h1>
+</div>
+
+<div class="container-fluid contenedorCitasNoProgramadas">
     <div class="row frm_atenderUrgencia">
         <div class="col">
 
@@ -25,16 +24,16 @@
             </div>
 
             <div class="form-group">
-                <label for="cb_mascota" class="col-form-label fredoka">Mascota</label>
-                <select id="cb_mascota" class="form-control fredoka"></select>
+                <label for="cb_mascota" class="col-form-label fredoka">Escoga la Mascota</label>
+                <select id="cb_mascota" class="pompiere cajaTexto"></select>
             </div>
 
         </div>
 
         <div class="col">
             <div class="form-group">
-                <label for="cb_tipoCita" class="col-form-label fredoka">Tipo de Cita</label>
-                <select id="cb_tipoCita" class="form-control fredoka">
+                <label for="cb_tipoCita" class="col-form-label fredoka">Seleccion el tipo de Cita</label>
+                <select id="cb_tipoCita" class="pompiere cajaTexto">
                 </select>
             </div>
 
@@ -51,13 +50,13 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header barra">
-                    <h5 class="modal-title" style="color:#fff;"">Opps!</h5>
+                    <h5 class="modal-title fredoka" style="color:#fff;"">Opps!</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body pompiere">
-                    <p>Parece que este cliente no esta registrado :(</p>
+                <div class="modal-body">
+                    <p class="pompiere">Parece que este cliente no esta registrado :(</p>
                 </div>
                 <div class="modal-footer">
                 <input type="hidden" id="rolPersona" value="<?php echo $rol ?>">
@@ -66,7 +65,6 @@
             </div>
         </div>
     </div>
-      <!------------------------------------------------------------------------------>
     <br>
     <br>
 
@@ -75,7 +73,7 @@
         <div class="col">
             <div class="from-group">
                 <label for="txt_buscadorProductos" class="col-from-label fredoka">Buscador de Productos</label>
-                <input type="text" class="form-control cajaTexto" id="txt_buscadorProductos" name="txt_buscadorProductos" placeholder="Buscar">
+                <input type="text" class="pompiere cajaTexto" id="txt_buscadorProductos" name="txt_buscadorProductos" placeholder="Buscar">
 
                 <div id="listaDatos">
                     <div id="primerCampo" class="primerCampo">
@@ -127,7 +125,6 @@
                     </div>
                 </div>
             </section>
-            <!----------------------------------------------------------->
         </div>
     </div>
 

@@ -3,7 +3,7 @@ require_once("configuracion/validaciones.php");
 ?>
 <nav class="menu">
 
-    <div class="logo">
+    <div class="logo home">
         <img src="https://i.imgur.com/yzjVfUS.png" alt="Logo de la empresa"
        >
     </div>

@@ -199,6 +199,12 @@
                 $resultado->bindParam(1, $usuario->getListaRol());
                 $resultado->bindParam(2, $usuario->getIdUsuario());
                 $resultado->execute();
+                $consulta = "UPDATE usuario SET usuLogin=?
+                WHERE idPersona=?";
+                $resultado=$this->conexion->prepare($consulta);
+                $resultado->bindParam(1, $usuario->getEmpleado()->getCorreo());
+                $resultado->bindParam(2, $usuario->getEmpleado()->getIdPersona());
+                $resultado->execute();
                 $this->conexion->commit();
                 $this->retorno->mensaje = 'empleado actualizado con exito';
                 $this->retorno->estado = true;

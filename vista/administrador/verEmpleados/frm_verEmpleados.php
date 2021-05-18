@@ -103,7 +103,7 @@
 
                                             <div class="mb-3 col-md-6 ">
                                                 <h5 class="text-modal">identificacion</h5>
-                                                <input type="text" id="txt_nroEmpleado"
+                                                <input disabled  type="number" id="txt_nroEmpleado"
                                                     placeholder="N° de Identificacion " class="form-control" value="">
                                             </div>
 

@@ -84,8 +84,14 @@ function listarCitasAgendadasPorMi(){
             $("#tblCitasAgendadasXmi").DataTable({
                 language: {
                   url: "//cdn.datatables.net/plug-ins/1.10.22/i18n/Spanish.json",
-                  responsive: true
-                }
+                },
+                rowReorder: {
+                    selector: 'td:nth-child(2)'
+                },
+                responsive: true,
+                lengthMenu: [[5, 25, 50, -1],
+                ['5 Filas ', '25 Filas', '50 Filas ', ' Mostrar todo ']],
+                
             });    
        },
        error: function(ex){

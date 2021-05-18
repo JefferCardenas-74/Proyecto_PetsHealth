@@ -29,7 +29,7 @@
         case 'registrarEmpleado':
             $email = $correo;
 
-            $empleado = new Empleado(null,  $fechaHoraMysql, null, $identificacion, $nombre, $apellido, $telefono, $email);
+            $empleado = new Empleado(null,  $fechaHoraMysql, null, $identificacion, strtoupper($nombre), strtoupper($apellido), $telefono, $email);
            
 
             //se registra el empleado a la base de datos y se obtiene el id de la persona para relacionarlo con el usuario
@@ -73,7 +73,7 @@
             $objCorreo->correoDestinatario = $email;
             $objCorreo->nombreDestinatario = $nombre . " " . $apellido;
             $objCorreo->asunto = "Confirmación Registro de empleado de usuario Pets Health";
-            $objCorreo->mensaje = "Cordial saludo  " . $nombre . " " . $apellido . ".<br> se
+            $objCorreo->mensaje = "Cordial saludo  " . strtoupper($nombre) . " " . strtoupper($apellido) . ".<br> se
                         informa que el usuario se creo con exito <br>
                         sus datos son :<br> 
                         Rol  : <b>  " . $nombreRol . " </b> <br>
@@ -127,7 +127,7 @@
             break;
 
         case 'actualizarEmpleado':
-            $empleado= new Empleado(null,null,$idPersona,$identificacion,$nombre,$apellido,$telefono,$correo);
+            $empleado= new Empleado(null,null,$idPersona,$identificacion,strtoupper($nombre),strtoupper($apellido),$telefono,$correo);
             $usuario=new Usuario($idUsuario,$idPersona,$correo,null,$rol,$empleado);
             $resultado = $dEmpleado->actualizarEmpleado($usuario);
             

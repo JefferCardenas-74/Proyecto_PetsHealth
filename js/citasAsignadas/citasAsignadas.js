@@ -9,6 +9,8 @@ var idServicio;
 var precioServicio;
 var rol;
 var correoPersona;
+var correoEncargado;
+
 
 $(function () {
 
@@ -86,22 +88,47 @@ $(function () {
     /**boton que crear un arreglo de los productos usados y ejecuta una funcion para atender la cita */
     $('#btn_registrar').click(function(){
 
+      var encargado;
+
+      if($('#chk_dueño').is(':checked')){
+
+        encargado = $('#txt_dueño').val();
+
+     }else if($('#chk_otro').is(':checked')){
+
+        encargado = $('#txt_encargado').val();
+     }
+
+      var mascota = $('#txt_mascota').val();
+      var dueño = $('#txt_dueño').val();
+      var tipoCita = $('#txt_tipoCita').val();
+      var observacion = $('#txt_observacion').val();
+
       /**se valida el formulario */
-      if($('#txt_mascota').val() == '' || $('#txt_dueño').val() == '' || 
-          $('#txt_tipoCita').val() == '' || $('#txt_observacion').val() == ''){
+      if(mascota == '' || dueño == '' ||  
+          tipoCita == '' || observacion == ''){
 
             alertaCamposVacios();
+
+        }else if(mascota == '' || encargado == '' ||  
+            tipoCita == '' || observacion == ''){
+
+          alertaCamposVacios();
+
+        }else if(buscarCe(encargado) == true || buscarCe(observacion) == true){
+
+            Swal.fire({
+                icon:'warning',
+                title:'Advertencia',
+                text:'Los campos de texto no pueden tener caracteres especiales.',
+                confirmButtonText: 'Aceptar',
+                customClass:{
+                  confirmButton:'btnAceptar'
+                }
+            });
 
         }else{
-          if($('#txt_encargado').val() == ''){
-
-            alertaCamposVacios();
-          }else if($('#txt_encargado').val() == '' && $('#txt_dueño').val().length > 0){
-            alert('se atendio');
-            //atenderCita();
-          }else if($('#txt_encargado').val().length > 0 && $('#txt_dueño').val() == ''){
-            alert('se atendio');
-          }
+         atenderCita();
         }
       
     });
@@ -124,19 +151,30 @@ $(function () {
 
     $('#btn_atenderCitaNoPro').click(()=>{
       /**se valida el formulario */
-      if($('#txt_encargado').val() == '' || $('#txt_observacion').val() == ''){
 
-            Swal.fire({
-              icon:'error',
-              title:'Oops...!',
-              text:'Debe validar todos los campos',
-              textButtonText:'Ok',
-            });
+      var cedula = $('#txt_cedula').val();
+      var encargado = $('#txt_encargado').val();
+      var mascota = $('#cb_mascota').val();
+      var observacion = $('#txt_observacion').val();
 
-        }else{
+      if(encargado == '' || observacion == ''){
 
-          atenderCitaNoProgramada();
+            alertaCamposVacios();
+
+        }else if(buscarCe(encargado) == true || buscarCe(observacion) == true){
+
+          Swal.fire({
+            icon:'warning',
+            title:'Advertencia',
+            text:'Los campos de texto no pueden tener caracteres especiales.',
+            confirmButtonText: 'Aceptar',
+            customClass:{
+              confirmButton:'btnAceptar'
+            }
+          });
           
+        }else{
+          atenderCitaNoProgramada();
         }
       
     });
@@ -257,12 +295,11 @@ function buscarCliente(cedula){
       console.log(resultado.datos);
 
       if(resultado.datos.length > 0){
-
         $.each(resultado.datos, function(j, dato){
 
           cedulaNueva = dato.perIdentificacion;
           $('#txt_encargado').val(dato.perNombre +' '+ dato.perApellido);
-
+          correoEncargado=dato.perCorreo;
         }); 
 
         buscarMascotasPersona(cedulaNueva);
@@ -731,7 +768,9 @@ function atenderCitaNoProgramada(){
     precioProductos: precioTotal,
     productos: productosFactura,
     nombreProductos: arrayNombreProductos,
-    nombreMascota: mascota
+    nombreMascota: mascota,
+    correoPersona: correoEncargado,
+    nombreCliente: $('#txt_encargado').val(),
   };
 
   $.ajax({

@@ -61,6 +61,12 @@
   font-weight: bold ;
 }
 
+/*ajuste en el icono responsive datatables */
+table.dataTable.dtr-inline.collapsed>tbody>tr>td.dtr-control:before, table.dataTable.dtr-inline.collapsed>tbody>tr>th.dtr-control:before {
+  left: -4px !important;
+  top: 40% !important;
+}
+
 /* fin tabla */
 
 
