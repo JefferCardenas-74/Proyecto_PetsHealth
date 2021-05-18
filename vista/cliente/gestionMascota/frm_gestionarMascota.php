@@ -71,7 +71,7 @@
 
                         <div>
                             <label for="txt_fechaNacimiento" class="col-form-label fredoka">Fecha de Nacimiento</label>
-                            <input type="date" id="txt_fechaNacimiento" name="txt_fechaNacimiento" class="cajaTexto pompiere">
+                            <input type="text" id="txt_fechaNacimiento" name="txt_fechaNacimiento" class="cajaTexto pompiere">
                         </div>
 
                     </form>
@@ -115,7 +115,7 @@
 
                         <div>
                             <label for="txt_fechaNacimiento" class="col-form-label fredoka">Fecha de Nacimiento</label>
-                            <input type="date" id="txt_fechaNacimientoA" name="txt_fechaNacimientoA" class="cajaTexto pompiere">
+                            <input type="text" id="txt_fechaNacimientoA" name="txt_fechaNacimientoA" class="cajaTexto pompiere">
                         </div>
 
                     </form>

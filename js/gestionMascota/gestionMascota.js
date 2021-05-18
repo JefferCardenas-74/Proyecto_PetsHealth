@@ -4,6 +4,7 @@ var idMascota;
 
 $(function(){
 
+    /**se carga el elemento datePicker */
     cargarCalendario();
 
     primeraFila = $('#primeraFila');
@@ -11,6 +12,7 @@ $(function(){
     idPersona = $('#idPersona').val();
 
     listarMascotas(idPersona);
+    
 
     /**///////////////////////////////////////////////////////////////////// */
     $('#btn_abrirModalAgregar').click(function(){
@@ -34,14 +36,12 @@ $(function(){
     /**////////////////////////////////////////////////////////////////////// */
     $('#btn_actualizarA').click(()=>{
 
-        if($('#txt_nombreMascotaA').val() == '' || $('#cb_tipoMascotaA').val() == '0' || $('#txt_fechaNacimientoA').val() == ''){
-            
-            alertaCamposVacios();
-
-        }else{
-            
-            actualizarDatosMascota();
-        }
+        var nombre = $('#txt_nombreMascotaA').val();
+        var tipoMascota = $('#cb_tipoMascotaA').val();
+        var fechaNacimiento = $('#txt_fechaNacimientoA').val();
+           
+        actualizarDatosMascota();
+        
     });
     /**////////////////////////////////////////////////////////////////////// */
 
@@ -49,8 +49,17 @@ $(function(){
 
 function cargarCalendario(){
 
-    var element = document.getElementById("dt_fechaNacimientoMascota");
-    datepicker = new Datepicker(element, {
+    let element1 = document.getElementById("txt_fechaNacimiento");
+    datepicker = new Datepicker(element1, {
+      language: "es",
+      buttonClass: "btn",
+      format: "yyyy-mm-dd",
+      // fecha minima
+      maxDate: "data-date",
+    });
+
+    let element2 = document.getElementById("txt_fechaNacimientoA");
+    datepicker = new Datepicker(element2, {
       language: "es",
       buttonClass: "btn",
       format: "yyyy-mm-dd",
@@ -77,7 +86,7 @@ function listarMascotas(idPersona){
 
             $.each(resultado.datos, function(j, dato){
 
-                $('#txt_id').html(dato.idMascota);
+                $('#txt_id').html(j + 1);
                 $('#txt_nombre').html(dato.masNombre);
                 $('#txt_raza').html(dato.tipoCategoria);
                 $('#txt_edad').html(dato.masEdad);
@@ -139,48 +148,69 @@ function listarDatosMascota(idMascota){
 
 function actualizarDatosMascota(){
 
+    var nombre = $('#txt_nombreMascotaA').val();
+    var tipoMascota = $('#cb_tipoMascotaA').val();
+
     /**se saca solo el ano de la fecha ingresada */
     var fecha = document.getElementById('txt_fechaNacimientoA').value;
     var year = fecha.toString().substr(0,4);
+
+    if(nombre == '' || tipoMascota == 0 || fecha == ''){
+
+        alertaCamposVacios();
+    }else if(buscarCe(nombre) == true){
+
+        Swal.fire({
+            icon: 'warning',
+            title: 'Advertencia',
+            text: 'Los nombres no pueden tener caracteres especiales.',
+            confirmButtonText:'Aceptar',
+            customClass:{
+                confirmButton:'btnAceptar'
+            }
+          });   
+    }else{
+
+        var parametros = {
+            accion:'actualizarDatosMascota',
+            idMascota: idMascota,
+            nombre: nombre,
+            tipoMascota: tipoMascota,
+            fechaNacimiento: fecha,
+            año: year
+        };
     
-    var parametros = {
-        accion:'actualizarDatosMascota',
-        idMascota: idMascota,
-        nombre: $('#txt_nombreMascotaA').val(),
-        tipoMascota: $('#cb_tipoMascotaA').val(),
-        fechaNacimiento: fecha,
-        año: year
-    };
-
-    $.ajax({
-        url:'../../../controlador/mascotaControl.php',
-        data: parametros,
-        dataType:'json',
-        type:'post',
-        cache:'false',
-
-        success: function(resultado){
-
-            console.log(resultado);
-            Swal.fire({
-                icon:'success',
-                title:'Bien hecho!',
-                text:'Se actualizaron los datos correctamente.!',
-                confirmButtonText: "Aceptar",
-    customClass: {
-      confirmButton: 'btnAceptar'
-    },
-            }).then((result)=>{
-                if(result.isConfirmed){
-                    window.location.reload();
-                };
-            });
+        $.ajax({
+            url:'../../../controlador/mascotaControl.php',
+            data: parametros,
+            dataType:'json',
+            type:'post',
+            cache:'false',
+    
+            success: function(resultado){
+    
+                console.log(resultado);
+                Swal.fire({
+                    icon:'success',
+                    title:'Bien hecho!',
+                    text:'Se actualizaron los datos correctamente.!',
+                    confirmButtonText: "Aceptar",
+        customClass: {
+          confirmButton: 'btnAceptar'
         },
-        error:function(e){
+                }).then((result)=>{
+                    if(result.isConfirmed){
+                        window.location.reload();
+                    };
+                });
+            },
+            error:function(e){
+    
+                console.log(e.responseText);
+            }
+        });
 
-            console.log(e.responseText);
-        }
-    });
+    }
 }
 
 function abrirModalEliminar(id){
