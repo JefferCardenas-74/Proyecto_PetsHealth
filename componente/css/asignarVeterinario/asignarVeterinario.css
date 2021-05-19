@@ -1,6 +1,28 @@
 .datos_ListaCitasPorAsignarVete{
     overflow-x: auto;
 }
+/* PROPIEDADES AL SELECT2 DE TIPO DE MASCOTA */
+.select2-container {
+    z-index: 11111 !important;
+    width: 100% !important;
+    height: 30px !important;
+    font-weight: bold !important;
+    padding-left: 12px !important;   
+  }
+
+.select2-container--default .select2-selection--single {
+background: rgba(255, 255, 255, 0.603) !important;
+border-radius: 8px !important;
+border: 2px solid #00000096 !important; 
+height: 35px !important;
+}
+
+/* flechita del select */
+.select2-container--default
+.select2-selection--single
+.select2-selection__arrow {
+height: 30px !important;
+}
 .tabla{
     margin-left: auto;
     margin-right: auto;

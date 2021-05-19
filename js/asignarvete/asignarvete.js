@@ -19,6 +19,18 @@ $(function () {
         asignarVeterinario();
         listarCitas();
     });
+
+    $("#cbVeterinarios").select2({
+        language: {
+            noResults: function () {
+                return "No existe el empleado :(";
+            },
+            searching: function () {
+                return "Buscando..";
+            },
+        },
+        width: "resolve",
+    });
 });
 
 function listarCitas() {
@@ -103,7 +115,7 @@ function listarVeterinarios() {
                     $("<option>", {
                         value: veterinario.idEmpleado,
                         id: veterinario.perCorreo,
-                        text: veterinario.perNombre + "  " + veterinario.perApellido,
+                        text: "CC ( "+veterinario.perIdentificacion+" ) " +veterinario.perNombre + "  " + veterinario.perApellido,
                         class: "otrafila",
                     })
                 );
@@ -116,6 +128,7 @@ function listarVeterinarios() {
 }
 
 function asignarVeterinario() {
+    let nombreVeterinario= $("#cbVeterinarios option:selected").text().split(" )",2);
     var parametros = {
         accion: "AsignarVeterinario",
         idCita: idCita,
@@ -125,7 +138,7 @@ function asignarVeterinario() {
         nombreMascota: nombreMascota,
         fechaCita: fechaCita,
         nombreServicio: nombreServicio,
-        nombreVeterinario: $("#cbVeterinarios option:selected").text(),
+        nombreVeterinario: nombreVeterinario[1],
         correoVeterinario: $("#cbVeterinarios option:selected").attr("id"),
         horaCita: horaCita,
     };
