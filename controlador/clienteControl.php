@@ -76,19 +76,6 @@
                             sus datos son :<br> 
                             Usuario inicio sesion  : <b>  " . $correo . " </b> <br>
                             contraseña : <b>  " . $cedula . " </b>
-                            <table  width='50%' border='0' >
-                            <tr>
-                            <td width ='50%' align='center'>
-                            <img src='https://i.imgur.com/yzjVfUS.png' alt='logoLargoEmpresa' width='250' >
-                            </td>
-                            <td width='50%'>
-                            <br>
-                            <b> Atentamente Administración Pets Health 	</b>
-                            <br>
-                            Gracias por confiar en nosotros
-                            </td>
-                            </tr>
-                            </table>
                              ";
                 $resultadoCorreo = $enviarCorreo->enviarCorreo($objCorreo);
             }

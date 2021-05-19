@@ -98,10 +98,7 @@ hr {
   border: 2px solid #8E2DE2;
 }
 
-a[href*="#"]{
-
-  
-}
+.datepicker{z-index:999999 !important;}
 
 /*fin propiedades antiguas */
 
@@ -430,11 +427,61 @@ a[href*="#"]{
   border-radius: 20px !important;
 }
 /* fin footer */
+
+
 /* SWEEALERT */
 /* Z index de alertas personalizadas */
 .swal2-container {
   z-index: 100000!important;
+  
 }
+.swal2-content{
+  font-family: var(--fuenteParrafos) !important;
+  color: var(--colorParrafo) !important;
+  font-size: 1.5em !important;
+}
+.swal2-title{
+  font-family: 'Fredoka One' !important;
+  color: var(--colorTitulo) !important;
+  font-weight: normal !important;
+}
+.swal2-footer{
+  font-family: var(--fuenteParrafos) !important;
+  color: var(--colorParrafo) !important;
+  font-size: 1.5em !important;
+}
+
+/* etilos icono de success */
+.swal2-success-line-tip{
+  background-color: #381e94 !important;
+}
+.swal2-success-line-long{
+  background-color: #3c1fa8 !important;
+}
+.swal2-icon.swal2-success {
+  border-color: #220881 !important;
+}
+/* estilo icono warning */
+.swal2-icon.swal2-warning {
+  border-color: #E01AFC !important;
+}
+.swal2-icon .swal2-icon-content{
+  color:#E01AFC !important;
+}
+/* estilo icono de pregunta */
+
+.swal2-icon.swal2-question{
+  border-color: #1acffc !important;
+}
+.swal2-question .swal2-icon-content{
+  color: #1acffc !important;
+}
+/* estilo icono de informacion */
+
+.swal2-info .swal2-icon-content{
+  color: #1acffc !important;
+}
+
 
 /* PROPIEDADES ALERTA BOTONES */
 .btnAceptar{

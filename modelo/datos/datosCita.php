@@ -419,11 +419,13 @@
         function listarCitasAsignadasVete(){
             try{
 
-                $consulta = "select cita.idCita,cita.ciFecha,servicio.serTipo,persona.perNombre from cita 
+                $consulta = "select cita.idCita,cita.ciFecha,servicio.serTipo,persona.perNombre ,perCorreo, hd.hoHora ,hd.hoTipo,
+                mascota.masNombre from cita 
                 inner join citaservicio on cita.idCita=citaservicio.idCita
                 inner join servicio on servicio.idServicio=citaservicio.idServicio
                 inner join mascota on mascota.idMascota=cita.idMascota
                 inner join persona on persona.idPersona=mascota.idPersona
+                inner join horasdisponible as hd  on hd.idHora=cita.idHora
                 where cita.ciEstado='Solicitada'";
 
                 $resultado = $this->conexion->query($consulta);

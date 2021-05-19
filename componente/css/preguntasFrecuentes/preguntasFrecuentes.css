@@ -13,20 +13,7 @@
     height: 80vh;
 }
 
-.titulo{
 
-    font-size: 70px;
-    transition: all .5s;
-
-}
-
-@media screen and (max-width: 567px){
-
-    .titulo h1{
-        font-size: 65px;
-
-    }
-}
 
 .barraDelimite{
     width: 100%;

@@ -65,7 +65,7 @@ $rol = $_GET['rol'];
         <!--Modal para la interfaz de olvido contraseña-->
 
         <div class="modal fade" id="olvidoPasswordModal" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
+            <div class="modal-dialog ">
                 <div class="modal-content contentModalolvidoContraseña"> 
 
 
@@ -77,7 +77,7 @@ $rol = $_GET['rol'];
 
                     
                     <div class="modal-header headerModalOlvidoPassword">
-                        <label class="fredoka modal-title">Olvido Contraseña</label>
+                        <label class="fredoka modal-title text-center">Recuperar contraseña</label>
                     </div>
                     <!--formulario de olvido contraseña-->
                     <div class="modal-body bodyModalolvidoContraseña">

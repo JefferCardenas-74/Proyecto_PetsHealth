@@ -246,7 +246,7 @@
 
         function listarVeterinariosAsignar(){
             try{
-                $consulta="select persona.perNombre,persona.perApellido,empleado.idEmpleado,empleado.idPersona " 
+                $consulta="select persona.perIdentificacion,persona.perNombre,persona.perApellido,persona.perCorreo,empleado.idEmpleado,empleado.idPersona " 
                 . " from empleado INNER JOIN persona on persona.idPersona=empleado.idPersona "
                 . " INNER JOIN usuario on usuario.idPersona=persona.idPersona "
                 . " INNER JOIN usuariorol on usuariorol.idUsuario=usuario.idUsuario "
