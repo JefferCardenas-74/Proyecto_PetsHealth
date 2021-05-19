@@ -36,7 +36,7 @@ function listarCitas(){
             console.log(resultado);
             $.each(resultado.datos, function(i,cita){
         
-                $("#VidCita").html(cita.idCita);
+                $("#VidCita").html(i+1);
                 $("#VFechayHora").html(cita.ciFecha);
                 $("#VTipoCita").html(cita.serTipo);
                 $("#VSolicitante").html(cita.perNombre);

@@ -139,6 +139,7 @@ function ListarMascotaSele(){
                 $("#lbl_edadM").html(mascota.masEdad);
             
             });
+            console.clear();
         },
         error: function(ex){
             console.log(ex.responseText , "no llego nada");
@@ -168,6 +169,7 @@ function ListarConsultaHistorialM(){
             console.log(HistorialMascota);
             $.each(resultado.datos, function(i,mascota){
 
+                $("#hNumero").html(i+1);
                 $("#hFechayHora").html(mascota.ciFecha);
                 $("#hDescripcion").html(mascota.deDescripcion);
                 $("#hTipoCita").html(mascota.serTipo);

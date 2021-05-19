@@ -58,6 +58,7 @@
     <table name="tbl_historialMascota" id="tbl_historialMascota" class="tabla">
         <thead>
             <tr>
+                <th>N°</th>
                 <th>Fecha y Hora</th>
                 <th>Descripción</th>
                 <th>tipo de Cita</th>
@@ -66,6 +67,7 @@
         </thead>
         <tbody>
             <tr id="filaHistorialM" class="primeraFilaHisorialM">
+                <td id="hNumero"></td>
                 <td id="hFechayHora"></td>
                 <td id="hDescripcion"></td>
                 <td id="hTipoCita"></td>

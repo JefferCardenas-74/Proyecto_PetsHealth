@@ -63,7 +63,7 @@ $(function () {
       $("#txt_nombreMascota").val() == "" ||
       $("#txt_edadMascota").val() == "" ||
       $("#dt_fechaNacimientoMascota").val() == "" ||
-      $("#cb_tipoMascota").val() == ""
+      $("#cb_tipoMascota").val() == "0"
     ) {
       alertaCamposVacios();
     } else if (!validarEmail($("#txt_correo").val())) {
@@ -83,6 +83,8 @@ function mostrarPassword() {
   }
 }
 
+
+
 const cargarElementos = () => {
   var element = document.getElementById("dt_fechaNacimientoMascota");
   datepicker = new Datepicker(element, {
@@ -94,16 +96,16 @@ const cargarElementos = () => {
   });
   // Establecer libreria de selects personalizados
   // establecer el select de horas
-  $("#cb_tipoMascota").select2({
-    language: {
-      noResults: function () {
-        return "No encontramos el tipo para tu mascota :(";
-      },
-      searching: function () {
-        return "Buscando..";
-      },
-    },
-  });
+  //$("#cb_tipoMascota").select2({
+    //language: {
+      //noResults: function () {
+        //return "No encontramos el tipo para tu mascota :(";
+      //},
+      //searching: function () {
+        //return "Buscando..";
+      //},
+    //},
+  //});
 };
 
 function limpiarFormulario() {
@@ -119,12 +121,9 @@ function limpiarFormulario() {
   correoCliente.value = "";
   let nombremascotaCliente = document.querySelector("#txt_nombreMascota");
   nombremascotaCliente.value = "";
-  let fechaNacimientoMascotaCliente = document.querySelector(
-    "#dt_fechaNacimientoMascota"
-  );
+  let fechaNacimientoMascotaCliente = document.querySelector("#dt_fechaNacimientoMascota");
   fechaNacimientoMascotaCliente.value = "";
-  let tipoMascotaCliente = document.querySelector("#cb_tipoMascota");
-  tipoMascotaCliente.value = "";
+  $('#cb_tipoMascota').val(0);
 }
 
 function iniciarSesion() {
@@ -451,62 +450,98 @@ function enviarCorreoRecuperacionContrasenia() {
 }
 
 function registrarPersona() {
-  var parametros = {
-    accion: "AgregarCliente",
+  var nombre = $("#txt_nombre").val();
+  var apellidos = $("#txt_apellidos").val();
 
-    cedula: $("#txt_cedula").val(),
-    nombre: $("#txt_nombre").val(),
-    apellidos: $("#txt_apellidos").val(),
-    telefono: $("#txt_telefono").val(),
-    correo: $("#txt_correo").val(),
-  };
 
-  $.ajax({
-    url: "../../../controlador/clienteControl.php",
-    data: parametros,
-    dataType: "json",
-    type: "post",
-    cache: "false",
+  if(
+    buscarCe(nombre)== true ||
+    buscarCe(apellidos)== true 
 
-    success: function (resultado) {
-      console.log(resultado.datos);
+    ){
+      Swal.fire({
+          title: 'Oops',
+          text: 'Los campos no puede tener caracteres especiales...!',
+          icon: 'warning',
+          ConfirmButtonText: 'Ok'
+      });
+  }else{
+    var parametros = {
+      accion: "AgregarCliente",
 
-      idPersona = resultado.datos;
-      agregarMascota();
-    },
-    error: function (e) {
-      console.log(e);
-    },
-  });
+      cedula: $("#txt_cedula").val(),
+      nombre: $("#txt_nombre").val(),
+      apellidos: $("#txt_apellidos").val(),
+      telefono: $("#txt_telefono").val(),
+      correo: $("#txt_correo").val(),
+    };
+
+    $.ajax({
+      url: "../../../controlador/clienteControl.php",
+      data: parametros,
+      dataType: "json",
+      type: "post",
+      cache: "false",
+
+      success: function (resultado) {
+        console.log(resultado.datos);
+
+        idPersona = resultado.datos;
+        agregarMascota();
+      },
+      error: function (e) {
+        console.log(e);
+      },
+    });
+  }
 }
 
 function agregarMascota() {
-  let parametros = {
-    idPersona: idPersona,
-    nombreMascota: $("#txt_nombreMascota").val(),
-    edadMascota: $("#txt_edadMascota").val(),
-    fechaNacimientoMascota: $("#dt_fechaNacimientoMascota").val(),
-    tipoMascota: $("#cb_tipoMascota").val(),
 
-    accion: "AgregarMascota",
-  };
+  /**se saca solo el ano de la fecha ingresada */
+  var fecha = document.getElementById('dt_fechaNacimientoMascota').value;
+  var year = fecha.toString().substr(0,4);
+  var nombre = $("#txt_nombreMascota").val();
 
-  $.ajax({
-    url: "../../../controlador/clienteControl.php",
-    data: parametros,
-    dataType: "json",
-    type: "post",
-    cache: "false",
+  if(buscarCe(nombre)== true ){
+      Swal.fire({
+          title: 'Oops',
+          text: 'Los campos no puede tener caracteres especiales...!',
+          icon: 'warning',
+          ConfirmButtonText: 'Ok'
+      });
+  }else{
 
-    success: function (resultado) {
-      console.log(resultado.mensaje);
+    let parametros = {
+      accion: "AgregarMascota",
+      idPersona: idPersona,
+      nombreMascota: $("#txt_nombreMascota").val(),
+      tipoMascota: $("#cb_tipoMascota").val(),
+      fechaNacimientoMascota: fecha,
+      año: year,
+      //fechaNacimientoMascota:$("#dt_fechaNacimientoMascota").val(),
+      
 
-      registrarUsuario();
-    },
-    error: function (e) {
-      console.log(e);
-    },
-  });
+      
+    };
+
+    $.ajax({
+      url: "../../../controlador/clienteControl.php",
+      data: parametros,
+      dataType: "json",
+      type: "post",
+      cache: "false",
+
+      success: function (resultado) {
+        console.log(resultado.mensaje);
+
+        registrarUsuario();
+      },
+      error: function (e) {
+        console.log(e);
+      },
+    });
+  }
 }
 
 function registrarUsuario() {
