@@ -1,88 +1,92 @@
-*{
-    margin:0;
-    padding:0;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-
-
-.contenedorAgregar{
-    display:flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 25px;
+.contenedorAgregar {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 25px;
 }
 
-
-#botones{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+#botones {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
-#btn_actualizar, #btn_eliminar{
-    width: 50px;
-    height: 50px;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
+#btn_actualizar,
+#btn_eliminar {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.contenedorTablaProductos {
+  overflow-x: auto;
 }
 
 /* estilos de la tabla*/
-.table{
-    margin-left: auto;
-    margin-right: auto;
-    border-collapse: collapse;
-    min-width: 800px;
-    text-align: center;
-    margin-bottom: 40px;
+.table {
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: collapse;
+  min-width: 800px;
+  text-align: center;
+  margin-bottom: 40px;
 }
 
-thead{
-    background: #a200ff;
-    color: #fff;
-    font-family: var(--fuenteTitulos);
-    letter-spacing: 2px;
+thead {
+  background: #a200ff;
+  color: #fff;
+  font-family: var(--fuenteTitulos);
+  letter-spacing: 2px;
 }
 
-.table td{
-
-    height: 60px;
-    border-bottom: 1px solid #a200ff;
-    text-align: center;
+.table td {
+  height: 60px;
+  border-bottom: 1px solid #a200ff;
+  text-align: center;
 }
 
-.table tr:hover{
-
-    background: #a200ff57;
-    font-weight: bold;
+.table tr:hover {
+  background: #a200ff57;
+  font-weight: bold;
 }
 
-.botonModal{
-    
-    display: flex;
-    justify-content: center;
+.botonModal {
+  display: flex;
+  justify-content: center;
 }
 
 .form-control {
-    /* display: block; */
-    width: 100%;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #4b5563;
-    background-color: #f9fafb;
-    background-clip: padding-box;
-    border: 0.0625rem solid #d1d5db;
-    -webkit-appearance: none;
-    appearance: none;
-    border-radius: 1rem;
-    box-shadow: inset 0 1px 2px rgb(46 54 80 / 8%);
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  
-    font-family: var(--fuenteParrafos);
-    color: var(--colorTitulo);
-    font-size: 1.4em !important;
-  }
+  /* display: block; */
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #4b5563;
+  background-color: #f9fafb;
+  background-clip: padding-box;
+  border: 0.0625rem solid #d1d5db;
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 1rem;
+  box-shadow: inset 0 1px 2px rgb(46 54 80 / 8%);
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 
+  font-family: var(--fuenteParrafos);
+  color: var(--colorTitulo);
+  font-size: 1.4em !important;
+}
 
+@media screen and (max-width: 576px){
+
+    .contenedorTablaProductos{
+        min-width: 700px;
+    }
+}

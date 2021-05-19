@@ -20,7 +20,7 @@
 
             <div class="form-group">
                 <label for="txt_encargado" class="col-form-label fredoka">Nombre del encargado</label>
-                <input type="text" class="cajaTexto pompiere" id="txt_encargado">
+                <input type="text" class="cajaTexto pompiere" id="txt_encargado" readonly>
             </div>
 
             <div class="form-group">
@@ -46,7 +46,7 @@
 
     <!--modal para registrar cliente-->
 
-    <div class="modal fade" id="registrarCliente" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="registrarCliente" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header barra">
@@ -65,6 +65,7 @@
             </div>
         </div>
     </div>
+    
     <br>
     <br>
 

@@ -47,12 +47,7 @@ thead{
 #atenderCita{
     z-index: 1111;
 }
- /* profundiad del modal del alerta  */
- .swal2-container.swal2-center{ 
-     
-    z-index: 9999999; 
-}
-
+ 
 /*lista de datos*/
 
 #listaDatos{
@@ -87,7 +82,6 @@ thead{
     border-radius: 15px;
     margin-bottom: 20px;
     padding: 25px;
-    backdrop-filter: blur(2px);
 }
 
 .frm_atenderUrgencia{
@@ -179,8 +173,6 @@ thead{
 /*estilos para formlario del modal atender cita*/
 
 @media screen and (max-width: 576px){
-
-    
     
     .frm_atenderCita{
         display: block;   
@@ -194,8 +186,6 @@ thead{
         min-width: 450px;
         overflow-x: auto;
     }
-
-
 
 }
 
