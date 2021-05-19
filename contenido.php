@@ -2,21 +2,15 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mx-auto">
-                <h2>!Tu Mejor Veterinaria para tu mascota¡</h2>
-                <p class="lead">This is a great place to talk about your webpage. This template is purposefully unstyled
-                    so you can use it as a boilerplate or starting point for you own landing page designs! This template
-                    features:</p>
+                <h2>¡La mejor opción para tu mascota!</h2>
+                <p class="lead">Somos una veterinaria que lucha por el bienestar físico y mental de tu mascota, ofrecemos 
+                    variedad de servicios muy completos y de calidad, para que tu compañero de vida se sienta lo más cómodo 
+                    posible, dándole de esta manera la atención que se merece.</p>
+                <p class="lead">Características:</p>    
                 <ul>
-                    <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa esse nobis, repellendus nostrum
-                        corporis adipisci architecto doloremque dolorem quidem, perspiciatis molestiae error eligendi
-                        illo? Dolore ullam possimus culpa magnam beatae!</li>
-                    <li> repellendus nostrum corporis adipisci architecto doloremque dolorem quidem, perspiciatis
-                        molestiae error eligendi illo? Dolore ullam possimus culpa magnam beatae!</li>
-                    <li> repellendus nostrum corporis adipisci architecto doloremque dolorem quidem, perspiciatis
-                        molestiae error eligendi illo? Dolore ullam possimus culpa magnam beatae!
-                    </li>
-                    <li> repellendus nostrum corporis adipisci architecto doloremque dolorem quidem, perspiciatis
-                        molestiae error eligendi illo? Dolore ullam possimus culpa magnam beatae!</li>
+                    <li>Contamos con una función muy sencilla del manejo de la página, encontrando todo muy fácilmente y a la mano.</li>
+                    <li>Brindamos servicios donde el usuario podrá sencillamente registrar sus mascotas y seguir todo el proceso de ella.</li>
+                    <li>Contara con las mejores atenciones tanto para el dueño como para la mascota.</li>
                 </ul>
             </div>
         </div>
@@ -29,9 +23,9 @@
         <div class="row">
             <div class="col-lg-8 mx-auto ">
                 <h2>¿ Quienes Somos ?</h2>
-                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut optio velit inventore,
-                    expedita quo laboriosam possimus ea consequatur vitae, doloribus consequuntur ex. Nemo assumenda
-                    laborum vel, labore ut velit dignissimos.</p>
+                <p class="lead">Somos una empresa que vela por el bienestar de tu mascota, conformada 
+                    por un grupo de veterinarios <strong>100% capacitados</strong> para recibir cualquier emergencia, ofreciendo 
+                    servicios completos y de la mejor calidad.</p>
             </div>
         </div>
     </div>
@@ -49,7 +43,7 @@
 
 
     <h4 class="text-center p-1 font-general-services">
-        Nuestros Servicios
+        Nuestros Servicios Más Relevantes
     </h4>
     <div class="row">
         <div class="col-12 col-lg-4 unoS">
@@ -61,15 +55,14 @@
                 </div>
 
                 <div class="contenidoServices">
-                    <h5 class="font-tipo-services text-center">Nutrición</h5>
-                    <hr class="hrCardServices ">
+                    <h5 class="font-tipo-services text-center">Cirugía</h5>
+                    <hr class="hrCardServices">
                     <p class="p-3 font-p">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                        Procedimiento operatorio, ya sea para determinar la presencia de una 
+                        enfermedad o reparar una parte del cuerpo.
                     </p>
-
                 </div>
-                <h6 class="cardx-h6 "><i class="fas fa-paw"></i>Acerca Nutricion</h6>
+                <h6 class="cardx-h6"><i class="fas fa-paw"></i>Acerca de Cirugía</h6>
             </div>
 
         </div>
@@ -87,17 +80,19 @@
                 </div>
                 <!-- <h6 class="cardx-h5 ">Ver mas</h6> -->
                 <div class="contenidoServices">
-                    <h5 class="font-tipo-services text-center ">Revision General</h5>
-                    <hr class="hrCardServices ">
+                    <h5 class="font-tipo-services text-center ">Revisión General</h5>
+                    <hr class="hrCardServices">
                     <p class="p-3 font-p">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                        Atención brindada para evaluar el estado de salud física y mental de la 
+                        mascota para descartar posibles riesgos.
                     </p>
                 </div>
-                <h6 class="cardx-h6 "><i class="fas fa-paw"></i>Revision General</h6>
+                <h6 class="cardx-h6"><i class="fas fa-paw"></i>Revision General</h6>
             </div>
 
         </div>
+
+
         <div class="col-12 col-lg-4 tresS">
 
             <div class="cardx">
@@ -106,14 +101,13 @@
                 </div>
                 <!-- <h6 class="cardx-h5 ">Ver mas</h6> -->
                 <div class="contenidoServices">
-                    <h5 class="font-tipo-services text-center ">Masaje</h5>
+                    <h5 class="font-tipo-services text-center ">Belleza</h5>
                     <hr class="hrCardServices ">
                     <p class="p-3 font-p">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                        Procedimiento estético realizado para mejorar la apariencia física de su mascota.
                     </p>
                 </div>
-                <h6 class="cardx-h6 "><i class="fas fa-paw"></i>Acerca de Masaje</h6>
+                <h6 class="cardx-h6 "><i class="fas fa-paw"></i>Acerca de Belleza</h6>
             </div>
 
         </div>
@@ -121,29 +115,28 @@
 
         <!-- divs escondido para responsive desing -->
         <div class="col-12 col-lg-4" id="cardx-Hideen">
-            <h5 class="font-tipo-services text-center p-3">Nutrición</h5>
+            <h5 class="font-tipo-services text-center p-3">Cirugía</h5>
             <img src="https://i.imgur.com/3bdtJhO.jpg" class="img-fluid" alt="imagen nutricion">
             <p class="p-3  font-p">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                    Procedimiento operatorio, ya sea para determinar la presencia de una 
+                    enfermedad o reparar una parte del cuerpo.
             </p>
 
         </div>
         <div class="col-12 col-lg-4" id="cardx-Hideen">
-            <h5 class="font-tipo-services text-center p-3">Revision general</h5>
+            <h5 class="font-tipo-services text-center p-3">Revision General</h5>
             <img src="https://i.imgur.com/13UzvP7.jpg" class="img-fluid" alt="imagen nutricion">
             <p class="p-3 font-p">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                    Atención brindada para evaluar el estado de salud física y mental de la 
+                    mascota para descartar posibles riesgos.
             </p>
 
         </div>
         <div class="col-12 col-lg-4" id="cardx-Hideen">
-            <h5 class="font-tipo-services text-center p-3">Masaje</h5>
+            <h5 class="font-tipo-services text-center p-3">Belleza</h5>
             <img src="https://i.imgur.com/ALxyFmX.jpg" class="img-fluid" alt="imagen nutricion">
             <p class="p-3 font-p">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                Procedimiento estético realizado para mejorar la apariencia física de su mascota.
             </p>
 
         </div>

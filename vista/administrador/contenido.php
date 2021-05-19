@@ -9,8 +9,7 @@
 </div>
     
     <h4 class="texto-bienvenida text-center ">Hola <span class="user"> <?php echo $_SESSION["nombreUsuario"]; ?> </span>
-        te presentamos
-        algunos modulos que puedes realizar como <span class="rol">Administrador </span> </h4>
+        te presentamos algunos módulos que puedes realizar como <span class="rol">Administrador </span> </h4>
     <div class="row g-5 py-5">
         <div class="col-md-4 d-flex align-items-start">
             <div  class="icon-square bg-light text-dark flex-shrink-0 me-3">
@@ -21,10 +20,8 @@
             <div class="titulos-modulos ">
                 <h2>Asignar citas
                 </h2>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Suscipit sit dignissimos nam pariatur ullam illum eum, enim neque accusamus illo non, asperiores
-                    nihil at quidem expedita cumque debitis adipisci! Delectus?
-                    .</p>
+                <p> En este apartado encontrará todo lo referente para poder asignarle una cita a 
+                    un veterinario, de acuerdo con las que están en lista de espera.</p>
             </div>
         </div>
         <div class="col-md-4 d-flex align-items-start">
@@ -37,10 +34,8 @@
                 <h2>
                 Gestionar empledos
                 </h2>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Suscipit sit dignissimos nam pariatur ullam illum eum, enim neque accusamus illo non, asperiores
-                    nihil at quidem expedita cumque debitis adipisci! Delectus?
-                    .</p>
+                <p> En este marco podrá evidenciar todo lo relacionado con el empleado, teniendo la 
+                    posibilidad de listar, agregar, actualizar y habilitar o inhabilitar su estado. </p>
             </div>
         </div>
         <div class="col-md-4 d-flex align-items-start">
@@ -52,10 +47,8 @@
             </div>
             <div class="titulos-modulos ">
                 <h2>Gestionar productos</h2>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Suscipit sit dignissimos nam pariatur ullam illum eum, enim neque accusamus illo non, asperiores
-                    nihil at quidem expedita cumque debitis adipisci! Delectus?
-                </p>
+                <p> En este caso se podrá realizar toda la gestión de agregar un producto, 
+                    actualizarlo o por el contrario eliminarlo.</p>
             </div>
         </div>
         <!-- PARTE DOS -->
@@ -68,10 +61,7 @@
             </div>
             <div class="titulos-modulos ">
                 <h2>ver reportes</h2>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Suscipit sit dignissimos nam pariatur ullam illum eum, enim neque accusamus illo non, asperiores
-                    nihil at quidem expedita cumque debitis adipisci! Delectus?
-                </p>
+                <p>En esta sección podrá observar los distintos reportes que se generan a través de los diferentes datos obtenidos.</p>
             </div>
         </div>
         <div class="col-md-6 d-flex align-items-start">
@@ -83,10 +73,8 @@
             </div>
             <div class="titulos-modulos ">
                 <h2>Gestionar servicios</h2>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Suscipit sit dignissimos nam pariatur ullam illum eum, enim neque accusamus illo non, asperiores
-                    nihil at quidem expedita cumque debitis adipisci! Delectus?
-                    .</p>
+                <p> En este aspecto podrá modificar todo aquello que tenga que ver con los servicios que 
+                    ofrece la veterinaria, con posibilidad de listar, agregar, actualizar y/o eliminar.</p>
             </div>
         </div>
 

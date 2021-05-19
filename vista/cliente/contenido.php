@@ -20,10 +20,7 @@
             </div>
             <div class="titulos-modulos ">
                 <h2>Agendar cita</h2>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Suscipit sit dignissimos nam pariatur ullam illum eum, enim neque accusamus illo non, asperiores
-                    nihil at quidem expedita cumque debitis adipisci! Delectus?
-                    .</p>
+                <p>En este apartado podrá realizar todo el proceso para poder agendar su cita de manera satisfactoria.</p>
             </div>
         </div>
         <div class="col-md-6 d-flex align-items-start">
@@ -34,10 +31,8 @@
             </div>
             <div class="titulos-modulos ">
                 <h2>Gestionar mascota</h2>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Suscipit sit dignissimos nam pariatur ullam illum eum, enim neque accusamus illo non, asperiores
-                    nihil at quidem expedita cumque debitis adipisci! Delectus?
-                    .</p>
+                <p> En este marco podrá evidenciar todo lo relacionado con sus mascotas, 
+                    teniendo la posibilidad de listar, agregar, actualizar y/o eliminar. </p>
             </div>
         </div>
         <!-- PARTE DOS -->
@@ -49,9 +44,8 @@
             </div>
             <div class="titulos-modulos ">
                 <h2>Conocer estado de tu mascota</h2>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Suscipit sit dignissimos nam pariatur ullam illum eum, enim neque accusamus illo non, asperiores
-                    nihil at quidem expedita cumque debitis adipisci! Delectus?
+                <p> En esta sección podrá observar su proceso luego de haber agendado una cita, 
+                    será capaz de evidenciar cuando esta siendo solicitada, atendida o por otra parte cancelarla.
                 </p>
             </div>
         </div>
@@ -63,10 +57,8 @@
             </div>
             <div class="titulos-modulos ">
                 <h2>Revisar historial de tu mascota</h2>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Suscipit sit dignissimos nam pariatur ullam illum eum, enim neque accusamus illo non, asperiores
-                    nihil at quidem expedita cumque debitis adipisci! Delectus?
-                    .</p>
+                <p> En este módulo será posible seguir todo el proceso de las intervenciones que 
+                    se le realicen a su mascota, teniendo a la mano una lista con todos los procedimientos.</p>
             </div>
         </div>
 

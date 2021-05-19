@@ -124,9 +124,27 @@ function abrirModalAgregar(){
 
 function agregarServicio(){
 
-    if($('#txt_tipo').val() == '' || $('#txt_descripcion').val() == '' || $('#txt_precio').val() == ''){
+    var tipo = $('#txt_tipo').val();
+    var descripcion = $('#txt_descripcion').val();
+    var precio = $('#txt_precio').val();
+
+    if(tipo == '' || descripcion == '' || precio == ''){
 
         alertaCamposVacios();
+
+    }else if(buscarCe(tipo) == true ||
+            buscarCe(descripcion) == true ||
+            buscarCe(precio) == true){
+        
+        Swal.fire({
+            icon:'warning',
+            title:'Advertencia',
+            text:'El campo nombre no puede tene caracteres especiales.',
+            confirmButtonText:'Aceptar',
+            customClass:{
+                confirmButton:'btnAceptar'
+            }
+        });
 
     }else{
 
@@ -237,8 +255,32 @@ function listarDatosServicio(){
             });
 
             $('#btn_actualizarM').click(function(){
+
+                var tipo = $('#txt_tipo').val();
+                var descripcion = $('#txt_descripcion').val();
+                var precio = $('#txt_precio').val();
             
+                if(tipo == '' || descripcion == '' || precio == ''){
+
+                    alertaCamposVacios();
+
+                }else if(buscarCe(tipo) == true ||
+                         buscarCe(descripcion) == true ||
+                         buscarCe(precio) == true){
+                    
+                    Swal.fire({
+                        icon:'warning',
+                        title:'Advertencia',
+                        text:'El campo nombre no puede tene caracteres especiales.',
+                        confirmButtonText:'Aceptar',
+                        customClass:{
+                            confirmButton:'btnAceptar'
+                        }
+                    });
+
+                }else{
                 actualizarDatosServicio(idServicio);
+                }
 
             });
         },

@@ -19,10 +19,7 @@
             </div>
             <div class="titulos-modulos ">
                 <h2>Ver citas asignadas</h2>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Suscipit sit dignissimos nam pariatur ullam illum eum, enim neque accusamus illo non, asperiores
-                    nihil at quidem expedita cumque debitis adipisci! Delectus?
-                    .</p>
+                <p>En este apartado encontrará las citas que el administrador le ha encargado para que puedan ser atendidas.</p>
             </div>
         </div>
         <div class="col-md-6 d-flex align-items-start">
@@ -33,10 +30,8 @@
             </div>
             <div class="titulos-modulos ">
                 <h2>ver reportes</h2>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Suscipit sit dignissimos nam pariatur ullam illum eum, enim neque accusamus illo non, asperiores
-                    nihil at quidem expedita cumque debitis adipisci! Delectus?
-                    .</p>
+                <p> En esta sección podrá observar los reportes referentes a las citas, que se 
+                    generan a través de los diferentes datos obtenidos.</p>
             </div>
         </div>
         <div class="col-md-6 d-flex ">
@@ -47,10 +42,8 @@
             </div>
             <div class="titulos-modulos ">
                 <h2>Realizar citas no programadas</h2>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Suscipit sit dignissimos nam pariatur ullam illum eum, enim neque accusamus illo non, asperiores
-                    nihil at quidem expedita cumque debitis adipisci! Delectus?
-                </p>
+                <p> En este módulo será posible atender citas que no han sido programadas, 
+                    debido a que no se le ha asignado ningún veterinario.</p>
             </div>
         </div>
         <div class="col-md-6 d-flex ">
@@ -61,10 +54,7 @@
             </div>
             <div class="titulos-modulos ">
                 <h2>Atender citas</h2>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Suscipit sit dignissimos nam pariatur ullam illum eum, enim neque accusamus illo non, asperiores
-                    nihil at quidem expedita cumque debitis adipisci! Delectus?
-                </p>
+                <p>En este caso podrá realizar toda la gestión de atender una cita.</p>
             </div>
         </div>
     </div>
