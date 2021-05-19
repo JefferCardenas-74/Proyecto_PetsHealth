@@ -290,7 +290,7 @@ function mostrarRecaptcha() {
     title: "<h2 class='fredoka'>VERIFICACIÓN</h2>",
     // id para mas  poner estilos css
     html: '<div id="recaptcha"  ></div>',
-    footer: " <p  class='pompiere'> Pasaste el numero de intentos por esta razon verificamos.</p> ",
+    footer: " <p > Pasaste el numero de intentos por esta razon verificamos.</p> ",
     confirmButtonText: "Aceptar",
     customClass: {
       confirmButton: "btnAceptar",
