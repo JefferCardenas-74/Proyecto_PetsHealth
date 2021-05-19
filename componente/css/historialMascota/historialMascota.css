@@ -105,6 +105,9 @@ thead{
     .contenedorBusqueda{
         margin-left: 5%;
     }
+    .contenedorDatosPequeña{
+        display: flex;
+    }
 
     .datos_mascota{
         width: 100%;
@@ -123,7 +126,7 @@ thead{
 
 }
 
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 889px) {
     
     .cabecera{
         width: 100%;
@@ -138,7 +141,9 @@ thead{
     .contenedorBusqueda{
         margin-left: 5%;
     }
-
+    .contenedorDatosPequeña{
+        display: flex;
+    }
     .datos_mascota{
         width: 100%;
         margin-top: 20px;
@@ -155,3 +160,40 @@ thead{
 
     
 }
+
+@media screen and (max-width: 444px){
+    .cabecera{
+        width: 100%;
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Fredoka one';
+        margin-top: 70px;
+    }
+
+    .contenedorBusqueda{
+        margin-left: 5%;
+    }
+
+    .contenedorDatosPequeña{
+        display: block;
+    }
+
+    .datos_mascota{
+        width: 100%;
+        margin-top: 20px;
+        margin-left: 5%;
+    }
+
+    .contenerdorTodo{
+        display: block;
+    }
+    .modalActualizar{
+        margin-top: 50%;
+        z-index: 1111;
+    }
+
+}
+
+

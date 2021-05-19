@@ -2,7 +2,7 @@
     $rol = $_SESSION['rol'];
 ?>
 
-<div class="contenedorTitulo">
+<div  class="contenedorTitulo">
     <h1 class="titulo fredoka">Citas no programadas </h1>
 </div>
 
