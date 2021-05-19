@@ -187,7 +187,49 @@ switch ($accion) {
     case "AsignarVeterinario":
         $citaEmpleado = new CitaEmpleado(null, $idCita, $idVeterinario);
         $resultado = $dCita->asignarVeterinario($citaEmpleado);
-        //print_r($resultado);
+        if ($resultado->estado) {
+            //Enviar correo cuando se aigna la cita a un veterinario
+            $correo = new enviarCorreoPrueba();
+            $objCorreo = new stdClass();
+            $objCorreo->correoRemitente = "soporte.petsHealth@gmail.com"; //aqui pueden colocar el correo del administrador
+            $objCorreo->nombreRemitente = "Administración Pets Health"; //igual el nombre del administrador
+            $objCorreo->correoDestinatario = $correoCliente;
+            $objCorreo->nombreDestinatario = $nombreCliente;
+            $objCorreo->asunto = "Asignación  de cita en Pets Health";
+            $objCorreo->mensaje=
+            "<p> Cordial saludo , <br> "
+            . " nos permitimos informar que la cita   <b>"
+            . " </b>  fue  asignada exitosamente por lo tanto sus datos de la cita son:
+                <br><b>Dueño de la mascota: </b>" . strtoupper($nombreCliente) . "
+                <br><b>Fecha  de la cita :</b>" . $fechaCita . "
+                <br><b>Hora  de la cita :</b>" . $horaCita . "
+                <br><b>Cliente:</b> " . strtoupper($nombreMascota ). "
+                <br><b>Servicio:</b> " . strtoupper($nombreServicio) . "
+                <br><b>Veterinario: </b>".strtoupper($nombreVeterinario) ." </p>
+                <br><span class='recomendacion'>Por favor estar media hora antes de la hora establecida </span>";
+             
+            $resultadoCorreoCliente = $correo->enviarCorreo($objCorreo);
+            // Envia el correo al veterinario asignadao
+            $objCorreo = new stdClass();
+            $objCorreo->correoRemitente = "soporte.petsHealth@gmail.com"; //aqui pueden colocar el correo del administrador
+            $objCorreo->nombreRemitente = "Administración Pets Health"; //igual el nombre del administrador
+            $objCorreo->correoDestinatario = $correoVeterinario;
+            $objCorreo->nombreDestinatario = $nombreVeterinario;
+            $objCorreo->asunto = "Cita asignada en Pets Health";
+            $objCorreo->mensaje=
+            "<p> Cordial saludo , <br> "
+            . " nos permitimos informar que usted como <b> EMPLEADO </b> en Pets Health   <b>"
+            . " </b>se le asigno una nueva cita. Por lo tanto los datos de la cita asignada son: 
+                <br><b>Dueño de la mascota: </b>" . strtoupper($nombreCliente) . "
+                <br><b>Fecha de la cita :</b>" . $fechaCita . "
+                <br><b>Hora de la cita :</b>" . $horaCita . "
+                <br><b>Cliente:</b> " .strtoupper( $nombreMascota) . "
+                <br><b>Servicio:</b> " . strtoupper($nombreServicio) . "
+                <br><b>Veterinario: </b>".strtoupper($nombreVeterinario) ." </p>
+                <br><span class='recomendacion'>Ingrese al sistema para ver mas detalles. </span>";
+             
+            $resultadoCorreoVeterinario = $correo->enviarCorreo($objCorreo);
+        }
         echo json_encode($resultado);
         break;
 

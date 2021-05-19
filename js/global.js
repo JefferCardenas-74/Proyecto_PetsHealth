@@ -314,7 +314,7 @@ function alertaCorreoInvalido() {
     customClass: {
       confirmButton: 'btnAceptar'
     },
-    footer: 'Ejemplo de correo: example@example.com'
+    footer: "<p class='text-center'  >Ejemplo de correo: example@example.com </p>"
   });
 
 }
