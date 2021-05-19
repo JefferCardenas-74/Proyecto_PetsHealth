@@ -66,8 +66,10 @@
                             <select name="cb_unidad" id="cb_unidad" class="cajaTexto">
                                 <option value="0">Seleccione</option>
                                 <option value="ml">ml</option>
-                                <option value="gr">gr</option>
-                                <option value="und">und</option>
+                                <option value="g">g</option>
+                                <option value="mg">mg</option>
+                                <!--Unidad de medida para vitaminas, penisilina e insulinas-->
+                                <option value="UI">UI</option>
                             </select>
                         </div>
                     </form>
@@ -115,8 +117,10 @@
                             <select name="cb_unidadA" id="cb_unidadA" class="cajaTexto">
                                 <option value="0">Seleccione</option>
                                 <option value="ml">ml</option>
-                                <option value="gr">gr</option>
-                                <option value="und">und</option>
+                                <option value="g">g</option>
+                                <option value="mg">mg</option>
+                                <!--Unidad de medida para vitaminas, penisilina e insulinas-->
+                                <option value="UI">UI</option>
                             </select>
                         </div>
                     </form>

@@ -98,10 +98,7 @@ hr {
   border: 2px solid #8E2DE2;
 }
 
-a[href*="#"]{
-
-  
-}
+.datepicker{z-index:999999 !important;}
 
 /*fin propiedades antiguas */
 
