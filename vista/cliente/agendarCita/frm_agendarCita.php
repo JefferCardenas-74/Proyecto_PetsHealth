@@ -32,7 +32,7 @@
 
                                     <!--first name block -->
                                     <div class="mb-3 col-md-6">
-                                        <h5 class="text-inf">Informacion del dueño </h5>
+                                        <h5 class="text-inf">Nombre del dueño </h5>
 
                                         <div class="input-group">
 
@@ -47,7 +47,7 @@
                                     </div>
                                     <!--last name block -->
                                     <div class="mb-3 col-md-6">
-                                        <h5 class="text-inf">Selecciona el cliente </h5>
+                                        <h5 class="text-inf">Nombre de la mascota </h5>
                                         <select name="cb_cliente" id="cb_cliente" class="form-control" style="width:100%">
                                         <option value="0">Selecciona tu mascota</option>
                                         </select>
@@ -56,7 +56,7 @@
                                     </div>
 
                                     <div class="text-left">
-                                        <h5 class="text-inf">Escoja fecha, hora y el tipo de cita para tu mascota</h5>
+                                        <h5 class="text-inf">Selecciona fecha hora y el tipo de servicio</h5>
                                     </div>
 
                                     <div class="mb-3 col-md-3">
@@ -106,7 +106,7 @@
                             <!-- modal para ver los tipos de serivicios -->
 
                             <div class="modal fade" tabindex="-1" id="modalSelServicios" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered ">
+                                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable ">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h2 class="modal-title"> Seleccione Nuestros servicios</h2>

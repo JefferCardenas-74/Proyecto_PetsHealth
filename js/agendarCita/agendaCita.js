@@ -286,11 +286,11 @@ function listarServicios() {
                         "<span id='tipoServicio'>" +
                         servicio.serTipo + "<span id='precio'>"+"$"+servicio.serPrecio.toFixed(1)+ "</span>"+
                         "</span>" +
-                        "<label class='form-check-label'>" +
-                        "<small class='text-muted'><p>" +
+                        "<p class='form-check-label'>" +
+                        "<small class='serDescripcion'><p>" +
                         servicio.serDescripcion +
                         "</p></small>" +
-                        "</label>"
+                        "</p>"
                     );
                 });
             } else {
