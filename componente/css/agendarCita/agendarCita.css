@@ -154,6 +154,11 @@
   );
   border-image-slice: 1;
 }
+.serDescripcion{
+  font-family: var(--fuenteParrafos);
+  font-size: 1.3em !important;
+  color: var(--colorParrafo) !important;
+}
 .modal-content {
   z-index: 1111;
   background-color: #fff;
