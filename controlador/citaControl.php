@@ -198,7 +198,7 @@ switch ($accion) {
             $objCorreo->asunto = "Asignación  de cita en Pets Health";
             $objCorreo->mensaje=
             "<p> Cordial saludo , <br> "
-            . " nos permitimos informar que la cita   <b>"
+            . " nos permitimos informar que la cita que usted como <b> CLIENTE </b> en Pets Health  <b>"
             . " </b>  fue  asignada exitosamente por lo tanto sus datos de la cita son:
                 <br><b>Dueño de la mascota: </b>" . strtoupper($nombreCliente) . "
                 <br><b>Fecha  de la cita :</b>" . $fechaCita . "
@@ -210,13 +210,14 @@ switch ($accion) {
              
             $resultadoCorreoCliente = $correo->enviarCorreo($objCorreo);
             // Envia el correo al veterinario asignadao
-            $objCorreo = new stdClass();
-            $objCorreo->correoRemitente = "soporte.petsHealth@gmail.com"; //aqui pueden colocar el correo del administrador
-            $objCorreo->nombreRemitente = "Administración Pets Health"; //igual el nombre del administrador
-            $objCorreo->correoDestinatario = $correoVeterinario;
-            $objCorreo->nombreDestinatario = $nombreVeterinario;
-            $objCorreo->asunto = "Cita asignada en Pets Health";
-            $objCorreo->mensaje=
+            $correo2 = new enviarCorreoPrueba();
+            $objCorreo2 = new stdClass();
+            $objCorreo2->correoRemitente = "soporte.petsHealth@gmail.com"; //aqui pueden colocar el correo del administrador
+            $objCorreo2->nombreRemitente = "Administración Pets Health"; //igual el nombre del administrador
+            $objCorreo2->correoDestinatario = $correoVeterinario;
+            $objCorreo2->nombreDestinatario = $nombreVeterinario;
+            $objCorreo2->asunto = "Nueva cita asignada en Pets Health";
+            $objCorreo2->mensaje=
             "<p> Cordial saludo , <br> "
             . " nos permitimos informar que usted como <b> EMPLEADO </b> en Pets Health   <b>"
             . " </b>se le asigno una nueva cita. Por lo tanto los datos de la cita asignada son: 
@@ -228,7 +229,7 @@ switch ($accion) {
                 <br><b>Veterinario: </b>".strtoupper($nombreVeterinario) ." </p>
                 <br><span class='recomendacion'>Ingrese al sistema para ver mas detalles. </span>";
              
-            $resultadoCorreoVeterinario = $correo->enviarCorreo($objCorreo);
+            $resultadoCorreoVeterinario = $correo2->enviarCorreo($objCorreo2);
         }
         echo json_encode($resultado);
         break;
