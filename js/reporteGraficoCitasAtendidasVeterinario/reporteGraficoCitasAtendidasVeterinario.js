@@ -59,7 +59,7 @@ function graficarTortaCitasAtendidasPorMi() {
           data.setCell(1, 1, 0.1);
           opt_color = ["#02A46"];
         }
-        error = new google.visualization.PieChart(
+        error = new google.visualization.ColumnChart(
           document.getElementById("graficaCitas")
         );
         error.draw(data, {
@@ -70,7 +70,7 @@ function graficarTortaCitasAtendidasPorMi() {
         });
       }
       // para cambiar solo indicar el tipo de diagreama que desea , en este caso es pieChart(torta)
-      let chart = new google.visualization.PieChart(
+      let chart = new google.visualization.ColumnChart(
         document.getElementById("graficaCitas")
       );
 

@@ -685,9 +685,22 @@ function atenderCita(){
           type: 'post',
           cache: 'false',
 
+            beforeSend: function () {
+              $("#btn_registrar").text("Procesando...");
+              $("#btn_registrar").attr("disabled", true);
+              $("#btn_registrar").css({
+                  background: '#3000ff8f'
+                  });
+          },
           success: function(resultado){
 
             console.log(resultado);
+
+            $("#btn_registrar").text("Enviar cita");
+            $("#btn_registrar").attr("disabled", false);
+            $("#btn_registrar").css({
+              background: "linear-gradient(to right, #8E2DE2, #4A00E0)",
+            });
 
             Swal.fire({
               icon:'success',
@@ -780,9 +793,23 @@ function atenderCitaNoProgramada(){
     type:'POST',
     cache:'false',
 
+      beforeSend: function () {
+        $("#btn_atenderCitaNoPro").text("Procesando...");
+        $("#btn_atenderCitaNoPro").attr("disabled", true);
+        $("#btn_atenderCitaNoPro").css({
+            background: '#3000ff8f'
+            });
+    },
     success: function(resultado){
 
       console.table(resultado);
+
+      $("#btn_atenderCitaNoPro").text("Enviar cita");
+      $("#btn_atenderCitaNoPro").attr("disabled", false);
+      $("#btn_atenderCitaNoPro").css({
+        background: "linear-gradient(to right, #8E2DE2, #4A00E0)",
+      });
+
       Swal.fire({
         icon:'success',
         title:'Bien hecho!',

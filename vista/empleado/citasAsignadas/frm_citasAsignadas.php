@@ -154,7 +154,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btnNaranja pompiere" id="btn_cerrar" data-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btnMorado pompiere" id="btn_registrar">Registrar</button>
+                        <button type="button" class="btnMorado pompiere" id="btn_registrar">Atender</button>
                     </div>
                 </div>
             </div>
