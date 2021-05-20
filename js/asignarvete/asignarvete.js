@@ -16,11 +16,12 @@ $(function () {
     listarVeterinarios();
 
     $("#btn_asignarVete").click(function () {
+
         asignarVeterinario();
         listarCitas();
     });
-
     $("#cbVeterinarios").select2({
+        
         language: {
             noResults: function () {
                 return "No existe el empleado :(";
@@ -73,10 +74,10 @@ function listarCitas() {
                     "," +
                     JSON.stringify(cita.hoHora + " - " + cita.hoTipo) +
                     ")"
+
                 );
-                $("#tbl_AsignarVete tbody").append(
-                    primeraFilaAsignar.clone(true).attr("class", "fila")
-                );
+                
+                $("#tbl_AsignarVete tbody").append(primeraFilaAsignar.clone(true).attr("class", "fila"));
             });
             $("#tbl_AsignarVete tbody tr").first().remove();
         },
@@ -86,6 +87,11 @@ function listarCitas() {
     });
 }
 
+
+
+
+
+
 function abrirModal(id, correo, nombre, servicio, fecha, mascota, hora) {
     idCita = id;
     correoCliente = correo;
@@ -94,7 +100,7 @@ function abrirModal(id, correo, nombre, servicio, fecha, mascota, hora) {
     nombreMascota = mascota;
     fechaCita = fecha;
     horaCita = hora;
-    listarVeterinarios();
+    //listarVeterinarios();
 }
 
 function listarVeterinarios() {
@@ -166,7 +172,7 @@ function asignarVeterinario() {
                         confirmButton: "btnAceptar",
                     },
                 });
-                listarCitas();
+                
             } else {
                 Swal.fire({
                     title: "Oops",

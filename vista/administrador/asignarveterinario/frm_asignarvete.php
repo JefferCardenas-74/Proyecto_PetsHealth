@@ -41,7 +41,7 @@
                     <tr>
                         <td> Seleccione Veterinario
                                 <select name="cbVeterinarios" id="cbVeterinarios" class="form-control">
-                                    <option value="0"> Seleccione</option>
+                                    <option value="0" class="limpiar"> Seleccione</option>
                                 </select>
                         </td>
                     </tr>
